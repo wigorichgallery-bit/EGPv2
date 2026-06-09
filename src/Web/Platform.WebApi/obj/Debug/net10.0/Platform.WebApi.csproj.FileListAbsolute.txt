@@ -1,0 +1,8 @@
+D:\SSB_Project\ERPSYS\EGPv2\src\Web\Platform.WebApi\obj\Debug\net10.0\Platform.WebApi.csproj.AssemblyReference.cache
+D:\SSB_Project\ERPSYS\EGPv2\src\Web\Platform.WebApi\obj\Debug\net10.0\rpswa.dswa.cache.json
+D:\SSB_Project\ERPSYS\EGPv2\src\Web\Platform.WebApi\obj\Debug\net10.0\Platform.WebApi.GeneratedMSBuildEditorConfig.editorconfig
+D:\SSB_Project\ERPSYS\EGPv2\src\Web\Platform.WebApi\obj\Debug\net10.0\Platform.WebApi.AssemblyInfoInputs.cache
+D:\SSB_Project\ERPSYS\EGPv2\src\Web\Platform.WebApi\obj\Debug\net10.0\Platform.WebApi.AssemblyInfo.cs
+D:\SSB_Project\ERPSYS\EGPv2\src\Web\Platform.WebApi\obj\Debug\net10.0\Platform.WebApi.csproj.CoreCompileInputs.cache
+D:\SSB_Project\ERPSYS\EGPv2\src\Web\Platform.WebApi\obj\Debug\net10.0\Platform.WebApi.MvcApplicationPartsAssemblyInfo.cs
+D:\SSB_Project\ERPSYS\EGPv2\src\Web\Platform.WebApi\obj\Debug\net10.0\Platform.WebApi.MvcApplicationPartsAssemblyInfo.cache

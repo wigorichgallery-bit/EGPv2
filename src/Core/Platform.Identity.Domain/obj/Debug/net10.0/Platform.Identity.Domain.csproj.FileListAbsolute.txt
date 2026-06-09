@@ -1,0 +1,11 @@
+D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.Identity.Domain\bin\Debug\net10.0\Platform.Identity.Domain.deps.json
+D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.Identity.Domain\bin\Debug\net10.0\Platform.Identity.Domain.dll
+D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.Identity.Domain\bin\Debug\net10.0\Platform.Identity.Domain.pdb
+D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.Identity.Domain\obj\Debug\net10.0\Platform.Identity.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.Identity.Domain\obj\Debug\net10.0\Platform.Identity.Domain.AssemblyInfoInputs.cache
+D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.Identity.Domain\obj\Debug\net10.0\Platform.Identity.Domain.AssemblyInfo.cs
+D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.Identity.Domain\obj\Debug\net10.0\Platform.Identity.Domain.csproj.CoreCompileInputs.cache
+D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.Identity.Domain\obj\Debug\net10.0\Platform.Identity.Domain.dll
+D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.Identity.Domain\obj\Debug\net10.0\refint\Platform.Identity.Domain.dll
+D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.Identity.Domain\obj\Debug\net10.0\Platform.Identity.Domain.pdb
+D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.Identity.Domain\obj\Debug\net10.0\ref\Platform.Identity.Domain.dll

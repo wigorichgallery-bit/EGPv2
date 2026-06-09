@@ -1,0 +1,21 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Application/">
+    <Project Path="src/Application/Platform.Identity.Application/Platform.Identity.Application.csproj" />
+    <Project Path="src/Application/Platform.Pipeline/Platform.Pipeline.csproj" />
+    <Project Path="src/Application/Platform.Security.Application/Platform.Security.Application.csproj" />
+  </Folder>
+  <Folder Name="/src/Core/">
+    <Project Path="src/Core/Platform.Identity.Domain/Platform.Identity.Domain.csproj" />
+    <Project Path="src/Core/Platform.Security.Domain/Platform.Security.Domain.csproj" />
+    <Project Path="src/Core/Platform.SharedKernel/Platform.SharedKernel.csproj" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/">
+    <Project Path="src/Infrastructure/Platform.Persistence/Platform.Persistence.csproj" />
+    <Project Path="src/Infrastructure/Platform.Security.Infrastructure/Platform.Security.Infrastructure.csproj" />
+    <Project Path="src/Infrastructure/Platform.TokenProvider/Platform.TokenProvider.csproj" />
+  </Folder>
+  <Folder Name="/src/Web/">
+    <Project Path="src/Web/Platform.WebApi/Platform.WebApi.csproj" />
+  </Folder>
+</Solution>

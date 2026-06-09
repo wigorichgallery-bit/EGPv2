@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Application\Platform.Identity.Application\Platform.Identity.Application.csproj" />
+    <ProjectReference Include="..\..\Application\Platform.Security.Application\Platform.Security.Application.csproj" />
+    <ProjectReference Include="..\..\Application\Platform.Pipeline\Platform.Pipeline.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Platform.Persistence\Platform.Persistence.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Platform.Security.Infrastructure\Platform.Security.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Platform.TokenProvider\Platform.TokenProvider.csproj" />
+  </ItemGroup>
+
+</Project>
