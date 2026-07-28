@@ -9,6 +9,7 @@ D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.Security.Domain\obj\Debug\net10.0\
 D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.Security.Domain\obj\Debug\net10.0\Platform.Security.Domain.AssemblyInfoInputs.cache
 D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.Security.Domain\obj\Debug\net10.0\Platform.Security.Domain.AssemblyInfo.cs
 D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.Security.Domain\obj\Debug\net10.0\Platform.Security.Domain.csproj.CoreCompileInputs.cache
+D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.Security.Domain\obj\Debug\net10.0\Platform.Security.Domain.sourcelink.json
 D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.Security.Domain\obj\Debug\net10.0\Platform.F883343A.Up2Date
 D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.Security.Domain\obj\Debug\net10.0\Platform.Security.Domain.dll
 D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.Security.Domain\obj\Debug\net10.0\refint\Platform.Security.Domain.dll

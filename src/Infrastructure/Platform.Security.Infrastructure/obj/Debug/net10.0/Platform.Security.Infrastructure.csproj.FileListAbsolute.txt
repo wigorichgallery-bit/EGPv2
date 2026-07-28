@@ -1,3 +1,9 @@
+D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\obj\Debug\net10.0\Platform.Security.Infrastructure.csproj.AssemblyReference.cache
+D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\obj\Debug\net10.0\Platform.Security.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\obj\Debug\net10.0\Platform.Security.Infrastructure.AssemblyInfoInputs.cache
+D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\obj\Debug\net10.0\Platform.Security.Infrastructure.AssemblyInfo.cs
+D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\obj\Debug\net10.0\Platform.Security.Infrastructure.csproj.CoreCompileInputs.cache
+D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\obj\Debug\net10.0\Platform.Security.Infrastructure.sourcelink.json
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\bin\Debug\net10.0\Platform.Security.Infrastructure.deps.json
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\bin\Debug\net10.0\Platform.Security.Infrastructure.dll
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\bin\Debug\net10.0\Platform.Security.Infrastructure.pdb
@@ -14,11 +20,6 @@ D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\bin\Debug\net10.0\Platform.Pipeline.pdb
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\bin\Debug\net10.0\Platform.Security.Application.pdb
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\bin\Debug\net10.0\Platform.Security.Domain.pdb
-D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\obj\Debug\net10.0\Platform.Security.Infrastructure.csproj.AssemblyReference.cache
-D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\obj\Debug\net10.0\Platform.Security.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\obj\Debug\net10.0\Platform.Security.Infrastructure.AssemblyInfoInputs.cache
-D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\obj\Debug\net10.0\Platform.Security.Infrastructure.AssemblyInfo.cs
-D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\obj\Debug\net10.0\Platform.Security.Infrastructure.csproj.CoreCompileInputs.cache
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\obj\Debug\net10.0\Platform.B44CBF83.Up2Date
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\obj\Debug\net10.0\Platform.Security.Infrastructure.dll
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Security.Infrastructure\obj\Debug\net10.0\refint\Platform.Security.Infrastructure.dll

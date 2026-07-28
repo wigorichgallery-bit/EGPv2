@@ -15,6 +15,7 @@ D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Pipeline\obj\Debug\net10.0\
 D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Pipeline\obj\Debug\net10.0\Platform.Pipeline.AssemblyInfoInputs.cache
 D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Pipeline\obj\Debug\net10.0\Platform.Pipeline.AssemblyInfo.cs
 D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Pipeline\obj\Debug\net10.0\Platform.Pipeline.csproj.CoreCompileInputs.cache
+D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Pipeline\obj\Debug\net10.0\Platform.Pipeline.sourcelink.json
 D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Pipeline\obj\Debug\net10.0\Platform.95675513.Up2Date
 D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Pipeline\obj\Debug\net10.0\Platform.Pipeline.dll
 D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Pipeline\obj\Debug\net10.0\refint\Platform.Pipeline.dll

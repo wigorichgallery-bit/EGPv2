@@ -1,127 +1,3 @@
-// // ===========================================
-// // File Location : src/Application/Platform.Identity.Application/Errors/IdentityErrorMapper.cs
-// // ===========================================
-// using Platform.SharedKernel.Exceptions;
-// using Platform.SharedKernel.Results;
-
-// namespace Platform.Identity.Application.Errors;
-
-// /// <summary>
-// /// Maps domain exception codes to application errors.
-// ///
-// /// Responsibility:
-// /// - Eliminate magic string comparisons.
-// /// - Centralize DomainException translation.
-// /// - Keep UseCases clean.
-// ///
-// /// Architectural Rules:
-// /// - Application layer only.
-// /// - No infrastructure dependency.
-// /// - No domain mutation.
-// ///
-// /// Side Effects:
-// /// - None.
-// ///
-// /// Complexity:
-// /// O(1)
-// /// </summary>
-// public static class IdentityErrorMapper
-// {
-//     /// <summary>
-//     /// Converts a domain exception into a Result error.
-//     /// </summary>
-//     /// <param name="exception">
-//     /// Domain exception.
-//     /// </param>
-//     /// <returns>
-//     /// Matching application error.
-//     /// </returns>
-//     public static Error Map(DomainException exception)
-//     {
-//         ArgumentNullException.ThrowIfNull(exception);
-
-//         return exception.ErrorCode switch
-//         {
-//             "IDENTITY.USER_NOT_FOUND"
-//                 => IdentityErrors.UserNotFound,
-
-//             "IDENTITY.INVALID_VERIFICATION_CODE"
-//                 => IdentityErrors.InvalidVerificationCode,
-
-//             "IDENTITY.USER_LOCKED"
-//                 => IdentityErrors.UserLocked,
-
-//             "IDENTITY.USER_DISABLED"
-//                 => IdentityErrors.UserDisabled,
-
-//             "IDENTITY.USERNAME_ALREADY_EXISTS"
-//                 => IdentityErrors.UsernameAlreadyExists,
-
-//             "IDENTITY.EMAIL_ALREADY_EXISTS"
-//                 => IdentityErrors.EmailAlreadyExists,
-
-//             "IDENTITY.EMAIL_NOT_VERIFIED"
-//                 => IdentityErrors.EmailNotVerified,
-
-//             "IDENTITY.PHONE_NOT_VERIFIED"
-//                 => IdentityErrors.PhoneNotVerified,
-
-//             "IDENTITY.INVALID_PASSWORD"
-//                 => IdentityErrors.InvalidPassword,
-
-//             "IDENTITY.PASSWORD_REUSE"
-//                 => IdentityErrors.PasswordReuse,
-
-//             "IDENTITY.PASSWORD_CHANGE_NOT_ALLOWED"
-//                 => IdentityErrors.PasswordChangeNotAllowed,
-
-//             "IDENTITY.MFA_ALREADY_ENABLED"
-//                 => IdentityErrors.MfaAlreadyEnabled,
-
-//             "IDENTITY.MFA_NOT_ENABLED"
-//                 => IdentityErrors.MfaNotEnabled,
-
-//             "IDENTITY.MFA_CONFIGURATION_INVALID"
-//                 => IdentityErrors.MfaConfigurationInvalid,
-
-//             "IDENTITY.TOTP_SECRET_NOT_CONFIGURED"
-//                 => IdentityErrors.TotpSecretNotConfigured,
-
-//             "IDENTITY.TOTP_REQUIRED"
-//                 => IdentityErrors.TotpRequired,
-
-//             "IDENTITY.CONTACT_NOT_VERIFIED"
-//                 => IdentityErrors.ContactNotVerified,
-
-//             "IDENTITY.INVALID_EMAIL"
-//                 => IdentityErrors.InvalidEmail,
-
-//             "IDENTITY.INVALID_PHONE"
-//                 => IdentityErrors.InvalidPhone,
-
-//             "IDENTITY.INVALID_STATE"
-//                 => IdentityErrors.InvalidState,
-
-//             "IDENTITY.ROLE_NOT_FOUND"
-//                 => IdentityErrors.RoleNotFound,
-
-//             "IDENTITY.ROLE_INACTIVE"
-//                 => IdentityErrors.RoleInactive,
-
-//             "IDENTITY.ROLE_ALREADY_ASSIGNED"
-//                 => IdentityErrors.RoleAlreadyAssigned,
-
-//             "IDENTITY.ROLE_NOT_ASSIGNED"
-//                 => IdentityErrors.RoleNotAssigned,
-
-//             // _ => new Error(
-//             //     exception.ErrorCode,
-//             //     exception.Message)
-//             _ => IdentityErrors.Unknown
-//         };
-//     }
-// }
-
 // ===========================================
 // File Location :
 // src/Application/Platform.Identity.Application/
@@ -135,18 +11,35 @@ using Platform.SharedKernel.Results;
 namespace Platform.Identity.Application.Errors;
 
 /// <summary>
-/// Maps identity domain exceptions to application errors.
+/// Maps <see cref="DomainException"/> instances raised by the
+/// Identity domain into reusable application <see cref="Error"/>
+/// objects.
+///
+/// Responsibility:
+/// - Centralize DomainException translation.
+/// - Eliminate magic string comparisons.
+/// - Keep application use cases clean.
+/// - Ensure consistent Result.Failure() responses.
+///
+/// Architectural Rules:
+/// - Application layer only.
+/// - Stateless.
+/// - No infrastructure dependency.
+/// - No business logic.
+///
+/// Complexity:
+/// O(1)
 /// </summary>
 public static class IdentityErrorMapper
 {
     /// <summary>
-    /// Maps the specified domain exception to an application error.
+    /// Maps the specified domain exception into an application error.
     /// </summary>
     /// <param name="exception">
-    /// The domain exception.
+    /// Domain exception.
     /// </param>
     /// <returns>
-    /// The mapped application error.
+    /// Corresponding application error.
     /// </returns>
     public static Error Map(
         DomainException exception)
@@ -162,8 +55,14 @@ public static class IdentityErrorMapper
             IdentityDomainErrorCodes.InvalidCredentials
                 => IdentityErrors.InvalidCredentials,
 
+            IdentityDomainErrorCodes.PasswordResetRequired
+                => IdentityErrors.PasswordResetRequired,
+
+            IdentityDomainErrorCodes.AuthenticationChallengeRequired
+                => IdentityErrors.AuthenticationChallengeRequired,
+
             // ============================================================
-            // USER
+            // USER MANAGEMENT
             // ============================================================
 
             IdentityDomainErrorCodes.UserNotFound
@@ -185,20 +84,17 @@ public static class IdentityErrorMapper
                 => IdentityErrors.PhoneAlreadyExists,
 
             // ============================================================
-            // VALIDATION
+            // CONTACT VERIFICATION
             // ============================================================
 
-            IdentityDomainErrorCodes.InvalidState
-                => IdentityErrors.InvalidState,
+            IdentityDomainErrorCodes.EmailNotVerified
+                => IdentityErrors.EmailNotVerified,
 
-            IdentityDomainErrorCodes.InvalidEmail
-                => IdentityErrors.InvalidEmail,
+            IdentityDomainErrorCodes.PhoneNotVerified
+                => IdentityErrors.PhoneNotVerified,
 
-            IdentityDomainErrorCodes.InvalidPhone
-                => IdentityErrors.InvalidPhone,
-
-            IdentityDomainErrorCodes.InvalidVerificationCode
-                => IdentityErrors.InvalidVerificationCode,
+            IdentityDomainErrorCodes.ContactNotVerified
+                => IdentityErrors.ContactNotVerified,
 
             // ============================================================
             // PASSWORD
@@ -212,19 +108,6 @@ public static class IdentityErrorMapper
 
             IdentityDomainErrorCodes.PasswordChangeNotAllowed
                 => IdentityErrors.PasswordChangeNotAllowed,
-
-            // ============================================================
-            // EMAIL / PHONE
-            // ============================================================
-
-            IdentityDomainErrorCodes.EmailNotVerified
-                => IdentityErrors.EmailNotVerified,
-
-            IdentityDomainErrorCodes.PhoneNotVerified
-                => IdentityErrors.PhoneNotVerified,
-
-            IdentityDomainErrorCodes.ContactNotVerified
-                => IdentityErrors.ContactNotVerified,
 
             // ============================================================
             // MULTI-FACTOR AUTHENTICATION
@@ -246,6 +129,25 @@ public static class IdentityErrorMapper
                 => IdentityErrors.TotpSecretNotConfigured,
 
             // ============================================================
+            // AUTHENTICATION CHALLENGE
+            // ============================================================
+
+            IdentityDomainErrorCodes.InvalidChallengeExpiration
+                => IdentityErrors.InvalidChallengeExpiration,
+
+            IdentityDomainErrorCodes.ChallengeExpired
+                => IdentityErrors.ChallengeExpired,
+
+            IdentityDomainErrorCodes.ChallengeLocked
+                => IdentityErrors.ChallengeLocked,
+
+            IdentityDomainErrorCodes.ChallengeCancelled
+                => IdentityErrors.ChallengeCancelled,
+
+            IdentityDomainErrorCodes.ChallengeCompleted
+                => IdentityErrors.ChallengeCompleted,
+
+            // ============================================================
             // ROLE
             // ============================================================
 
@@ -262,11 +164,20 @@ public static class IdentityErrorMapper
                 => IdentityErrors.RoleNotAssigned,
 
             // ============================================================
-            // AUTHENTICATION CHALLENGE
+            // VALIDATION
             // ============================================================
 
-            IdentityDomainErrorCodes.InvalidChallengeExpiration
+            IdentityDomainErrorCodes.InvalidState
                 => IdentityErrors.InvalidState,
+
+            IdentityDomainErrorCodes.InvalidEmail
+                => IdentityErrors.InvalidEmail,
+
+            IdentityDomainErrorCodes.InvalidPhone
+                => IdentityErrors.InvalidPhone,
+
+            IdentityDomainErrorCodes.InvalidVerificationCode
+                => IdentityErrors.InvalidVerificationCode,
 
             // ============================================================
             // DEFAULT

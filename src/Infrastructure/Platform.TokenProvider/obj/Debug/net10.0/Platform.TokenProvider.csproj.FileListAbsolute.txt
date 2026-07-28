@@ -19,6 +19,7 @@ D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.TokenProvider\obj\Debug\
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.TokenProvider\obj\Debug\net10.0\Platform.TokenProvider.AssemblyInfoInputs.cache
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.TokenProvider\obj\Debug\net10.0\Platform.TokenProvider.AssemblyInfo.cs
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.TokenProvider\obj\Debug\net10.0\Platform.TokenProvider.csproj.CoreCompileInputs.cache
+D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.TokenProvider\obj\Debug\net10.0\Platform.TokenProvider.sourcelink.json
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.TokenProvider\obj\Debug\net10.0\Platform.ECF090EE.Up2Date
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.TokenProvider\obj\Debug\net10.0\Platform.TokenProvider.dll
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.TokenProvider\obj\Debug\net10.0\refint\Platform.TokenProvider.dll

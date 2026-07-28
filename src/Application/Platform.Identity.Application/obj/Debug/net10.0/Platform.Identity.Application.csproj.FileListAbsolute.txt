@@ -17,6 +17,7 @@ D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Identity.Application\obj\De
 D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Identity.Application\obj\Debug\net10.0\Platform.Identity.Application.AssemblyInfoInputs.cache
 D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Identity.Application\obj\Debug\net10.0\Platform.Identity.Application.AssemblyInfo.cs
 D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Identity.Application\obj\Debug\net10.0\Platform.Identity.Application.csproj.CoreCompileInputs.cache
+D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Identity.Application\obj\Debug\net10.0\Platform.Identity.Application.sourcelink.json
 D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Identity.Application\obj\Debug\net10.0\Platform.5DD33F80.Up2Date
 D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Identity.Application\obj\Debug\net10.0\Platform.Identity.Application.dll
 D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Identity.Application\obj\Debug\net10.0\refint\Platform.Identity.Application.dll

@@ -160,12 +160,32 @@ namespace Platform.Identity.Domain.ErrorCodes;
 public static class IdentityDomainErrorCodes
 {
     // ============================================================
+    // GENERAL
+    // ============================================================
+
+    public const string ValidationError =
+        "IDENTITY.VALIDATION_ERROR";
+
+    public const string Conflict =
+        "IDENTITY.CONFLICT";
+
+    public const string Unknown =
+        "IDENTITY.UNKNOWN";
+        
+    // ============================================================
     // AUTHENTICATION
     // ============================================================
 
     public const string InvalidCredentials =
         "IDENTITY.INVALID_CREDENTIALS";
 
+    public const string PasswordResetRequired =
+    "IDENTITY.PASSWORD_RESET_REQUIRED";
+
+    public const string AuthenticationChallengeRequired =
+        "IDENTITY.AUTHENTICATION_CHALLENGE_REQUIRED";
+
+        
     // ============================================================
     // USER
     // ============================================================

@@ -542,47 +542,163 @@
             </summary>
         </member>
         <member name="T:Platform.SharedKernel.Utilities.Guard">
-            <summary>
-            Provides guard clause validation utilities.
+             <summary>
+             Provides guard clause validation utilities.
             
-            Responsibility:
-            - Centralize defensive programming.
-            - Throw ArgumentException / ArgumentNullException.
+             Responsibility:
+             - Centralize defensive programming.
+             - Validate method arguments.
+             - Throw framework exceptions only.
+             - Never perform business rule validation.
             
-            Usage:
-            - Used inside domain and application layer.
-            - Not for business rule validation (DomainException).
-            </summary>
+             Architectural Rules:
+             - Can be used by Domain and Application.
+             - Must never throw DomainException.
+             - Must remain stateless.
+            
+             Usage:
+             - Validate parameters.
+             - Validate primitive values.
+             - Validate collections.
+             - Validate enum values.
+             </summary>
         </member>
         <member name="M:Platform.SharedKernel.Utilities.Guard.AgainstNull``1(``0,System.String)">
             <summary>
             Ensures value is not null.
             </summary>
-            <typeparam name="T">Type.</typeparam>
-            <param name="value">Value to check.</param>
-            <param name="paramName">Parameter name.</param>
-            <exception cref="T:System.ArgumentNullException">Thrown if null.</exception>
         </member>
         <member name="M:Platform.SharedKernel.Utilities.Guard.AgainstNullOrWhiteSpace(System.String,System.String)">
             <summary>
             Ensures string is not null or whitespace.
             </summary>
-            <param name="value">String value.</param>
-            <param name="paramName">Parameter name.</param>
         </member>
         <member name="M:Platform.SharedKernel.Utilities.Guard.AgainstEmpty(System.Guid,System.String)">
             <summary>
             Ensures Guid is not empty.
             </summary>
-            <param name="value">Guid value.</param>
-            <param name="paramName">Parameter name.</param>
         </member>
         <member name="M:Platform.SharedKernel.Utilities.Guard.AgainstFalse(System.Boolean,System.String)">
             <summary>
             Ensures condition is true.
             </summary>
-            <param name="condition">Condition.</param>
-            <param name="message">Message.</param>
+        </member>
+        <member name="M:Platform.SharedKernel.Utilities.Guard.AgainstNonUtc(System.DateTime,System.String)">
+            <summary>
+            Ensures the specified timestamp is expressed in UTC.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Utilities.Guard.AgainstUndefinedEnum``1(``0,System.String)">
+            <summary>
+            Ensures the specified enumeration value is defined.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Utilities.Guard.AgainstNegative(System.Int32,System.String)">
+            <summary>
+            Ensures the specified integer value is not negative.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Utilities.Guard.AgainstNegativeOrZero(System.Int32,System.String)">
+            <summary>
+            Ensures the specified integer value is greater than zero.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Utilities.Guard.AgainstEmptyCollection``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Ensures the specified collection is not null or empty.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Utilities.Guard.AgainstOutOfRange``1(``0,``0,``0,System.String)">
+            <summary>
+            Ensures the specified comparable value is within the given range.
+            </summary>
+        </member>
+        <member name="T:Platform.SharedKernel.Validation.EmailAddressValidator">
+             <summary>
+             Provides structural validation for email addresses.
+            
+             Responsibility:
+             - Validate email address syntax.
+             - Stateless.
+             - Reusable across bounded contexts.
+            
+             This validator does not perform:
+             - DNS lookup
+             - MX lookup
+             - SMTP validation
+             - Mailbox existence verification
+             </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Validation.EmailAddressValidator.IsValid(System.String)">
+            <summary>
+            Determines whether the specified email address is structurally valid.
+            </summary>
+            <param name="value">
+            Email address.
+            </param>
+            <returns>
+            <c>true</c> when the email address is structurally valid;
+            otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Platform.SharedKernel.Validation.EmailAddressValidator.EmailRegex">
+            <remarks>
+            Pattern:<br/>
+            <code>^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$</code><br/>
+            Options:<br/>
+            <code>RegexOptions.CultureInvariant</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ Match if at the beginning of the string.<br/>
+            ○ Match a character in the set [^@\s] atomically at least once.<br/>
+            ○ Match '@'.<br/>
+            ○ Match a character in the set [^@\s] greedily at least once.<br/>
+            ○ Match '.'.<br/>
+            ○ Match a character in the set [^@\s] atomically at least once.<br/>
+            ○ Match if at the end of the string or if before an ending newline.<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.EmailRegex_0">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the EmailRegex method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.EmailRegex_0.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.EmailRegex_0.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.EmailRegex_0.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.EmailRegex_0.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.EmailRegex_0.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.EmailRegex_0.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.EmailRegex_0.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.EmailRegex_0.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.Utilities">
+            <summary>Helper methods used by generated <see cref="T:System.Text.RegularExpressions.Regex"/>-derived implementations.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_defaultTimeout">
+            <summary>Default timeout value set in <see cref="T:System.AppContext"/>, or <see cref="F:System.Text.RegularExpressions.Regex.InfiniteMatchTimeout"/> if none was set.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_hasTimeout">
+            <summary>Whether <see cref="F:System.Text.RegularExpressions.Generated.Utilities.s_defaultTimeout"/> is non-infinite.</summary>
         </member>
     </members>
 </doc>
