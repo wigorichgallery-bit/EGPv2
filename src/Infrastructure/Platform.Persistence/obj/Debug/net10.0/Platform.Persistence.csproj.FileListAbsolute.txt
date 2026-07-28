@@ -1,10 +1,20 @@
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\bin\Debug\net10.0\Platform.Persistence.deps.json
+D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\bin\Debug\net10.0\Platform.Persistence.runtimeconfig.json
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\bin\Debug\net10.0\Platform.Persistence.dll
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\bin\Debug\net10.0\Platform.Persistence.pdb
+D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\bin\Debug\net10.0\Platform.Identity.Application.dll
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\bin\Debug\net10.0\Platform.Identity.Domain.dll
+D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\bin\Debug\net10.0\Platform.Pipeline.dll
+D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\bin\Debug\net10.0\Platform.Security.Application.dll
+D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\bin\Debug\net10.0\Platform.Security.Domain.dll
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\bin\Debug\net10.0\Platform.SharedKernel.dll
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\bin\Debug\net10.0\Platform.SharedKernel.pdb
+D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\bin\Debug\net10.0\Platform.SharedKernel.xml
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\bin\Debug\net10.0\Platform.Identity.Domain.pdb
+D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\bin\Debug\net10.0\Platform.Identity.Application.pdb
+D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\bin\Debug\net10.0\Platform.Pipeline.pdb
+D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\bin\Debug\net10.0\Platform.Security.Application.pdb
+D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\bin\Debug\net10.0\Platform.Security.Domain.pdb
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\obj\Debug\net10.0\Platform.Persistence.csproj.AssemblyReference.cache
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\obj\Debug\net10.0\Platform.Persistence.GeneratedMSBuildEditorConfig.editorconfig
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\obj\Debug\net10.0\Platform.Persistence.AssemblyInfoInputs.cache
@@ -14,4 +24,5 @@ D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\obj\Debug\ne
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\obj\Debug\net10.0\Platform.Persistence.dll
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\obj\Debug\net10.0\refint\Platform.Persistence.dll
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\obj\Debug\net10.0\Platform.Persistence.pdb
+D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\obj\Debug\net10.0\Platform.Persistence.genruntimeconfig.cache
 D:\SSB_Project\ERPSYS\EGPv2\src\Infrastructure\Platform.Persistence\obj\Debug\net10.0\ref\Platform.Persistence.dll

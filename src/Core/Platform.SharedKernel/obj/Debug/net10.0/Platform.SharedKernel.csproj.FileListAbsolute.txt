@@ -1,11 +1,13 @@
 D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.SharedKernel\bin\Debug\net10.0\Platform.SharedKernel.deps.json
 D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.SharedKernel\bin\Debug\net10.0\Platform.SharedKernel.dll
 D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.SharedKernel\bin\Debug\net10.0\Platform.SharedKernel.pdb
+D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.SharedKernel\bin\Debug\net10.0\Platform.SharedKernel.xml
 D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.SharedKernel\obj\Debug\net10.0\Platform.SharedKernel.GeneratedMSBuildEditorConfig.editorconfig
 D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.SharedKernel\obj\Debug\net10.0\Platform.SharedKernel.AssemblyInfoInputs.cache
 D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.SharedKernel\obj\Debug\net10.0\Platform.SharedKernel.AssemblyInfo.cs
 D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.SharedKernel\obj\Debug\net10.0\Platform.SharedKernel.csproj.CoreCompileInputs.cache
 D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.SharedKernel\obj\Debug\net10.0\Platform.SharedKernel.dll
 D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.SharedKernel\obj\Debug\net10.0\refint\Platform.SharedKernel.dll
+D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.SharedKernel\obj\Debug\net10.0\Platform.SharedKernel.xml
 D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.SharedKernel\obj\Debug\net10.0\Platform.SharedKernel.pdb
 D:\SSB_Project\ERPSYS\EGPv2\src\Core\Platform.SharedKernel\obj\Debug\net10.0\ref\Platform.SharedKernel.dll

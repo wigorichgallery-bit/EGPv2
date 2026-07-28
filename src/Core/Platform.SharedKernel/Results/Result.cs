@@ -1,7 +1,6 @@
 // ===========================================
 // File Location : src/Core/Platform.SharedKernel/Results/Result.cs
 // ===========================================
-
 namespace Platform.SharedKernel.Results;
 
 /// <summary>

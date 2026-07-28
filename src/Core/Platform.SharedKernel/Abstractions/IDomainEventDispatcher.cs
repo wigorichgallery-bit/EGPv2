@@ -1,7 +1,6 @@
 // ===========================================
 // File Location : src/Core/Platform.SharedKernel/Abstractions/IDomainEventDispatcher.cs
 // ===========================================
-
 using Platform.SharedKernel.Base;
 
 namespace Platform.SharedKernel.Abstractions;

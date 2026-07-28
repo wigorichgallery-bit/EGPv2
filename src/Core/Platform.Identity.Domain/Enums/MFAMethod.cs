@@ -1,8 +1,7 @@
 // ===========================================
 // File Location : src/Core/Platform.Identity.Domain/Enums/MFAMethod.cs
 // ===========================================
-
-namespace Platform.Identity.Domain.ValueObjects;
+namespace Platform.Identity.Domain.Enums;
 
 /// <summary>
 /// Represents supported multi-factor authentication methods.

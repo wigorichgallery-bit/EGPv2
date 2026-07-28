@@ -1,8 +1,6 @@
 // ===========================================
 // File Location : src/Core/Platform.Identity.Domain/ValueObjects/EmailAddress.cs
 // ===========================================
-
-using System.Text.RegularExpressions;
 using Platform.SharedKernel.Base;
 using Platform.SharedKernel.Exceptions;
 using Platform.SharedKernel.Utilities;

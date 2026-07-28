@@ -1,0 +1,87 @@
+// ===========================================
+// File Location :
+// src/Infrastructure/Platform.Persistence/
+// UnitOfWork/UnitOfWork.cs
+// ===========================================
+
+using Microsoft.EntityFrameworkCore.Storage;
+using Platform.Persistence.Context;
+using Platform.SharedKernel.Abstractions;
+
+namespace Platform.Persistence.UnitOfWorks;
+
+/// <summary>
+/// EF Core implementation of IUnitOfWork.
+///
+/// Responsibility:
+/// - Transaction boundary.
+/// - Commit changes.
+/// - Rollback changes.
+///
+/// Architectural Rules:
+/// - Infrastructure implementation.
+/// - No business logic.
+/// - No domain logic.
+/// </summary>
+public sealed class UnitOfWork
+    : IUnitOfWork
+{
+    private readonly GovernanceDbContext _dbContext;
+
+    private IDbContextTransaction? _transaction;
+
+    /// <summary>
+    /// Initializes a new instance of the
+    /// <see cref="UnitOfWork"/> class.
+    /// </summary>
+    /// <param name="dbContext">
+    /// Database context.
+    /// </param>
+    public UnitOfWork(
+        GovernanceDbContext dbContext)
+    {
+        ArgumentNullException.ThrowIfNull(
+            dbContext);
+
+        _dbContext =
+            dbContext;
+    }
+
+    /// <inheritdoc />
+    public async Task<int> CommitAsync(
+        CancellationToken cancellationToken = default)
+    {
+        _transaction ??=
+            await _dbContext.Database
+                .BeginTransactionAsync(
+                    cancellationToken);
+
+        var affectedRows =
+            await _dbContext.SaveChangesAsync(
+                cancellationToken);
+
+        await _transaction.CommitAsync(
+            cancellationToken);
+
+        await _transaction.DisposeAsync();
+
+        _transaction = null;
+
+        return affectedRows;
+    }
+
+    /// <inheritdoc />
+    public async Task RollbackAsync(
+        CancellationToken cancellationToken = default)
+    {
+        if (_transaction is not null)
+        {
+            await _transaction.RollbackAsync(
+                cancellationToken);
+
+            await _transaction.DisposeAsync();
+
+            _transaction = null;
+        }
+    }
+}

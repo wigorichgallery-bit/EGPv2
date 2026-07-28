@@ -1,11 +1,9 @@
 // ===========================================
 // File Location : src/Core/Platform.Identity.Domain/ValueObjects/PhoneNumber.cs
 // ===========================================
-
 using Platform.SharedKernel.Base;
 using Platform.SharedKernel.Exceptions;
 using Platform.SharedKernel.Utilities;
-using System.Text.RegularExpressions;
 
 namespace Platform.Identity.Domain.ValueObjects;
 

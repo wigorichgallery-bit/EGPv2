@@ -1,7 +1,8 @@
 // ===========================================
 // File Location : src/Core/Platform.Identity.Domain/Aggregates/UserAccount.cs
 // ===========================================
-
+using Platform.Identity.Domain.Enums;
+using Platform.Identity.Domain.ErrorCodes;
 using Platform.Identity.Domain.Events;
 using Platform.Identity.Domain.ValueObjects;
 using Platform.SharedKernel.Base;
@@ -102,8 +103,6 @@ public sealed class UserAccount : AggregateRoot
     /// </summary>
     public string? TOTPSecretEncrypted { get; private set; }
 
-    
-
     // ============================================================
     // LOCKOUT
     // ============================================================
@@ -127,7 +126,7 @@ public sealed class UserAccount : AggregateRoot
     // ROLES
     // ============================================================
 
-    private readonly List<RoleAssignment> _roleAssignments = new();
+    private readonly List<RoleAssignment> _roleAssignments = [];
 
     /// <summary>
     /// Gets read-only role assignments.
@@ -170,49 +169,15 @@ public sealed class UserAccount : AggregateRoot
 
     // ONLY SHOWING UPDATED PART (SAFE MERGE)
 
-/// <summary>
-/// Gets last login latitude.
-/// </summary>
-public double? LastLatitude { get; private set; }
-
-/// <summary>
-/// Gets last login longitude.
-/// </summary>
-public double? LastLongitude { get; private set; }
+    /// <summary>
+    /// Gets last login latitude.
+    /// </summary>
+    public double? LastLatitude { get; private set; }
 
     /// <summary>
-    /// Records successful login with geo context (Zero Trust + Distance Engine).
+    /// Gets last login longitude.
     /// </summary>
-    /// <param name="nowUtc">Current UTC time.</param>
-    /// <param name="ipAddress">IP address.</param>
-    /// <param name="country">Country.</param>
-    /// <param name="deviceFingerprint">Device fingerprint.</param>
-    /// <param name="latitude">Latitude.</param>
-    /// <param name="longitude">Longitude.</param>
-    public void RecordSuccessfulLogin(
-    DateTime nowUtc,
-    string ipAddress,
-    string country,
-    string deviceFingerprint,
-    double latitude,
-    double longitude)
-{
-    if (Status != UserStatus.Active)
-        throw new DomainException("IDENTITY.INVALID_STATE", "User must be active.");
-
-    FailedLoginCount = 0;
-    LockoutUntil = null;
-    LastLoginAt = nowUtc;
-
-    LastLoginIp = ipAddress;
-    LastLoginCountry = country;
-    LastDeviceFingerprint = deviceFingerprint;
-
-    LastLatitude = latitude;
-    LastLongitude = longitude;
-
-    UpdatedAt = nowUtc;
-}
+    public double? LastLongitude { get; private set; }
 
     // ============================================================
     // EF CONSTRUCTOR
@@ -221,9 +186,7 @@ public double? LastLongitude { get; private set; }
     /// <summary>
     /// Initializes a new instance of <see cref="UserAccount"/> for EF Core.
     /// </summary>
-    private UserAccount() : base(Guid.Empty)
-    {
-    }
+    private UserAccount() : base(){}
 
     // ============================================================
     // DOMAIN CONSTRUCTOR
@@ -250,6 +213,10 @@ public double? LastLongitude { get; private set; }
     {
         Guard.AgainstNullOrWhiteSpace(username, nameof(username));
         Guard.AgainstNullOrWhiteSpace(passwordHash, nameof(passwordHash));
+        Guard.AgainstNull(email, nameof(email));
+        Guard.AgainstNull(phoneNumber, nameof(phoneNumber));        
+
+        Guard.AgainstNonUtc(createdAt, nameof(createdAt));
 
         Username = username;
         Email = email;
@@ -288,15 +255,16 @@ public double? LastLongitude { get; private set; }
     /// Changes the user password.
     /// </summary>
     public void ChangePassword(string newPasswordHash, DateTime nowUtc)
-    {
+    {        
         Guard.AgainstNullOrWhiteSpace(newPasswordHash, nameof(newPasswordHash));
 
         if (Status != UserStatus.Active)
-            throw new DomainException("IDENTITY.INVALID_STATE", "User must be active.");
+            throw new DomainException(IdentityDomainErrorCodes.InvalidState, "User must be active.");
 
         if (PasswordHash == newPasswordHash)
-            throw new DomainException("IDENTITY.PASSWORD_REUSE", "Password reuse not allowed.");
+            throw new DomainException(IdentityDomainErrorCodes.PasswordReuse, "Password reuse not allowed.");
 
+        Guard.AgainstNonUtc(nowUtc, nameof(nowUtc));
         PasswordHash = newPasswordHash;
         PasswordVersion++;
         SecurityStamp = Guid.NewGuid().ToString("N");
@@ -314,19 +282,21 @@ public double? LastLongitude { get; private set; }
     /// <summary>
     /// Registers failed login attempt.
     /// </summary>
-    public void RegisterFailedLoginAttempt(int threshold, TimeSpan lockDuration, DateTime nowUtc)
+    public void RegisterFailedLoginAttempt(int threshold, 
+    TimeSpan lockDuration, DateTime nowUtc)
     {
         if (Status == UserStatus.Disabled)
             return;
 
+        Guard.AgainstNonUtc(nowUtc, nameof(nowUtc));
+
         FailedLoginCount++;
+        UpdatedAt = nowUtc;
 
         if (FailedLoginCount >= threshold)
         {
             Status = UserStatus.Locked;
-            LockoutUntil = nowUtc.Add(lockDuration);
-            UpdatedAt = nowUtc;
-
+            LockoutUntil = nowUtc.Add(lockDuration);        
             AddDomainEvent(new UserLockedDomainEvent(Id, nowUtc, LockoutUntil.Value));
         }
     }
@@ -336,47 +306,155 @@ public double? LastLongitude { get; private set; }
     /// </summary>
     public void ResetFailedLogin(DateTime nowUtc)
     {
+        Guard.AgainstNonUtc(nowUtc, nameof(nowUtc));
+
         FailedLoginCount = 0;
         LockoutUntil = null;
         UpdatedAt = nowUtc;
     }
 
+    // ============================================================
+    // LOGIN AUDIT
+    // ============================================================
+
     /// <summary>
-    /// Records successful login.
+    /// Records a successful login.
+    ///
+    /// <para>
+    /// This overload records only the successful authentication
+    /// timestamp and resets the failed login state.
+    /// </para>
     /// </summary>
-    public void RecordSuccessfulLogin(DateTime nowUtc)
+    /// <param name="nowUtc">
+    /// The current UTC timestamp.
+    /// </param>
+    /// <exception cref="DomainException">
+    /// Thrown when the user account is not active.
+    /// </exception>
+    public void RecordSuccessfulLogin(
+        DateTime nowUtc)
     {
-        if (Status != UserStatus.Active)
-            throw new DomainException("IDENTITY.INVALID_STATE", "User must be active.");
-
-        FailedLoginCount = 0;
-        LockoutUntil = null;
-        LastLoginAt = nowUtc;
-        UpdatedAt = nowUtc;
+        RecordSuccessfulLogin(
+            nowUtc,
+            string.Empty,
+            string.Empty,
+            string.Empty,
+            null,
+            null);
     }
 
     /// <summary>
-    /// Records successful login with context (Zero Trust).
+    /// Records a successful login together with client context.
+    ///
+    /// <para>
+    /// This overload records the authentication context including
+    /// the client IP address, country and device fingerprint.
+    /// </para>
     /// </summary>
+    /// <param name="nowUtc">
+    /// The current UTC timestamp.
+    /// </param>
+    /// <param name="ipAddress">
+    /// The client IP address.
+    /// </param>
+    /// <param name="country">
+    /// The detected country.
+    /// </param>
+    /// <param name="deviceFingerprint">
+    /// The client device fingerprint.
+    /// </param>
+    /// <exception cref="DomainException">
+    /// Thrown when the user account is not active.
+    /// </exception>
     public void RecordSuccessfulLogin(
         DateTime nowUtc,
         string ipAddress,
         string country,
         string deviceFingerprint)
     {
+        RecordSuccessfulLogin(
+            nowUtc,
+            ipAddress,
+            country,
+            deviceFingerprint,
+            null,
+            null);
+    }
+
+    /// <summary>
+    /// Records a successful login together with the complete
+    /// authentication context.
+    ///
+    /// <para>
+    /// This method represents the canonical implementation used by
+    /// the authentication workflow. It resets the failed login state,
+    /// updates the audit information and stores the latest client
+    /// context used during authentication.
+    /// </para>
+    /// </summary>
+    /// <param name="nowUtc">
+    /// The current UTC timestamp.
+    /// </param>
+    /// <param name="ipAddress">
+    /// The client IP address.
+    /// </param>
+    /// <param name="country">
+    /// The detected country.
+    /// </param>
+    /// <param name="deviceFingerprint">
+    /// The client device fingerprint.
+    /// </param>
+    /// <param name="latitude">
+    /// The detected client latitude, when available.
+    /// </param>
+    /// <param name="longitude">
+    /// The detected client longitude, when available.
+    /// </param>
+    /// <exception cref="DomainException">
+    /// Thrown when the user account is not active.
+    /// </exception>
+    public void RecordSuccessfulLogin(
+        DateTime nowUtc,
+        string ipAddress,
+        string country,
+        string deviceFingerprint,
+        double? latitude,
+        double? longitude)
+    {
+        Guard.AgainstNonUtc(
+            nowUtc,
+            nameof(nowUtc));
+
         if (Status != UserStatus.Active)
-            throw new DomainException("IDENTITY.INVALID_STATE", "User must be active.");
+        {
+            throw new DomainException(
+                IdentityDomainErrorCodes.InvalidState,
+                "User must be active.");
+        }
 
         FailedLoginCount = 0;
         LockoutUntil = null;
+
         LastLoginAt = nowUtc;
 
-        LastLoginIp = ipAddress;
-        LastLoginCountry = country;
-        LastDeviceFingerprint = deviceFingerprint;
+        LastLoginIp = string.IsNullOrWhiteSpace(ipAddress)
+            ? null
+            : ipAddress;
+
+        LastLoginCountry = string.IsNullOrWhiteSpace(country)
+            ? null
+            : country;
+
+        LastDeviceFingerprint = string.IsNullOrWhiteSpace(deviceFingerprint)
+            ? null
+            : deviceFingerprint;
+
+        LastLatitude = latitude;
+        LastLongitude = longitude;
 
         UpdatedAt = nowUtc;
     }
+    
     // ============================================================
     // MFA
     // ============================================================
@@ -385,15 +463,20 @@ public double? LastLongitude { get; private set; }
     /// Enables MFA.
     /// </summary>
     public void EnableMFA(MFAMethod method, DateTime nowUtc)
-    {
+    {        
+        if (MFAEnabled)
+            throw new DomainException(IdentityDomainErrorCodes.InvalidState, "MFA is already enabled.");
+
         if (method == MFAMethod.Email && !EmailVerified)
-            throw new DomainException("EMAIL_NOT_VERIFIED", "Email must be verified.");
+            throw new DomainException(IdentityDomainErrorCodes.EmailNotVerified, "Email must be verified.");
 
         if ((method == MFAMethod.SMS || method == MFAMethod.WhatsApp) && !PhoneVerified)
-            throw new DomainException("PHONE_NOT_VERIFIED", "Phone must be verified.");
+            throw new DomainException(IdentityDomainErrorCodes.PhoneNotVerified, "Phone must be verified.");
 
         if (method == MFAMethod.TOTP && string.IsNullOrWhiteSpace(TOTPSecretEncrypted))
-            throw new DomainException("TOTP_REQUIRED", "TOTP secret required.");
+            throw new DomainException(IdentityDomainErrorCodes.TotpRequired, "TOTP secret required.");
+
+        Guard.AgainstNonUtc(nowUtc, nameof(nowUtc));
 
         MFAEnabled = true;
         MFAMethod = method;
@@ -409,6 +492,11 @@ public double? LastLongitude { get; private set; }
     /// </summary>
     public void DisableMFA(DateTime nowUtc)
     {
+        if (!MFAEnabled)
+            throw new DomainException(IdentityDomainErrorCodes.InvalidState, "MFA is not enabled.");
+
+        Guard.AgainstNonUtc(nowUtc, nameof(nowUtc));
+
         MFAEnabled = false;
         MFAMethod = MFAMethod.None;
         SecurityStamp = Guid.NewGuid().ToString("N");
@@ -425,34 +513,90 @@ public double? LastLongitude { get; private set; }
     /// <summary>
     /// Assigns role to user.
     /// </summary>
+    /// <param name="roleId">
+    /// Role identifier.
+    /// </param>
+    /// <param name="nowUtc">
+    /// Current UTC timestamp.
+    /// </param>
+    /// <exception cref="DomainException">
+    /// Thrown when role is already assigned.
+    /// </exception>
     public void AssignRole(Guid roleId, DateTime nowUtc)
-    {
-        if (_roleAssignments.Any(r => r.RoleId == roleId))
-            return;
+        {
+            Guard.AgainstEmpty(roleId, nameof(roleId));
 
-        _roleAssignments.Add(new RoleAssignment(roleId));
-        SecurityStamp = Guid.NewGuid().ToString("N");
-        UpdatedAt = nowUtc;
+            if (_roleAssignments.Any(r => r.RoleId == roleId))
+            {
+                throw new DomainException(
+                    IdentityDomainErrorCodes.RoleAlreadyAssigned,
+                    "Role is already assigned.");
+            }
 
-        // AddDomainEvent(new RoleAssignedDomainEvent(Id, nowUtc, roleId));
-        // AddDomainEvent(new SessionInvalidatedDomainEvent(Id, nowUtc, "Role assigned."));
-    }
+            Guard.AgainstNonUtc(nowUtc, nameof(nowUtc));
+
+            _roleAssignments.Add(new RoleAssignment(roleId));
+
+            SecurityStamp = Guid.NewGuid().ToString("N");
+            UpdatedAt = nowUtc;
+
+            AddDomainEvent(
+                new RoleAssignedDomainEvent(
+                    Id,
+                    nowUtc,
+                    roleId));
+
+            AddDomainEvent(
+                new SessionInvalidatedDomainEvent(
+                    Id,
+                    nowUtc,
+                    "Role assigned."));
+        }
 
     /// <summary>
     /// Removes role from user.
     /// </summary>
+    /// <param name="roleId">
+    /// Role identifier.
+    /// </param>
+    /// <param name="nowUtc">
+    /// Current UTC timestamp.
+    /// </param>
+    /// <exception cref="DomainException">
+    /// Thrown when role assignment does not exist.
+    /// </exception>
     public void RemoveRole(Guid roleId, DateTime nowUtc)
     {
-        var existing = _roleAssignments.FirstOrDefault(r => r.RoleId == roleId);
-        if (existing == null)
-            return;
+        Guard.AgainstEmpty(roleId, nameof(roleId));
+
+        var existing = _roleAssignments
+            .FirstOrDefault(r => r.RoleId == roleId);
+
+        if (existing is null)
+        {
+            throw new DomainException(
+                IdentityDomainErrorCodes.RoleNotAssigned,
+                "Role assignment does not exist.");
+        }
+
+        Guard.AgainstNonUtc(nowUtc, nameof(nowUtc));
 
         _roleAssignments.Remove(existing);
+
         SecurityStamp = Guid.NewGuid().ToString("N");
         UpdatedAt = nowUtc;
 
-        AddDomainEvent(new RoleRemovedDomainEvent(Id, nowUtc, roleId));
-        AddDomainEvent(new SessionInvalidatedDomainEvent(Id, nowUtc, "Role removed."));
+        AddDomainEvent(
+            new RoleRemovedDomainEvent(
+                Id,
+                nowUtc,
+                roleId));
+
+        AddDomainEvent(
+            new SessionInvalidatedDomainEvent(
+                Id,
+                nowUtc,
+                "Role removed."));
     }
 
     // ============================================================
@@ -465,7 +609,9 @@ public double? LastLongitude { get; private set; }
     public void Unlock(DateTime nowUtc)
     {
         if (Status != UserStatus.Locked)
-            throw new DomainException("INVALID_STATE", "Only locked user can be unlocked.");
+            throw new DomainException(IdentityDomainErrorCodes.InvalidState, "Only locked user can be unlocked.");
+
+        Guard.AgainstNonUtc(nowUtc, nameof(nowUtc));
 
         Status = UserStatus.Active;
         FailedLoginCount = 0;
@@ -481,7 +627,9 @@ public double? LastLongitude { get; private set; }
     public void Disable(DateTime nowUtc)
     {
         if (Status == UserStatus.Disabled)
-            throw new DomainException("INVALID_STATE", "Already disabled.");
+            throw new DomainException(IdentityDomainErrorCodes.InvalidState, "Already disabled.");
+
+        Guard.AgainstNonUtc(nowUtc, nameof(nowUtc));
 
         Status = UserStatus.Disabled;
         UpdatedAt = nowUtc;
@@ -495,7 +643,9 @@ public double? LastLongitude { get; private set; }
     public void Restore(DateTime nowUtc)
     {
         if (Status != UserStatus.Disabled)
-            throw new DomainException("INVALID_STATE", "Only disabled account can be restored.");
+            throw new DomainException(IdentityDomainErrorCodes.InvalidState, "Only disabled account can be restored.");
+
+        Guard.AgainstNonUtc(nowUtc, nameof(nowUtc));
 
         Status = UserStatus.Active;
         UpdatedAt = nowUtc;
@@ -508,6 +658,8 @@ public double? LastLongitude { get; private set; }
     {
         if (EmailVerified)
             return;
+
+        Guard.AgainstNonUtc(nowUtc, nameof(nowUtc));
 
         EmailVerified = true;
         UpdatedAt = nowUtc;
@@ -523,6 +675,8 @@ public double? LastLongitude { get; private set; }
         if (PhoneVerified)
             return;
 
+        Guard.AgainstNonUtc(nowUtc, nameof(nowUtc));
+
         PhoneVerified = true;
         UpdatedAt = nowUtc;
 
@@ -535,16 +689,17 @@ public double? LastLongitude { get; private set; }
     public void SetTotpSecret(string encryptedSecret, DateTime nowUtc)
     {
         Guard.AgainstNullOrWhiteSpace(encryptedSecret, nameof(encryptedSecret));
-
+        
         if (!EmailVerified && !PhoneVerified)
             throw new DomainException(
-                "IDENTITY.CONTACT_NOT_VERIFIED",
+                 IdentityDomainErrorCodes.ContactNotVerified,
                 "At least one contact method must be verified before setting TOTP.");
+
+        Guard.AgainstNonUtc(nowUtc, nameof(nowUtc));
 
         TOTPSecretEncrypted = encryptedSecret;
         UpdatedAt = nowUtc;
 
         AddDomainEvent(new TotpSecretSetDomainEvent(Id, nowUtc));
-    }
-
+    }  
 }

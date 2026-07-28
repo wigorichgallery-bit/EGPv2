@@ -1,0 +1,588 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Platform.SharedKernel</name>
+    </assembly>
+    <members>
+        <member name="T:Platform.SharedKernel.Abstractions.IClock">
+            <summary>
+            Provides abstraction for system time.
+            
+            Responsibility:
+            - Centralize time retrieval.
+            - Ensure deterministic testing.
+            - Prevent direct DateTime.UtcNow usage in domain.
+            
+            Architectural Rule:
+            - Domain may depend on IClock.
+            - Infrastructure provides concrete implementation.
+            
+            Invariants:
+            - All returned time must be UTC.
+            </summary>
+        </member>
+        <member name="P:Platform.SharedKernel.Abstractions.IClock.UtcNow">
+            <summary>
+            Gets current UTC time.
+            
+            Business Rule:
+            - Must always return DateTimeKind.Utc.
+            - Must not return local time.
+            </summary>
+        </member>
+        <member name="T:Platform.SharedKernel.Abstractions.IDomainEventDispatcher">
+            <summary>
+            Dispatches domain events after successful transaction commit.
+            
+            Responsibility:
+            - Receives collected domain events.
+            - Publishes them to event handlers.
+            - Must not mutate aggregate state.
+            
+            Architectural Rule:
+            - Implementation lives in Infrastructure.
+            - Application layer invokes dispatcher after commit.
+            - Domain layer must not reference dispatcher.
+            
+            Security Rule:
+            - Must not expose sensitive data.
+            - Must not log secret fields.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Abstractions.IDomainEventDispatcher.DispatchAsync(System.Collections.Generic.IReadOnlyCollection{Platform.SharedKernel.Base.DomainEvent},System.Threading.CancellationToken)">
+            <summary>
+            Dispatches domain events.
+            
+            Business Rule:
+            - Must execute after transaction commit.
+            - Must handle events sequentially or via safe async pipeline.
+            - Must not swallow critical exceptions silently.
+            
+            Failure Case:
+            - If dispatch fails, must be logged.
+            - Should not re-commit transaction.
+            </summary>
+            <param name="domainEvents">Domain events.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+        </member>
+        <member name="M:Platform.SharedKernel.Abstractions.IDomainEventDispatcher.DispatchAsync(System.Threading.CancellationToken)">
+            <summary>
+            Dispatches all accumulated domain events.
+            </summary>
+        </member>
+        <member name="T:Platform.SharedKernel.Abstractions.IUnitOfWork">
+            <summary>
+            Represents a transactional unit of work abstraction.
+            
+            Responsibility:
+            - Defines transaction boundary contract.
+            - Ensures atomic commit of aggregate changes.
+            - Coordinates persistence and domain event dispatch trigger.
+            
+            Architectural Rule:
+            - Implemented in Infrastructure layer only.
+            - Used by Application layer.
+            - Never referenced in Domain logic directly.
+            
+            Transaction Policy:
+            - One UnitOfWork per request.
+            - Commit must occur before domain event dispatch.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Abstractions.IUnitOfWork.CommitAsync(System.Threading.CancellationToken)">
+            <summary>
+            Commits all changes within the transaction boundary.
+            
+            Business Rule:
+            - Must persist aggregate changes.
+            - Must guarantee atomicity.
+            - Must throw on infrastructure failure.
+            
+            Failure Case:
+            - Infrastructure exception triggers rollback.
+            
+            </summary>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Number of state entries written.</returns>
+        </member>
+        <member name="M:Platform.SharedKernel.Abstractions.IUnitOfWork.RollbackAsync(System.Threading.CancellationToken)">
+            <summary>
+            Rolls back the current transaction.
+            
+            Business Rule:
+            - Must revert uncommitted changes.
+            - Safe to call multiple times.
+            
+            Failure Case:
+            - Should not throw if already rolled back.
+            </summary>
+            <param name="cancellationToken">Cancellation token.</param>
+        </member>
+        <member name="T:Platform.SharedKernel.Base.AggregateRoot">
+            <summary>
+            Represents an aggregate root in the domain model.
+            
+            Responsibility:
+            - Root of aggregate boundary.
+            - Collects domain events.
+            - Prevents external state mutation.
+            
+            Invariants:
+            - Only aggregate root may add domain events.
+            - Domain events are dispatched after transaction commit.
+            </summary>
+        </member>
+        <member name="F:Platform.SharedKernel.Base.AggregateRoot._domainEvents">
+            <summary>
+            Internal domain event list.
+            </summary>
+        </member>
+        <member name="P:Platform.SharedKernel.Base.AggregateRoot.DomainEvents">
+            <summary>
+            Gets read-only domain events.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Base.AggregateRoot.#ctor(System.Guid)">
+            <summary>
+            Initializes aggregate root.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Base.AggregateRoot.#ctor">
+            <summary>
+            Parameterless constructor for ORM and serialization.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Base.AggregateRoot.AddDomainEvent(Platform.SharedKernel.Base.DomainEvent)">
+            <summary>
+            Adds domain event to aggregate.
+            
+            Business Rule:
+            - Event must not be null.
+            - Event must reference this aggregate.
+            </summary>
+            <param name="domainEvent">Domain event.</param>
+        </member>
+        <member name="M:Platform.SharedKernel.Base.AggregateRoot.ClearDomainEvents">
+            <summary>
+            Clears domain events.
+            
+            Called after successful commit.
+            </summary>
+        </member>
+        <member name="T:Platform.SharedKernel.Base.BaseEntity">
+            <summary>
+            Represents the base entity in the domain model.
+            
+            Responsibility:
+            - Provides identity equality.
+            - Serves as base class for all entities.
+            
+            Invariants:
+            - Id must not be empty.
+            - Identity is immutable after construction.
+            
+            Side Effects:
+            - None.
+            </summary>
+        </member>
+        <member name="P:Platform.SharedKernel.Base.BaseEntity.Id">
+            <summary>
+            Gets the unique identifier of the entity.
+            Constraint:
+            - Must not be Guid.Empty.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Base.BaseEntity.#ctor">
+            <summary>
+            Parameterless constructor for ORM and serialization.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Base.BaseEntity.#ctor(System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Platform.SharedKernel.Base.BaseEntity"/> class.
+            
+            Validation Logic:
+            - Throws if id is Guid.Empty.
+            </summary>
+            <param name="id">Entity unique identifier.</param>
+            <exception cref="T:System.ArgumentException">Thrown if id is empty.</exception>
+        </member>
+        <member name="M:Platform.SharedKernel.Base.BaseEntity.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current entity.
+            
+            Business Rule:
+            - Two entities are equal if they share the same type and Id.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Base.BaseEntity.GetHashCode">
+            <summary>
+            Returns the hash code for this entity.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Base.BaseEntity.op_Equality(Platform.SharedKernel.Base.BaseEntity,Platform.SharedKernel.Base.BaseEntity)">
+            <summary>
+            Equality operator.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Base.BaseEntity.op_Inequality(Platform.SharedKernel.Base.BaseEntity,Platform.SharedKernel.Base.BaseEntity)">
+            <summary>
+            Inequality operator.
+            </summary>
+        </member>
+        <member name="T:Platform.SharedKernel.Base.DomainEvent">
+            <summary>
+            Base class for all domain events.
+            
+            Responsibility:
+            - Represents immutable fact that occurred inside aggregate.
+            - Carries minimal event data.
+            
+            Invariants:
+            - OccurredOn must be set.
+            - AggregateId must not be empty.
+            
+            Side Effects:
+            - None.
+            </summary>
+        </member>
+        <member name="P:Platform.SharedKernel.Base.DomainEvent.OccurredOn">
+            <summary>
+            Gets event occurrence timestamp (UTC).
+            </summary>
+        </member>
+        <member name="P:Platform.SharedKernel.Base.DomainEvent.AggregateId">
+            <summary>
+            Gets aggregate identifier.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Base.DomainEvent.#ctor(System.Guid,System.DateTime)">
+            <summary>
+            Initializes new domain event.
+            
+            Validation Logic:
+            - AggregateId must not be empty.
+            - OccurredOn must be in UTC.
+            </summary>
+        </member>
+        <member name="T:Platform.SharedKernel.Base.ValueObject">
+            <summary>
+            Represents a Value Object in the domain model.
+            
+            Responsibility:
+            - Implements structural equality.
+            - Enforces immutability by convention.
+            
+            Invariants:
+            - Equality determined by atomic values.
+            - Must override GetAtomicValues().
+            
+            Side Effects:
+            - None.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Base.ValueObject.GetAtomicValues">
+            <summary>
+            Returns atomic values used for equality comparison.
+            
+            Business Rule:
+            - Must return ordered components.
+            - Must not return null.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Base.ValueObject.Equals(System.Object)">
+            <summary>
+            Determines equality using structural comparison.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Base.ValueObject.GetHashCode">
+            <summary>
+            Returns hash code based on atomic values.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Base.ValueObject.op_Equality(Platform.SharedKernel.Base.ValueObject,Platform.SharedKernel.Base.ValueObject)">
+            <summary>
+            Equality operator.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Base.ValueObject.op_Inequality(Platform.SharedKernel.Base.ValueObject,Platform.SharedKernel.Base.ValueObject)">
+            <summary>
+            Inequality operator.
+            </summary>
+        </member>
+        <member name="T:Platform.SharedKernel.Exceptions.DomainException">
+            <summary>
+            Represents domain invariant violation.
+            
+            Responsibility:
+            - Thrown only when aggregate invariant is broken.
+            - Never used for validation or authorization.
+            
+            Policy:
+            - Application layer converts to Result.Failure.
+            </summary>
+        </member>
+        <member name="P:Platform.SharedKernel.Exceptions.DomainException.ErrorCode">
+            <summary>
+            Gets domain error code.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Exceptions.DomainException.#ctor(System.String,System.String)">
+            <summary>
+            Initializes new DomainException.
+            </summary>
+            <param name="errorCode">Domain error code.</param>
+            <param name="message">Error message.</param>
+        </member>
+        <member name="T:Platform.SharedKernel.Results.Error">
+            <summary>
+            Represents an application error.
+            
+            Responsibility:
+            - Encapsulates error code and message.
+            - Used by Result pattern.
+            
+            Invariants:
+            - Code must not be empty.
+            - Message must not be empty.
+            - None represents absence of error.
+            
+            Side Effects:
+            - Immutable.
+            </summary>
+        </member>
+        <member name="P:Platform.SharedKernel.Results.Error.Code">
+            <summary>
+            Gets error code.
+            </summary>
+        </member>
+        <member name="P:Platform.SharedKernel.Results.Error.Message">
+            <summary>
+            Gets error message.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Results.Error.#ctor(System.String,System.String)">
+            <summary>
+            Initializes error instance.
+            
+            Validation Logic:
+            - Code must not be null or whitespace.
+            - Message must not be null or whitespace.
+            </summary>
+            <param name="code">Error code.</param>
+            <param name="message">Error message.</param>
+            <exception cref="T:System.ArgumentException">Thrown if invalid input.</exception>
+        </member>
+        <member name="M:Platform.SharedKernel.Results.Error.#ctor(System.String,System.String,Platform.SharedKernel.Results.ErrorType)">
+            <summary>
+            Initializes error instance with semantic classification.
+            </summary>
+            <param name="code">Error code.</param>
+            <param name="message">Error message.</param>
+            <param name="type">Error type.</param>
+            <exception cref="T:System.ArgumentException">Thrown if invalid input.</exception>
+        </member>
+        <member name="F:Platform.SharedKernel.Results.Error.None">
+            <summary>
+            Represents absence of error.
+            
+            Business Rule:
+            - Used only for successful Result.
+            - Must not be used for failure.
+            </summary>
+        </member>
+        <member name="P:Platform.SharedKernel.Results.Error.Type">
+            <summary>
+            Gets semantic error classification.
+            </summary>
+        </member>
+        <member name="T:Platform.SharedKernel.Results.ErrorType">
+             <summary>
+             Represents the semantic classification
+             of an application error.
+            
+             Responsibility:
+             - Classify application failures.
+             - Decouple application errors from
+               transport protocols.
+             - Support HTTP mapping in presentation layer.
+            
+             Architectural Rules:
+             - SharedKernel abstraction.
+             - No ASP.NET dependency.
+             - No infrastructure dependency.
+             - No transport-specific behavior.
+            
+             Side Effects:
+             - None.
+            
+             Thread Safety:
+             - Immutable enumeration.
+            
+             Complexity:
+             O(1)
+             </summary>
+        </member>
+        <member name="F:Platform.SharedKernel.Results.ErrorType.None">
+            <summary>
+            No error.
+            </summary>
+        </member>
+        <member name="F:Platform.SharedKernel.Results.ErrorType.Validation">
+            <summary>
+            Input validation failure.
+            </summary>
+        </member>
+        <member name="F:Platform.SharedKernel.Results.ErrorType.Unauthorized">
+            <summary>
+            Authentication failure.
+            </summary>
+        </member>
+        <member name="F:Platform.SharedKernel.Results.ErrorType.Forbidden">
+            <summary>
+            Authorization failure.
+            </summary>
+        </member>
+        <member name="F:Platform.SharedKernel.Results.ErrorType.NotFound">
+            <summary>
+            Requested resource was not found.
+            </summary>
+        </member>
+        <member name="F:Platform.SharedKernel.Results.ErrorType.Conflict">
+            <summary>
+            Business conflict.
+            </summary>
+        </member>
+        <member name="F:Platform.SharedKernel.Results.ErrorType.Internal">
+            <summary>
+            Unexpected internal error.
+            </summary>
+        </member>
+        <member name="T:Platform.SharedKernel.Results.Result">
+            <summary>
+            Represents operation result without return value.
+            
+            Responsibility:
+            - Encapsulates success/failure.
+            - Prevents exception-driven flow.
+            
+            Invariants:
+            - Success must contain Error.None.
+            - Failure must not contain Error.None.
+            </summary>
+        </member>
+        <member name="P:Platform.SharedKernel.Results.Result.IsSuccess">
+            <summary>
+            Gets success indicator.
+            </summary>
+        </member>
+        <member name="P:Platform.SharedKernel.Results.Result.IsFailure">
+            <summary>
+            Gets failure indicator.
+            </summary>
+        </member>
+        <member name="P:Platform.SharedKernel.Results.Result.Error">
+            <summary>
+            Gets associated error.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Results.Result.#ctor(System.Boolean,Platform.SharedKernel.Results.Error)">
+            <summary>
+            Initializes result instance.
+            </summary>
+            <param name="isSuccess">Success flag.</param>
+            <param name="error">Error object.</param>
+            <exception cref="T:System.InvalidOperationException">Thrown if invariant violated.</exception>
+        </member>
+        <member name="M:Platform.SharedKernel.Results.Result.Success">
+            <summary>
+            Creates successful result.
+            </summary>
+            <returns>Success result.</returns>
+        </member>
+        <member name="M:Platform.SharedKernel.Results.Result.Failure(Platform.SharedKernel.Results.Error)">
+            <summary>
+            Creates failure result.
+            </summary>
+            <param name="error">Error object.</param>
+            <returns>Failure result.</returns>
+        </member>
+        <member name="T:Platform.SharedKernel.Results.Result`1">
+            <summary>
+            Represents operation result with return value.
+            
+            Responsibility:
+            - Encapsulate success/failure.
+            - Carry value when successful.
+            </summary>
+        </member>
+        <member name="P:Platform.SharedKernel.Results.Result`1.Value">
+            <summary>
+            Gets result value.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Results.Result`1.#ctor(`0)">
+            <summary>
+            Initializes generic result.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Results.Result`1.#ctor(Platform.SharedKernel.Results.Error)">
+            <summary>
+            Initializes failure generic result.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Results.Result`1.Success(`0)">
+            <summary>
+            Creates success result with value.
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Results.Result`1.Failure(Platform.SharedKernel.Results.Error)">
+            <summary>
+            Creates failure result.
+            </summary>
+        </member>
+        <member name="T:Platform.SharedKernel.Utilities.Guard">
+            <summary>
+            Provides guard clause validation utilities.
+            
+            Responsibility:
+            - Centralize defensive programming.
+            - Throw ArgumentException / ArgumentNullException.
+            
+            Usage:
+            - Used inside domain and application layer.
+            - Not for business rule validation (DomainException).
+            </summary>
+        </member>
+        <member name="M:Platform.SharedKernel.Utilities.Guard.AgainstNull``1(``0,System.String)">
+            <summary>
+            Ensures value is not null.
+            </summary>
+            <typeparam name="T">Type.</typeparam>
+            <param name="value">Value to check.</param>
+            <param name="paramName">Parameter name.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if null.</exception>
+        </member>
+        <member name="M:Platform.SharedKernel.Utilities.Guard.AgainstNullOrWhiteSpace(System.String,System.String)">
+            <summary>
+            Ensures string is not null or whitespace.
+            </summary>
+            <param name="value">String value.</param>
+            <param name="paramName">Parameter name.</param>
+        </member>
+        <member name="M:Platform.SharedKernel.Utilities.Guard.AgainstEmpty(System.Guid,System.String)">
+            <summary>
+            Ensures Guid is not empty.
+            </summary>
+            <param name="value">Guid value.</param>
+            <param name="paramName">Parameter name.</param>
+        </member>
+        <member name="M:Platform.SharedKernel.Utilities.Guard.AgainstFalse(System.Boolean,System.String)">
+            <summary>
+            Ensures condition is true.
+            </summary>
+            <param name="condition">Condition.</param>
+            <param name="message">Message.</param>
+        </member>
+    </members>
+</doc>

@@ -1,7 +1,6 @@
 // ===========================================
 // File Location : src/Core/Platform.SharedKernel/Exceptions/DomainException.cs
 // ===========================================
-
 namespace Platform.SharedKernel.Exceptions;
 
 /// <summary>

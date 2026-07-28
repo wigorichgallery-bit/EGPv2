@@ -1,0 +1,99 @@
+using Microsoft.Extensions.DependencyInjection;
+
+using Platform.Identity.Domain.Aggregates;
+
+using Platform.Persistence.Context;
+
+namespace Platform.WebApi.Composition;
+
+/// <summary>
+/// Seeds mandatory system roles.
+///
+/// Responsibility:
+/// - Ensure required system roles exist.
+/// - Prevent duplicate seed creation.
+/// - Execute only during application startup.
+///
+/// Architectural Rules:
+/// - Composition Root concern.
+/// - No business orchestration.
+/// - No API concern.
+/// - No controller concern.
+///
+/// Thread Safety:
+/// - Startup execution only.
+/// </summary>
+public static class IdentityRoleSeeder
+{
+    /// <summary>
+    /// Seeds mandatory system roles.
+    /// </summary>
+    /// <param name="serviceProvider">
+    /// Root service provider.
+    /// </param>
+    public static async Task SeedAsync(
+        IServiceProvider serviceProvider)
+    {
+        ArgumentNullException.ThrowIfNull(
+            serviceProvider);
+
+        using var scope =
+            serviceProvider.CreateScope();
+
+        var dbContext =
+            scope.ServiceProvider.GetRequiredService<
+                GovernanceDbContext>();
+
+        if (dbContext.Roles.Any())
+        {
+            return;
+        }
+
+        var utcNow =
+            DateTime.UtcNow;
+
+        var roles =
+            new[]
+            {
+                new Role(
+                    Guid.NewGuid(),
+                    "SystemAdministrator",
+                    true,
+                    "Global",
+                    utcNow),
+
+                new Role(
+                    Guid.NewGuid(),
+                    "GovernanceAdministrator",
+                    true,
+                    "Global",
+                    utcNow),
+
+                new Role(
+                    Guid.NewGuid(),
+                    "SecurityAdministrator",
+                    true,
+                    "Global",
+                    utcNow),
+
+                new Role(
+                    Guid.NewGuid(),
+                    "Auditor",
+                    true,
+                    "Global",
+                    utcNow),
+
+                new Role(
+                    Guid.NewGuid(),
+                    "Operator",
+                    true,
+                    "Global",
+                    utcNow)
+            };
+
+        await dbContext.Roles.AddRangeAsync(
+            roles);
+
+        await dbContext.SaveChangesAsync();
+    }
+}

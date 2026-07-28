@@ -1,7 +1,6 @@
 // ===========================================
 // File Location : src/Core/Platform.Identity.Domain/ValueObjects/RoleAssignment.cs
 // ===========================================
-
 using Platform.SharedKernel.Base;
 using Platform.SharedKernel.Utilities;
 

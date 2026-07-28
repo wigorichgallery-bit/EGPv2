@@ -7,14 +7,30 @@
   "targets": {
     ".NETCoreApp,Version=v10.0": {
       "Platform.Identity.Domain/1.0.0": {
+        "dependencies": {
+          "Platform.SharedKernel": "1.0.0"
+        },
         "runtime": {
           "Platform.Identity.Domain.dll": {}
+        }
+      },
+      "Platform.SharedKernel/1.0.0": {
+        "runtime": {
+          "Platform.SharedKernel.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
   },
   "libraries": {
     "Platform.Identity.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Platform.SharedKernel/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

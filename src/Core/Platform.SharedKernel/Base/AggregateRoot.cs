@@ -1,6 +1,7 @@
 // ===========================================
 // File Location : src/Core/Platform.SharedKernel/Base/AggregateRoot.cs
 // ===========================================
+using Platform.SharedKernel.Utilities;
 
 namespace Platform.SharedKernel.Base;
 
@@ -18,6 +19,9 @@ namespace Platform.SharedKernel.Base;
 /// </summary>
 public abstract class AggregateRoot : BaseEntity
 {
+    private const string AggregateIdMismatchMessage =
+    "DomainEvent AggregateId must match the AggregateRoot identifier.";
+
     /// <summary>
     /// Internal domain event list.
     /// </summary>
@@ -36,6 +40,13 @@ public abstract class AggregateRoot : BaseEntity
     }
 
     /// <summary>
+    /// Parameterless constructor for ORM and serialization.
+    /// </summary>
+    protected AggregateRoot() : base()
+    {
+    }
+
+    /// <summary>
     /// Adds domain event to aggregate.
     /// 
     /// Business Rule:
@@ -45,11 +56,12 @@ public abstract class AggregateRoot : BaseEntity
     /// <param name="domainEvent">Domain event.</param>
     protected void AddDomainEvent(DomainEvent domainEvent)
     {
-        if (domainEvent is null)
-            throw new ArgumentNullException(nameof(domainEvent));
+        Guard.AgainstNull(
+            domainEvent,
+            nameof(domainEvent));
 
         if (domainEvent.AggregateId != Id)
-            throw new InvalidOperationException("DomainEvent AggregateId mismatch.");
+            throw new InvalidOperationException(AggregateIdMismatchMessage);
 
         _domainEvents.Add(domainEvent);
     }
@@ -59,7 +71,7 @@ public abstract class AggregateRoot : BaseEntity
     /// 
     /// Called after successful commit.
     /// </summary>
-    protected void ClearDomainEvents()
+    internal void ClearDomainEvents()
     {
         _domainEvents.Clear();
     }

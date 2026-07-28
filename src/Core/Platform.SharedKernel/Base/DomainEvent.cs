@@ -1,6 +1,7 @@
 // ===========================================
 // File Location : src/Core/Platform.SharedKernel/Base/DomainEvent.cs
 // ===========================================
+using Platform.SharedKernel.Utilities;
 
 namespace Platform.SharedKernel.Base;
 
@@ -39,12 +40,9 @@ public abstract class DomainEvent
     /// </summary>
     protected DomainEvent(Guid aggregateId, DateTime occurredOn)
     {
-        if (aggregateId == Guid.Empty)
-            throw new ArgumentException("AggregateId cannot be empty.", nameof(aggregateId));
-
-        if (occurredOn.Kind != DateTimeKind.Utc)
-            throw new ArgumentException("OccurredOn must be UTC.", nameof(occurredOn));
-
+        Guard.AgainstEmpty(aggregateId, nameof(aggregateId));
+        Guard.AgainstNull(OccurredOn, nameof(occurredOn));
+      
         AggregateId = aggregateId;
         OccurredOn = occurredOn;
     }

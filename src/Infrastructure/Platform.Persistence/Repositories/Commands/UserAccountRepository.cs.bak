@@ -1,0 +1,209 @@
+// ===========================================
+// File Location :
+// src/Infrastructure/Platform.Persistence/
+// Repositories/UserAccountRepository.cs
+// ===========================================
+
+using Microsoft.EntityFrameworkCore;
+using Platform.Identity.Application.Abstractions.Persistence.Commands;
+using Platform.Identity.Domain.Aggregates;
+using Platform.Identity.Domain.ValueObjects;
+using Platform.Persistence.Context;
+
+namespace Platform.Persistence.Repositories.Commands;
+
+/// <summary>
+/// EF Core implementation of
+/// <see cref="IUserAccountRepository"/>.
+///
+/// Responsibility:
+/// - Retrieve UserAccount aggregates.
+/// - Persist UserAccount aggregates.
+/// - Execute aggregate existence checks.
+///
+/// Architectural Rules:
+/// - Infrastructure implementation.
+/// - No business logic.
+/// - No transaction management.
+/// - No orchestration logic.
+///
+/// Thread Safety:
+/// - Scoped service.
+///
+/// Complexity:
+/// - Query dependent.
+/// </summary>
+public sealed class UserAccountRepository
+    : IUserAccountRepository
+{
+    private readonly GovernanceDbContext _dbContext;
+
+    /// <summary>
+    /// Initializes a new instance of the
+    /// <see cref="UserAccountRepository"/> class.
+    /// </summary>
+    /// <param name="dbContext">
+    /// Database context.
+    /// </param>
+    /// <exception cref="ArgumentNullException">
+    /// Thrown when dbContext is null.
+    /// </exception>
+    public UserAccountRepository(
+        GovernanceDbContext dbContext)
+    {
+        ArgumentNullException.ThrowIfNull(dbContext);
+        _dbContext = dbContext;
+    }
+
+    /// <inheritdoc />
+    public async Task<UserAccount?> GetByIdAsync(
+        Guid userId,
+        CancellationToken cancellationToken = default)
+    {
+        return await _dbContext
+        .UserAccounts
+        .FirstOrDefaultAsync(
+            x => x.Id == userId,
+            cancellationToken)
+        .ConfigureAwait(false);
+    }
+
+    /// <inheritdoc />
+    public async Task<UserAccount?> GetByUsernameAsync(
+        string username,
+        CancellationToken cancellationToken = default)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(
+        username);
+
+        return await _dbContext
+        .UserAccounts
+        .SingleOrDefaultAsync(
+            x => x.Username == username,
+            cancellationToken)
+        .ConfigureAwait(false);
+    }
+
+    /// <inheritdoc />
+    public async Task<UserAccount?> GetByEmailAsync(
+        EmailAddress email,
+        CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(email);
+
+        return await _dbContext
+        .UserAccounts
+        .SingleOrDefaultAsync(
+            x => x.Email.Value == email.Value,
+            cancellationToken)
+        .ConfigureAwait(false);
+    }
+
+    /// <inheritdoc />
+    public async Task<bool> ExistsByUsernameAsync(
+        string username,
+        CancellationToken cancellationToken = default)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(
+        username);
+
+        return await _dbContext
+        .UserAccounts
+        .AnyAsync(
+            x => x.Username == username,
+            cancellationToken)
+        .ConfigureAwait(false);
+    }
+
+    /// <inheritdoc />
+    public async Task<bool> ExistsByEmailAsync(
+        EmailAddress email,
+        CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(email);
+
+        return await _dbContext
+        .UserAccounts
+        .AnyAsync(
+            x => x.Email.Value == email.Value,
+            cancellationToken)
+        .ConfigureAwait(false);
+    }
+
+    /// <inheritdoc />
+    public async Task<bool> ExistsByPhoneAsync(
+        PhoneNumber phoneNumber,
+        CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(phoneNumber);
+
+        return await _dbContext
+        .UserAccounts
+        .AnyAsync(
+            x => x.PhoneNumber.Value == phoneNumber.Value,
+            cancellationToken)
+        .ConfigureAwait(false);
+    }
+
+    /// <inheritdoc />
+    public async Task AddAsync(
+        UserAccount userAccount,
+        CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(userAccount);
+
+        await _dbContext
+        .UserAccounts
+        .AddAsync(
+            userAccount,
+            cancellationToken)
+        .ConfigureAwait(false);
+    }
+
+    /// <inheritdoc />
+    public void Update(
+        UserAccount userAccount)
+    {
+        ArgumentNullException.ThrowIfNull(userAccount);
+
+        _dbContext
+        .UserAccounts
+        .Update(userAccount);
+    }
+
+    /// <inheritdoc />
+    public void Remove(
+        UserAccount userAccount)
+    {
+        ArgumentNullException.ThrowIfNull(userAccount);
+
+        _dbContext.UserAccounts
+            .Remove(userAccount);
+    }
+
+    /// <inheritdoc />
+    public async Task<IReadOnlyList<UserAccount>> GetAllAsync(
+        CancellationToken cancellationToken = default)
+    {
+        var users =
+            await _dbContext
+            .UserAccounts
+            .ToListAsync(
+                cancellationToken)
+            .ConfigureAwait(false);
+
+        return [.. users];
+    }
+
+    /// <summary>
+    /// Existses the specified role identifier.
+    /// </summary>
+    /// <param name="roleId">the role identifier</param>
+    /// <param name="cancellationToken">the cancellation token</param>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException">Not implemented</exception>
+    public Task<bool> ExistsAsync(Guid roleId, CancellationToken cancellationToken = default)
+    {
+        throw new NotImplementedException();
+    }
+}

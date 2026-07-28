@@ -1,6 +1,7 @@
 // ===========================================
 // File Location : src/Core/Platform.SharedKernel/Base/BaseEntity.cs
 // =========================================== 
+using Platform.SharedKernel.Utilities;
 
 namespace Platform.SharedKernel.Base;
 
@@ -28,6 +29,11 @@ public abstract class BaseEntity
     public Guid Id { get; }
 
     /// <summary>
+    /// Parameterless constructor for ORM and serialization.
+    /// </summary>
+    protected BaseEntity() {}
+
+    /// <summary>
     /// Initializes a new instance of the <see cref="BaseEntity"/> class.
     /// 
     /// Validation Logic:
@@ -37,9 +43,7 @@ public abstract class BaseEntity
     /// <exception cref="ArgumentException">Thrown if id is empty.</exception>
     protected BaseEntity(Guid id)
     {
-        if (id == Guid.Empty)
-            throw new ArgumentException("Entity Id cannot be empty.", nameof(id));
-
+        Guard .AgainstEmpty(id, nameof(id));
         Id = id;
     }
 

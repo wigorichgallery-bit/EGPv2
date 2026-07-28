@@ -6,6 +6,7 @@ D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Pipeline\bin\Debug\net10.0\
 D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Pipeline\bin\Debug\net10.0\Platform.Security.Domain.dll
 D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Pipeline\bin\Debug\net10.0\Platform.SharedKernel.dll
 D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Pipeline\bin\Debug\net10.0\Platform.SharedKernel.pdb
+D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Pipeline\bin\Debug\net10.0\Platform.SharedKernel.xml
 D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Pipeline\bin\Debug\net10.0\Platform.Security.Application.pdb
 D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Pipeline\bin\Debug\net10.0\Platform.Identity.Domain.pdb
 D:\SSB_Project\ERPSYS\EGPv2\src\Application\Platform.Pipeline\bin\Debug\net10.0\Platform.Security.Domain.pdb

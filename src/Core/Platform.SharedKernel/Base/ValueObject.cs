@@ -1,7 +1,6 @@
 // ===========================================
 // File Location : src/Core/Platform.SharedKernel/Base/ValueObject.cs
 // ===========================================
-
 namespace Platform.SharedKernel.Base;
 
 /// <summary>

@@ -11,6 +11,7 @@
     <Project Path="src/Core/Platform.SharedKernel/Platform.SharedKernel.csproj" />
   </Folder>
   <Folder Name="/src/Infrastructure/">
+    <Project Path="src/Infrastructure/Platform.Communication/Platform.Communication.csproj" />
     <Project Path="src/Infrastructure/Platform.Persistence/Platform.Persistence.csproj" />
     <Project Path="src/Infrastructure/Platform.Security.Infrastructure/Platform.Security.Infrastructure.csproj" />
     <Project Path="src/Infrastructure/Platform.TokenProvider/Platform.TokenProvider.csproj" />

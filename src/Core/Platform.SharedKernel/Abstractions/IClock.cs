@@ -1,7 +1,6 @@
 // ===========================================
 // File Location : src/Core/Platform.SharedKernel/Abstractions/IClock.cs
 // ===========================================
-
 namespace Platform.SharedKernel.Abstractions;
 
    /// <summary>
