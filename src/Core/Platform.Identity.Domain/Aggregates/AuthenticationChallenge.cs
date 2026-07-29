@@ -3,7 +3,7 @@
 // src/Core/Platform.Identity.Domain/Aggregates/AuthenticationChallenge.cs
 // ===========================================
 
-using Platform.Identity.Domain.DomainEvents.AuthenticationChallenge;
+using Platform.Identity.Domain.Events;
 using Platform.Identity.Domain.Enums;
 using Platform.Identity.Domain.ErrorCodes;
 using Platform.Identity.Domain.ValueObjects;

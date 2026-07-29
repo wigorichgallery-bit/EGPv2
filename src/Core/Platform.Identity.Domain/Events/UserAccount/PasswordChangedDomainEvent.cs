@@ -1,5 +1,5 @@
 // ===========================================
-// File Location : src/Core/Platform.Identity.Domain/DomainEvents/PasswordChangedDomainEvent.cs
+// File Location : src/Core/Platform.Identity.Domain/Events/PasswordChangedDomainEvent.cs
 // ===========================================
 using Platform.SharedKernel.Base;
 

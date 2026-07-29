@@ -1,5 +1,5 @@
 // ===========================================
-// File Location : src/Core/Platform.Identity.Domain/DomainEvents/UserLockedDomainEvent.cs
+// File Location : src/Core/Platform.Identity.Domain/Events/UserLockedDomainEvent.cs
 // ===========================================
 using Platform.SharedKernel.Base;
 

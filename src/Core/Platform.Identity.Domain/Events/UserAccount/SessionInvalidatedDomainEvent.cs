@@ -1,5 +1,5 @@
 // ===========================================
-// File Location : src/Core/Platform.Identity.Domain/DomainEvents/SessionInvalidatedDomainEvent.cs
+// File Location : src/Core/Platform.Identity.Domain/Events/SessionInvalidatedDomainEvent.cs
 // ===========================================
 using Platform.SharedKernel.Base;
 

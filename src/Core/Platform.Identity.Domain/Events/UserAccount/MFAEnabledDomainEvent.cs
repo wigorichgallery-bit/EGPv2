@@ -1,5 +1,5 @@
 // ===========================================
-// File Location : src/Core/Platform.Identity.Domain/DomainEvents/MFAEnabledDomainEvent.cs
+// File Location : src/Core/Platform.Identity.Domain/Events/MFAEnabledDomainEvent.cs
 // ===========================================
 using Platform.Identity.Domain.Enums;
 using Platform.SharedKernel.Base;

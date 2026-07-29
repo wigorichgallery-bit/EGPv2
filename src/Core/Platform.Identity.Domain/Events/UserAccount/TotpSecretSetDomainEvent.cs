@@ -1,5 +1,5 @@
 // ===========================================
-// File Location : src/Core/Platform.Identity.Domain/DomainEvents/TotpSecretSetDomainEvent.cs
+// File Location : src/Core/Platform.Identity.Domain/Events/TotpSecretSetDomainEvent.cs
 // ===========================================
 using Platform.SharedKernel.Base;
 

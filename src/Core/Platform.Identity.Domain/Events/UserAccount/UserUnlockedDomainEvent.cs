@@ -1,25 +1,24 @@
 // ===========================================
-// File Location : src/Core/Platform.Identity.Domain/DomainEvents/MFADisabledDomainEvent.cs
+// File Location : src/Core/Platform.Identity.Domain/Events/UserUnlockedDomainEvent.cs
 // ===========================================
 using Platform.SharedKernel.Base;
 
 namespace Platform.Identity.Domain.Events;
 
 /// <summary>
-/// Raised when MFA is disabled.
+/// Raised when a locked user account is manually unlocked.
 /// 
 /// Responsibility:
-/// - Signals MFA deactivation.
-/// - Triggers security stamp rotation.
+/// - Signals administrative unlock.
 /// </summary>
-public sealed class MFADisabledDomainEvent : DomainEvent
+public sealed class UserUnlockedDomainEvent : DomainEvent
 {
     /// <summary>
-    /// Initializes a new instance of <see cref="MFADisabledDomainEvent"/>.
+    /// Initializes a new instance of <see cref="UserUnlockedDomainEvent"/>.
     /// </summary>
     /// <param name="aggregateId">The UserAccount aggregate identifier.</param>
-    /// <param name="occurredOn">The UTC timestamp of disablement.</param>
-    public MFADisabledDomainEvent(
+    /// <param name="occurredOn">The UTC timestamp of unlock.</param>
+    public UserUnlockedDomainEvent(
         Guid aggregateId,
         DateTime occurredOn)
         : base(aggregateId, occurredOn)

@@ -1,22 +1,21 @@
 // ===========================================
 // File Location :
 // src/Core/Platform.Identity.Domain/
-// DomainEvents/AuthenticationChallenge/
-// AuthenticationChallengeCompletedDomainEvent.cs
+// EventsEvents/AuthenticationChallenge/
+// AuthenticationChallengeExpiredDomainEvent.cs
 // ===========================================
 
 using Platform.Identity.Domain.Enums;
 using Platform.SharedKernel.Base;
 using Platform.SharedKernel.Utilities;
 
-namespace Platform.Identity.Domain.DomainEvents.AuthenticationChallenge;
+namespace Platform.Identity.Domain.Events;
 
 /// <summary>
-/// Raised when an authentication challenge has been
-/// completed successfully.
+/// Raised when an authentication challenge expires.
 ///
 /// Responsibility:
-/// - Indicates successful completion of an authentication challenge.
+/// - Indicates that an authentication challenge has expired.
 /// - Provides immutable event data for downstream processing.
 /// - Represents a completed domain fact.
 ///
@@ -34,18 +33,18 @@ namespace Platform.Identity.Domain.DomainEvents.AuthenticationChallenge;
 /// Thread Safety:
 /// - Immutable.
 /// </summary>
-public sealed class AuthenticationChallengeCompletedDomainEvent
+public sealed class AuthenticationChallengeExpiredDomainEvent
     : DomainEvent
 {
     /// <summary>
-    /// Gets the identifier of the user that completed
-    /// the authentication challenge.
+    /// Gets the identifier of the user associated with
+    /// the expired authentication challenge.
     /// </summary>
     public Guid UserId { get; }
 
     /// <summary>
-    /// Gets the authentication challenge type that
-    /// was successfully completed.
+    /// Gets the authentication challenge type
+    /// that expired.
     /// </summary>
     public AuthenticationChallengeType ChallengeType { get; }
 
@@ -57,7 +56,7 @@ public sealed class AuthenticationChallengeCompletedDomainEvent
 
     /// <summary>
     /// Initializes a new instance of the
-    /// <see cref="AuthenticationChallengeCompletedDomainEvent"/> class.
+    /// <see cref="AuthenticationChallengeExpiredDomainEvent"/> class.
     /// </summary>
     /// <param name="challengeId">
     /// The authentication challenge aggregate identifier.
@@ -65,21 +64,21 @@ public sealed class AuthenticationChallengeCompletedDomainEvent
     /// <see cref="DomainEvent.AggregateId"/>.
     /// </param>
     /// <param name="userId">
-    /// The identifier of the authenticated user.
+    /// The identifier of the user associated with
+    /// the expired challenge.
     /// </param>
     /// <param name="challengeType">
-    /// The completed authentication challenge type.
+    /// The authentication challenge type.
     /// </param>
     /// <param name="occurredOn">
-    /// The UTC timestamp when the challenge
-    /// was completed.
+    /// The UTC timestamp when the challenge expired.
     /// This value is assigned to
     /// <see cref="DomainEvent.OccurredOn"/>.
     /// </param>
     /// <exception cref="ArgumentException">
     /// Thrown when a parameter is invalid.
     /// </exception>
-    public AuthenticationChallengeCompletedDomainEvent(
+    public AuthenticationChallengeExpiredDomainEvent(
         Guid challengeId,
         Guid userId,
         AuthenticationChallengeType challengeType,
@@ -100,7 +99,7 @@ public sealed class AuthenticationChallengeCompletedDomainEvent
         Guard.AgainstUndefinedEnum(
             purpose,
             nameof(purpose));
-
+            
         UserId = userId;
         ChallengeType = challengeType;
         Purpose = purpose;

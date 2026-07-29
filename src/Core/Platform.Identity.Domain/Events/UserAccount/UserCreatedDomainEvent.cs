@@ -1,5 +1,5 @@
 // ===========================================
-// File Location : src/Core/Platform.Identity.Domain/DomainEvents/UserCreatedDomainEvent.cs
+// File Location : src/Core/Platform.Identity.Domain/Events/UserCreatedDomainEvent.cs
 // ===========================================
 using Platform.SharedKernel.Base;
 using Platform.SharedKernel.Utilities;

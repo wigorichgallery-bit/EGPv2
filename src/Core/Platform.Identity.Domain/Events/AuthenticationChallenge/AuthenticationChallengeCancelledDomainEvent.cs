@@ -1,7 +1,7 @@
 // ===========================================
 // File Location :
 // src/Core/Platform.Identity.Domain/
-// DomainEvents/AuthenticationChallenge/
+// Events/AuthenticationChallenge/
 // AuthenticationChallengeCancelledDomainEvent.cs
 // ===========================================
 
@@ -9,7 +9,7 @@ using Platform.Identity.Domain.Enums;
 using Platform.SharedKernel.Base;
 using Platform.SharedKernel.Utilities;
 
-namespace Platform.Identity.Domain.DomainEvents.AuthenticationChallenge;
+namespace Platform.Identity.Domain.Events;
 
 /// <summary>
 /// Raised when an authentication challenge has been cancelled.

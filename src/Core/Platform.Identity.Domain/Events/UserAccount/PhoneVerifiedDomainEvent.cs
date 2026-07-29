@@ -1,5 +1,5 @@
 // ===========================================
-// File Location : src/Core/Platform.Identity.Domain/DomainEvents/PhoneVerifiedDomainEvent.cs
+// File Location : src/Core/Platform.Identity.Domain/Events/PhoneVerifiedDomainEvent.cs
 // ===========================================
 using Platform.SharedKernel.Base;
 

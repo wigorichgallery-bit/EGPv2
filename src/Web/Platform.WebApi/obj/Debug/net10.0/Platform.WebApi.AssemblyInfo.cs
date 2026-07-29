@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Platform.WebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+30599d16ea574b85e9e66c5b03cd5e961e82c1bf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a09fa9f5b60139ac60efd436b98cb1b5feca48bb")]
 [assembly: System.Reflection.AssemblyProductAttribute("Platform.WebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Platform.WebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

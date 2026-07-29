@@ -1,5 +1,5 @@
 // ===========================================
-// File Location : src/Core/Platform.Identity.Domain/DomainEvents/EmailVerifiedDomainEvent.cs
+// File Location : src/Core/Platform.Identity.Domain/Events/EmailVerifiedDomainEvent.cs
 // ===========================================
 using Platform.SharedKernel.Base;
 
