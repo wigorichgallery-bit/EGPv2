@@ -4,8 +4,58 @@ using Xunit;
 
 namespace Platform.SharedKernel.UnitTests.Exceptions;
 
+/// <summary>
+/// Contains unit tests for the <see cref="DomainException"/> class.
+///
+/// <remarks>
+/// <para>
+/// Purpose:
+/// Verifies that <see cref="DomainException"/> correctly stores domain
+/// error information and enforces constructor argument validation.
+/// </para>
+///
+/// <para>
+/// Test Strategy:
+/// <list type="bullet">
+/// <item>
+/// <description>
+/// Verify successful construction using valid arguments.
+/// </description>
+/// </item>
+/// <item>
+/// <description>
+/// Verify validation of the <c>errorCode</c> argument.
+/// </description>
+/// </item>
+/// <item>
+/// <description>
+/// Verify that exception properties are initialized correctly.
+/// </description>
+/// </item>
+/// </list>
+///
+/// <para>
+/// Scope:
+/// Unit tests for <see cref="DomainException"/> only.
+/// </para>
+/// </remarks>
+/// </summary>
 public sealed class DomainExceptionTests
 {
+    #region Constructor
+
+    /// <summary>
+    /// Verifies that the constructor creates a
+    /// <see cref="DomainException"/> using valid arguments.
+    /// </summary>
+    /// <remarks>
+    /// Expected Result:
+    /// <list type="bullet">
+    /// <item><description>The supplied error code is preserved.</description></item>
+    /// <item><description>The supplied message is preserved.</description></item>
+    /// <item><description><see cref="Exception.InnerException"/> is <see langword="null"/>.</description></item>
+    /// </list>
+    /// </remarks>
     [Fact]
     public void Constructor_WithValidArguments_ShouldCreateException()
     {
@@ -22,6 +72,19 @@ public sealed class DomainExceptionTests
         exception.InnerException.Should().BeNull();
     }
 
+    /// <summary>
+    /// Verifies that the constructor throws an
+    /// <see cref="ArgumentException"/> when the supplied
+    /// error code is <see langword="null"/>.
+    /// </summary>
+    /// <remarks>
+    /// Expected Result:
+    /// <list type="bullet">
+    /// <item><description>An <see cref="ArgumentException"/> is thrown.</description></item>
+    /// <item><description>The exception identifies the <c>errorCode</c> parameter.</description></item>
+    /// <item><description>The validation message indicates that an error code is required.</description></item>
+    /// </list>
+    /// </remarks>
     [Fact]
     public void Constructor_WithNullErrorCode_ShouldThrowArgumentException()
     {
@@ -40,9 +103,23 @@ public sealed class DomainExceptionTests
         exception.Message.Should().Contain("ErrorCode required.");
     }
 
+    /// <summary>
+    /// Verifies that the constructor throws an
+    /// <see cref="ArgumentException"/> when the supplied
+    /// error code is an empty string.
+    /// </summary>
+    /// <remarks>
+    /// Expected Result:
+    /// <list type="bullet">
+    /// <item><description>An <see cref="ArgumentException"/> is thrown.</description></item>
+    /// <item><description>The exception identifies the <c>errorCode</c> parameter.</description></item>
+    /// </list>
+    /// </remarks>
     [Fact]
     public void Constructor_WithEmptyErrorCode_ShouldThrowArgumentException()
     {
+        // Arrange
+
         // Act
         var action = () => new DomainException(string.Empty, "message");
 
@@ -55,9 +132,23 @@ public sealed class DomainExceptionTests
         exception.Message.Should().Contain("ErrorCode required.");
     }
 
+    /// <summary>
+    /// Verifies that the constructor throws an
+    /// <see cref="ArgumentException"/> when the supplied
+    /// error code consists only of white-space characters.
+    /// </summary>
+    /// <remarks>
+    /// Expected Result:
+    /// <list type="bullet">
+    /// <item><description>An <see cref="ArgumentException"/> is thrown.</description></item>
+    /// <item><description>The exception identifies the <c>errorCode</c> parameter.</description></item>
+    /// </list>
+    /// </remarks>
     [Fact]
     public void Constructor_WithWhitespaceErrorCode_ShouldThrowArgumentException()
     {
+        // Arrange
+
         // Act
         var action = () => new DomainException("   ", "message");
 
@@ -70,6 +161,19 @@ public sealed class DomainExceptionTests
         exception.Message.Should().Contain("ErrorCode required.");
     }
 
+    #endregion
+
+    #region Exception Properties
+
+    /// <summary>
+    /// Verifies that the constructor preserves the supplied exception message.
+    /// </summary>
+    /// <remarks>
+    /// Expected Result:
+    /// <list type="bullet">
+    /// <item><description><see cref="Exception.Message"/> equals the supplied message.</description></item>
+    /// </list>
+    /// </remarks>
     [Fact]
     public void Constructor_ShouldStoreMessage()
     {
@@ -83,9 +187,22 @@ public sealed class DomainExceptionTests
         exception.Message.Should().Be(message);
     }
 
+    /// <summary>
+    /// Verifies that the constructor initializes
+    /// <see cref="Exception.InnerException"/> to
+    /// <see langword="null"/> when no inner exception is supplied.
+    /// </summary>
+    /// <remarks>
+    /// Expected Result:
+    /// <list type="bullet">
+    /// <item><description><see cref="Exception.InnerException"/> is <see langword="null"/>.</description></item>
+    /// </list>
+    /// </remarks>
     [Fact]
     public void Constructor_ShouldInitializeWithoutInnerException()
     {
+        // Arrange
+
         // Act
         var exception = new DomainException(
             "DOMAIN_ERROR",
@@ -94,4 +211,6 @@ public sealed class DomainExceptionTests
         // Assert
         exception.InnerException.Should().BeNull();
     }
+
+    #endregion
 }
