@@ -46,6 +46,19 @@ public sealed class RoleScope
     : ValueObject
 {
     /// <summary>
+    /// Supported scope values.
+    /// </summary>
+    private static readonly HashSet<string> SupportedScopes =
+        new(StringComparer.OrdinalIgnoreCase)
+        {
+        "GLOBAL",
+        "TENANT",
+        "ORGANIZATION",
+        "BUSINESS_UNIT",
+        "DEPARTMENT"
+        };
+
+    /// <summary>
     /// Gets the global scope.
     /// </summary>
     public static RoleScope Global { get; } =
@@ -74,20 +87,6 @@ public sealed class RoleScope
     /// </summary>
     public static RoleScope Department { get; } =
         new("DEPARTMENT");
-
-    /// <summary>
-    /// Supported scope values.
-    /// </summary>
-    private static readonly HashSet<string>
-        SupportedScopes =
-        new(StringComparer.OrdinalIgnoreCase)
-        {
-            Global.Value,
-            Tenant.Value,
-            Organization.Value,
-            BusinessUnit.Value,
-            Department.Value
-        };
 
     /// <summary>
     /// Gets scope value.

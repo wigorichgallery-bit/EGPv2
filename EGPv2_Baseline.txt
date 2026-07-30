@@ -242,7 +242,16 @@ src
                 UserAccount.cs
             Constants
                 SystemRoleIds.cs
-            DomainEvents
+            Enums
+                AuthenticationChallengeCancellationReason.cs
+                AuthenticationChallengePurpose.cs
+                AuthenticationChallengeStatus.cs
+                AuthenticationChallengeType.cs
+                MFAMethod.cs
+                UserStatus.cs
+            ErrorCodes
+                IdentityDomainErrorCodes.cs
+            Events
                 AuthenticationChallenge
                     AuthenticationChallengeCancelledDomainEvent.cs
                     AuthenticationChallengeCompletedDomainEvent.cs
@@ -263,15 +272,6 @@ src
                     UserCreatedDomainEvent.cs
                     UserLockedDomainEvent.cs
                     UserUnlockedDomainEvent.cs
-            Enums
-                AuthenticationChallengeCancellationReason.cs
-                AuthenticationChallengePurpose.cs
-                AuthenticationChallengeStatus.cs
-                AuthenticationChallengeType.cs
-                MFAMethod.cs
-                UserStatus.cs
-            Errors
-                IdentityDomainErrorCodes.cs
             ValueObjects
                 ChallengeSecret.cs
                 EmailAddress.cs
@@ -304,6 +304,7 @@ src
                 Guard.cs
             Validation
                 EmailAddressValidator.cs
+            AssemblyInfo.cs
             GlobalUsings.cs
             Platform.SharedKernel.csproj
     Infrastructure
@@ -529,4 +530,111 @@ src
             Platform.WebApi.http
             Program.cs
 tests
+    Platform.Identity.Application.UnitTests
+        Builders
+        Configuration
+        Errors
+        Features
+            Authentication
+                Builder
+                Factories
+                Login
+                Logout
+                Mapping
+                Policies
+                RefreshToken
+                Services
+                ValidateToken
+                VerifyTotp
+            Roles
+            Users
+        Fixtures
+        TestHelpers
+        GlobalUsing.cs
+        Platform.Identity.Application.UnitTests.csproj
+    Platform.Identity.Domain.UnitTests
+        Aggregates
+            AuthenticationChallengeTests.cs
+            RoleTests.cs
+            UserAccountTests.cs
+        Constants
+            SystemRoleIdsTests.cs
+        Enums
+            AuthenticationChallengeCancellationReasonTests.cs
+            AuthenticationChallengePurposeTests.cs
+            AuthenticationChallengeStatusTests.cs
+            AuthenticationChallengeTypeTests.cs
+            MFAMethodTetsts.cs
+            UserStatusTests.cs
+        ErrorCodes
+            IdentityDomainErrorCodesTests.cs
+        Events
+            AuthenticationChallenge
+                AuthenticationChallengeCancelledDomainEventTests.cs
+                AuthenticationChallengeCompletedDomainEventTests.cs
+                AuthenticationChallengeCreatedDomainEventTests.cs
+                AuthenticationChallengeExpiredDomainEventTests.cs
+                AuthenticationChallengeLockedDomainEventTests.cs
+            Role
+                RoleAssignedDomainEventTests.cs
+                RoleRemovedDomainEventTests.cs
+            UserAccount
+                EmailVerifiedDomainEventTests.cs
+                MFADisabledDomainEventTests.cs
+                MFAEnabledDomainEventTests.cs
+                PasswordChangedDomainEventTests.cs
+                PhoneVerifiedDomainEventTests.cs
+                SessionInvalidatedDomainEventTests.cs
+                TotpSecretSetDomainEventTests.cs
+                UserCreatedDomainEventTests.cs
+                UserLockedDomainEventTests.cs
+                UserUnlockedDomainEventTests.cs
+        TestResults
+            060f977e-fe3a-4ad3-8e0f-d302d562ab5b
+                coverage.cobertura.xml
+            c50afef1-925b-46bb-8ddb-8b0d05ede23e
+                coverage.cobertura.xml
+        ValueObjects
+            ChallengeSecretTests.cs
+            EmailAddressTests.cs
+            PermissionIdTests.cs
+            PhoneNumberTests.cs
+            RoleAssignmentTests.cs
+            RoleScopeTests.cs
+        GlobalUsings.cs
+        Platform.Identity.Domain.UnitTests.csproj
+    Platform.Pipeline.UnitTests
+        Abstractions
+        Fixtures
+        Governance
+        Logging
+        Models
+        TestHelpers
+        Transaction
+        Validation
+        GlobalUsings.cs
+        Platform.Pipeline.UnitTests.csproj
+    Platform.SharedKernel.UnitTests
+        Abstractions
+        Base
+            AggregateRootTests.cs
+            BaseEntityTests.cs
+            DomainEventTests.cs
+            ValueObjectTests.cs
+        Exceptions
+            DomainExceptionTests.cs
+        Results
+            ErrorTests.cs
+            ErrorTypeTests.cs
+            ResultOfTTests.cs
+            ResultTests.cs
+        TestHelpers
+            TestData.cs
+            TestValueObject.cs
+        Utilities
+            GuardTests.cs
+        Validation
+            EmailAddressValidatorTests.cs
+        GlobalUsings.cs
+        Platform.SharedKernel.UnitTests.csproj
 Enterprise.Governance.Platform.slnx

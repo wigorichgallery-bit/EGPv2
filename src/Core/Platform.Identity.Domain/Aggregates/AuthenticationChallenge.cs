@@ -569,10 +569,15 @@ public sealed class AuthenticationChallenge : AggregateRoot
             Lock(nowUtc);
         }
     }
-    
+
     /// <summary>
-    /// Locks the authentication challenge.
+    /// Locks the authentication challenge after the
+    /// configured failed authentication attempt threshold
+    /// has been reached.
     ///
+    /// This is an internal aggregate state transition and
+    /// is not intended to be invoked directly by
+    /// application code.
     /// <para>
     /// Transitions the authentication challenge from the
     /// <see cref="AuthenticationChallengeStatus.Pending"/>
@@ -621,13 +626,20 @@ public sealed class AuthenticationChallenge : AggregateRoot
     /// Thrown when the authentication challenge
     /// cannot transition to the locked state.
     /// </exception>
-    public void Lock(
+    private void Lock(
         DateTime nowUtc)
     {
         Guard.AgainstNonUtc(
             nowUtc,
             nameof(nowUtc));
 
+        if (FailedAttemptCount <= 0)
+        {
+            throw new DomainException(
+                IdentityDomainErrorCodes.InvalidState,
+                "Authentication challenge cannot be locked before any failed verification attempt has been recorded.");
+        }
+        
         EnsurePending();
 
         EnsureNotExpired(nowUtc);

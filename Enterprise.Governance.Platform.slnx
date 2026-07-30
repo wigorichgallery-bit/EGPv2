@@ -20,6 +20,9 @@
     <Project Path="src/Web/Platform.WebApi/Platform.WebApi.csproj" />
   </Folder>
   <Folder Name="/tests/">
+    <Project Path="tests/Platform.Identity.Application.UnitTests/Platform.Identity.Application.UnitTests.csproj" />
+    <Project Path="tests/Platform.Identity.Domain.UnitTests/Platform.Identity.Domain.UnitTests.csproj" />
+    <Project Path="tests/Platform.Pipeline.UnitTests/Platform.Pipeline.UnitTests.csproj" />
     <Project Path="tests/Platform.SharedKernel.UnitTests/Platform.SharedKernel.UnitTests.csproj" />
   </Folder>
 </Solution>
