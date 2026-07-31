@@ -229,6 +229,7 @@ src
                 ValidationBehavior.cs
                 ValidationBehaviorT.cs
                 ValidationFailureFactory.cs
+            AssemblInfo.cs
             GlobalUsings.cs
             Platform.Pipeline.csproj
         Platform.Security.Application
@@ -486,6 +487,7 @@ src
                 JwtTokenProvider.cs
             GlobalUsings.cs
             Platform.TokenProvider.csproj
+        Platform.Security.Infrastructure.zip
     Web
         Platform.WebApi
             Composition
@@ -605,13 +607,41 @@ tests
         Platform.Identity.Domain.UnitTests.csproj
     Platform.Pipeline.UnitTests
         Abstractions
+            ICommandHandlerTests.cs
+            IValidatorTests.cs
+            IQueryValidatorTests.cs
+            IQueryTTests.cs
+            IQueryTests.cs
+            IQueryHandlerTests.cs
+            IPipelineOrderedTests.cs
+            IPipelineExecutorTests.cs
+            IPipelineBehaviorTests.cs
+            IGovernanceRequestTests.cs
+            IGovernanceEvaluatorTests.cs
+            IExecutionLoggerTests.cs
+            ICommandValidatorTests.cs
+            ICommandTTests.cs
+            ICommandTests.cs
+            ICommandHandlerTTests.cs
+            ValidationErrorTests.cs
+            ValidationResultTests.cs
         Fixtures
         Governance
+            GovernanceBehaviorTests.cs
+            GovernanceBehaviorTTests.cs
         Logging
+            LoggingBehaviorTests.cs
+            LoggingBehaviorTTests.cs
         Models
+            ExecutionLogEntryTests.cs
         TestHelpers
         Transaction
+            TransactionBehaviorTests.cs
+            TransactionBehaviorTTests.cs
         Validation
+            ValidationBehaviorTests.cs
+            ValidationBehaviorTTests.cs
+            ValidationFailureFactoryTests.cs
         GlobalUsings.cs
         Platform.Pipeline.UnitTests.csproj
     Platform.SharedKernel.UnitTests
