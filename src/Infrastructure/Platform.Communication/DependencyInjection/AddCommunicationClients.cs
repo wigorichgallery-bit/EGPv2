@@ -25,18 +25,53 @@ internal static class AddCommunicationClientsExtensions
     {
         ArgumentNullException.ThrowIfNull(services);
 
+        // ==========================================================
         // Email
-        services.AddTransient<ISmtpClient, SmtpClient>();
-        services.AddTransient<ISendGridClient, SendGridClient>();
-        services.AddTransient<IGraphClient, GraphClient>();
+        // ==========================================================
 
+        services.AddTransient<
+            IMailKitSmtpClientFactory,
+            MailKitSmtpClientFactory>();
+
+        services.AddSingleton<
+            ISendGridSdkClientFactory,
+            SendGridSdkClientFactory>();
+
+        services.AddTransient<
+            Platform.Communication.Channels.Email.Clients.ISmtpClient,
+            SmtpClient>();
+
+        services.AddTransient<
+            ISendGridClient,
+            SendGridClient>();
+
+        services.AddTransient<
+            IGraphClient,
+            GraphClient>();
+
+        // ==========================================================
         // SMS
-        services.AddTransient<ITwilioSmsClient, TwilioSmsClient>();
-        services.AddTransient<IVonageSmsClient, VonageSmsClient>();
+        // ==========================================================
 
+        services.AddTransient<
+            ITwilioSmsClient,
+            TwilioSmsClient>();
+
+        services.AddTransient<
+            IVonageSmsClient,
+            VonageSmsClient>();
+
+        // ==========================================================
         // WhatsApp
-        services.AddTransient<IMetaCloudClient, MetaCloudClient>();
-        services.AddTransient<ITwilioWhatsAppClient, TwilioWhatsAppClient>();
+        // ==========================================================
+
+        services.AddTransient<
+            IMetaCloudClient,
+            MetaCloudClient>();
+
+        services.AddTransient<
+            ITwilioWhatsAppClient,
+            TwilioWhatsAppClient>();
 
         return services;
     }

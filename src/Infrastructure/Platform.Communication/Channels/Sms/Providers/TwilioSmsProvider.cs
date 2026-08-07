@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Logging;
 
 using Platform.Communication.Channels.Sms.Clients;
+using Platform.Communication.Exceptions;
 using Platform.Communication.Models;
 
 namespace Platform.Communication.Channels.Sms.Providers;
@@ -66,18 +67,20 @@ internal sealed class TwilioSmsProvider : ISmsProvider
             {
                 cancellationToken.ThrowIfCancellationRequested();
 
-                var result = await _client.SendMessageAsync(
-                        recipient.Value,
-                        message.Message,
-                        cancellationToken)
-                    .ConfigureAwait(false);
-
+                VendorDeliveryResult result =
+                    await _client
+                        .SendMessageAsync(
+                            recipient.Value,
+                            message.Message,
+                            cancellationToken)
+                        .ConfigureAwait(false);
+                        
                 lastMessageId = result.MessageId;
 
-                _logger.LogInformation(
-                    "SMS message sent successfully via Twilio. Recipient: {Recipient}, MessageId: {MessageId}",
-                    recipient.Value,
-                    result.MessageId);
+                // _logger.LogInformation(
+                //     "SMS message sent successfully via Twilio. Recipient: {Recipient}, MessageId: {MessageId}",
+                //     recipient.Value,
+                //     result.MessageId);
             }
             if (string.IsNullOrWhiteSpace(lastMessageId))
             {
@@ -98,7 +101,7 @@ internal sealed class TwilioSmsProvider : ISmsProvider
 
             throw;
         }
-        catch (Exception exception)
+        catch (CommunicationException exception)
         {
             _logger.LogError(
                 exception,

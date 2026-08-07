@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Logging;
 
 using Platform.Communication.Channels.Sms.Clients;
+using Platform.Communication.Exceptions;
 using Platform.Communication.Models;
 
 namespace Platform.Communication.Channels.Sms.Providers;
@@ -8,7 +9,8 @@ namespace Platform.Communication.Channels.Sms.Providers;
 /// <summary>
 /// Represents a Vonage-based SMS provider.
 /// </summary>
-internal sealed class VonageSmsProvider : ISmsProvider
+internal sealed class VonageSmsProvider
+    : ISmsProvider
 {
     private readonly IVonageSmsClient _client;
 
@@ -52,11 +54,11 @@ internal sealed class VonageSmsProvider : ISmsProvider
                 "No recipient was specified.");
         }
 
+        cancellationToken.ThrowIfCancellationRequested();
+
         _logger.LogInformation(
             "Sending SMS message via Vonage to {RecipientCount} recipient(s).",
             message.To.Count);
-
-        cancellationToken.ThrowIfCancellationRequested();
 
         try
         {
@@ -66,16 +68,18 @@ internal sealed class VonageSmsProvider : ISmsProvider
             {
                 cancellationToken.ThrowIfCancellationRequested();
 
-                var result = await _client.SendMessageAsync(
-                        recipient.Value,
-                        message.Message,
-                        cancellationToken)
-                    .ConfigureAwait(false);
+                VendorDeliveryResult result =
+                    await _client
+                        .SendMessageAsync(
+                            recipient.Value,
+                            message.Message,
+                            cancellationToken)
+                        .ConfigureAwait(false);
 
                 lastMessageId = result.MessageId;
 
                 _logger.LogInformation(
-                    "SMS message sent successfully via Vonage. Recipient: {Recipient}, MessageId: {MessageId}",
+                    "SMS message successfully sent via Vonage. Recipient: {Recipient}, MessageId: {MessageId}",
                     recipient.Value,
                     result.MessageId);
             }
@@ -90,7 +94,8 @@ internal sealed class VonageSmsProvider : ISmsProvider
                 "Successfully delivered SMS message to {RecipientCount} recipient(s).",
                 message.To.Count);
 
-            return DeliveryResult.Success(lastMessageId);
+            return DeliveryResult.Success(
+                lastMessageId);
         }
         catch (OperationCanceledException)
         {
@@ -99,7 +104,7 @@ internal sealed class VonageSmsProvider : ISmsProvider
 
             throw;
         }
-        catch (Exception exception)
+        catch (CommunicationException exception)
         {
             _logger.LogError(
                 exception,

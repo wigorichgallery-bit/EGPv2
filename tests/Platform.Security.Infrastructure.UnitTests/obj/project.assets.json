@@ -1559,6 +1559,7 @@
       "Moq >= 4.20.72",
       "Platform.Identity.Application >= 1.0.0",
       "Platform.Identity.Domain >= 1.0.0",
+      "Platform.Pipeline >= 1.0.0",
       "Platform.Security.Infrastructure >= 1.0.0",
       "Platform.SharedKernel >= 1.0.0",
       "coverlet.collector >= 10.0.1",
@@ -1611,6 +1612,9 @@
           "projectReferences": {
             "D:\\SSB_Project\\ERPSYS\\EGPv2\\src\\Application\\Platform.Identity.Application\\Platform.Identity.Application.csproj": {
               "projectPath": "D:\\SSB_Project\\ERPSYS\\EGPv2\\src\\Application\\Platform.Identity.Application\\Platform.Identity.Application.csproj"
+            },
+            "D:\\SSB_Project\\ERPSYS\\EGPv2\\src\\Application\\Platform.Pipeline\\Platform.Pipeline.csproj": {
+              "projectPath": "D:\\SSB_Project\\ERPSYS\\EGPv2\\src\\Application\\Platform.Pipeline\\Platform.Pipeline.csproj"
             },
             "D:\\SSB_Project\\ERPSYS\\EGPv2\\src\\Core\\Platform.Identity.Domain\\Platform.Identity.Domain.csproj": {
               "projectPath": "D:\\SSB_Project\\ERPSYS\\EGPv2\\src\\Core\\Platform.Identity.Domain\\Platform.Identity.Domain.csproj"

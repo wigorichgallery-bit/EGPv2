@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Logging;
 
 using Platform.Communication.Channels.WhatsApp.Clients;
-using Platform.Communication.Channels.WhatsApp.Models;
+using Platform.Communication.Exceptions;
 using Platform.Communication.Models;
 
 namespace Platform.Communication.Channels.WhatsApp.Providers;
@@ -9,7 +9,8 @@ namespace Platform.Communication.Channels.WhatsApp.Providers;
 /// <summary>
 /// Represents a Twilio-based WhatsApp provider.
 /// </summary>
-internal sealed class TwilioWhatsAppProvider : IWhatsAppProvider
+internal sealed class TwilioWhatsAppProvider
+    : IWhatsAppProvider
 {
     private readonly ITwilioWhatsAppClient _client;
 
@@ -53,11 +54,11 @@ internal sealed class TwilioWhatsAppProvider : IWhatsAppProvider
                 "No recipient was specified.");
         }
 
+        cancellationToken.ThrowIfCancellationRequested();
+
         _logger.LogInformation(
             "Sending WhatsApp message via Twilio to {RecipientCount} recipient(s).",
             message.To.Count);
-
-        cancellationToken.ThrowIfCancellationRequested();
 
         try
         {
@@ -67,25 +68,34 @@ internal sealed class TwilioWhatsAppProvider : IWhatsAppProvider
             {
                 cancellationToken.ThrowIfCancellationRequested();
 
-                var result = await _client.SendMessageAsync(
-                        recipient.Value,
-                        message.Message,
-                        cancellationToken)
-                    .ConfigureAwait(false);
+                VendorDeliveryResult result =
+                    await _client
+                        .SendMessageAsync(
+                            recipient.Value,
+                            message.Message,
+                            cancellationToken)
+                        .ConfigureAwait(false);
 
                 lastMessageId = result.MessageId;
 
                 _logger.LogInformation(
-                    "WhatsApp message sent successfully via Twilio. Recipient: {Recipient}, MessageId: {MessageId}",
+                    "WhatsApp message successfully sent via Twilio. Recipient: {Recipient}, MessageId: {MessageId}",
                     recipient.Value,
                     result.MessageId);
+            }
+
+            if (string.IsNullOrWhiteSpace(lastMessageId))
+            {
+                return DeliveryResult.Failure(
+                    "The provider did not return a message identifier.");
             }
 
             _logger.LogInformation(
                 "Successfully delivered WhatsApp message to {RecipientCount} recipient(s).",
                 message.To.Count);
 
-            return DeliveryResult.Success(lastMessageId);
+            return DeliveryResult.Success(
+                lastMessageId);
         }
         catch (OperationCanceledException)
         {
@@ -94,7 +104,7 @@ internal sealed class TwilioWhatsAppProvider : IWhatsAppProvider
 
             throw;
         }
-        catch (Exception exception)
+        catch (CommunicationException exception)
         {
             _logger.LogError(
                 exception,

@@ -16,6 +16,7 @@ internal sealed class WhatsAppSender : IWhatsAppSender
     /// <param name="provider">The WhatsApp provider.</param>
     public WhatsAppSender(IWhatsAppProvider provider)
     {
+        ArgumentNullException.ThrowIfNull(provider);
         _provider = provider;
     }
 

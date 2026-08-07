@@ -20,10 +20,13 @@
     <Project Path="src/Web/Platform.WebApi/Platform.WebApi.csproj" />
   </Folder>
   <Folder Name="/tests/">
+    <Project Path="tests/Platform.Communication.UnitTests/Platform.Communication.UnitTests.csproj" />
     <Project Path="tests/Platform.Identity.Application.UnitTests/Platform.Identity.Application.UnitTests.csproj" />
     <Project Path="tests/Platform.Identity.Domain.UnitTests/Platform.Identity.Domain.UnitTests.csproj" />
+    <Project Path="tests/Platform.Persistence.UnitTests/Platform.Persistence.UnitTests.csproj" />
     <Project Path="tests/Platform.Pipeline.UnitTests/Platform.Pipeline.UnitTests.csproj" />
     <Project Path="tests/Platform.Security.Infrastructure.UnitTests/Platform.Security.Infrastructure.UnitTests.csproj" />
     <Project Path="tests/Platform.SharedKernel.UnitTests/Platform.SharedKernel.UnitTests.csproj" />
+    <Project Path="tests/Platform.TokenProvider.UnitTests/Platform.TokenProvider.UnitTests.csproj" />
   </Folder>
 </Solution>

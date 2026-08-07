@@ -1,3 +1,4 @@
+### .\GenerateBaseline.ps1 > EGPv2_Baseline.txt
 $exclude = @(
     "bin",
     "obj",

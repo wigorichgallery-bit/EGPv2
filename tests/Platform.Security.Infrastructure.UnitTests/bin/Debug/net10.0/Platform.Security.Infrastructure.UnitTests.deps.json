@@ -13,6 +13,7 @@
           "Moq": "4.20.72",
           "Platform.Identity.Application": "1.0.0",
           "Platform.Identity.Domain": "1.0.0",
+          "Platform.Pipeline": "1.0.0",
           "Platform.Security.Infrastructure": "1.0.0",
           "Platform.SharedKernel": "1.0.0",
           "xunit": "2.9.3"

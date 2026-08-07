@@ -1,0 +1,16 @@
+using MailKit.Net.Smtp;
+
+namespace Platform.Communication.Channels.Email.Clients;
+
+/// <summary>
+/// Default MailKit SMTP client factory.
+/// </summary>
+internal sealed class SmtpClientFactory
+    : ISmtpClientFactory
+{
+    /// <inheritdoc/>
+    public MailKit.Net.Smtp.ISmtpClient Create()
+    {
+        return new MailKit.Net.Smtp.SmtpClient();
+    }
+}

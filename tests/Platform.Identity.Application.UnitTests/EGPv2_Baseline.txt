@@ -1,0 +1,86 @@
+Builders
+Configuration
+    Authentication
+        AuthenticationChallengeOptionsTests.cs
+        AuthenticationMessageOptionsTests.cs
+        AuthenticationOptionsTests.cs
+Contracts
+    Approval
+    Audit
+    Authentications
+        Dtos
+            AuthenticationTokenDtoTests.cs
+            LoginContextDtoTests.cs
+        Enums
+            AuthenticationChallengePurposeTests.cs
+            AuthenticationChallengeTypeTests.cs
+            AuthenticationStatusTests.cs
+        Requests
+            LoginRequestTests.cs
+            TokenGenerationRequestTests.cs
+        Responses
+            LoginResponseTests.cs
+    Authorization
+    Common
+    Governance
+    Roles
+    Users
+Errors
+    IdentityErrorMapperTests.cs
+    IdentityErrorsTests.cs
+Features
+    Authentication
+        Actions
+            Login
+                LoginCommandTests.cs
+                LoginUseCaseTests.cs
+                LoginValidatorTests.cs
+            Logout
+            RefreshToken
+            ValidateToken
+            VerifyTotp
+        Builder
+            AuthenticationChallengeBuilderTests.cs
+        Factories
+            AuthenticationChallengeSecretFactoryTests.cs
+        Mapping
+            AuthenticationChallengePurposeMapperTests.cs
+            AuthenticationChallengeTypeMapperTests.cs
+            AuthenticationChallengeTypeResolverTests.cs
+        Models
+            AuthenticationChallengeBuildResultTests.cs
+            AuthenticationChallengeDeliveryRequestTests.cs
+            AuthenticationChallengeSecretResultTests.cs
+            AuthenticationEmailMessageTests.cs
+            AuthenticationSmsMessageTests.cs
+            AuthenticationWhatsAppMessageTests.cs
+            TotpProvisioningResultTests.cs
+        Policies
+            AuthenticationContextTests.cs
+            AuthenticationDecisionTests.cs
+            DefaultAuthenticationPolicyEvaluatorTests.cs
+            PolicyEvaluationResultTests.cs
+            VerificationPolicyTests.cs
+        Queries
+        Services
+            AuthenticationChallengeDeliveryServiceTests.cs
+    Commons
+        ValidationConstantsTests.cs
+        ValidationPatternsTests.cs
+    Roles
+        Actions
+        Mapping
+        Queries
+    Users
+        Actions
+        Mapping
+        Queries
+Fixtures
+    Builders
+        UserAccountBuilder.cs
+    AuthenticationChallengeFixture.cs
+    ChallengeSecretFixture.cs
+    UserAccountFixture.cs
+TestHelpers
+GlobalUsing.cs
+Platform.Identity.Application.UnitTests.csproj

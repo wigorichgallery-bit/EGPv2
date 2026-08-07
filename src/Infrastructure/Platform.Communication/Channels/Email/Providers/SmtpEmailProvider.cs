@@ -1,3 +1,4 @@
+using MailKit;
 using Microsoft.Extensions.Logging;
 
 using Platform.Communication.Channels.Email.Clients;
@@ -69,7 +70,7 @@ internal sealed class SmtpEmailProvider : IEmailProvider
 
             throw;
         }
-        catch (Exception exception)
+        catch (CommandException exception)
         {
             _logger.LogError(
                 exception,

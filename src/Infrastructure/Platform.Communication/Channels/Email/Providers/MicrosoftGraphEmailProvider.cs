@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Logging;
 
 using Platform.Communication.Channels.Email.Clients;
+using Platform.Communication.Exceptions;
 using Platform.Communication.Models;
 
 namespace Platform.Communication.Channels.Email.Providers;
@@ -86,7 +87,7 @@ internal sealed class MicrosoftGraphEmailProvider : IEmailProvider
 
             throw;
         }
-        catch (Exception exception)
+        catch (CommunicationException exception)
         {
             _logger.LogError(
                 exception,

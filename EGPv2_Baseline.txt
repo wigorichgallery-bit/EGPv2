@@ -191,6 +191,7 @@ src
                         GetUsers
                             GetUsersQuery.cs
                             GetUsersQueryHandler.cs
+            AssemblyInfo.cs
             FolderStruktur.md
             GlobalUsings.cs
             Platform.Identity.Application.csproj
@@ -487,7 +488,9 @@ src
                 JwtTokenProvider.cs
             GlobalUsings.cs
             Platform.TokenProvider.csproj
-        Platform.Security.Infrastructure.zip
+        Platform.Communication.zip
+        Platform.Persistence.zip
+        Platform.TokenProvider.zip
     Web
         Platform.WebApi
             Composition
@@ -532,25 +535,139 @@ src
             Platform.WebApi.http
             Program.cs
 tests
+    Platform.Communication.UnitTests
+        GlobalUsings.cs
+        Platform.Communication.UnitTests.csproj
     Platform.Identity.Application.UnitTests
         Builders
         Configuration
+            Authentication
+                AuthenticationChallengeOptionsTests.cs
+                AuthenticationMessageOptionsTests.cs
+                AuthenticationOptionsTests.cs
+        Contracts
+            Approval
+            Audit
+            Authentications
+                Dtos
+                    AuthenticationTokenDtoTests.cs
+                    LoginContextDtoTests.cs
+                Enums
+                    AuthenticationChallengePurposeTests.cs
+                    AuthenticationChallengeTypeTests.cs
+                    AuthenticationStatusTests.cs
+                Requests
+                    LoginRequestTests.cs
+                    TokenGenerationRequestTests.cs
+                Responses
+                    LoginResponseTests.cs
+            Authorization
+            Common
+            Governance
+            Roles
+                RoleDtoTests.cs
+            Users
+                UserDtoTests.cs
         Errors
+            IdentityErrorMapperTests.cs
+            IdentityErrorsTests.cs
         Features
             Authentication
+                Actions
+                    Login
+                        LoginCommandTests.cs
+                        LoginUseCaseTests.cs
+                        LoginValidatorTests.cs
+                    Logout
+                    RefreshToken
+                    ValidateToken
+                    VerifyTotp
                 Builder
+                    AuthenticationChallengeBuilderTests.cs
                 Factories
-                Login
-                Logout
+                    AuthenticationChallengeSecretFactoryTests.cs
                 Mapping
+                    AuthenticationChallengePurposeMapperTests.cs
+                    AuthenticationChallengeTypeMapperTests.cs
+                    AuthenticationChallengeTypeResolverTests.cs
+                Models
+                    AuthenticationChallengeBuildResultTests.cs
+                    AuthenticationChallengeDeliveryRequestTests.cs
+                    AuthenticationChallengeSecretResultTests.cs
+                    AuthenticationEmailMessageTests.cs
+                    AuthenticationSmsMessageTests.cs
+                    AuthenticationWhatsAppMessageTests.cs
+                    TotpProvisioningResultTests.cs
                 Policies
-                RefreshToken
+                    AuthenticationContextTests.cs
+                    AuthenticationDecisionTests.cs
+                    DefaultAuthenticationPolicyEvaluatorTests.cs
+                    PolicyEvaluationResultTests.cs
+                    VerificationPolicyTests.cs
+                Queries
                 Services
-                ValidateToken
-                VerifyTotp
+                    AuthenticationChallengeDeliveryServiceTests.cs
+            Commons
+                ValidationConstantsTests.cs
+                ValidationPatternsTests.cs
             Roles
+                Actions
+                    AssignRole
+                        AssignRoleCommandTests.cs
+                        AssignRoleUseCaseTests.cs
+                        AssignRoleValidatorTests.cs
+                    RemoveRole
+                        RemoveRoleCommandTests.cs
+                        RemoveRoleUseCaseTests.cs
+                        RemoveRoleValidatorTests.cs
+                Mapping
+                Queries
+                    GetRolesQueryHandlerTests.cs
+                    GetRolesQueryTests.cs
             Users
+                Actions
+                    ChangePassword
+                        ChangePasswordCommandTests.cs
+                        ChangePasswordUseCaseTests.cs
+                        ChangePasswordValidatorTests.cs
+                    CreateUser
+                        CreateUserCommandTests.cs
+                        CreateUserUseCaseTests.cs
+                        CreateUserValidatorTests.cs
+                    DisableMfa
+                        DisableMfaCommandTests.cs
+                        DisableMfaUseCaseTests.cs
+                        DisableMfaValidatorTests.cs
+                    EnableMfa
+                        EnableMfaCommandTests.cs
+                        EnableMfaUseCaseTests.cs
+                        EnableMfaValidatorTests.cs
+                    VerifyEmail
+                        VerifyEmailCommandTests.cs
+                        VerifyEmailUseCaseTests.cs
+                        VerifyEmailValidatorTests.cs
+                    VerifyPhone
+                        VerifyPhoneCommandTests.cs
+                        VerifyPhoneUseCaseTests.cs
+                        VerifyPhoneValidatorTests.cs
+                Mapping
+                Queries
+                    GetUserById
+                        GetUserByIdQueryHandlerTests.cs
+                        GetUserByIdQueryTests.cs
+                    GetUserByUsername
+                        GetUserByUsernameQueryHandlerTests.cs
+                        GetUserByUsernameQueryTests.cs
+                    GetUsers
+                        GetUsersQueryHandlerTests.cs
+                        GetUsersQueryTests.cs
         Fixtures
+            Builders
+                UserAccountBuilder.cs
+            AuthenticationChallengeFixture.cs
+            ChallengeSecretFixture.cs
+            RoleFixture.cs
+            UserAccountFixture.cs
         TestHelpers
         GlobalUsing.cs
         Platform.Identity.Application.UnitTests.csproj
@@ -605,6 +722,9 @@ tests
             RoleScopeTests.cs
         GlobalUsings.cs
         Platform.Identity.Domain.UnitTests.csproj
+    Platform.Persistence.UnitTests
+        GlobalUsings.cs
+        Platform.Persistence.UnitTests.csproj
     Platform.Pipeline.UnitTests
         Abstractions
             ICommandHandlerTests.cs
@@ -644,6 +764,33 @@ tests
             ValidationFailureFactoryTests.cs
         GlobalUsings.cs
         Platform.Pipeline.UnitTests.csproj
+    Platform.Security.Infrastructure.UnitTests
+        Authentication
+            Delivery
+                EmailAuthenticationChallengeSenderTests.cs
+                SmsAuthenticationChallengeSenderTests.cs
+                WhatsAppAuthenticationChallengeSenderTests.cs
+            Formatting
+                AuthenticationChallengeEmailFormatterTests.cs
+                AuthenticationChallengeSmsFormatterTests.cs
+                AuthenticationChallengeWhatsAppFormatterTests.cs
+            Generators
+                OtpGeneratorTests.cs
+                TotpCodeGeneratorTests.cs
+                TotpSecretGeneratorTests.cs
+            Passwords
+                PasswordHasherTests.cs
+            Provisioning
+                TotpProvisioningServiceTests.cs
+            Verification
+                TotpVerifierTests.cs
+                VerificationCodeValidatorTests.cs
+        Fixtures
+            AuthenticationFixture.cs
+            PasswordFixture.cs
+            TotpFixture.cs
+        GlobalUsings.cs
+        Platform.Security.Infrastructure.UnitTests.csproj
     Platform.SharedKernel.UnitTests
         Abstractions
         Base
@@ -667,4 +814,7 @@ tests
             EmailAddressValidatorTests.cs
         GlobalUsings.cs
         Platform.SharedKernel.UnitTests.csproj
+    Platform.TokenProvider.UnitTests
+        GlobalUsings.cs
+        Platform.TokenProvider.UnitTests.csproj
 Enterprise.Governance.Platform.slnx

@@ -1,0 +1,17 @@
+using MailKit.Net.Smtp;
+
+namespace Platform.Communication.Channels.Email.Clients;
+
+/// <summary>
+/// Creates MailKit SMTP client instances.
+/// </summary>
+internal interface ISmtpClientFactory
+{
+    /// <summary>
+    /// Creates a new SMTP client.
+    /// </summary>
+    /// <returns>
+    /// A MailKit SMTP client.
+    /// </returns>
+    MailKit.Net.Smtp.ISmtpClient Create();
+}
