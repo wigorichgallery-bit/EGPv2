@@ -11,7 +11,7 @@ namespace Platform.Communication.Channels.Email.Providers;
 /// </summary>
 internal sealed class SmtpEmailProvider : IEmailProvider
 {
-    private readonly ISmtpClient _client;
+    private readonly IMailKitSmtpClient _client;
 
     private readonly ILogger<SmtpEmailProvider> _logger;
 
@@ -30,7 +30,7 @@ internal sealed class SmtpEmailProvider : IEmailProvider
     /// <see langword="null"/>.
     /// </exception>
     public SmtpEmailProvider(
-        ISmtpClient client,
+        IMailKitSmtpClient client,
         ILogger<SmtpEmailProvider> logger)
     {
         ArgumentNullException.ThrowIfNull(client);

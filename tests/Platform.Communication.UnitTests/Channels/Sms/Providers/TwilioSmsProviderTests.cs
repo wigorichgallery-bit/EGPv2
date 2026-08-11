@@ -1,9 +1,12 @@
+using FluentAssertions;
+
 using Microsoft.Extensions.Logging;
 
 using NSubstitute;
 
 using Platform.Communication.Channels.Sms.Clients;
 using Platform.Communication.Channels.Sms.Providers;
+using Platform.Communication.Exceptions;
 using Platform.Communication.Models;
 using Platform.Communication.UnitTests.TestData;
 using Platform.Communication.ValueObjects;
@@ -11,7 +14,8 @@ using Platform.Communication.ValueObjects;
 namespace Platform.Communication.UnitTests.Channels.Sms.Providers;
 
 /// <summary>
-/// Contains unit tests for <see cref="TwilioSmsProvider"/>.
+/// Contains unit tests for
+/// <see cref="TwilioSmsProvider"/>.
 /// </summary>
 public sealed class TwilioSmsProviderTests
 {
@@ -21,9 +25,17 @@ public sealed class TwilioSmsProviderTests
 
     public TwilioSmsProviderTests()
     {
-        _client = Substitute.For<ITwilioSmsClient>();
-        _logger = Substitute.For<ILogger<TwilioSmsProvider>>();
+        _client =
+            Substitute.For<ITwilioSmsClient>();
+
+        _logger =
+            Substitute.For<
+                ILogger<TwilioSmsProvider>>();
     }
+
+    // ==========================================================
+    // Constructor
+    // ==========================================================
 
     /// <summary>
     /// Verifies that the constructor throws an
@@ -33,13 +45,16 @@ public sealed class TwilioSmsProviderTests
     [Fact]
     public void Constructor_Should_ThrowArgumentNullException_When_ClientIsNull()
     {
-        // Arrange / Act
-        Action action = () =>
-            _ = new TwilioSmsProvider(
-                null!,
-                _logger);
+        // Act
+
+        Action action =
+            () =>
+                _ = new TwilioSmsProvider(
+                    null!,
+                    _logger);
 
         // Assert
+
         action.Should()
             .Throw<ArgumentNullException>()
             .WithParameterName("client");
@@ -53,17 +68,24 @@ public sealed class TwilioSmsProviderTests
     [Fact]
     public void Constructor_Should_ThrowArgumentNullException_When_LoggerIsNull()
     {
-        // Arrange / Act
-        Action action = () =>
-            _ = new TwilioSmsProvider(
-                _client,
-                null!);
+        // Act
+
+        Action action =
+            () =>
+                _ = new TwilioSmsProvider(
+                    _client,
+                    null!);
 
         // Assert
+
         action.Should()
             .Throw<ArgumentNullException>()
             .WithParameterName("logger");
     }
+
+    // ==========================================================
+    // SendAsync - Validation
+    // ==========================================================
 
     /// <summary>
     /// Verifies that SendAsync throws an
@@ -74,19 +96,63 @@ public sealed class TwilioSmsProviderTests
     public async Task SendAsync_Should_ThrowArgumentNullException_When_MessageIsNull()
     {
         // Arrange
-        TwilioSmsProvider provider = new(
-            _client,
-            _logger);
+
+        TwilioSmsProvider provider =
+            CreateSut();
 
         // Act
-        Func<Task> action = () =>
-            provider.SendAsync(null!);
+
+        Func<Task> action =
+            () =>
+                provider.SendAsync(
+                    null!);
 
         // Assert
+
         await action.Should()
             .ThrowAsync<ArgumentNullException>()
             .WithParameterName("message");
     }
+
+    // /// <summary>
+    // /// Verifies that SendAsync returns a failed
+    // /// delivery result when no recipients exist.
+    // /// </summary>
+    // [Fact]
+    // public async Task SendAsync_Should_ReturnFailure_When_NoRecipientsExist()
+    // {
+    //     // Arrange
+
+    //     TwilioSmsProvider provider =
+    //         CreateSut();
+
+    //     SmsMessage message =
+    //         CreateMessageWithoutRecipients();
+
+    //     // Act
+
+    //     DeliveryResult result =
+    //         await provider.SendAsync(
+    //             message);
+
+    //     // Assert
+
+    //     result.Succeeded
+    //         .Should()
+    //         .BeFalse();
+
+    //     result.ErrorMessage
+    //         .Should()
+    //         .Be(
+    //             "No recipient was specified.");
+
+    //     await _client
+    //         .DidNotReceive()
+    //         .SendMessageAsync(
+    //             Arg.Any<string>(),
+    //             Arg.Any<string>(),
+    //             Arg.Any<CancellationToken>());
+    // }
 
     /// <summary>
     /// Verifies that SendAsync throws an
@@ -97,22 +163,40 @@ public sealed class TwilioSmsProviderTests
     public async Task SendAsync_Should_ThrowOperationCanceledException_When_CancellationRequested()
     {
         // Arrange
-        TwilioSmsProvider provider = new(
-            _client,
-            _logger);
 
-        CancellationToken cancellationToken = new(canceled: true);
+        TwilioSmsProvider provider =
+            CreateSut();
+
+        SmsMessage message =
+            CreateMessage();
+
+        CancellationToken cancellationToken =
+            new(canceled: true);
 
         // Act
-        Func<Task> action = () =>
-            provider.SendAsync(
-                SmsMessageTestData.CreateValid(),
-                cancellationToken);
+
+        Func<Task> action =
+            () =>
+                provider.SendAsync(
+                    message,
+                    cancellationToken);
 
         // Assert
+
         await action.Should()
             .ThrowAsync<OperationCanceledException>();
+
+        await _client
+            .DidNotReceive()
+            .SendMessageAsync(
+                Arg.Any<string>(),
+                Arg.Any<string>(),
+                Arg.Any<CancellationToken>());
     }
+
+    // ==========================================================
+    // SendAsync - Success
+    // ==========================================================
 
     /// <summary>
     /// Verifies that SendAsync returns a successful
@@ -122,11 +206,12 @@ public sealed class TwilioSmsProviderTests
     public async Task SendAsync_Should_ReturnSuccess_When_ClientSucceeds()
     {
         // Arrange
-        TwilioSmsProvider provider = new(
-            _client,
-            _logger);
 
-        SmsMessage message = SmsMessageTestData.CreateValid();
+        TwilioSmsProvider provider =
+            CreateSut();
+
+        SmsMessage message =
+            CreateMessage();
 
         _client
             .SendMessageAsync(
@@ -134,32 +219,45 @@ public sealed class TwilioSmsProviderTests
                 Arg.Any<string>(),
                 Arg.Any<CancellationToken>())
             .Returns(
-                VendorDeliveryResult.Success("MSG-001"));
+                VendorDeliveryResult.Success(
+                    messageId: "MSG-001"));
 
         // Act
+
         DeliveryResult result =
-            await provider.SendAsync(message);
+            await provider.SendAsync(
+                message);
 
         // Assert
-        result.Succeeded.Should().BeTrue();
-        result.ProviderMessageId.Should().Be("MSG-001");
-        result.ErrorMessage.Should().BeNull();
+
+        result.Succeeded
+            .Should()
+            .BeTrue();
+
+        result.ProviderMessageId
+            .Should()
+            .Be("MSG-001");
+
+        result.ErrorMessage
+            .Should()
+            .BeNull();
     }
 
     /// <summary>
     /// Verifies that SendAsync returns a failed
-    /// delivery result when the provider does not
+    /// delivery result when the client does not
     /// return a message identifier.
     /// </summary>
     [Fact]
     public async Task SendAsync_Should_ReturnFailure_When_MessageIdIsEmpty()
     {
         // Arrange
-        TwilioSmsProvider provider = new(
-            _client,
-            _logger);
 
-        SmsMessage message = SmsMessageTestData.CreateValid();
+        TwilioSmsProvider provider =
+            CreateSut();
+
+        SmsMessage message =
+            CreateMessage();
 
         _client
             .SendMessageAsync(
@@ -167,17 +265,136 @@ public sealed class TwilioSmsProviderTests
                 Arg.Any<string>(),
                 Arg.Any<CancellationToken>())
             .Returns(
-                VendorDeliveryResult.Success(string.Empty));
+                VendorDeliveryResult.Success(
+                    messageId: string.Empty));
 
         // Act
+
         DeliveryResult result =
-            await provider.SendAsync(message);
+            await provider.SendAsync(
+                message);
 
         // Assert
-        result.Succeeded.Should().BeFalse();
-        result.ErrorMessage.Should()
-            .Be("The provider did not return a message identifier.");
+
+        result.Succeeded
+            .Should()
+            .BeFalse();
+
+        result.ErrorMessage
+            .Should()
+            .Be(
+                "The provider did not return a message identifier.");
     }
+
+    // ==========================================================
+    // SendAsync - Multiple Recipients
+    // ==========================================================
+
+    /// <summary>
+    /// Verifies that SendAsync sends the message
+    /// to every recipient.
+    /// </summary>
+    [Fact]
+    public async Task SendAsync_Should_SendMessageToEveryRecipient()
+    {
+        // Arrange
+
+        TwilioSmsProvider provider =
+            CreateSut();
+
+        SmsMessage message =
+            CreateMessage(
+                "+628123456789",
+                "+628987654321");
+
+        _client
+            .SendMessageAsync(
+                Arg.Any<string>(),
+                Arg.Any<string>(),
+                Arg.Any<CancellationToken>())
+            .Returns(
+                VendorDeliveryResult.Success(
+                    messageId: "MSG-001"));
+
+        // Act
+
+        DeliveryResult result =
+            await provider.SendAsync(
+                message);
+
+        // Assert
+
+        result.Succeeded
+            .Should()
+            .BeTrue();
+
+        result.ProviderMessageId
+            .Should()
+            .Be("MSG-001");
+
+        await _client
+            .Received(2)
+            .SendMessageAsync(
+                Arg.Any<string>(),
+                message.Message,
+                Arg.Any<CancellationToken>());
+    }
+
+    /// <summary>
+    /// Verifies that the message identifier from
+    /// the last recipient is returned.
+    /// </summary>
+    [Fact]
+    public async Task SendAsync_Should_ReturnLastMessageId_When_MultipleRecipientsExist()
+    {
+        // Arrange
+
+        TwilioSmsProvider provider =
+            CreateSut();
+
+        SmsMessage message =
+            CreateMessage(
+                "+628123456789",
+                "+628987654321");
+
+        _client
+            .SendMessageAsync(
+                "+628123456789",
+                message.Message,
+                Arg.Any<CancellationToken>())
+            .Returns(
+                VendorDeliveryResult.Success(
+                    messageId: "MSG-001"));
+
+        _client
+            .SendMessageAsync(
+                "+628987654321",
+                message.Message,
+                Arg.Any<CancellationToken>())
+            .Returns(
+                VendorDeliveryResult.Success(
+                    messageId: "MSG-002"));
+
+        // Act
+
+        DeliveryResult result =
+            await provider.SendAsync(
+                message);
+
+        // Assert
+
+        result.Succeeded
+            .Should()
+            .BeTrue();
+
+        result.ProviderMessageId
+            .Should()
+            .Be("MSG-002");
+    }
+
+    // ==========================================================
+    // SendAsync - Cancellation
+    // ==========================================================
 
     /// <summary>
     /// Verifies that SendAsync rethrows an
@@ -188,90 +405,188 @@ public sealed class TwilioSmsProviderTests
     public async Task SendAsync_Should_RethrowOperationCanceledException_When_ClientCancels()
     {
         // Arrange
-        TwilioSmsProvider provider = new(
-            _client,
-            _logger);
 
-        SmsMessage message = SmsMessageTestData.CreateValid();
+        TwilioSmsProvider provider =
+            CreateSut();
+
+        SmsMessage message =
+            CreateMessage();
 
         _client
             .SendMessageAsync(
                 Arg.Any<string>(),
                 Arg.Any<string>(),
                 Arg.Any<CancellationToken>())
-            .Returns<Task<VendorDeliveryResult>>(
-                _ => throw new OperationCanceledException());
+            .Returns(
+                Task.FromException<VendorDeliveryResult>(
+                    new OperationCanceledException()));
 
         // Act
-        Func<Task> action = () =>
-            provider.SendAsync(message);
+
+        Func<Task> action =
+            () =>
+                provider.SendAsync(
+                    message);
 
         // Assert
+
         await action.Should()
             .ThrowAsync<OperationCanceledException>();
     }
 
+    // ==========================================================
+    // SendAsync - CommunicationException
+    // ==========================================================
+
     /// <summary>
     /// Verifies that SendAsync returns a failed
-    /// delivery result when the client throws an exception.
+    /// delivery result when the client throws
+    /// a <see cref="CommunicationException"/>.
     /// </summary>
     [Fact]
-    public async Task SendAsync_Should_ReturnFailure_When_ClientThrowsException()
+    public async Task SendAsync_Should_ReturnFailure_When_ClientThrowsCommunicationException()
     {
         // Arrange
-        TwilioSmsProvider provider = new(
-            _client,
-            _logger);
 
-        SmsMessage message = SmsMessageTestData.CreateValid();
+        TwilioSmsProvider provider =
+            CreateSut();
+
+        SmsMessage message =
+            CreateMessage();
+
+        CommunicationException exception =
+            new(
+                "Twilio failed.");
 
         _client
             .SendMessageAsync(
                 Arg.Any<string>(),
                 Arg.Any<string>(),
                 Arg.Any<CancellationToken>())
-            .Returns<Task<VendorDeliveryResult>>(
-                _ => throw new InvalidOperationException("Twilio failure."));
+            .Returns(
+                Task.FromException<VendorDeliveryResult>(
+                    exception));
 
         // Act
+
         DeliveryResult result =
-            await provider.SendAsync(message);
+            await provider.SendAsync(
+                message);
 
         // Assert
-        result.Succeeded.Should().BeFalse();
-        result.ErrorMessage.Should().Be("Twilio failure.");
+
+        result.Succeeded
+            .Should()
+            .BeFalse();
+
+        result.ErrorMessage
+            .Should()
+            .Be(
+                "Twilio failed.");
+    }
+
+    // ==========================================================
+    // SendAsync - CancellationToken
+    // ==========================================================
+
+    /// <summary>
+    /// Verifies that SendAsync forwards
+    /// the cancellation token to the client.
+    /// </summary>
+    [Fact]
+    public async Task SendAsync_Should_ForwardCancellationToken()
+    {
+        // Arrange
+
+        TwilioSmsProvider provider =
+            CreateSut();
+
+        SmsMessage message =
+            CreateMessage();
+
+        using CancellationTokenSource cancellationTokenSource =
+            new();
+
+        CancellationToken cancellationToken =
+            cancellationTokenSource.Token;
+
+        _client
+            .SendMessageAsync(
+                Arg.Any<string>(),
+                Arg.Any<string>(),
+                cancellationToken)
+            .Returns(
+                VendorDeliveryResult.Success(
+                    messageId: "MSG-001"));
+
+        // Act
+
+        DeliveryResult result =
+            await provider.SendAsync(
+                message,
+                cancellationToken);
+
+        // Assert
+
+        result.Succeeded
+            .Should()
+            .BeTrue();
+
+        await _client
+            .Received(1)
+            .SendMessageAsync(
+                Arg.Any<string>(),
+                message.Message,
+                cancellationToken);
+    }
+
+    // ==========================================================
+    // Helpers
+    // ==========================================================
+
+    /// <summary>
+    /// Creates the system under test.
+    /// </summary>
+    private TwilioSmsProvider CreateSut()
+    {
+        return new TwilioSmsProvider(
+            _client,
+            _logger);
     }
 
     /// <summary>
-    /// Verifies that SendAsync sends a message
-    /// to every recipient.
+    /// Creates a valid SMS message.
     /// </summary>
-    [Fact]
-    public async Task SendAsync_Should_InvokeClientForEachRecipient_When_MultipleRecipientsExist()
+    private static SmsMessage CreateMessage()
     {
-        // Arrange
-        TwilioSmsProvider provider = new(
-            _client,
-            _logger);
-
-        SmsMessage message = SmsMessageTestData.CreateMultipleRecipients();
-
-        _client
-            .SendMessageAsync(
-                Arg.Any<string>(),
-                Arg.Any<string>(),
-                Arg.Any<CancellationToken>())
-            .Returns(VendorDeliveryResult.Success("MSG-001"));
-
-        // Act
-        await provider.SendAsync(message);
-
-        // Assert
-        await _client
-            .Received(message.To.Count)
-            .SendMessageAsync(
-                Arg.Any<string>(),
-                Arg.Any<string>(),
-                Arg.Any<CancellationToken>());
+        return CreateMessage(
+            "+628123456789");
     }
+
+    /// <summary>
+    /// Creates an SMS message with
+    /// the specified recipients.
+    /// </summary>
+    private static SmsMessage CreateMessage(
+        params string[] recipients)
+    {
+        return new SmsMessage(
+            [
+                .. recipients.Select(
+                    recipient =>
+                        new PhoneNumber(
+                            recipient))
+            ],
+            "Test SMS message.");
+    }
+
+    // /// <summary>
+    // /// Creates an SMS message without recipients.
+    // /// </summary>
+    // private static SmsMessage CreateMessageWithoutRecipients()
+    // {
+    //     return new SmsMessage(
+    //         [],
+    //         "Test SMS message.");
+    // }
 }

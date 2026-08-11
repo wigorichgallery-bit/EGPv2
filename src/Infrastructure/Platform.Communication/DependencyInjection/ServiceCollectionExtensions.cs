@@ -22,8 +22,7 @@ public static class ServiceCollectionExtensions
     /// The updated service collection.
     /// </returns>
     /// <exception cref="ArgumentNullException">
-    /// Thrown when
-    /// <paramref name="services"/> or
+    /// Thrown when <paramref name="services"/> or
     /// <paramref name="configuration"/> is
     /// <see langword="null"/>.
     /// </exception>
@@ -31,11 +30,15 @@ public static class ServiceCollectionExtensions
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        ArgumentNullException.ThrowIfNull(services);
-        ArgumentNullException.ThrowIfNull(configuration);
+        ArgumentNullException.ThrowIfNull(
+            services);
+
+        ArgumentNullException.ThrowIfNull(
+            configuration);
 
         services
-            .AddCommunicationOptions(configuration)
+            .AddCommunicationOptions(
+                configuration)
             .AddCommunicationClients()
             .AddCommunicationProviders()
             .AddCommunicationSenders();

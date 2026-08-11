@@ -16,7 +16,7 @@ public sealed class WhatsAppOptions
     /// <summary>
     /// Gets or sets the Meta WhatsApp Cloud API configuration.
     /// </summary>
-    public MetaCloudConfiguration MetaCloud { get; set; } = new();
+    public MetaCloudWhatsAppConfiguration MetaCloud { get; set; } = new();
 
     /// <summary>
     /// Gets or sets the Twilio WhatsApp configuration.

@@ -23,96 +23,134 @@ internal static class AddCommunicationProvidersExtensions
     /// <returns>
     /// The updated service collection.
     /// </returns>
+    /// <exception cref="ArgumentNullException">
+    /// Thrown when <paramref name="services"/> is
+    /// <see langword="null"/>.
+    /// </exception>
     internal static IServiceCollection AddCommunicationProviders(
         this IServiceCollection services)
     {
-        ArgumentNullException.ThrowIfNull(services);
+        ArgumentNullException.ThrowIfNull(
+            services);
 
-        // -----------------------------------------------------------------
+        // ==========================================================
         // Email Providers
-        // -----------------------------------------------------------------
+        // ==========================================================
 
-        services.AddTransient<SmtpEmailProvider>();
+        services.AddTransient<
+            SmtpEmailProvider>();
 
-        services.AddTransient<SendGridEmailProvider>();
+        services.AddTransient<
+            SendGridEmailProvider>();
 
-        services.AddTransient<MicrosoftGraphEmailProvider>();
+        services.AddTransient<
+            MicrosoftGraphEmailProvider>();
 
-        services.AddTransient<IEmailProvider>(serviceProvider =>
-        {
-            var options = serviceProvider
-                .GetRequiredService<IOptions<CommunicationOptions>>()
-                .Value;
-
-            return options.Email.Provider switch
+        services.AddTransient<IEmailProvider>(
+            serviceProvider =>
             {
-                EmailProviderType.Smtp =>
-                    serviceProvider.GetRequiredService<SmtpEmailProvider>(),
+                CommunicationOptions options =
+                    serviceProvider
+                        .GetRequiredService<
+                            IOptions<CommunicationOptions>>()
+                        .Value;
 
-                EmailProviderType.SendGrid =>
-                    serviceProvider.GetRequiredService<SendGridEmailProvider>(),
+                return options.Email.Provider switch
+                {
+                    EmailProviderType.Smtp =>
+                        serviceProvider
+                            .GetRequiredService<
+                                SmtpEmailProvider>(),
 
-                EmailProviderType.MicrosoftGraph =>
-                    serviceProvider.GetRequiredService<MicrosoftGraphEmailProvider>(),
+                    EmailProviderType.SendGrid =>
+                        serviceProvider
+                            .GetRequiredService<
+                                SendGridEmailProvider>(),
 
-                _ => throw new NotSupportedException(
-                    $"The configured email provider '{options.Email.Provider}' is not supported.")
-            };
-        });
+                    EmailProviderType.MicrosoftGraph =>
+                        serviceProvider
+                            .GetRequiredService<
+                                MicrosoftGraphEmailProvider>(),
 
-        // -----------------------------------------------------------------
+                    _ => throw new NotSupportedException(
+                        $"The configured email provider " +
+                        $"'{options.Email.Provider}' is not supported.")
+                };
+            });
+
+        // ==========================================================
         // SMS Providers
-        // -----------------------------------------------------------------
+        // ==========================================================
 
-        services.AddTransient<TwilioSmsProvider>();
+        services.AddTransient<
+            TwilioSmsProvider>();
 
-        services.AddTransient<VonageSmsProvider>();
+        services.AddTransient<
+            VonageSmsProvider>();
 
-        services.AddTransient<ISmsProvider>(serviceProvider =>
-        {
-            var options = serviceProvider
-                .GetRequiredService<IOptions<CommunicationOptions>>()
-                .Value;
-
-            return options.Sms.Provider switch
+        services.AddTransient<ISmsProvider>(
+            serviceProvider =>
             {
-                SmsProviderType.Twilio =>
-                    serviceProvider.GetRequiredService<TwilioSmsProvider>(),
+                CommunicationOptions options =
+                    serviceProvider
+                        .GetRequiredService<
+                            IOptions<CommunicationOptions>>()
+                        .Value;
 
-                SmsProviderType.Vonage =>
-                    serviceProvider.GetRequiredService<VonageSmsProvider>(),
+                return options.Sms.Provider switch
+                {
+                    SmsProviderType.Twilio =>
+                        serviceProvider
+                            .GetRequiredService<
+                                TwilioSmsProvider>(),
 
-                _ => throw new NotSupportedException(
-                    $"The configured SMS provider '{options.Sms.Provider}' is not supported.")
-            };
-        });
+                    SmsProviderType.Vonage =>
+                        serviceProvider
+                            .GetRequiredService<
+                                VonageSmsProvider>(),
 
-        // -----------------------------------------------------------------
+                    _ => throw new NotSupportedException(
+                        $"The configured SMS provider " +
+                        $"'{options.Sms.Provider}' is not supported.")
+                };
+            });
+
+        // ==========================================================
         // WhatsApp Providers
-        // -----------------------------------------------------------------
+        // ==========================================================
 
-        services.AddTransient<MetaCloudWhatsAppProvider>();
+        services.AddTransient<
+            MetaCloudWhatsAppProvider>();
 
-        services.AddTransient<TwilioWhatsAppProvider>();
+        services.AddTransient<
+            TwilioWhatsAppProvider>();
 
-        services.AddTransient<IWhatsAppProvider>(serviceProvider =>
-        {
-            var options = serviceProvider
-                .GetRequiredService<IOptions<CommunicationOptions>>()
-                .Value;
-
-            return options.WhatsApp.Provider switch
+        services.AddTransient<IWhatsAppProvider>(
+            serviceProvider =>
             {
-                WhatsAppProviderType.MetaCloud =>
-                    serviceProvider.GetRequiredService<MetaCloudWhatsAppProvider>(),
+                CommunicationOptions options =
+                    serviceProvider
+                        .GetRequiredService<
+                            IOptions<CommunicationOptions>>()
+                        .Value;
 
-                WhatsAppProviderType.Twilio =>
-                    serviceProvider.GetRequiredService<TwilioWhatsAppProvider>(),
+                return options.WhatsApp.Provider switch
+                {
+                    WhatsAppProviderType.MetaCloud =>
+                        serviceProvider
+                            .GetRequiredService<
+                                MetaCloudWhatsAppProvider>(),
 
-                _ => throw new NotSupportedException(
-                    $"The configured WhatsApp provider '{options.WhatsApp.Provider}' is not supported.")
-            };
-        });
+                    WhatsAppProviderType.Twilio =>
+                        serviceProvider
+                            .GetRequiredService<
+                                TwilioWhatsAppProvider>(),
+
+                    _ => throw new NotSupportedException(
+                        $"The configured WhatsApp provider " +
+                        $"'{options.WhatsApp.Provider}' is not supported.")
+                };
+            });
 
         return services;
     }

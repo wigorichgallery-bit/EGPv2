@@ -12,7 +12,7 @@ namespace Platform.Communication.DependencyInjection;
 internal static class AddCommunicationClientsExtensions
 {
     /// <summary>
-    /// Registers communication clients.
+    /// Registers communication clients and their SDK wrappers.
     /// </summary>
     /// <param name="services">
     /// The service collection.
@@ -20,26 +20,31 @@ internal static class AddCommunicationClientsExtensions
     /// <returns>
     /// The updated service collection.
     /// </returns>
+    /// <exception cref="ArgumentNullException">
+    /// Thrown when <paramref name="services"/> is
+    /// <see langword="null"/>.
+    /// </exception>
     internal static IServiceCollection AddCommunicationClients(
         this IServiceCollection services)
     {
-        ArgumentNullException.ThrowIfNull(services);
+        ArgumentNullException.ThrowIfNull(
+            services);
 
         // ==========================================================
         // Email
         // ==========================================================
 
         services.AddTransient<
-            IMailKitSmtpClientFactory,
-            MailKitSmtpClientFactory>();
+            IMailKitSmtpSdkClientFactory,
+            MailKitSmtpSdkClientFactory>();
 
         services.AddSingleton<
             ISendGridSdkClientFactory,
             SendGridSdkClientFactory>();
 
         services.AddTransient<
-            Platform.Communication.Channels.Email.Clients.ISmtpClient,
-            SmtpClient>();
+            IMailKitSmtpClient,
+            MailKitSmtpClient>();
 
         services.AddTransient<
             ISendGridClient,
@@ -66,8 +71,8 @@ internal static class AddCommunicationClientsExtensions
         // ==========================================================
 
         services.AddTransient<
-            IMetaCloudClient,
-            MetaCloudClient>();
+            IMetaCloudWhatsAppClient,
+            MetaCloudWhatsAppClient>();
 
         services.AddTransient<
             ITwilioWhatsAppClient,

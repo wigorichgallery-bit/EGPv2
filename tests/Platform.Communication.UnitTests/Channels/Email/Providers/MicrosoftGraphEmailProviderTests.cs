@@ -1,17 +1,21 @@
+
+using FluentAssertions;
+
 using Microsoft.Extensions.Logging;
 
 using NSubstitute;
 
 using Platform.Communication.Channels.Email.Clients;
 using Platform.Communication.Channels.Email.Providers;
+using Platform.Communication.Exceptions;
 using Platform.Communication.Models;
 using Platform.Communication.UnitTests.TestData;
-using Platform.Communication.ValueObjects;
 
 namespace Platform.Communication.UnitTests.Channels.Email.Providers;
 
 /// <summary>
-/// Contains unit tests for <see cref="MicrosoftGraphEmailProvider"/>.
+/// Contains unit tests for
+/// <see cref="MicrosoftGraphEmailProvider"/>.
 /// </summary>
 public sealed class MicrosoftGraphEmailProviderTests
 {
@@ -21,111 +25,125 @@ public sealed class MicrosoftGraphEmailProviderTests
 
     public MicrosoftGraphEmailProviderTests()
     {
-        _client = Substitute.For<IGraphClient>();
-        _logger = Substitute.For<ILogger<MicrosoftGraphEmailProvider>>();
+        _client =
+            Substitute.For<IGraphClient>();
+
+        _logger =
+            Substitute.For<
+                ILogger<MicrosoftGraphEmailProvider>>();
     }
 
-    /// <summary>
-    /// Verifies that the constructor throws an
-    /// <see cref="ArgumentNullException"/>
-    /// when the client is null.
-    /// </summary>
+    // ==========================================================
+    // Constructor
+    // ==========================================================
+
     [Fact]
     public void Constructor_Should_ThrowArgumentNullException_When_ClientIsNull()
     {
-        // Arrange / Act
-        Action action = () =>
-            _ = new MicrosoftGraphEmailProvider(
-                null!,
-                _logger);
+        // Act
+
+        Action action =
+            () =>
+                _ = new MicrosoftGraphEmailProvider(
+                    null!,
+                    _logger);
 
         // Assert
+
         action.Should()
             .Throw<ArgumentNullException>()
             .WithParameterName("client");
     }
 
-    /// <summary>
-    /// Verifies that the constructor throws an
-    /// <see cref="ArgumentNullException"/>
-    /// when the logger is null.
-    /// </summary>
     [Fact]
     public void Constructor_Should_ThrowArgumentNullException_When_LoggerIsNull()
     {
-        // Arrange / Act
-        Action action = () =>
-            _ = new MicrosoftGraphEmailProvider(
-                _client,
-                null!);
+        // Act
+
+        Action action =
+            () =>
+                _ = new MicrosoftGraphEmailProvider(
+                    _client,
+                    null!);
 
         // Assert
+
         action.Should()
             .Throw<ArgumentNullException>()
             .WithParameterName("logger");
     }
 
-    /// <summary>
-    /// Verifies that SendAsync throws an
-    /// <see cref="ArgumentNullException"/>
-    /// when the message is null.
-    /// </summary>
+    // ==========================================================
+    // SendAsync - Validation
+    // ==========================================================
+
     [Fact]
     public async Task SendAsync_Should_ThrowArgumentNullException_When_MessageIsNull()
     {
         // Arrange
-        MicrosoftGraphEmailProvider provider = new(
-            _client,
-            _logger);
+
+        MicrosoftGraphEmailProvider provider =
+            CreateSut();
 
         // Act
-        Func<Task> action = () =>
-            provider.SendAsync(null!);
+
+        Func<Task> action =
+            () =>
+                provider.SendAsync(
+                    null!);
 
         // Assert
+
         await action.Should()
             .ThrowAsync<ArgumentNullException>()
             .WithParameterName("message");
     }
 
-    /// <summary>
-    /// Verifies that SendAsync throws an
-    /// <see cref="OperationCanceledException"/>
-    /// when cancellation has already been requested.
-    /// </summary>
     [Fact]
     public async Task SendAsync_Should_ThrowOperationCanceledException_When_CancellationRequested()
     {
         // Arrange
-        MicrosoftGraphEmailProvider provider = new(
-            _client,
-            _logger);
+
+        MicrosoftGraphEmailProvider provider =
+            CreateSut();
+
+        EmailMessage message =
+            CreateMessage();
 
         CancellationToken cancellationToken =
             new(canceled: true);
 
         // Act
-        Func<Task> action = () =>
-            provider.SendAsync(
-                CreateMessage(),
-                cancellationToken);
+
+        Func<Task> action =
+            () =>
+                provider.SendAsync(
+                    message,
+                    cancellationToken);
 
         // Assert
+
         await action.Should()
             .ThrowAsync<OperationCanceledException>();
+
+        await _client
+            .DidNotReceive()
+            .SendEmailAsync(
+                Arg.Any<EmailMessage>(),
+                Arg.Any<CancellationToken>());
     }
 
-    /// <summary>
-    /// Verifies that SendAsync returns a successful
-    /// delivery result when the client succeeds.
-    /// </summary>
+    // ==========================================================
+    // SendAsync - Success
+    // ==========================================================
+
     [Fact]
     public async Task SendAsync_Should_ReturnSuccess_When_ClientSucceeds()
     {
         // Arrange
-        MicrosoftGraphEmailProvider provider = new(
-            _client,
-            _logger);
+
+        MicrosoftGraphEmailProvider provider =
+            CreateSut();
 
         EmailMessage message =
             EmailMessageTestData.CreateValid();
@@ -136,30 +154,42 @@ public sealed class MicrosoftGraphEmailProviderTests
                 Arg.Any<CancellationToken>())
             .Returns(
                 VendorDeliveryResult.Success(
-                    "MSG-001"));
+                    messageId: "MSG-001"));
 
         // Act
+
         DeliveryResult result =
-            await provider.SendAsync(message);
+            await provider.SendAsync(
+                message);
 
         // Assert
-        result.Succeeded.Should().BeTrue();
-        result.ProviderMessageId.Should().Be("MSG-001");
-        result.ErrorMessage.Should().BeNull();
+
+        result.Succeeded
+            .Should()
+            .BeTrue();
+
+        result.ProviderMessageId
+            .Should()
+            .Be("MSG-001");
+
+        result.ErrorMessage
+            .Should()
+            .BeNull();
+
+        await _client
+            .Received(1)
+            .SendEmailAsync(
+                message,
+                Arg.Any<CancellationToken>());
     }
 
-    /// <summary>
-    /// Verifies that SendAsync returns a failed
-    /// delivery result when the provider does not
-    /// return a message identifier.
-    /// </summary>
     [Fact]
     public async Task SendAsync_Should_ReturnFailure_When_MessageIdIsEmpty()
     {
         // Arrange
-        MicrosoftGraphEmailProvider provider = new(
-            _client,
-            _logger);
+
+        MicrosoftGraphEmailProvider provider =
+            CreateSut();
 
         EmailMessage message =
             EmailMessageTestData.CreateValid();
@@ -169,92 +199,209 @@ public sealed class MicrosoftGraphEmailProviderTests
                 message,
                 Arg.Any<CancellationToken>())
             .Returns(
-                VendorDeliveryResult.Success(string.Empty));
+                VendorDeliveryResult.Success(
+                    messageId: string.Empty));
 
         // Act
+
         DeliveryResult result =
-            await provider.SendAsync(message);
+            await provider.SendAsync(
+                message);
 
         // Assert
-        result.Succeeded.Should().BeFalse();
-        result.ErrorMessage.Should()
-            .Be("The provider did not return a message identifier.");
+
+        result.Succeeded
+            .Should()
+            .BeFalse();
+
+        result.ErrorMessage
+            .Should()
+            .Be(
+                "The provider did not return a message identifier.");
     }
 
-    /// <summary>
-    /// Verifies that SendAsync rethrows an
-    /// <see cref="OperationCanceledException"/>
-    /// thrown by the client.
-    /// </summary>
+    [Fact]
+    public async Task SendAsync_Should_ReturnFailure_When_MessageIdIsWhitespace()
+    {
+        // Arrange
+
+        MicrosoftGraphEmailProvider provider =
+            CreateSut();
+
+        EmailMessage message =
+            EmailMessageTestData.CreateValid();
+
+        _client
+            .SendEmailAsync(
+                message,
+                Arg.Any<CancellationToken>())
+            .Returns(
+                VendorDeliveryResult.Success(
+                    messageId: "   "));
+
+        // Act
+
+        DeliveryResult result =
+            await provider.SendAsync(
+                message);
+
+        // Assert
+
+        result.Succeeded
+            .Should()
+            .BeFalse();
+
+        result.ErrorMessage
+            .Should()
+            .Be(
+                "The provider did not return a message identifier.");
+    }
+
+    // ==========================================================
+    // SendAsync - Cancellation
+    // ==========================================================
+
     [Fact]
     public async Task SendAsync_Should_RethrowOperationCanceledException_When_ClientCancels()
     {
         // Arrange
-        MicrosoftGraphEmailProvider provider = new(
-            _client,
-            _logger);
+
+        MicrosoftGraphEmailProvider provider =
+            CreateSut();
 
         EmailMessage message =
             EmailMessageTestData.CreateValid();
 
         _client
             .SendEmailAsync(
-                message,
+                Arg.Any<EmailMessage>(),
                 Arg.Any<CancellationToken>())
-            .Returns<Task<VendorDeliveryResult>>(
-                _ => throw new OperationCanceledException());
+            .Returns(
+                Task.FromException<VendorDeliveryResult>(
+                    new OperationCanceledException()));
 
         // Act
-        Func<Task> action = () =>
-            provider.SendAsync(message);
+
+        Func<Task> action =
+            () =>
+                provider.SendAsync(
+                    message);
 
         // Assert
+
         await action.Should()
             .ThrowAsync<OperationCanceledException>();
     }
 
-    /// <summary>
-    /// Verifies that SendAsync returns a failed
-    /// delivery result when the client throws
-    /// an exception.
-    /// </summary>
     [Fact]
-    public async Task SendAsync_Should_ReturnFailure_When_ClientThrowsException()
+    public async Task SendAsync_Should_ForwardCancellationToken()
     {
         // Arrange
-        MicrosoftGraphEmailProvider provider = new(
-            _client,
-            _logger);
+
+        MicrosoftGraphEmailProvider provider =
+            CreateSut();
 
         EmailMessage message =
             EmailMessageTestData.CreateValid();
 
+        CancellationTokenSource cancellationTokenSource =
+            new();
+
+        CancellationToken cancellationToken =
+            cancellationTokenSource.Token;
+
         _client
             .SendEmailAsync(
                 message,
-                Arg.Any<CancellationToken>())
-            .Returns<Task<VendorDeliveryResult>>(
-                _ => throw new InvalidOperationException("Graph failure."));
+                cancellationToken)
+            .Returns(
+                VendorDeliveryResult.Success(
+                    messageId: "MSG-001"));
 
         // Act
+
         DeliveryResult result =
-            await provider.SendAsync(message);
+            await provider.SendAsync(
+                message,
+                cancellationToken);
 
         // Assert
-        result.Succeeded.Should().BeFalse();
-        result.ErrorMessage.Should().Be("Graph failure.");
+
+        result.Succeeded
+            .Should()
+            .BeTrue();
+
+        await _client
+            .Received(1)
+            .SendEmailAsync(
+                message,
+                cancellationToken);
     }
 
-    /// <summary>
-    /// Creates a valid email message for testing.
-    /// </summary>
+    // ==========================================================
+    // SendAsync - CommunicationException
+    // ==========================================================
+
+    [Fact]
+    public async Task SendAsync_Should_ReturnFailure_When_ClientThrowsCommunicationException()
+    {
+        // Arrange
+
+        MicrosoftGraphEmailProvider provider =
+            CreateSut();
+
+        EmailMessage message =
+            EmailMessageTestData.CreateValid();
+
+        CommunicationException exception =
+            new(
+                "Graph failure.");
+
+        _client
+            .SendEmailAsync(
+                Arg.Any<EmailMessage>(),
+                Arg.Any<CancellationToken>())
+            .Returns(
+                Task.FromException<VendorDeliveryResult>(
+                    exception));
+
+        // Act
+
+        DeliveryResult result =
+            await provider.SendAsync(
+                message);
+
+        // Assert
+
+        result.Succeeded
+            .Should()
+            .BeFalse();
+
+        result.ErrorMessage
+            .Should()
+            .Be(
+                "Graph failure.");
+    }
+
+    // ==========================================================
+    // Helpers
+    // ==========================================================
+
+    private MicrosoftGraphEmailProvider CreateSut()
+    {
+        return new MicrosoftGraphEmailProvider(
+            _client,
+            _logger);
+    }
+
     private static EmailMessage CreateMessage()
     {
         return new EmailMessage(
-        [
-            new EmailAddress("user@example.com")
-        ],
-        "Subject",
-        "Body");
+            [
+                new Platform.Communication.ValueObjects.EmailAddress(
+                    "user@example.com")
+            ],
+            "Subject",
+            "Body");
     }
 }

@@ -1,42 +1,33 @@
-using MailKit.Security;
-
-using MimeKit;
+using Platform.Communication.Models;
 
 namespace Platform.Communication.Channels.Email.Clients;
 
 /// <summary>
-/// Provides an abstraction over the MailKit SMTP client.
+/// Defines the contract for communicating with an SMTP server.
 /// </summary>
-internal interface IMailKitSmtpClient : IAsyncDisposable
+internal interface IMailKitSmtpClient
 {
     /// <summary>
-    /// Connects to the SMTP server.
+    /// Sends an email through the configured SMTP server.
     /// </summary>
-    Task ConnectAsync(
-        string host,
-        int port,
-        SecureSocketOptions options,
-        CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// Authenticates against the SMTP server.
-    /// </summary>
-    Task AuthenticateAsync(
-        string username,
-        string password,
-        CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// Sends the specified email message.
-    /// </summary>
-    Task<string> SendAsync(
-        MimeMessage message,
-        CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// Disconnects from the SMTP server.
-    /// </summary>
-    Task DisconnectAsync(
-        bool quit,
+    /// <param name="message">
+    /// The email message to send.
+    /// </param>
+    /// <param name="cancellationToken">
+    /// A token that can be used to cancel the operation.
+    /// </param>
+    /// <returns>
+    /// A <see cref="VendorDeliveryResult"/> containing the
+    /// vendor delivery information returned by the SMTP server.
+    /// </returns>
+    /// <exception cref="ArgumentNullException">
+    /// Thrown when <paramref name="message"/> is
+    /// <see langword="null"/>.
+    /// </exception>
+    /// <exception cref="OperationCanceledException">
+    /// Thrown when the operation is cancelled.
+    /// </exception>
+    Task<VendorDeliveryResult> SendEmailAsync(
+        EmailMessage message,
         CancellationToken cancellationToken = default);
 }

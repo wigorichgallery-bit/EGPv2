@@ -143,7 +143,7 @@ internal static class CommunicationOptionsTestData
             WhatsApp = new WhatsAppOptions
             {
                 Provider = WhatsAppProviderType.MetaCloud,
-                MetaCloud = new MetaCloudConfiguration
+                MetaCloud = new MetaCloudWhatsAppConfiguration
                 {
                     AccessToken = "access-token",
                     PhoneNumberId = "phone-number-id",

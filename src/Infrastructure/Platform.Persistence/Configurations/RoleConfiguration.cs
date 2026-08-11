@@ -276,7 +276,7 @@ public sealed class RoleConfiguration
 
                 permission.HasKey(
                     "RoleId",
-                    "PermissionCode");
+                    "Value");
             });
 
         builder.Navigation(

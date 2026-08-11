@@ -42,7 +42,7 @@ namespace Platform.Identity.Application.Features.Users.Queries;
 /// Where:
 /// n = number of users returned.
 /// </summary>
-public sealed class GetUsersQueryHandler : IQueryHandler<GetUsersQuery, IReadOnlyList<UserDto>>
+public sealed class GetUsersQueryHandlerTests : IQueryHandler<GetUsersQuery, IReadOnlyList<UserDto>>
 {
     private readonly IUserQueryRepository
         _userQueryRepository;
@@ -59,7 +59,7 @@ public sealed class GetUsersQueryHandler : IQueryHandler<GetUsersQuery, IReadOnl
     /// <paramref name="userQueryRepository"/>
     /// is null.
     /// </exception>
-    public GetUsersQueryHandler(
+    public GetUsersQueryHandlerTests(
         IUserQueryRepository userQueryRepository)
     {
         _userQueryRepository =

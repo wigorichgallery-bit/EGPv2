@@ -52,7 +52,7 @@ public sealed class WhatsAppOptionsTests
     {
         // Arrange
         WhatsAppOptions options = new();
-        MetaCloudConfiguration configuration = new();
+        MetaCloudWhatsAppConfiguration configuration = new();
 
         // Act
         options.MetaCloud = configuration;

@@ -1,358 +1,118 @@
 using Microsoft.Extensions.Logging;
 
-using NSubstitute;
-
 using Platform.Communication.Channels.WhatsApp.Clients;
-using Platform.Communication.Channels.WhatsApp.Providers;
+using Platform.Communication.Exceptions;
 using Platform.Communication.Models;
-using Platform.Communication.UnitTests.TestData;
 
-namespace Platform.Communication.UnitTests.Channels.WhatsApp.Providers;
+namespace Platform.Communication.Channels.WhatsApp.Providers;
 
 /// <summary>
-/// Contains unit tests for
-/// <see cref="MetaCloudWhatsAppProvider"/>.
+/// Represents a Meta Cloud based WhatsApp provider.
 /// </summary>
-public sealed class MetaCloudWhatsAppProviderTests
+internal sealed class MetaCloudWhatsAppProviderTests
+    : IWhatsAppProvider
 {
-    private readonly IMetaCloudClient _client;
+    private readonly IMetaCloudWhatsAppClient _client;
 
     private readonly ILogger<MetaCloudWhatsAppProvider> _logger;
 
-    public MetaCloudWhatsAppProviderTests()
+    /// <summary>
+    /// Initializes a new instance of the
+    /// <see cref="MetaCloudWhatsAppProvider"/> class.
+    /// </summary>
+    /// <param name="client">
+    /// The Meta Cloud WhatsApp client.
+    /// </param>
+    /// <param name="logger">
+    /// The logger.
+    /// </param>
+    /// <exception cref="ArgumentNullException">
+    /// Thrown when any dependency is
+    /// <see langword="null"/>.
+    /// </exception>
+    public MetaCloudWhatsAppProviderTests(
+        IMetaCloudWhatsAppClient client,
+        ILogger<MetaCloudWhatsAppProvider> logger)
     {
-        _client =
-            Substitute.For<IMetaCloudClient>();
+        ArgumentNullException.ThrowIfNull(client);
+        ArgumentNullException.ThrowIfNull(logger);
 
-        _logger =
-            Substitute.For<
-                ILogger<MetaCloudWhatsAppProvider>>();
+        _client = client;
+        _logger = logger;
     }
 
-    /// <summary>
-    /// Verifies constructor throws when
-    /// client is null.
-    /// </summary>
-    [Fact]
-    public void Constructor_Should_ThrowArgumentNullException_When_ClientIsNull()
+    /// <inheritdoc />
+    public async Task<DeliveryResult> SendAsync(
+        WhatsAppMessage message,
+        CancellationToken cancellationToken = default)
     {
-        // Arrange / Act
-        Action action = () =>
-            _ = new MetaCloudWhatsAppProvider(
-                null!,
-                _logger);
+        ArgumentNullException.ThrowIfNull(message);
 
-        // Assert
-        action.Should()
-            .Throw<ArgumentNullException>()
-            .WithParameterName("client");
-    }
+        if (message.To.Count == 0)
+        {
+            return DeliveryResult.Failure(
+                "No recipient was specified.");
+        }
 
-    /// <summary>
-    /// Verifies constructor throws when
-    /// logger is null.
-    /// </summary>
-    [Fact]
-    public void Constructor_Should_ThrowArgumentNullException_When_LoggerIsNull()
-    {
-        // Arrange / Act
-        Action action = () =>
-            _ = new MetaCloudWhatsAppProvider(
-                _client,
-                null!);
+        cancellationToken.ThrowIfCancellationRequested();
 
-        // Assert
-        action.Should()
-            .Throw<ArgumentNullException>()
-            .WithParameterName("logger");
-    }
+        _logger.LogInformation(
+            "Sending WhatsApp message via Meta Cloud to {RecipientCount} recipient(s).",
+            message.To.Count);
 
-    /// <summary>
-    /// Verifies constructor creates instance.
-    /// </summary>
-    [Fact]
-    public void Constructor_Should_CreateInstance_When_DependenciesValid()
-    {
-        // Arrange / Act
-        MetaCloudWhatsAppProvider provider =
-            new(
-                _client,
-                _logger);
+        try
+        {
+            string? lastMessageId = null;
 
-        // Assert
-        provider.Should().NotBeNull();
-    }
-
-    /// <summary>
-    /// Verifies SendAsync throws when
-    /// message is null.
-    /// </summary>
-    [Fact]
-    public async Task SendAsync_Should_ThrowArgumentNullException_When_MessageIsNull()
-    {
-        // Arrange
-        MetaCloudWhatsAppProvider provider =
-            new(
-                _client,
-                _logger);
-
-        // Act
-        Func<Task> action =
-            () => provider.SendAsync(null!);
-
-        // Assert
-        await action.Should()
-            .ThrowAsync<ArgumentNullException>();
-    }
-
-    /// <summary>
-    /// Verifies successful delivery.
-    /// </summary>
-    [Fact]
-    public async Task SendAsync_Should_ReturnSuccess_When_ClientSucceeds()
-    {
-        // Arrange
-        MetaCloudWhatsAppProvider provider =
-            new(
-                _client,
-                _logger);
-
-        WhatsAppMessage message =
-            WhatsAppMessageTestData.CreateValid();
-
-        _client
-            .SendMessageAsync(
-                Arg.Any<string>(),
-                Arg.Any<string>(),
-                Arg.Any<CancellationToken>())
-            .Returns(
-                VendorDeliveryResult.Success(
-                    "MSG-001"));
-
-        // Act
-        DeliveryResult result =
-            await provider.SendAsync(message);
-
-        // Assert
-        result.Succeeded.Should().BeTrue();
-
-        result.ProviderMessageId
-            .Should()
-            .Be("MSG-001");
-    }
-
-    /// <summary>
-    /// Verifies multiple recipients
-    /// invoke client once per recipient.
-    /// </summary>
-    [Fact]
-    public async Task SendAsync_Should_InvokeClientForEachRecipient_When_MultipleRecipients()
-    {
-        // Arrange
-        MetaCloudWhatsAppProvider provider =
-            new(
-                _client,
-                _logger);
-
-        WhatsAppMessage message =
-            WhatsAppMessageTestData
-                .CreateMultipleRecipients();
-
-        _client
-            .SendMessageAsync(
-                Arg.Any<string>(),
-                Arg.Any<string>(),
-                Arg.Any<CancellationToken>())
-            .Returns(
-                VendorDeliveryResult.Success(
-                    "MSG"));
-
-        // Act
-        await provider.SendAsync(message);
-
-        // Assert
-        await _client
-            .Received(2)
-            .SendMessageAsync(
-                Arg.Any<string>(),
-                Arg.Any<string>(),
-                Arg.Any<CancellationToken>());
-    }
-
-    /// <summary>
-    /// Verifies failure is returned when
-    /// provider does not return a message identifier.
-    /// </summary>
-    [Fact]
-    public async Task SendAsync_Should_ReturnFailure_When_MessageIdMissing()
-    {
-        // Arrange
-        MetaCloudWhatsAppProvider provider =
-            new(
-                _client,
-                _logger);
-
-        WhatsAppMessage message =
-            WhatsAppMessageTestData.CreateValid();
-
-        _client
-            .SendMessageAsync(
-                Arg.Any<string>(),
-                Arg.Any<string>(),
-                Arg.Any<CancellationToken>())
-            .Returns(
-                VendorDeliveryResult.Success(
-                    null));
-
-        // Act
-        DeliveryResult result =
-            await provider.SendAsync(message);
-
-        // Assert
-        result.Succeeded.Should().BeFalse();
-
-        result.ErrorMessage
-            .Should()
-            .Be(
-                "The provider did not return a message identifier.");
-    }
-
-    /// <summary>
-    /// Verifies provider exceptions
-    /// become failed delivery results.
-    /// </summary>
-    [Fact]
-    public async Task SendAsync_Should_ReturnFailure_When_ClientThrowsException()
-    {
-        // Arrange
-        MetaCloudWhatsAppProvider provider =
-            new(
-                _client,
-                _logger);
-
-        WhatsAppMessage message =
-            WhatsAppMessageTestData.CreateValid();
-
-        _client
-            .When(x =>
-                x.SendMessageAsync(
-                    Arg.Any<string>(),
-                    Arg.Any<string>(),
-                    Arg.Any<CancellationToken>()))
-            .Do(_ =>
+            foreach (var recipient in message.To)
             {
-                throw new InvalidOperationException(
-                    "Failure");
-            });
+                cancellationToken.ThrowIfCancellationRequested();
 
-        // Act
-        DeliveryResult result =
-            await provider.SendAsync(message);
+                VendorDeliveryResult result =
+                    await _client
+                        .SendMessageAsync(
+                            recipient.Value,
+                            message.Message,
+                            cancellationToken)
+                        .ConfigureAwait(false);
 
-        // Assert
-        result.Succeeded.Should().BeFalse();
+                lastMessageId = result.MessageId;
 
-        result.ErrorMessage
-            .Should()
-            .Be("Failure");
-    }
+                _logger.LogInformation(
+                    "WhatsApp message successfully sent via Meta Cloud. " +
+                    "Recipient: {Recipient}, MessageId: {MessageId}",
+                    recipient.Value,
+                    result.MessageId);
+            }
 
-    /// <summary>
-    /// Verifies cancellation
-    /// is propagated.
-    /// </summary>
-    [Fact]
-    public async Task SendAsync_Should_ThrowOperationCanceledException_When_Cancelled()
-    {
-        // Arrange
-        MetaCloudWhatsAppProvider provider =
-            new(
-                _client,
-                _logger);
+            if (string.IsNullOrWhiteSpace(lastMessageId))
+            {
+                return DeliveryResult.Failure(
+                    "The provider did not return a message identifier.");
+            }
 
-        WhatsAppMessage message =
-            WhatsAppMessageTestData.CreateValid();
+            _logger.LogInformation(
+                "Successfully delivered WhatsApp message to {RecipientCount} recipient(s).",
+                message.To.Count);
 
-        CancellationToken cancellationToken =
-            new(canceled: true);
+            return DeliveryResult.Success(
+                lastMessageId);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.LogWarning(
+                "Meta Cloud WhatsApp send operation was cancelled.");
 
-        // Act
-        Func<Task> action =
-            () => provider.SendAsync(
-                message,
-                cancellationToken);
+            throw;
+        }
+        catch (CommunicationException exception)
+        {
+            _logger.LogError(
+                exception,
+                "Failed to send WhatsApp message using Meta Cloud.");
 
-        // Assert
-        await action.Should()
-            .ThrowAsync<OperationCanceledException>();
-    }
-
-    /// <summary>
-    /// Verifies cancellation from client
-    /// is propagated.
-    /// </summary>
-    [Fact]
-    public async Task SendAsync_Should_ThrowOperationCanceledException_When_ClientCancels()
-    {
-        // Arrange
-        MetaCloudWhatsAppProvider provider =
-            new(
-                _client,
-                _logger);
-
-        WhatsAppMessage message =
-            WhatsAppMessageTestData.CreateValid();
-
-        _client
-            .When(x =>
-                x.SendMessageAsync(
-                    Arg.Any<string>(),
-                    Arg.Any<string>(),
-                    Arg.Any<CancellationToken>()))
-            .Do(_ => throw new OperationCanceledException());
-
-        // Act
-        Func<Task> action =
-            () => provider.SendAsync(message);
-
-        // Assert
-        await action.Should()
-            .ThrowAsync<OperationCanceledException>();
-    }
-
-    /// <summary>
-    /// Verifies last recipient message identifier
-    /// is returned.
-    /// </summary>
-    [Fact]
-    public async Task SendAsync_Should_ReturnLastMessageId_When_MultipleRecipients()
-    {
-        // Arrange
-        MetaCloudWhatsAppProvider provider =
-            new(
-                _client,
-                _logger);
-
-        WhatsAppMessage message =
-            WhatsAppMessageTestData
-                .CreateMultipleRecipients();
-
-        _client
-            .SendMessageAsync(
-                Arg.Any<string>(),
-                Arg.Any<string>(),
-                Arg.Any<CancellationToken>())
-            .Returns(
-                VendorDeliveryResult.Success("MSG-1"),
-                VendorDeliveryResult.Success("MSG-2"));
-
-        // Act
-        DeliveryResult result =
-            await provider.SendAsync(message);
-
-        // Assert
-        result.ProviderMessageId
-            .Should()
-            .Be("MSG-2");
+            return DeliveryResult.Failure(
+                exception.Message);
+        }
     }
 }

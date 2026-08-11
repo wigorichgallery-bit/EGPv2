@@ -13,7 +13,7 @@ namespace Platform.Persistence.Context;
 ///
 /// Responsibility:
 /// - Define aggregate persistence boundary.
-/// - Expose aggregate DbSets.
+/// - Expose aggregate DbSets.clear
 /// - Apply entity configurations.
 /// - Coordinate EF Core persistence lifecycle.
 /// - Provide future extension points for

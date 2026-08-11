@@ -17,7 +17,7 @@ public sealed class MetaCloudConfigurationTests
         // Arrange
 
         // Act
-        MetaCloudConfiguration configuration = new();
+        MetaCloudWhatsAppConfiguration configuration = new();
 
         // Assert
         configuration.AccessToken.Should().BeEmpty();
@@ -33,7 +33,7 @@ public sealed class MetaCloudConfigurationTests
     public void Properties_Should_BeAssignable()
     {
         // Arrange
-        MetaCloudConfiguration configuration = new();
+        MetaCloudWhatsAppConfiguration configuration = new();
 
         // Act
         configuration.AccessToken = "AccessToken";

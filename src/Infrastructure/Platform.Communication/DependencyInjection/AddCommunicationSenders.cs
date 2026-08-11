@@ -20,15 +20,26 @@ internal static class AddCommunicationSendersExtensions
     /// <returns>
     /// The updated service collection.
     /// </returns>
+    /// <exception cref="ArgumentNullException">
+    /// Thrown when <paramref name="services"/> is
+    /// <see langword="null"/>.
+    /// </exception>
     internal static IServiceCollection AddCommunicationSenders(
         this IServiceCollection services)
     {
-        ArgumentNullException.ThrowIfNull(services);
+        ArgumentNullException.ThrowIfNull(
+            services);
 
         services
-            .AddTransient<IEmailSender, EmailSender>()
-            .AddTransient<ISmsSender, SmsSender>()
-            .AddTransient<IWhatsAppSender, WhatsAppSender>();
+            .AddTransient<
+                IEmailSender,
+                EmailSender>()
+            .AddTransient<
+                ISmsSender,
+                SmsSender>()
+            .AddTransient<
+                IWhatsAppSender,
+                WhatsAppSender>();
 
         return services;
     }

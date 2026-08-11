@@ -33,7 +33,7 @@ public sealed class WhatsAppConfigurationTests
     {
         // Arrange
         WhatsAppConfiguration configuration = new();
-        MetaCloudConfiguration metaCloud = new();
+        MetaCloudWhatsAppConfiguration metaCloud = new();
 
         // Act
         configuration.MetaCloud = metaCloud;

@@ -1,11 +1,14 @@
+using FluentAssertions;
+
 using Microsoft.Extensions.Logging;
 
 using NSubstitute;
 
 using Platform.Communication.Channels.WhatsApp.Clients;
 using Platform.Communication.Channels.WhatsApp.Providers;
+using Platform.Communication.Exceptions;
 using Platform.Communication.Models;
-using Platform.Communication.UnitTests.TestData;
+using Platform.Communication.ValueObjects;
 
 namespace Platform.Communication.UnitTests.Channels.WhatsApp.Providers;
 
@@ -19,280 +22,350 @@ public sealed class TwilioWhatsAppProviderTests
 
     private readonly ILogger<TwilioWhatsAppProvider> _logger;
 
-    /// <summary>
-    /// Initializes a new instance of the
-    /// <see cref="TwilioWhatsAppProviderTests"/> class.
-    /// </summary>
     public TwilioWhatsAppProviderTests()
     {
-        _client = Substitute.For<ITwilioWhatsAppClient>();
+        _client =
+            Substitute.For<ITwilioWhatsAppClient>();
 
         _logger =
             Substitute.For<
                 ILogger<TwilioWhatsAppProvider>>();
     }
 
+    // ==========================================================
+    // Constructor
+    // ==========================================================
+
     /// <summary>
-    /// Verifies constructor throws when
-    /// client is null.
+    /// Verifies that the constructor throws an
+    /// <see cref="ArgumentNullException"/>
+    /// when the client is null.
     /// </summary>
     [Fact]
     public void Constructor_Should_ThrowArgumentNullException_When_ClientIsNull()
     {
-        // Arrange / Act
-        Action action = () =>
-            _ = new TwilioWhatsAppProvider(
-                null!,
-                _logger);
+        // Act
+
+        Action action =
+            () =>
+                _ = new TwilioWhatsAppProvider(
+                    null!,
+                    _logger);
 
         // Assert
+
         action.Should()
             .Throw<ArgumentNullException>()
             .WithParameterName("client");
     }
 
     /// <summary>
-    /// Verifies constructor throws when
-    /// logger is null.
+    /// Verifies that the constructor throws an
+    /// <see cref="ArgumentNullException"/>
+    /// when the logger is null.
     /// </summary>
     [Fact]
     public void Constructor_Should_ThrowArgumentNullException_When_LoggerIsNull()
     {
-        // Arrange / Act
-        Action action = () =>
-            _ = new TwilioWhatsAppProvider(
-                _client,
-                null!);
+        // Act
+
+        Action action =
+            () =>
+                _ = new TwilioWhatsAppProvider(
+                    _client,
+                    null!);
 
         // Assert
+
         action.Should()
             .Throw<ArgumentNullException>()
             .WithParameterName("logger");
     }
 
-    /// <summary>
-    /// Verifies constructor creates instance.
-    /// </summary>
-    [Fact]
-    public void Constructor_Should_CreateInstance_When_DependenciesValid()
-    {
-        // Arrange / Act
-        TwilioWhatsAppProvider provider =
-            new(
-                _client,
-                _logger);
-
-        // Assert
-        provider.Should().NotBeNull();
-    }
+    // ==========================================================
+    // SendAsync - Validation
+    // ==========================================================
 
     /// <summary>
-    /// Verifies SendAsync throws when
-    /// message is null.
+    /// Verifies that SendAsync throws an
+    /// <see cref="ArgumentNullException"/>
+    /// when the message is null.
     /// </summary>
     [Fact]
     public async Task SendAsync_Should_ThrowArgumentNullException_When_MessageIsNull()
     {
         // Arrange
+
         TwilioWhatsAppProvider provider =
-            new(
-                _client,
-                _logger);
+            CreateSut();
 
         // Act
+
         Func<Task> action =
-            () => provider.SendAsync(null!);
+            () =>
+                provider.SendAsync(
+                    null!);
 
         // Assert
+
         await action.Should()
-            .ThrowAsync<ArgumentNullException>();
+            .ThrowAsync<ArgumentNullException>()
+            .WithParameterName("message");
     }
 
     /// <summary>
-    /// Verifies successful delivery.
+    /// Verifies that SendAsync throws an
+    /// <see cref="OperationCanceledException"/>
+    /// when cancellation has already been requested.
     /// </summary>
     [Fact]
-    public async Task SendAsync_Should_ReturnSuccess_When_ClientSucceeds()
+    public async Task SendAsync_Should_ThrowOperationCanceledException_When_CancellationRequested()
     {
         // Arrange
+
         TwilioWhatsAppProvider provider =
-            new(
-                _client,
-                _logger);
+            CreateSut();
 
         WhatsAppMessage message =
-            WhatsAppMessageTestData.CreateValid();
+            CreateMessage();
 
-        _client
-            .SendMessageAsync(
-                Arg.Any<string>(),
-                Arg.Any<string>(),
-                Arg.Any<CancellationToken>())
-            .Returns(
-                VendorDeliveryResult.Success("MSG-001"));
+        CancellationToken cancellationToken =
+            new(canceled: true);
 
         // Act
-        DeliveryResult result =
-            await provider.SendAsync(message);
+
+        Func<Task> action =
+            () =>
+                provider.SendAsync(
+                    message,
+                    cancellationToken);
 
         // Assert
-        result.Succeeded.Should().BeTrue();
 
-        result.ProviderMessageId.Should().Be("MSG-001");
-    }
+        await action.Should()
+            .ThrowAsync<OperationCanceledException>();
 
-    /// <summary>
-    /// Verifies the client is invoked once
-    /// for each recipient.
-    /// </summary>
-    [Fact]
-    public async Task SendAsync_Should_InvokeClientForEachRecipient_When_MultipleRecipients()
-    {
-        // Arrange
-        TwilioWhatsAppProvider provider =
-            new(
-                _client,
-                _logger);
-
-        WhatsAppMessage message =
-            WhatsAppMessageTestData.CreateMultipleRecipients();
-
-        _client
-            .SendMessageAsync(
-                Arg.Any<string>(),
-                Arg.Any<string>(),
-                Arg.Any<CancellationToken>())
-            .Returns(
-                VendorDeliveryResult.Success("MSG"));
-
-        // Act
-        await provider.SendAsync(message);
-
-        // Assert
         await _client
-            .Received(2)
+            .DidNotReceive()
             .SendMessageAsync(
                 Arg.Any<string>(),
                 Arg.Any<string>(),
                 Arg.Any<CancellationToken>());
     }
 
+    // ==========================================================
+    // SendAsync - Success
+    // ==========================================================
+
     /// <summary>
-    /// Verifies provider exceptions are converted
-    /// into failed delivery results.
+    /// Verifies that SendAsync returns a successful
+    /// delivery result when the client succeeds.
     /// </summary>
     [Fact]
-    public async Task SendAsync_Should_ReturnFailure_When_ClientThrowsException()
+    public async Task SendAsync_Should_ReturnSuccess_When_ClientSucceeds()
     {
         // Arrange
+
         TwilioWhatsAppProvider provider =
-            new(
-                _client,
-                _logger);
+            CreateSut();
 
         WhatsAppMessage message =
-            WhatsAppMessageTestData.CreateValid();
+            CreateMessage();
 
         _client
-            .When(x =>
-                x.SendMessageAsync(
-                    Arg.Any<string>(),
-                    Arg.Any<string>(),
-                    Arg.Any<CancellationToken>()))
-            .Do(_ =>
-            {
-                throw new InvalidOperationException(
-                    "Failure");
-            });
+            .SendMessageAsync(
+                Arg.Any<string>(),
+                message.Message,
+                Arg.Any<CancellationToken>())
+            .Returns(
+                VendorDeliveryResult.Success(
+                    messageId: "MSG-001"));
 
         // Act
+
         DeliveryResult result =
-            await provider.SendAsync(message);
+            await provider.SendAsync(
+                message);
 
         // Assert
-        result.Succeeded.Should().BeFalse();
 
-        result.ErrorMessage.Should().Be("Failure");
+        result.Succeeded
+            .Should()
+            .BeTrue();
+
+        result.ProviderMessageId
+            .Should()
+            .Be("MSG-001");
+
+        result.ErrorMessage
+            .Should()
+            .BeNull();
     }
 
     /// <summary>
-    /// Verifies cancellation before execution
-    /// is propagated.
+    /// Verifies that SendAsync returns a failed
+    /// delivery result when the client does not
+    /// return a message identifier.
     /// </summary>
     [Fact]
-    public async Task SendAsync_Should_ThrowOperationCanceledException_When_CancellationRequested()
+    public async Task SendAsync_Should_ReturnFailure_When_MessageIdIsEmpty()
     {
         // Arrange
+
         TwilioWhatsAppProvider provider =
-            new(
-                _client,
-                _logger);
+            CreateSut();
 
         WhatsAppMessage message =
-            WhatsAppMessageTestData.CreateValid();
-
-        CancellationToken cancellationToken =
-            new(canceled: true);
-
-        // Act
-        Func<Task> action =
-            () => provider.SendAsync(
-                message,
-                cancellationToken);
-
-        // Assert
-        await action.Should()
-            .ThrowAsync<OperationCanceledException>();
-    }
-
-    /// <summary>
-    /// Verifies cancellation from the client
-    /// is propagated.
-    /// </summary>
-    [Fact]
-    public async Task SendAsync_Should_ThrowOperationCanceledException_When_ClientCancels()
-    {
-        // Arrange
-        TwilioWhatsAppProvider provider =
-            new(
-                _client,
-                _logger);
-
-        WhatsAppMessage message =
-            WhatsAppMessageTestData.CreateValid();
+            CreateMessage();
 
         _client
-            .When(x =>
-                x.SendMessageAsync(
-                    Arg.Any<string>(),
-                    Arg.Any<string>(),
-                    Arg.Any<CancellationToken>()))
-            .Do(_ => throw new OperationCanceledException());
+            .SendMessageAsync(
+                Arg.Any<string>(),
+                message.Message,
+                Arg.Any<CancellationToken>())
+            .Returns(
+                VendorDeliveryResult.Success(
+                    messageId: string.Empty));
 
         // Act
-        Func<Task> action =
-            () => provider.SendAsync(message);
+
+        DeliveryResult result =
+            await provider.SendAsync(
+                message);
 
         // Assert
-        await action.Should()
-            .ThrowAsync<OperationCanceledException>();
+
+        result.Succeeded
+            .Should()
+            .BeFalse();
+
+        result.ErrorMessage
+            .Should()
+            .Be(
+                "The provider did not return a message identifier.");
+    }
+
+    // ==========================================================
+    // SendAsync - Multiple Recipients
+    // ==========================================================
+
+    /// <summary>
+    /// Verifies that SendAsync sends the message
+    /// to every recipient.
+    /// </summary>
+    [Fact]
+    public async Task SendAsync_Should_SendMessageToEveryRecipient()
+    {
+        // Arrange
+
+        TwilioWhatsAppProvider provider =
+            CreateSut();
+
+        WhatsAppMessage message =
+            CreateMessage(
+                "+628123456789",
+                "+628987654321");
+
+        _client
+            .SendMessageAsync(
+                Arg.Any<string>(),
+                message.Message,
+                Arg.Any<CancellationToken>())
+            .Returns(
+                VendorDeliveryResult.Success(
+                    messageId: "MSG-001"));
+
+        // Act
+
+        DeliveryResult result =
+            await provider.SendAsync(
+                message);
+
+        // Assert
+
+        result.Succeeded
+            .Should()
+            .BeTrue();
+
+        await _client
+            .Received(2)
+            .SendMessageAsync(
+                Arg.Any<string>(),
+                message.Message,
+                Arg.Any<CancellationToken>());
     }
 
     /// <summary>
-    /// Verifies the last provider message identifier
-    /// is returned.
+    /// Verifies that SendAsync returns the
+    /// message identifier from the last recipient.
     /// </summary>
     [Fact]
-    public async Task SendAsync_Should_ReturnLastMessageId_When_MultipleRecipients()
+    public async Task SendAsync_Should_ReturnLastMessageId_When_MultipleRecipientsExist()
     {
         // Arrange
+
         TwilioWhatsAppProvider provider =
-            new(
-                _client,
-                _logger);
+            CreateSut();
 
         WhatsAppMessage message =
-            WhatsAppMessageTestData.CreateMultipleRecipients();
+            CreateMessage(
+                "+628123456789",
+                "+628987654321");
+
+        _client
+            .SendMessageAsync(
+                "+628123456789",
+                message.Message,
+                Arg.Any<CancellationToken>())
+            .Returns(
+                VendorDeliveryResult.Success(
+                    messageId: "MSG-001"));
+
+        _client
+            .SendMessageAsync(
+                "+628987654321",
+                message.Message,
+                Arg.Any<CancellationToken>())
+            .Returns(
+                VendorDeliveryResult.Success(
+                    messageId: "MSG-002"));
+
+        // Act
+
+        DeliveryResult result =
+            await provider.SendAsync(
+                message);
+
+        // Assert
+
+        result.Succeeded
+            .Should()
+            .BeTrue();
+
+        result.ProviderMessageId
+            .Should()
+            .Be("MSG-002");
+    }
+
+    // ==========================================================
+    // SendAsync - Cancellation
+    // ==========================================================
+
+    /// <summary>
+    /// Verifies that SendAsync rethrows an
+    /// <see cref="OperationCanceledException"/>
+    /// thrown by the client.
+    /// </summary>
+    [Fact]
+    public async Task SendAsync_Should_RethrowOperationCanceledException_When_ClientCancels()
+    {
+        // Arrange
+
+        TwilioWhatsAppProvider provider =
+            CreateSut();
+
+        WhatsAppMessage message =
+            CreateMessage();
 
         _client
             .SendMessageAsync(
@@ -300,14 +373,165 @@ public sealed class TwilioWhatsAppProviderTests
                 Arg.Any<string>(),
                 Arg.Any<CancellationToken>())
             .Returns(
-                VendorDeliveryResult.Success("MSG-1"),
-                VendorDeliveryResult.Success("MSG-2"));
+                Task.FromException<VendorDeliveryResult>(
+                    new OperationCanceledException()));
 
         // Act
-        DeliveryResult result =
-            await provider.SendAsync(message);
+
+        Func<Task> action =
+            () =>
+                provider.SendAsync(
+                    message);
 
         // Assert
-        result.ProviderMessageId.Should().Be("MSG-2");
+
+        await action.Should()
+            .ThrowAsync<OperationCanceledException>();
+    }
+
+    // ==========================================================
+    // SendAsync - CommunicationException
+    // ==========================================================
+
+    /// <summary>
+    /// Verifies that SendAsync returns a failed
+    /// delivery result when the client throws
+    /// a <see cref="CommunicationException"/>.
+    /// </summary>
+    [Fact]
+    public async Task SendAsync_Should_ReturnFailure_When_ClientThrowsCommunicationException()
+    {
+        // Arrange
+
+        TwilioWhatsAppProvider provider =
+            CreateSut();
+
+        WhatsAppMessage message =
+            CreateMessage();
+
+        CommunicationException exception =
+            new(
+                "Twilio WhatsApp failed.");
+
+        _client
+            .SendMessageAsync(
+                Arg.Any<string>(),
+                Arg.Any<string>(),
+                Arg.Any<CancellationToken>())
+            .Returns(
+                Task.FromException<VendorDeliveryResult>(
+                    exception));
+
+        // Act
+
+        DeliveryResult result =
+            await provider.SendAsync(
+                message);
+
+        // Assert
+
+        result.Succeeded
+            .Should()
+            .BeFalse();
+
+        result.ErrorMessage
+            .Should()
+            .Be(
+                "Twilio WhatsApp failed.");
+    }
+
+    // ==========================================================
+    // SendAsync - CancellationToken
+    // ==========================================================
+
+    /// <summary>
+    /// Verifies that SendAsync forwards
+    /// the cancellation token to the client.
+    /// </summary>
+    [Fact]
+    public async Task SendAsync_Should_ForwardCancellationToken()
+    {
+        // Arrange
+
+        TwilioWhatsAppProvider provider =
+            CreateSut();
+
+        WhatsAppMessage message =
+            CreateMessage();
+
+        using CancellationTokenSource cancellationTokenSource =
+            new();
+
+        CancellationToken cancellationToken =
+            cancellationTokenSource.Token;
+
+        _client
+            .SendMessageAsync(
+                Arg.Any<string>(),
+                message.Message,
+                cancellationToken)
+            .Returns(
+                VendorDeliveryResult.Success(
+                    messageId: "MSG-001"));
+
+        // Act
+
+        DeliveryResult result =
+            await provider.SendAsync(
+                message,
+                cancellationToken);
+
+        // Assert
+
+        result.Succeeded
+            .Should()
+            .BeTrue();
+
+        await _client
+            .Received(1)
+            .SendMessageAsync(
+                Arg.Any<string>(),
+                message.Message,
+                cancellationToken);
+    }
+
+    // ==========================================================
+    // Helpers
+    // ==========================================================
+
+    /// <summary>
+    /// Creates the system under test.
+    /// </summary>
+    private TwilioWhatsAppProvider CreateSut()
+    {
+        return new TwilioWhatsAppProvider(
+            _client,
+            _logger);
+    }
+
+    /// <summary>
+    /// Creates a valid WhatsApp message.
+    /// </summary>
+    private static WhatsAppMessage CreateMessage()
+    {
+        return CreateMessage(
+            "+628123456789");
+    }
+
+    /// <summary>
+    /// Creates a WhatsApp message with
+    /// the specified recipients.
+    /// </summary>
+    private static WhatsAppMessage CreateMessage(
+        params string[] recipients)
+    {
+        return new WhatsAppMessage(
+            [
+                .. recipients.Select(
+                    recipient =>
+                        new WhatsAppNumber(
+                            recipient))
+            ],
+            "Test WhatsApp message.");
     }
 }

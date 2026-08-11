@@ -22,12 +22,20 @@ internal static class AddCommunicationOptionsExtensions
     /// <returns>
     /// The updated service collection.
     /// </returns>
+    /// <exception cref="ArgumentNullException">
+    /// Thrown when <paramref name="services"/> or
+    /// <paramref name="configuration"/> is
+    /// <see langword="null"/>.
+    /// </exception>
     internal static IServiceCollection AddCommunicationOptions(
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        ArgumentNullException.ThrowIfNull(services);
-        ArgumentNullException.ThrowIfNull(configuration);
+        ArgumentNullException.ThrowIfNull(
+            services);
+
+        ArgumentNullException.ThrowIfNull(
+            configuration);
 
         services
             .AddOptions<CommunicationOptions>()

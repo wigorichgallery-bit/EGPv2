@@ -79,7 +79,8 @@ internal sealed class MetaCloudWhatsAppProvider
                 lastMessageId = result.MessageId;
 
                 _logger.LogInformation(
-                    "WhatsApp message successfully sent via Meta Cloud. Recipient: {Recipient}, MessageId: {MessageId}",
+                    "WhatsApp message successfully sent via Meta Cloud. " +
+                    "Recipient: {Recipient}, MessageId: {MessageId}",
                     recipient.Value,
                     result.MessageId);
             }
