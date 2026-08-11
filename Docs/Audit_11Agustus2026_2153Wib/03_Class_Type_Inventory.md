@@ -1,0 +1,2437 @@
+# EGPv2 Class / Type Inventory
+
+Every parsed C# file is listed. `types` is the declaration set detected from the source; the SHA-256 locks the exact file content.
+
+
+## Platform.Identity.Application
+
+- `src/Application/Platform.Identity.Application/GlobalUsings.cs` — 6 lines, 180 bytes, `544b05d777a7200fb2adac3043ce635ad5412a10f5781945e7ccd16e3dbb6b75`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/AssemblyInfo.cs` — 3 lines, 115 bytes, `079a4ec88a7c4168234b40113652077cce8f7a68a7420c60c0687d68e25245e5`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Errors/IdentityErrors.cs` — 288 lines, 10237 bytes, `b2494a2411eff1e2bbb76623d276f3571ff6ea45cbc144759da4982d1cc7f6cb`
+  - namespace: `Platform.Identity.Application.Errors`
+  - types: class IdentityErrors@L25
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Errors/IdentityErrorMapper.cs` — 189 lines, 6882 bytes, `9d2ce077158cf2e470a7125ca78aee29a3169661c4305da90ff16448afe2b8e6`
+  - namespace: `Platform.Identity.Application.Errors`
+  - types: class IdentityErrorMapper@L33
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Security/IPasswordHasher.cs` — 37 lines, 1116 bytes, `7cb8592de76f37291be8706c0dcc9642a0a0f64a990a68a592eec652e6100139`
+  - namespace: `Platform.Identity.Application.Abstractions.Security`
+  - types: interface IPasswordHasher@L9
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Security/ITotpSecretGenerator.cs` — 93 lines, 2178 bytes, `b0f6fbddab7c8201a7744403281850e940bcff19b8c88c6cc38f7a6ac9c81f23`
+  - namespace: `Platform.Identity.Application.Abstractions.Security`
+  - types: interface ITotpSecretGenerator@L83
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Security/IVerificationCodeValidator.cs` — 29 lines, 1010 bytes, `e9def91f10bfa8cd25756ce3257e9171aa22763fe18f0fbaac8f0165d2fab9a0`
+  - namespace: `Platform.Identity.Application.Abstractions.Security`
+  - types: interface IVerificationCodeValidator@L8
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Security/ITotpVerifier.cs` — 74 lines, 1629 bytes, `de952446b8656386124c016a481ee4e472ab023e892c87b6ee2cb45c0cb4eaf6`
+  - namespace: `Platform.Identity.Application.Abstractions.Security`
+  - types: interface ITotpVerifier@L52
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Security/ITotpCodeGenerator.cs` — 75 lines, 1698 bytes, `679a8946258331bda1d731221029871b54a06ffe553400546da8379caa3a7ff2`
+  - namespace: `Platform.Identity.Application.Abstractions.Security`
+  - types: interface ITotpCodeGenerator@L58
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Security/IOtpGenerator.cs` — 54 lines, 1169 bytes, `db81dd4a4494f3105e951c85461a2789e4b252aa2151f570e6dff3aa39d78b43`
+  - namespace: `Platform.Identity.Application.Abstractions.Security`
+  - types: interface IOtpGenerator@L45
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Security/ITokenService.cs` — 47 lines, 1688 bytes, `9dae7e4cc3761e4ff3f23e72f10b02a0557f5b37d42c72dda0509ea7bd19e142`
+  - namespace: `Platform.Identity.Application.Abstractions.Security`
+  - types: interface ITokenService@L27
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Common/IGuidGenerator.cs` — 85 lines, 1922 bytes, `19fe4a2e8cd96476dec6fc1304456681991b758ad5b021c9243dfe9119d4f8ae`
+  - namespace: `Platform.Identity.Application.Abstractions.Common`
+  - types: interface IGuidGenerator@L76
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Authentication/ISmsAuthenticationChallengeSender.cs` — 24 lines, 753 bytes, `62613d116cd9936e2674062a3f46f11dadb33364cbcdcd4ccf06fd9f4662e9ef`
+  - namespace: `Platform.Identity.Application.Abstractions.Authentication`
+  - types: interface ISmsAuthenticationChallengeSender@L16
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Authentication/IEmailAuthenticationChallengeSender.cs` — 39 lines, 1229 bytes, `eddf26dddc6a811df9af83082c8f9374ae1043167ffec6ee6f8833a0ae3a4643`
+  - namespace: `Platform.Identity.Application.Abstractions.Authentication`
+  - types: interface IEmailAuthenticationChallengeSender@L22
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Authentication/IWhatsAppAuthenticationChallengeSender.cs` — 24 lines, 773 bytes, `ccf6edf569de6b43deb4cc2dd05d007084dd300e0abb6b1090f1c8891b9a39be`
+  - namespace: `Platform.Identity.Application.Abstractions.Authentication`
+  - types: interface IWhatsAppAuthenticationChallengeSender@L16
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Authentication/IAuthenticationChallengeBuilder.cs` — 126 lines, 3456 bytes, `5baaafca6ba6571453cd9026f85208e2ea831cb7a7b465166894f30d92564f9d`
+  - namespace: `Platform.Identity.Application.Abstractions.Authentication`
+  - types: interface IAuthenticationChallengeBuilder@L103
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Authentication/IAuthenticationIdentityResolver.cs` — 61 lines, 2119 bytes, `29638fed992bd7e6e891b64d620b0e82e4a907d5a16c618c25336e6046251617`
+  - namespace: `Platform.Identity.Application.Abstractions.Authentication`
+  - types: interface IAuthenticationIdentityResolver@L43
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Authentication/IAuthenticationChallengeDeliveryService.cs` — 78 lines, 1999 bytes, `7f4f60cf92680145083e6561e073851fd7307ded857f6a07bd3df54c9934dab0`
+  - namespace: `Platform.Identity.Application.Abstractions.Authentication`
+  - types: interface IAuthenticationChallengeDeliveryService@L60
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Authentication/ITotpProvisioningService.cs` — 57 lines, 1588 bytes, `d1dd972fd0e7ace26a8c4cc025086bc27882098b2765889691c6f276f73e6147`
+  - namespace: `Platform.Identity.Application.Abstractions.Authentication`
+  - types: interface ITotpProvisioningService@L39
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Authentication/IAuthenticationChallengeEmailFormatter.cs` — 39 lines, 1156 bytes, `45aa9320b3ac80735c7d5889874daa701e04acd544dbd353df6d38fa300af5f4`
+  - namespace: `Platform.Identity.Application.Abstractions.Authentication`
+  - types: interface IAuthenticationChallengeEmailFormatter@L26
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Authentication/IAuthenticationChallengeWhatsAppFormatter.cs` — 29 lines, 935 bytes, `3922914066a1d9c55649e254e874f2f29f791076da660617ad9a7d75a546fa7c`
+  - namespace: `Platform.Identity.Application.Abstractions.Authentication`
+  - types: interface IAuthenticationChallengeWhatsAppFormatter@L16
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Authentication/IAuthenticationChallengeSmsFormatter.cs` — 29 lines, 905 bytes, `e63de4d7e11447991d3c733fca1657a71dc369748c881c1af06303afb8bd781c`
+  - namespace: `Platform.Identity.Application.Abstractions.Authentication`
+  - types: interface IAuthenticationChallengeSmsFormatter@L16
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Authentication/IAuthenticationChallengeSecretFactory.cs` — 68 lines, 1717 bytes, `c5a2fe3bd9765f9ecbbb56c283b73f644f84b0cddb3d468cb8934ac4a9defb9f`
+  - namespace: `Platform.Identity.Application.Abstractions.Authentication`
+  - types: interface IAuthenticationChallengeSecretFactory@L55
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Persistence/Queries/IRoleQueryRepository.cs` — 43 lines, 1445 bytes, `2c5ec03903de39feb78d26ff6d2c7bf42332e6b73796efada538001fd767d7f2`
+  - namespace: `Platform.Identity.Application.Abstractions.Persistence.Queries`
+  - types: interface IRoleQueryRepository@L26
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Persistence/Queries/IUserQueryRepository.cs` — 47 lines, 1376 bytes, `3d1ddf84099f0986baf4ff658d5a2378f011f151aa1ff2d3d6e027bf813a6fbc`
+  - namespace: `Platform.Identity.Application.Abstractions.Persistence.Queries`
+  - types: interface IUserQueryRepository@L26
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Persistence/Commands/IRoleRepository.cs` — 113 lines, 3780 bytes, `5cfa42d91de808c1ca6010e9c02cb7d91850511f4fc4598a15cc602303fdf333`
+  - namespace: `Platform.Identity.Application.Abstractions.Persistence.Commands`
+  - types: interface IRoleRepository@L33
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Persistence/Commands/IAuthenticationChallengeRepository.cs` — 70 lines, 2191 bytes, `44cca09af4c007e09349ecb60ff1fd56f7a0f31848eb37439023716dce1844b9`
+  - namespace: `Platform.Identity.Application.Abstractions.Persistence.Commands`
+  - types: interface IAuthenticationChallengeRepository@L25
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Abstractions/Persistence/Commands/IUserAccountRepository.cs` — 162 lines, 5551 bytes, `d7e188443d918d01674011f6a61d605c18b3e3728ea639032bf0facec60dbc6b`
+  - namespace: `Platform.Identity.Application.Abstractions.Persistence.Commands`
+  - types: interface IUserAccountRepository@L34
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Contracts/Users/Dtos/UserDto.cs` — 45 lines, 1524 bytes, `da69a481907a0a16c632ff4c1aeef36802b946b01d962bc6b0c2b437a3b3edc0`
+  - namespace: `Platform.Identity.Application.Contracts.Users.Dtos`
+  - types: record UserDto@L36
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Contracts/Roles/Dtos/RoleDto.cs` — 38 lines, 1300 bytes, `5cd346a77edf7d0b96511839aace0cecf22694dae798ef05082f06f7f8f9c42b`
+  - namespace: `Platform.Identity.Application.Contracts.Roles.Dtos`
+  - types: record RoleDto@L32
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Contracts/Authentications/Responses/LoginResponse.cs` — 120 lines, 3657 bytes, `764f62429e514055700ccc77904add262efdd2ac24d6380537f20c21df584c60`
+  - namespace: `Platform.Identity.Application.Contracts.Authentication.Responses`
+  - types: record LoginResponse@L114
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Contracts/Authentications/Responses/VerifyTotpResponse.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Contracts/Authentications/Enums/AuthenticationChallengeType.cs` — 94 lines, 2688 bytes, `9722c7f59921e40cfb1bd81534a1dce5d5dff73e9f680f800bbc8e49f53789bf`
+  - namespace: `Platform.Identity.Application.Contracts.Authentication.Enums`
+  - types: enum AuthenticationChallengeType@L33
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Contracts/Authentications/Enums/AuthenticationStatus.cs` — 58 lines, 1665 bytes, `e739bb821e446c6971b32f8950dc5d4e99874faaea411ffb45e1ac4f7aaa3b9e`
+  - namespace: `Platform.Identity.Application.Contracts.Authentication.Enums`
+  - types: enum AuthenticationStatus@L23
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Contracts/Authentications/Enums/AuthenticationChallengePurpose.cs` — 87 lines, 2806 bytes, `c9ffdee5dfe9ccba480875567547f233cc3be7054eb3fe319b500930c6416034`
+  - namespace: `Platform.Identity.Application.Contracts.Authentication.Enums`
+  - types: enum AuthenticationChallengePurpose@L44
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Contracts/Authentications/Requests/LoginRequest.cs` — 48 lines, 1619 bytes, `b48a5af916eaf37c9058369bcf84e9cf6a0040a71f5c47390185fa976308a178`
+  - namespace: `Platform.Identity.Application.Contracts.Authentication.Requests`
+  - types: record LoginRequest@L46
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Contracts/Authentications/Requests/TokenGenerationRequest.cs` — 59 lines, 2095 bytes, `c5c508ad48e418ee441d7734a3aaebfc6909537ca01bec508f74b162f4a96e58`
+  - namespace: `Platform.Identity.Application.Contracts.Authentication.Requests`
+  - types: record TokenGenerationRequest@L53
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Contracts/Authentications/Requests/VerifyTotpRequest.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Contracts/Authentications/Dtos/AuthenticationTokenDto.cs` — 54 lines, 1874 bytes, `cd9ede8f25f55ff161af61eb2599d1eea4eae5f1aaa9a3804bce9aff3c421957`
+  - namespace: `Platform.Identity.Application.Contracts.Authentication.Dtos`
+  - types: record AuthenticationTokenDto@L49
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Contracts/Authentications/Dtos/LoginContextDto.cs` — 99 lines, 2680 bytes, `cc09153d9cab86d2fc27654398a73b91ed4920b1cffb1a243a322bd24ef3043f`
+  - namespace: `Platform.Identity.Application.Contracts.Authentication.Dtos`
+  - types: record LoginContextDto@L92
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Contracts/Authentications/Dtos/AuthenticationChallengeDto.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Configuration/Authentication/AuthenticationOptions.cs` — 25 lines, 780 bytes, `f0d85f36ac00c2ecf29e1e00b359ccb17c17095c4635c27f61ae436dae152f25`
+  - namespace: `Platform.Identity.Application.Configuration.Authentication`
+  - types: class AuthenticationOptions@L13
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Configuration/Authentication/AuthenticationChallengeOptions.cs` — 77 lines, 1967 bytes, `61280e6b30efb275591538379354ae915c15cb08c71d7598111a8e808a5b324a`
+  - namespace: `Platform.Identity.Application.Configuration`
+  - types: class AuthenticationChallengeOptions@L62
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Configuration/Authentication/AuthenticationMessageOptions.cs` — 79 lines, 2369 bytes, `87542de5dc34a74378173e2e02fcf5702476c86dd7d3c4daebcebf1ae4c502ad`
+  - namespace: `Platform.Identity.Application.Configuration`
+  - types: class AuthenticationMessageOptions@L38
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Configuration/Authentication/TotpOptions.cs` — 65 lines, 1964 bytes, `a4073536bb27750f70c0baaf6c75455c24119d0e9a0d856ce8683b5c165faae9`
+  - namespace: `Platform.Security.Infrastructure.Authentication.Configuration`
+  - types: class TotpOptions@L27
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Common/ValidationPatterns.cs` — 35 lines, 852 bytes, `e936de0789f33d5055f69c4407a9eb5699feccee03e3a8bdbb8c758ec01f9e1b`
+  - namespace: `Platform.Identity.Application.Features.Common`
+  - types: class ValidationPatterns@L24
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Common/ValidationConstants.cs` — 55 lines, 1395 bytes, `3e9bf886147a5a2c2418f652e8c88a502f2c12af196f654e4925f83396a1df2b`
+  - namespace: `Platform.Identity.Application.Features.Common`
+  - types: class ValidationConstants@L24
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Builder/AuthenticationChallengeBuilder.cs` — 160 lines, 4767 bytes, `035075414c022ba2038b69370ad441fed92c7992af66c96db5f1e1f594d188d2`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Builders`
+  - types: class AuthenticationChallengeBuilder@L80
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Policies/VerificationPolicy.cs` — 58 lines, 1871 bytes, `c8bea3ecd65ed022a4cb00e1e29d7c3b4eaf284397f97ed63157d2f10134e134`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Policies`
+  - types: class VerificationPolicy@L30
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Policies/DefaultAuthenticationPolicyEvaluator.cs` — 78 lines, 2597 bytes, `dc3448027dab03f86fa316d4a8dd9389918980c98c86837eccf04c04fb003454`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Policies`
+  - types: class DefaultAuthenticationPolicyEvaluator@L32
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Models/AuthenticationSmsMessage.cs` — 30 lines, 811 bytes, `7b98541c42fdcaffd728dfecd24eb02ab4b0a8c958473a92949bea8e28a979ef`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Models`
+  - types: record AuthenticationSmsMessage@L28
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Models/AuthenticationChallengeSecretResult.cs` — 83 lines, 2149 bytes, `e7e43dba5bbd4bc8f3e451df8d486dbb0c751b456ca07665bc9968dd45989780`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Models`
+  - types: record AuthenticationChallengeSecretResult@L81
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Models/AuthenticationChallengeBuildResult.cs` — 39 lines, 1202 bytes, `1bccce0cf3f4011ea2308a94292345641d1541229f66fbb785a5cf856f0e570e`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Models`
+  - types: record AuthenticationChallengeBuildResult@L37
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Models/TotpProvisioningResult.cs` — 29 lines, 882 bytes, `1d857ab9094cac27e94504edb6ac18f3157f411561c9bad7a26ab63cc1896b73`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Models`
+  - types: record TotpProvisioningResult@L27
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Models/AuthenticationWhatsAppMessage.cs` — 30 lines, 836 bytes, `49636e40edca6df4c9d4f5423f1d3b7e88447f5e11fd6f9324a8654cf586d084`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Models`
+  - types: record AuthenticationWhatsAppMessage@L28
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Models/AuthenticationEmailMessage.cs` — 38 lines, 1003 bytes, `4bfdac35d968381b51524c8bc5ab8352a6234db416132b38cb2f7385ca6328d7`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Models`
+  - types: record AuthenticationEmailMessage@L34
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Models/AuthenticationChallengeDeliveryRequest.cs` — 48 lines, 1332 bytes, `110f2e32b0d558569834e97490f792321f24cd9fc27136892601a1bd054bf595`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Models`
+  - types: record AuthenticationChallengeDeliveryRequest@L45
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Factories/AuthenticationChallengeSecretFactory.cs` — 183 lines, 4997 bytes, `241728f5d8279303f56b67fcd961ae58bf2e6a68f41cfe74e3947b1205a5fd70`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Factories`
+  - types: class AuthenticationChallengeSecretFactory@L72
+  - heuristic methods: 2; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Services/AuthenticationChallengeDeliveryService.cs` — 190 lines, 5244 bytes, `1fa8d1c7f24a0c3742f6896f76676a739068c4a83b7b115cdac90157550b7868`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Services`
+  - types: class AuthenticationChallengeDeliveryService@L76
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Mapping/AuthenticationChallengeTypeMapper.cs` — 148 lines, 4178 bytes, `1c067c15d51fb72cb64605c0a72db9d782739fcd8419bac8e24af8843edf4b23`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Mapping`
+  - types: class AuthenticationChallengeTypeMapper@L93
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Mapping/AuthenticationChallengeTypeResolver.cs` — 123 lines, 3291 bytes, `e357684964f3bbbf2bdf745179872620b3fd9b3b4b322b0cd0b1f8637b2d1e9a`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Mapping`
+  - types: class AuthenticationChallengeTypeResolver@L85
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Mapping/AuthenticationChallengePurposeMapper.cs` — 142 lines, 4159 bytes, `e629efa3f5e4e12a61e0e25293060a6662f1280ef71af4650a337c2ad97cbbcb`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Mapping`
+  - types: class AuthenticationChallengePurposeMapper@L93
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Actions/Login/LoginCommand.cs` — 56 lines, 1644 bytes, `dac7821aa6281faa505b4e1f0e3bd24f2acec43480f0210836f1420997ca24d2`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Actions`
+  - types: record LoginCommand@L33
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Actions/Login/LoginUseCase.cs` — 491 lines, 17488 bytes, `ee9608e97fe0562c671fb35dd2ee0ecd2ac3901fc6b0968aa7929c38c5b5f4b6`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Actions`
+  - types: class LoginUseCase@L49
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Actions/Login/LoginValidator.cs` — 106 lines, 3182 bytes, `88d4b956b79f827d24b13fca34cac7653d715908db2aa40690da7e7745515ed9`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Actions`
+  - types: class LoginValidator@L37
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Policies/Contracts/IAuthenticationPolicyEvaluator.cs` — 49 lines, 1760 bytes, `ae02ca82aaf9fdf91aaf4e11e8dcb3f73dc1e12c2fd78354723148d5fb0720f0`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Policies.Contracts`
+  - types: interface IAuthenticationPolicyEvaluator@L30
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Policies/Contracts/IAuthenticationPolicy.cs` — 48 lines, 1652 bytes, `8c22775aa39bbb63445beaa1e27feb9203ae62fd3211e11ef65d51722e8da9ac`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Policies.Contracts`
+  - types: interface IAuthenticationPolicy@L30
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Policies/Models/PolicyEvaluationResult.cs` — 103 lines, 3422 bytes, `8fa038998244fbc6762006558b1b4d0e260a9b5d945aeec1e9b5b22c35ee3fe6`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Policies.Models`
+  - types: record PolicyEvaluationResult@L23
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Policies/Models/AuthenticationDecisionType.cs` — 59 lines, 1849 bytes, `529a61da465ed36b665e01943094321de1c179ba0983de505a9bf48695584241`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Policies.Models`
+  - types: enum AuthenticationDecisionType@L24
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Policies/Models/AuthenticationDecision.cs` — 124 lines, 3816 bytes, `c148f3ec3f7e6425e7685a5721f650c48a137b12335c8b90494b7927bf935814`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Policies.Models`
+  - types: record AuthenticationDecision@L21
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Authentication/Policies/Models/AuthenticationContext.cs` — 109 lines, 2757 bytes, `fe3f57aa55faa364324ab2f4cbf4817973c1d29302d6396a9a16565ce608a442`
+  - namespace: `Platform.Identity.Application.Features.Authentication.Policies.Models`
+  - types: record AuthenticationContext@L106
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Actions/DisableMfa/DisableMfaUseCase.cs` — 127 lines, 3842 bytes, `856daff6f7b3bdb2da73fcb618a0eb743a27e84bd49ecf0d00e54b611fca292b`
+  - namespace: `Platform.Identity.Application.Features.Users.Actions`
+  - types: class DisableMfaUseCase@L42
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Actions/DisableMfa/DisableMfaValidator.cs` — 37 lines, 1130 bytes, `158a47ad049ed6b5e6aa62b3f4c45c11937f6795d4f9b0e583c3b62a16acffad`
+  - namespace: `Platform.Identity.Application.Features.Users.Actions`
+  - types: class DisableMfaValidator@L12
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Actions/DisableMfa/DisableMfaCommand.cs` — 29 lines, 855 bytes, `76d823dfd116ef3e1babda3cc8ea6fd8911f262dde5d0ae33c17e9eb8e00482d`
+  - namespace: `Platform.Identity.Application.Features.Users.Actions`
+  - types: record DisableMfaCommand@L18
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Actions/CreateUser/CreateUserCommand.cs` — 40 lines, 1275 bytes, `a37a87707427432acc3c922c38b22cb081a88f20dbdde129595d0f51c13c2dab`
+  - namespace: `Platform.Identity.Application.Features.Users.Actions`
+  - types: record CreateUserCommand@L26
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Actions/CreateUser/CreateUserValidator.cs` — 141 lines, 4343 bytes, `583ef8bdddd3fbee26d797cc0b6bd38100f30553c01c5b34228707cd72c64a6a`
+  - namespace: `Platform.Identity.Application.Features.Users.Actions`
+  - types: class CreateUserValidator@L33
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Actions/CreateUser/CreateUserUseCase.cs` — 188 lines, 5718 bytes, `e6c21f76062d0f3c7272ca09b1a254ec0a676bf421c840dbe121b7f358991ec8`
+  - namespace: `Platform.Identity.Application.Features.Users.Actions`
+  - types: class CreateUserUseCase@L46
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Actions/EnableMfa/EnableMfaCommand.cs` — 32 lines, 962 bytes, `edc01787d487683b48d6771a5f26d4442e8ea5491cf6780b4915df01642dcae8`
+  - namespace: `Platform.Identity.Application.Features.Users.Actions`
+  - types: record EnableMfaCommand@L20
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Actions/EnableMfa/EnableMfaValidator.cs` — 54 lines, 1640 bytes, `7ddf9fdd8b35cf4f5c153392797fe0dcc807e268e32fb621b374fc4e3d1e16fc`
+  - namespace: `Platform.Identity.Application.Features.Users.Actions`
+  - types: class EnableMfaValidator@L13
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Actions/EnableMfa/EnableMfaUseCase.cs` — 128 lines, 3862 bytes, `6d8d9e24991d3da6686420af9747f00ca9b223794cf9277db434f9ee4a15ce69`
+  - namespace: `Platform.Identity.Application.Features.Users.Actions`
+  - types: class EnableMfaUseCase@L42
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Actions/ChangePassword/ChangePasswordUseCase.cs` — 158 lines, 4789 bytes, `74fd20369928ee862e4c844b01bdb693a9275604ce7fd766dacfb0d7b8fb6007`
+  - namespace: `Platform.Identity.Application.Features.Users.Actions`
+  - types: class ChangePasswordUseCase@L45
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Actions/ChangePassword/ChangePasswordCommand.cs` — 33 lines, 1028 bytes, `c577025fb6565a5928d10d1314375cec026eecc9244ba06bdf6d5f26a0ca60af`
+  - namespace: `Platform.Identity.Application.Features.Users.Actions`
+  - types: record ChangePasswordCommand@L20
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Actions/ChangePassword/ChangePasswordValidator.cs` — 80 lines, 2617 bytes, `6b8ce0ea923e3dd9aa63565d2b079c588e8a01433c7b2fb6c31a40f00bafbf6f`
+  - namespace: `Platform.Identity.Application.Features.Users.Actions`
+  - types: class ChangePasswordValidator@L18
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Actions/VerifyEmail/VerifyEmailCommand.cs` — 31 lines, 957 bytes, `aca48d37540069bc09a030d7eea09efcda05f95a8398087483f5f6079c1e4d1e`
+  - namespace: `Platform.Identity.Application.Features.Users.Actions`
+  - types: record VerifyEmailCommand@L19
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Actions/VerifyEmail/VerifyEmailUseCase.cs` — 153 lines, 4804 bytes, `e296a4fd509cdb1d242f0a2a20f7baf0e8cd4ff8a26c4e1e189b4d82c20c2f63`
+  - namespace: `Platform.Identity.Application.Features.Users.Actions`
+  - types: class VerifyEmailUseCase@L43
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Actions/VerifyEmail/VerifyEmailValidator.cs` — 59 lines, 1875 bytes, `58238c4cb5173fab7d88b48fb0af6e6cda3e6a9a4e0d67b9b5d2efb2339772db`
+  - namespace: `Platform.Identity.Application.Features.Users.Actions`
+  - types: class VerifyEmailValidator@L18
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Actions/VerifyPhone/VerifyPhoneCommand.cs` — 31 lines, 956 bytes, `e57e670f8456f44764ac2a968350ca1222ada1bd0061215bf853441fcaf331b4`
+  - namespace: `Platform.Identity.Application.Features.Users.Actions`
+  - types: record VerifyPhoneCommand@L19
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Actions/VerifyPhone/VerifyPhoneUseCase.cs` — 154 lines, 4805 bytes, `316742901157ac0a5260b9ecff748c6a6ba1de416bed726ab78003a59c3ad564`
+  - namespace: `Platform.Identity.Application.Features.Users.Actions`
+  - types: class VerifyPhoneUseCase@L44
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Actions/VerifyPhone/VerifyPhoneValidator.cs` — 59 lines, 1875 bytes, `4be09a697b6c69889650af3503fbe38d341974fab7c9f488b5048e6022888884`
+  - namespace: `Platform.Identity.Application.Features.Users.Actions`
+  - types: class VerifyPhoneValidator@L18
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Queries/GetUserByUsername/GetUserByUsernameQuery.cs` — 35 lines, 1080 bytes, `463a49d2073f87f69cc3e1295d30cd66fe373c4ef69cd476de8fc6a31bf173d9`
+  - namespace: `Platform.Identity.Application.Features.Users.Queries`
+  - types: record GetUserByUsernameQuery@L34
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Queries/GetUserByUsername/GetUserByUsernameQueryHandler.cs` — 113 lines, 3316 bytes, `8819219cf568dfc1885a3a8340fb1f5ae5aaabf24910049a7e8facf4b70a8da8`
+  - namespace: `Platform.Identity.Application.Features.Users.Queries`
+  - types: class GetUserByUsernameQueryHandler@L44
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Queries/GetUserById/GetUserByIdQuery.cs` — 35 lines, 1054 bytes, `f704bff52ced82c7a082dff369f9b34f7b09a3b01504ac8afef76173c54d924c`
+  - namespace: `Platform.Identity.Application.Features.Users.Queries`
+  - types: record GetUserByIdQuery@L34
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Queries/GetUserById/GetUserByIdQueryHandler.cs` — 111 lines, 3242 bytes, `3366dda8ae24cbe7723910fe004fc58e3a0754b79cc6e1d02d9c8e5821907bce`
+  - namespace: `Platform.Identity.Application.Features.Users.Queries`
+  - types: class GetUserByIdQueryHandler@L44
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Queries/GetUsers/GetUsersQueryHandler.cs` — 100 lines, 2860 bytes, `c1c10434f45d0ae6550c8b633f65dc753faf789323c4ecf188569420b3afdd92`
+  - namespace: `Platform.Identity.Application.Features.Users.Queries`
+  - types: class GetUsersQueryHandler@L45
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Users/Queries/GetUsers/GetUsersQuery.cs` — 31 lines, 1069 bytes, `20d7c6235c2af694204a6282c4f13d62a58ba20e8862ab8858c175d8fb737c69`
+  - namespace: `Platform.Identity.Application.Features.Users.Queries`
+  - types: record GetUsersQuery@L31
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Roles/Actions/RemoveRole/RemoveRoleUseCase.cs` — 155 lines, 4614 bytes, `e099e3346e7e3e288da1101ad4eb8a11e1a00e6dce8a5d03826ca1c1a46036cd`
+  - namespace: `Platform.Identity.Application.Features.Roles.Actions`
+  - types: class RemoveRoleUseCase@L45
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Roles/Actions/RemoveRole/RemoveRoleCommand.cs` — 30 lines, 905 bytes, `27a19dac481308e5eef7cbcbeb349c9e77099c7d3fbab3d57ea4807f04916a72`
+  - namespace: `Platform.Identity.Application.Features.Roles.Actions`
+  - types: record RemoveRoleCommand@L18
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Roles/Actions/RemoveRole/RemoveRoleValidator.cs` — 49 lines, 1395 bytes, `c252e2373212a4be51212a0295f83567f690bc92dbde4b417947eb77804e9563`
+  - namespace: `Platform.Identity.Application.Features.Roles.Actions`
+  - types: class RemoveRoleValidator@L16
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Roles/Actions/AssignRole/AssignRoleValidator.cs` — 49 lines, 1395 bytes, `ce78ae8f46a2debfa44d94cbc54eb44dfba8cf8b6920db59d454cb43af5c4957`
+  - namespace: `Platform.Identity.Application.Features.Roles.Actions`
+  - types: class AssignRoleValidator@L16
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Roles/Actions/AssignRole/AssignRoleCommand.cs` — 30 lines, 903 bytes, `a750453d9392d4a02013ead3aaa0fdaccdfdf8dce4e19e8039357680b721b65d`
+  - namespace: `Platform.Identity.Application.Features.Roles.Actions`
+  - types: record AssignRoleCommand@L18
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Roles/Actions/AssignRole/AssignRoleUseCase.cs` — 162 lines, 4798 bytes, `9638a1fc689b670689e86d3c068c59c8ec69eb0a1aa1889aa53a22c05ec2cb89`
+  - namespace: `Platform.Identity.Application.Features.Roles.Actions`
+  - types: class AssignRoleUseCase@L46
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Roles/Queries/GetRoles/GetRolesQuery.cs` — 31 lines, 983 bytes, `6e5034058e0103ae38b9e0be125700260b17f97acf6b99d586aedc32c84376d0`
+  - namespace: `Platform.Identity.Application.Features.Roles.Queries`
+  - types: record GetRolesQuery@L31
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Identity.Application/Features/Roles/Queries/GetRoles/GetRolesQueryHandler.cs` — 103 lines, 3009 bytes, `6440777a801d9c4c2268d86080891a18b01b46c23e5fe10fb63789d738d73786`
+  - namespace: `Platform.Identity.Application.Features.Roles.Queries`
+  - types: class GetRolesQueryHandler@L44
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+
+## Platform.Pipeline
+
+- `src/Application/Platform.Pipeline/GlobalUsings.cs` — 6 lines, 193 bytes, `e87155004b8ac7224c6fd1bcaeef5c17cd9c821501dd3dbff58b4695cc4913e0`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/AssemblInfo.cs` — 3 lines, 103 bytes, `2c736d021010f02e346482fec38cc4c09af72ce8260bb39ee2c9e7931ac2810a`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Governance/GovernanceBehavior.cs` — 79 lines, 1963 bytes, `e3a40ea166e764d965bf9ead802eac466a8cdf2f540fc32a243d96851fa3ad2e`
+  - namespace: `Platform.Pipeline.Governance`
+  - types: class GovernanceBehavior@L27
+  - heuristic methods: 5; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Governance/GovernanceBehaviorT.cs` — 84 lines, 2155 bytes, `c61aea294420ce3b1b0e745dbb45a6ac3707dae6e83b659aeb81f98b2108a913`
+  - namespace: `Platform.Pipeline.Governance`
+  - types: class GovernanceBehaviorT@L30
+  - heuristic methods: 5; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Transaction/TransactionBehavior.cs` — 89 lines, 2231 bytes, `340023319e5ac42b32ab4406d0e778b34148a36ba7742293055843c159ca2c9c`
+  - namespace: `Platform.Pipeline.Transaction`
+  - types: class TransactionBehavior@L28
+  - heuristic methods: 4; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Transaction/TransactionBehaviorT.cs` — 92 lines, 2353 bytes, `a95f049851d44b34765ff40256863c041c4391cda07b4699f42b9284c43fd70c`
+  - namespace: `Platform.Pipeline.Transaction`
+  - types: class TransactionBehaviorT@L31
+  - heuristic methods: 4; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Validation/ValidationBehaviorT.cs` — 98 lines, 2538 bytes, `8312b85cd117efe0af31201f1a3299d3f382adc8c58f5e1d0e8fac5c1fc1c2cc`
+  - namespace: `Platform.Pipeline.Validation`
+  - types: class ValidationBehaviorT@L31
+  - heuristic methods: 6; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Validation/ValidationFailureFactory.cs` — 109 lines, 2841 bytes, `01488d9f50fe92fd462676e1d483825a5a7ec2c37a4bd4d31ed06fb147134ae2`
+  - namespace: `Platform.Pipeline.Validation`
+  - types: class ValidationFailureFactory@L25
+  - heuristic methods: 2; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Validation/ValidationBehavior.cs` — 92 lines, 2355 bytes, `f908376ee6479a92aab8ea1ab24277e92e136bbbcbe4e11fcc3b050e944f2f80`
+  - namespace: `Platform.Pipeline.Validation`
+  - types: class ValidationBehavior@L28
+  - heuristic methods: 7; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Models/ExecutionLogEntry.cs` — 75 lines, 1825 bytes, `e2d445a6a9a5e0ce0daaaaa4f65ba628d124e5ca8a93828e1d3baa3c4c2dd52b`
+  - namespace: `Platform.Pipeline.Models`
+  - types: record ExecutionLogEntry@L69
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Abstractions/ICommandValidator.cs` — 45 lines, 1192 bytes, `8c8775f818c55ba54aa879377460fea430f90333f69e804ae3bb6ffa9f8d5e8b`
+  - namespace: `Platform.Pipeline.Abstractions`
+  - types: interface ICommandValidator@L32
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Abstractions/ICommandT.cs` — 39 lines, 959 bytes, `d223202f2d8cef6705a928bd8ea25db2bbf22f4e6351828f29ea5325c88c5983`
+  - namespace: `Platform.Pipeline.Abstractions`
+  - types: interface ICommand@L37
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Abstractions/IPipelineExecutor.cs` — 78 lines, 2151 bytes, `83fe135a5f12d928d8633e54a2121d5fa72a512b0d714cdbeaf3037fb172fdcb`
+  - namespace: `Platform.Pipeline.Abstractions`
+  - types: interface IPipelineExecutor@L28
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Abstractions/IGovernanceEvaluator.cs` — 37 lines, 967 bytes, `d646e920e57bfb6c3cc21bf9a6978471788801129989fc1031443167c0b49242`
+  - namespace: `Platform.Pipeline.Abstractions`
+  - types: interface IGovernanceEvaluator@L24
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Abstractions/ICommand.cs` — 35 lines, 836 bytes, `fd072932c82753b8645212725cd0a1916637e7dec39da00980ba03dd339ec501`
+  - namespace: `Platform.Pipeline.Abstractions`
+  - types: interface ICommand@L33
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Abstractions/ICommandHandler.cs` — 52 lines, 1368 bytes, `220bcae1eb0b3c9654e18ee7174caf8361a7520db02e66231b6381d43a96cd0e`
+  - namespace: `Platform.Pipeline.Abstractions`
+  - types: interface ICommandHandler@L34
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Abstractions/IPipelineBehavior.cs` — 70 lines, 1884 bytes, `d99b454bd52c2a48017ba492e407f4264124970b7e31bf8b418d9bd6e52970a1`
+  - namespace: `Platform.Pipeline.Abstractions`
+  - types: interface IPipelineBehavior@L16, interface IPipelineBehavior@L49
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Abstractions/IQueryT.cs` — 40 lines, 944 bytes, `d3d4f6bf44ac54b354bd8d0431a13b737beb5c4bba3154e8a63ad1d1f029b35b`
+  - namespace: `Platform.Pipeline.Abstractions`
+  - types: interface IQuery@L38
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Abstractions/IGovernanceRequest.cs` — 55 lines, 1297 bytes, `b1da8c735b37397698719d196767db0ee8db91a2b4bc3beddfa411ca82483584`
+  - namespace: `Platform.Pipeline.Abstractions`
+  - types: interface IGovernanceRequest@L21
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Abstractions/ValidationError.cs` — 66 lines, 1543 bytes, `1cfcdb1dd4d9f6621a69b1e60b9b3794574e4674d966a32b7ef60ef9164a4480`
+  - namespace: `Platform.Pipeline.Abstractions`
+  - types: class ValidationError@L30
+  - heuristic methods: 2; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Abstractions/IQueryValidator.cs` — 50 lines, 1278 bytes, `236b197d0d081bcc79a06561e17722db04a07bb2397368e3d806039ac6f12910`
+  - namespace: `Platform.Pipeline.Abstractions`
+  - types: interface IQueryValidator@L37
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Abstractions/IQuery.cs` — 37 lines, 878 bytes, `58ba55317a81bfca1c38d95da68c60fc20b699c2432b14db5ed3234a31c76311`
+  - namespace: `Platform.Pipeline.Abstractions`
+  - types: interface IQuery@L35
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Abstractions/IPipelineOrdered.cs` — 39 lines, 1052 bytes, `1a97b9b1ba3f3bf65ed43ce0909d1a219d5b330f861e7a93d0859cfac431f3ce`
+  - namespace: `Platform.Pipeline.Abstractions`
+  - types: interface IPipelineOrdered@L29
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Abstractions/IQueryHandler.cs` — 55 lines, 1470 bytes, `3cb55920d8949419965e1d6f2c4902715223f9c83767e378bdd25d7b52304a04`
+  - namespace: `Platform.Pipeline.Abstractions`
+  - types: interface IQueryHandler@L38
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Abstractions/ValidationResult.cs` — 89 lines, 2213 bytes, `2c35261f441733ab8e0d482e4728495551e895f9ef17d23ded64c455f795d9b4`
+  - namespace: `Platform.Pipeline.Abstractions`
+  - types: class ValidationResult@L29
+  - heuristic methods: 2; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Abstractions/ICommandHandlerT.cs` — 54 lines, 1471 bytes, `f4b62365ccfc308ab2429a84e2ca38f6cc783b71e339671dbd24003448a882a3`
+  - namespace: `Platform.Pipeline.Abstractions`
+  - types: interface ICommandHandler@L36
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Abstractions/IValidator.cs` — 46 lines, 1169 bytes, `91e41b862f0238b12a3fcbbda0d67cd67f89a261946e71ea6519ff3637823eb1`
+  - namespace: `Platform.Pipeline.Abstractions`
+  - types: interface IValidator@L33
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Abstractions/IExecutionLogger.cs` — 34 lines, 910 bytes, `06496d541c898f010148531dbfa74ac94c55af24b21ebcb2c9dfe73813b6c8d4`
+  - namespace: `Platform.Pipeline.Abstractions`
+  - types: interface IExecutionLogger@L20
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Logging/LoggingBehaviorT.cs` — 107 lines, 2803 bytes, `4d51feded4e8f17dd4cbbeda9c94d8892103469ebf07b4e2955d579f9108876a`
+  - namespace: `Platform.Pipeline.Logging`
+  - types: class LoggingBehaviorT@L22
+  - heuristic methods: 4; test attributes: 0; InlineData: 0
+- `src/Application/Platform.Pipeline/Logging/LoggingBehavior.cs` — 116 lines, 3137 bytes, `fbb55a6fb9d928542c572d918796147e72a0fcd84f47567563b6b77aa20b0a02`
+  - namespace: `Platform.Pipeline.Logging`
+  - types: class LoggingBehavior@L19
+  - heuristic methods: 4; test attributes: 0; InlineData: 0
+
+## Platform.Security.Application
+
+- `src/Application/Platform.Security.Application/GlobalUsings.cs` — 6 lines, 193 bytes, `e87155004b8ac7224c6fd1bcaeef5c17cd9c821501dd3dbff58b4695cc4913e0`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+
+## Platform.Identity.Domain
+
+- `src/Core/Platform.Identity.Domain/GlobalUsings.cs` — 4 lines, 135 bytes, `a8b4e9019862fb24b8b1f7cb7d83dc86fcdf6f93dacc2d56622e3ffec5485422`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/ErrorCodes/IdentityDomainErrorCodes.cs` — 309 lines, 9690 bytes, `a5890f1215afa8caf900615658d647ca9951de249e6c6ac7a63205fb43620647`
+  - namespace: `Platform.Identity.Domain.ErrorCodes`
+  - types: class IdentityDomainErrorCodes@L159
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Aggregates/UserAccount.cs` — 705 lines, 22165 bytes, `87dbfc7a8a8d1bc14ac4515a74d22acc29f6d2785d081825a555eed9a49f29f1`
+  - namespace: `Platform.Identity.Domain.Aggregates`
+  - types: class UserAccount@L32
+  - heuristic methods: 14; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Aggregates/Role.cs` — 323 lines, 8572 bytes, `0ec0264763fd5de173c907f34af8a41fd1b943ce6d8fc2c3907dc4a59e141928`
+  - namespace: `Platform.Identity.Domain.Aggregates`
+  - types: class Role@L23
+  - heuristic methods: 8; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Aggregates/AuthenticationChallenge.cs` — 660 lines, 20009 bytes, `96d06a868f92b2fab783344ae31e3c7a5e9fb01e1ec46ae42f15fea306c542bc`
+  - namespace: `Platform.Identity.Domain.Aggregates`
+  - types: class AuthenticationChallenge@L91
+  - heuristic methods: 15; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Enums/AuthenticationChallengeStatus.cs` — 100 lines, 3093 bytes, `eef7da8d8de0095d59c17e4c708812313e1df4cbab600300ba318ecc696a7ad5`
+  - namespace: `Platform.Identity.Domain.Enums`
+  - types: enum AuthenticationChallengeStatus@L30
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Enums/AuthenticationChallengeCancellationReason.cs` — 33 lines, 785 bytes, `b8d359ac78ea8e46c6964d8e3f87262159dc618497ea6cb9e3719db3692e4afb`
+  - namespace: `Platform.Identity.Domain.Enums`
+  - types: enum AuthenticationChallengeCancellationReason@L7
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Enums/AuthenticationChallengeType.cs` — 86 lines, 2310 bytes, `b158d38b6255a1c4d471c91dea78f25ef8eefa5400bdbf2e322f38a9c9f1f1bb`
+  - namespace: `Platform.Identity.Domain.Enums`
+  - types: enum AuthenticationChallengeType@L30
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Enums/AuthenticationChallengePurpose.cs` — 67 lines, 1895 bytes, `1904dac0c477cff22cf5b821f88b14ff5ef65233603ed29a19d7dec89d0dd931`
+  - namespace: `Platform.Identity.Domain.Enums`
+  - types: enum AuthenticationChallengePurpose@L24
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Enums/UserStatus.cs` — 33 lines, 834 bytes, `1bf96ddc79a4fc55c719808ef7e994cb1ae3b74af640a224fa1420462da64b2d`
+  - namespace: `Platform.Identity.Domain.Enums`
+  - types: enum UserStatus@L17
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Enums/MFAMethod.cs` — 45 lines, 962 bytes, `0618dfe29f57ea6739fa9329e8d1a7f102f90244fd0c665f486bd5c97c11e734`
+  - namespace: `Platform.Identity.Domain.Enums`
+  - types: enum MFAMethod@L19
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Constants/SystemRoleIds.cs` — 67 lines, 1842 bytes, `bbe3174126e4743f5ad07397e696141fcf3e7577d9b2cd02fab3a0e7758ae46d`
+  - namespace: `Platform.Identity.Domain.Constants`
+  - types: class SystemRoleIds@L26
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/ValueObjects/RoleScope.cs` — 211 lines, 5090 bytes, `cbdc8f53b6a7656247f72f2440d2c070008c741bfd96234cacdce8d77e94c5c5`
+  - namespace: `Platform.Identity.Domain.ValueObjects`
+  - types: class RoleScope@L45
+  - heuristic methods: 4; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/ValueObjects/RoleAssignment.cs` — 45 lines, 1161 bytes, `76681dc01c4968d12ed5a589467112485fefec66ae880ce8f700b87c557cb34c`
+  - namespace: `Platform.Identity.Domain.ValueObjects`
+  - types: class RoleAssignment@L23
+  - heuristic methods: 2; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/ValueObjects/PhoneNumber.cs` — 70 lines, 1978 bytes, `da4ae8f926391684182045687876944856de5ae32b1d9d4497bf7d9d20ab5f71`
+  - namespace: `Platform.Identity.Domain.ValueObjects`
+  - types: class PhoneNumber@L25
+  - heuristic methods: 3; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/ValueObjects/ChallengeSecret.cs` — 92 lines, 2624 bytes, `0ff5be0213f91e1dc1dbe60c6400cba913ed690f46823d136d4a8126901345cc`
+  - namespace: `Platform.Identity.Domain.ValueObjects`
+  - types: class ChallengeSecret@L36
+  - heuristic methods: 5; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/ValueObjects/EmailAddress.cs` — 80 lines, 2406 bytes, `a72ed2d243677253f8b4435dd442d67b36a8efd880076448741c36f2f3ef220d`
+  - namespace: `Platform.Identity.Domain.ValueObjects`
+  - types: class EmailAddress@L26
+  - heuristic methods: 3; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/ValueObjects/PermissionId.cs` — 136 lines, 3282 bytes, `f60d7b46eeacefb72fc9879d033d367d34ed969ea1629445585fa154fdac9180`
+  - namespace: `Platform.Identity.Domain.ValueObjects`
+  - types: class PermissionId@L48
+  - heuristic methods: 3; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Events/UserAccount/TotpSecretSetDomainEvent.cs` — 35 lines, 1036 bytes, `86fc17e11ec31d6fc28114e242811bf85574bd3ed2f7e4b4a4d2e7a0ab305a43`
+  - namespace: `Platform.Identity.Domain.Events`
+  - types: class TotpSecretSetDomainEvent@L22
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Events/UserAccount/PhoneVerifiedDomainEvent.cs` — 38 lines, 1277 bytes, `12d79d1fe23f8df5befe158c91cc3c2c5df30997d5f22f2b5e5cf910e27604d7`
+  - namespace: `Platform.Identity.Domain.Events`
+  - types: class PhoneVerifiedDomainEvent@L17
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Events/UserAccount/SessionInvalidatedDomainEvent.cs` — 36 lines, 1249 bytes, `c4aecab2e21013340d36545b14dd260a781b94569023502c53b06feebf748d7b`
+  - namespace: `Platform.Identity.Domain.Events`
+  - types: class SessionInvalidatedDomainEvent@L15
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Events/UserAccount/EmailVerifiedDomainEvent.cs` — 44 lines, 1364 bytes, `f59a8a8428d6e0fed58146c87b6fe35ae90a2092df86ed11f1ba5d2f91174919`
+  - namespace: `Platform.Identity.Domain.Events`
+  - types: class EmailVerifiedDomainEvent@L23
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Events/UserAccount/PasswordChangedDomainEvent.cs` — 40 lines, 1325 bytes, `1f1901c8db4215f55a41dde48b41cb7498ae11960a62a18dfc3bdaea3278a95c`
+  - namespace: `Platform.Identity.Domain.Events`
+  - types: class PasswordChangedDomainEvent@L19
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Events/UserAccount/UserUnlockedDomainEvent.cs` — 27 lines, 905 bytes, `df153433fcf9238f00c652ab7cb4e6df3e3d9d0ff6cfdc00ab0797a048bbdcbd`
+  - namespace: `Platform.Identity.Domain.Events`
+  - types: class UserUnlockedDomainEvent@L14
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Events/UserAccount/UserCreatedDomainEvent.cs` — 56 lines, 1851 bytes, `d8c58044f68811f84e18d426af52d8487dbef1bdcab0a13da1c4ebbccf299804`
+  - namespace: `Platform.Identity.Domain.Events`
+  - types: class UserCreatedDomainEvent@L24
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Events/UserAccount/UserLockedDomainEvent.cs` — 38 lines, 1268 bytes, `eb0d8f36ae29c466405976fedc92767d2e1e3ff9a06c9be19cbd954c3a1759e0`
+  - namespace: `Platform.Identity.Domain.Events`
+  - types: class UserLockedDomainEvent@L17
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Events/UserAccount/MFAEnabledDomainEvent.cs` — 37 lines, 1178 bytes, `5b6959089b5974f29d73a47e1bc8bdc29acfe37b12019d634ee416cb1b6585c9`
+  - namespace: `Platform.Identity.Domain.Events`
+  - types: class MFAEnabledDomainEvent@L16
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Events/UserAccount/MFADisabledDomainEvent.cs` — 28 lines, 915 bytes, `a90d3aaccb1697648e46e8ffb2d6f40621f732c493ab43ec815ec61f3a987e19`
+  - namespace: `Platform.Identity.Domain.Events`
+  - types: class MFADisabledDomainEvent@L15
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Events/Role/RoleAssignedDomainEvent.cs` — 36 lines, 1163 bytes, `f570ca1bf716d33790e3c97a1007a351d2f32d5279b0fd2aae45cd2f9d09bb85`
+  - namespace: `Platform.Identity.Domain.Events`
+  - types: class RoleAssignedDomainEvent@L15
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Events/Role/RoleRemovedDomainEvent.cs` — 36 lines, 1159 bytes, `5d3a16907b16930d8059b21f7f7a58fb8a0d6335365dc2bfc7b61cb62a1ae98b`
+  - namespace: `Platform.Identity.Domain.Events`
+  - types: class RoleRemovedDomainEvent@L15
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Events/AuthenticationChallenge/AuthenticationChallengeCreatedDomainEvent.cs` — 137 lines, 4256 bytes, `23ac2861f1be92cfd7efca032ae9b624f97eab8b00700fc084cfee23a0cee7db`
+  - namespace: `Platform.Identity.Domain.Events`
+  - types: class AuthenticationChallengeCreatedDomainEvent@L41
+  - heuristic methods: 4; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Events/AuthenticationChallenge/AuthenticationChallengeExpiredDomainEvent.cs` — 107 lines, 3175 bytes, `46f79f385f37547eccd158acf08d1f33a8f54cb24215d51929dc5cdcb92c553a`
+  - namespace: `Platform.Identity.Domain.Events`
+  - types: class AuthenticationChallengeExpiredDomainEvent@L36
+  - heuristic methods: 3; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Events/AuthenticationChallenge/AuthenticationChallengeLockedDomainEvent.cs` — 132 lines, 4169 bytes, `e49552a061569622b75abb845c49c064601ad57bf3971b755340d5b19fb0d663`
+  - namespace: `Platform.Identity.Domain.Events`
+  - types: class AuthenticationChallengeLockedDomainEvent@L39
+  - heuristic methods: 4; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Events/AuthenticationChallenge/AuthenticationChallengeCompletedDomainEvent.cs` — 108 lines, 3204 bytes, `bf7a082565061c6ad5c1146a8c5d93a553aff8e24a9f13c4792d7a3a90254825`
+  - namespace: `Platform.Identity.Domain.Events`
+  - types: class AuthenticationChallengeCompletedDomainEvent@L37
+  - heuristic methods: 3; test attributes: 0; InlineData: 0
+- `src/Core/Platform.Identity.Domain/Events/AuthenticationChallenge/AuthenticationChallengeCancelledDomainEvent.cs` — 111 lines, 3210 bytes, `04930641d9b20e2776721cbb24cc4cbd0d0cd911fecbe9550d8fd13e65ae20ff`
+  - namespace: `Platform.Identity.Domain.Events`
+  - types: class AuthenticationChallengeCancelledDomainEvent@L36
+  - heuristic methods: 4; test attributes: 0; InlineData: 0
+
+## Platform.Security.Domain
+
+
+## Platform.SharedKernel
+
+- `src/Core/Platform.SharedKernel/GlobalUsings.cs` — 5 lines, 159 bytes, `a799378c6a582efee9fc1401df70981d547e50dd408de5d914de018ce185751d`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.SharedKernel/AssemblyInfo.cs` — 3 lines, 107 bytes, `b35d568a381c216ece6c1ce34047a55b128ed5472d57543f17dc2ca847edbd57`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.SharedKernel/Utilities/Guard.cs` — 178 lines, 4708 bytes, `8ab764edd8f5b2639dcb7bca7e054120dd1e65d3987474e47e531533ca2a19e4`
+  - namespace: `Platform.SharedKernel.Utilities`
+  - types: class Guard@L26
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.SharedKernel/Base/ValueObject.cs` — 76 lines, 2035 bytes, `90b1a7c513d2999b8cde8a183800eeb8a4b118f527b2ea201916445e831b6a16`
+  - namespace: `Platform.SharedKernel.Base`
+  - types: class ValueObject@L20
+  - heuristic methods: 4; test attributes: 0; InlineData: 0
+- `src/Core/Platform.SharedKernel/Base/DomainEvent.cs` — 49 lines, 1337 bytes, `af5bd743d89cf9e38c5fccb9635c6514043b167e755e025ece8a1309c9dedd68`
+  - namespace: `Platform.SharedKernel.Base`
+  - types: class DomainEvent@L22
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Core/Platform.SharedKernel/Base/AggregateRoot.cs` — 78 lines, 2191 bytes, `3299dbb739b7762fd6e687fd73b921b16f94225e9e972522ee20b8c65ce6a7ed`
+  - namespace: `Platform.SharedKernel.Base`
+  - types: class AggregateRoot@L20
+  - heuristic methods: 5; test attributes: 0; InlineData: 0
+- `src/Core/Platform.SharedKernel/Base/BaseEntity.cs` — 90 lines, 2414 bytes, `776d658a63d5a759b77dbba305b8f5f800e6f4c3da17b996f1441fddddd4aae6`
+  - namespace: `Platform.SharedKernel.Base`
+  - types: class BaseEntity@L22
+  - heuristic methods: 5; test attributes: 0; InlineData: 0
+- `src/Core/Platform.SharedKernel/Results/ErrorType.cs` — 68 lines, 1471 bytes, `c955f9707d5a131b1369baa046a4e10e1ad2734691095989c4157bb1bbe03337`
+  - namespace: `Platform.SharedKernel.Results`
+  - types: enum ErrorType@L32
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.SharedKernel/Results/Result.cs` — 73 lines, 2128 bytes, `3858dfdd7a4894c28152e4976400cc2c631a053fd964286d5e66f1a052584bf2`
+  - namespace: `Platform.SharedKernel.Results`
+  - types: class Result@L17
+  - heuristic methods: 3; test attributes: 0; InlineData: 0
+- `src/Core/Platform.SharedKernel/Results/Error.cs` — 95 lines, 3191 bytes, `749f7d4ee8afd5231375bf76f8665e80a00940a4ab462bfe4bba44491f2ae4e9`
+  - namespace: `Platform.SharedKernel.Results`
+  - types: class Error@L21
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Core/Platform.SharedKernel/Results/ResultT.cs` — 56 lines, 1355 bytes, `d86a3d92b17dba6603879104f1a9d565eb0fe51398c701c52385a01e9fb1776a`
+  - namespace: `Platform.SharedKernel.Results`
+  - types: class Result@L13
+  - heuristic methods: 2; test attributes: 0; InlineData: 0
+- `src/Core/Platform.SharedKernel/Validation/EmailAddressValidator.cs` — 45 lines, 1178 bytes, `25a06babb8eaebf311bccc76ddd5fc12eb5b0e2152063a92c97ade3a5b04bd2a`
+  - namespace: `Platform.SharedKernel.Validation`
+  - types: class EmailAddressValidator@L19
+  - heuristic methods: 3; test attributes: 0; InlineData: 0
+- `src/Core/Platform.SharedKernel/Abstractions/IDomainEventDispatcher.cs` — 49 lines, 1737 bytes, `0aa8034c040de2ce4f9cb063788224939931b001e6b3991cc327fcffdc941561`
+  - namespace: `Platform.SharedKernel.Abstractions`
+  - types: interface IDomainEventDispatcher@L25
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Core/Platform.SharedKernel/Abstractions/IClock.cs` — 31 lines, 930 bytes, `79455e402241dbc869af0b0a51591a63c2f71dee880b74a45f7d17faf50f3686`
+  - namespace: `Platform.SharedKernel.Abstractions`
+  - types: interface IClock@L21
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Core/Platform.SharedKernel/Abstractions/IUnitOfWork.cs` — 54 lines, 1821 bytes, `0a7b84107590d1b0c6a39a678f8dedb2e10e6f33aecb4e638290cb5589a37f94`
+  - namespace: `Platform.SharedKernel.Abstractions`
+  - types: interface IUnitOfWork@L23
+  - heuristic methods: 2; test attributes: 0; InlineData: 0
+- `src/Core/Platform.SharedKernel/Exceptions/DomainException.cs` — 36 lines, 1134 bytes, `549af740c6f7570bdf008bd0b568abb8afd85b4b7623b0d460ded080278e2f89`
+  - namespace: `Platform.SharedKernel.Exceptions`
+  - types: class DomainException@L16
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+
+## Platform.Communication
+
+- `src/Infrastructure/Platform.Communication/GlobalUsings.cs` — 3 lines, 90 bytes, `e53a6c63d130027c5f5f89d9a9f454bef8cdd040b7ada761252b5c08cbfddbc2`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/AssemblyInfo.cs` — 4 lines, 168 bytes, `28549507390017ff7e02de1b3b089ad859e7d7cddf480f9c32ee026ae7c9770a`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/DependencyInjection/AddCommunicationProvidersExtensions.cs` — 157 lines, 5502 bytes, `0aef728225fd68672a0ed6961e20684cfe19eb571a50e32bb9efa910d419e6a8`
+  - namespace: `Platform.Communication.DependencyInjection`
+  - types: class AddCommunicationProvidersExtensions@L15
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/DependencyInjection/AddCommunicationClients.cs` — 83 lines, 2489 bytes, `328771e1077bb945c3bd9c675a380aa2ea823ef1056c5c6fd1bbcfe54b7d72eb`
+  - namespace: `Platform.Communication.DependencyInjection`
+  - types: class AddCommunicationClientsExtensions@L12
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/DependencyInjection/AddCommunicationOptions.cs` — 49 lines, 1431 bytes, `7aca261beb92026d885bb2300307b3230e0690f466cf815be334384d16cea50c`
+  - namespace: `Platform.Communication.DependencyInjection`
+  - types: class AddCommunicationOptionsExtensions@L11
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/DependencyInjection/AddCommunicationSenders.cs` — 46 lines, 1322 bytes, `7d1738df482a537c09b70bd66f45a2bbc170066db3cdbd808fa2823b580bc4b0`
+  - namespace: `Platform.Communication.DependencyInjection`
+  - types: class AddCommunicationSendersExtensions@L12
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/DependencyInjection/ServiceCollectionExtensions.cs` — 48 lines, 1414 bytes, `c9b3094173bc73889c79ee4a25b8a26a8cd87da9a2cfa90ccd52849e5d1a9425`
+  - namespace: `Platform.Communication.DependencyInjection`
+  - types: class ServiceCollectionExtensions@L10
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Enums/EmailProviderType.cs` — 22 lines, 428 bytes, `daacdee4a7ec1e2c54b61e16c0736e2745ed00bc75c3f3a81a07215299c6789d`
+  - namespace: `Platform.Communication.Enums`
+  - types: enum EmailProviderType@L6
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Enums/WhatsAppProviderType.cs` — 18 lines, 342 bytes, `794f7f4a32ab129eb93ecc3c5ef012919912df1ce4dcb9617ee9d2ba1abbce1c`
+  - namespace: `Platform.Communication.Enums`
+  - types: enum WhatsAppProviderType@L6
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Enums/SmsProviderType.cs` — 18 lines, 342 bytes, `8ffb98eabd866f6915b634d7e2283481776b95e824cc8fa53241baf29baaf96b`
+  - namespace: `Platform.Communication.Enums`
+  - types: enum SmsProviderType@L6
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Validation/E164PhoneNumberValidator.cs` — 47 lines, 1266 bytes, `2ae1c1fd752a393f59ff612aa64948bb2ba354dd3d73c4d0239a56a426b61832`
+  - namespace: `Platform.Communication.Validation`
+  - types: class E164PhoneNumberValidator@L20
+  - heuristic methods: 3; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Models/EmailAttachment.cs` — 63 lines, 1780 bytes, `db1aa1afe1fcaaaef1ef979f4352643a3116028496f7541be43eb385357c3d03`
+  - namespace: `Platform.Communication.Models`
+  - types: record EmailAttachment@L8
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Models/DeliveryResult.cs` — 108 lines, 3394 bytes, `0a170e9d7117747634b355912a496f3c61e50673857433d3f8ce14f816265f0d`
+  - namespace: `Platform.Communication.Models`
+  - types: record DeliveryResult@L8
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Models/EmailMessage.cs` — 107 lines, 3007 bytes, `447f0bad39d86fca872e4e278cf47fb0e80f662ff13790087b3696f670d5fcdc`
+  - namespace: `Platform.Communication.Models`
+  - types: record EmailMessage@L11
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Models/WhatsAppMessage.cs` — 56 lines, 1537 bytes, `5c372b5c400b6957eb48d34e310e5bfaa023dd53c5471f14b3bd04bf0a9e598c`
+  - namespace: `Platform.Communication.Models`
+  - types: record WhatsAppMessage@L11
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Models/SmsMessage.cs` — 56 lines, 1492 bytes, `e7555960940d6576e963ce88de5b62d63d1ad3d850300f622ad7b9801de1186f`
+  - namespace: `Platform.Communication.Models`
+  - types: record SmsMessage@L11
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Models/VendorDeliveryResult.cs` — 187 lines, 5667 bytes, `aefc7df505b6977b2a7c1b7642a90d85503cbe4a0bbb2d64acbe214159dab1eb`
+  - namespace: `Platform.Communication.Models`
+  - types: record VendorDeliveryResult@L12
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Options/CommunicationOptions.cs` — 27 lines, 742 bytes, `96aef78258b858fd959227da25c6f4c5b457df6626be4eec0f65b2d6b5ab1dc0`
+  - namespace: `Platform.Communication.Options`
+  - types: class CommunicationOptions@L6
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Options/WhatsAppOptions.cs` — 25 lines, 763 bytes, `9d01b18b4d9e287a75434cfab9d5127bc85f8a39b49b45223625bf1196bf187b`
+  - namespace: `Platform.Communication.Options`
+  - types: class WhatsAppOptions@L9
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Options/SmsOptions.cs` — 25 lines, 711 bytes, `4e07a870e1a88338421a05b5b884985352149790a8718760fc560d95ac990479`
+  - namespace: `Platform.Communication.Options`
+  - types: class SmsOptions@L9
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Options/EmailOptions.cs` — 20 lines, 558 bytes, `d782b31ccfbc8ed959ea864ba95ce17bc54ee2e548600d52a2fe972fe9d4e4b6`
+  - namespace: `Platform.Communication.Options`
+  - types: class EmailOptions@L9
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Exceptions/CommunicationException.cs` — 41 lines, 1053 bytes, `88a979cba5f23b149088e6514542dc4fe072f3a6f713a1df774e229552bb9c41`
+  - namespace: `Platform.Communication.Exceptions`
+  - types: class CommunicationException@L7
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/ValueObjects/WhatsAppNumber.cs` — 57 lines, 1490 bytes, `2fae7c7c138d3710c9636f649cc9d8ba7356dcad61ee0f665b14fb406caa03ea`
+  - namespace: `Platform.Communication.ValueObjects`
+  - types: class WhatsAppNumber@L11
+  - heuristic methods: 3; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/ValueObjects/PhoneNumber.cs` — 55 lines, 1426 bytes, `c979cf94f9d0be0a4b52f4463ba5802d562b9e90a2e2167fbb6f9348be905f08`
+  - namespace: `Platform.Communication.ValueObjects`
+  - types: class PhoneNumber@L11
+  - heuristic methods: 3; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/ValueObjects/EmailAddress.cs` — 66 lines, 1687 bytes, `b50c62e8a94d1311a18b8db87d3729ebae7828065a7cc0532d9f518dc9b9806f`
+  - namespace: `Platform.Communication.ValueObjects`
+  - types: class EmailAddress@L20
+  - heuristic methods: 3; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Configuration/MetaCloudWhatsAppConfiguration.cs` — 22 lines, 673 bytes, `60feaff80ee924f390ce4d6e4272ff12423944bb89250faf26a3023a2c78ee4b`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Configuration`
+  - types: class MetaCloudWhatsAppConfiguration@L6
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Configuration/WhatsAppConfiguration.cs` — 16 lines, 594 bytes, `e1fa45a42ba29c015a4a259d82ec76bb37dd3904dee7632586572e4f69ff2cdf`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Configuration`
+  - types: class WhatsAppConfiguration@L5
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Configuration/TwilioWhatsAppConfiguration.cs` — 22 lines, 641 bytes, `3a2cdd9b1c2935e48bd344cab5883ba57e619fda7c1c3bf1eea427160123da45`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Configuration`
+  - types: class TwilioWhatsAppConfiguration@L6
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Providers/TwilioWhatsAppProvider.cs` — 117 lines, 3622 bytes, `003bad92d9bd61606b3e43144c630297179ea9a16b88bb3b89ba96b2f8e20716`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Providers`
+  - types: class TwilioWhatsAppProvider@L12
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Providers/MetaCloudWhatsAppProvider.cs` — 118 lines, 3693 bytes, `043792281fd87a76b52f6837b7f81272751b85bf5516fb82eebeffa824cffa34`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Providers`
+  - types: class MetaCloudWhatsAppProvider@L12
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Providers/IWhatsAppProvider.cs` — 19 lines, 663 bytes, `d8e3b43ce0fa4129c9cb4c093b7293e93b1ffa728266e8cfa3fadfccf0b5f608`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Providers`
+  - types: interface IWhatsAppProvider@L8
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Sender/IWhatsAppSender.cs` — 25 lines, 651 bytes, `09699d7cd17a651739883a4ea5896f25df7acf2f2318614f855f33a06721f33e`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Sender`
+  - types: interface IWhatsAppSender@L8
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Sender/WhatsAppSender.cs` — 28 lines, 923 bytes, `ebd67e896ec7fd3bf50ab885ece5805f285d0b79435fef306d300dc66ae35d64`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Sender`
+  - types: class WhatsAppSender@L9
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Models/MetaCloudSendMessageResponse.cs` — 16 lines, 488 bytes, `c4ca5dcc762f01b90fe2c7606bb6936455c50ff41a8440ba8f5e61b37ccb7df5`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Models`
+  - types: record MetaCloudSendMessageResponse@L9
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Models/MetaCloudTextMessage.cs` — 21 lines, 591 bytes, `e28371037a849bd3fa11d18dc0965328a9c5544d08e546344310267d5df06456`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Models`
+  - types: record MetaCloudTextMessage@L8
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Models/MetaCloudMessage.cs` — 15 lines, 402 bytes, `cb52769e8bae309d3317d7ff096658c8195a04984fc163dc6dce4d099911c482`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Models`
+  - types: record MetaCloudMessage@L8
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Models/MetaCloudTextMessageRequest.cs` — 39 lines, 1104 bytes, `4e6d106b779b9ca1e97b4ce4ccb6310e2a928751f04bef99581303b64f3af17f`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Models`
+  - types: record MetaCloudTextMessageRequest@L8
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Clients/Metacloud/IMetaCloudWhatsAppClient.cs` — 38 lines, 1325 bytes, `3b30a0eb0e3b76c4647bf11b971445f812df99ee89645d327e73e96871ca9e1d`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Clients`
+  - types: interface IMetaCloudWhatsAppClient@L9
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Clients/Metacloud/MetaCloudWhatsAppClient.cs` — 273 lines, 8197 bytes, `36eb9568fec5815811f34ab6bda2e7ab9990f37075c04187378693779a497802`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Clients`
+  - types: class MetaCloudWhatsAppClient@L19
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Clients/Twilio/ITwilioWhatsAppClient.cs` — 37 lines, 1232 bytes, `a159ce42d0c35ac421a92ae3a3635f126e73f631cf905919933a722a49535c5d`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Clients`
+  - types: interface ITwilioWhatsAppClient@L8
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Clients/Twilio/TwilioWhatsAppClient.cs` — 225 lines, 6482 bytes, `16ec27bcd53d4075271e3e73bcd403ad2fd36310328bb11ab9e648c4066c35cb`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Clients`
+  - types: class TwilioWhatsAppClient@L17
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Clients/Twilio/SDK Wrapper/ITwilioWhatsAppSdkClient.cs` — 35 lines, 1008 bytes, `ab1416308f1c96da2e4617a69e7924721bb406cbf412c5da11edf53aa8ae6196`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Clients`
+  - types: interface ITwilioWhatsAppSdkClient@L9
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Clients/Twilio/SDK Wrapper/TwilioWhatsAppSdkClient.cs` — 64 lines, 1696 bytes, `8a3cf709fbcd096207554b29d991ebb257a9b3fbd5dfb1803541365fe1ceec59`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Clients`
+  - types: class TwilioWhatsAppSdkClient@L10
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Clients/Twilio/Factory/ITwilioWhatsAppSdkClientFactory.cs` — 25 lines, 695 bytes, `2d117f434062d2091ef00b1457e1dd08885194a56987b9257c5f80f81158cd73`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Clients`
+  - types: interface ITwilioWhatsAppSdkClientFactory@L7
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Clients/Twilio/Factory/TwilioWhatsAppSdkClientFactory.cs` — 19 lines, 495 bytes, `a0de608075968d0febc9af5f8e92528b6f8d7d074d25b3b87630d2a9d96dd154`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Clients`
+  - types: class TwilioWhatsAppSdkClientFactory@L7
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Clients/Metacloud/SDK Wrapper/MetaCloudWhatsAppSdkClient.cs` — 65 lines, 1710 bytes, `2359788d96b932bd8e27d99ee98d8300bc5b8f3bece3bab0a1641a92816abbb6`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Clients`
+  - types: class MetaCloudWhatsAppSdkClient@L9
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Clients/Metacloud/SDK Wrapper/IMetaCloudWhatsAppSdkClient.cs` — 33 lines, 981 bytes, `d8a126921cf2d25bb5e990e5eb35d19908f7f2ec3533595886e8092235e64063`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Clients`
+  - types: interface IMetaCloudWhatsAppSdkClient@L8
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Clients/Metacloud/Factory/IMetaCloudWhatsAppSdkClientFactory.cs` — 24 lines, 675 bytes, `bc3b43923c0c01bf7ad1da2a10816a0f8c37e56546adc244c4e403e1b67bd009`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Clients`
+  - types: interface IMetaCloudWhatsAppSdkClientFactory@L9
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/WhatsApp/Clients/Metacloud/Factory/MetaCloudWhatsAppSdkClientFactory.cs` — 22 lines, 561 bytes, `0dfe8df186e8bc9692f7b553acc51c8eeed12342562b507df7e188b755388472`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Clients`
+  - types: class MetaCloudWhatsAppSdkClientFactory@L9
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Configuration/SendGridConfiguration.cs` — 22 lines, 648 bytes, `e1d3650c6b4f6f0a0152cebc6ee3bd21ec8476ff4e851df80128cb298c2d7bcf`
+  - namespace: `Platform.Communication.Channels.Email.Configuration`
+  - types: class SendGridConfiguration@L6
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Configuration/MicrosoftGraphConfiguration.cs` — 27 lines, 848 bytes, `439aa04e3597bf3ecb6677b6eff5b6aa91fcb152885435b3f1f1af3d08748cf7`
+  - namespace: `Platform.Communication.Channels.Email.Configuration`
+  - types: class MicrosoftGraphConfiguration@L6
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Configuration/SmtpConfiguration.cs` — 42 lines, 1169 bytes, `e3f30d5abaa7d05e8ff6eb0b9b036eb03825ec110698c12327220ab73d313496`
+  - namespace: `Platform.Communication.Channels.Email.Configuration`
+  - types: class SmtpConfiguration@L6
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Configuration/EmailConfiguration.cs` — 22 lines, 647 bytes, `e5437cab4094c06b2507897653bf2bc888117a7d2cc65bfa522c74a35559946a`
+  - namespace: `Platform.Communication.Channels.Email.Configuration`
+  - types: class EmailConfiguration@L6
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Providers/MicrosoftGraphEmailProvider.cs` — 100 lines, 2997 bytes, `f8da7832d7e3cf96bde4c693f2cf724f88f63ed49fa88793cb8f67366d66999c`
+  - namespace: `Platform.Communication.Channels.Email.Providers`
+  - types: class MicrosoftGraphEmailProvider@L12
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Providers/SmtpEmailProvider.cs` — 83 lines, 2277 bytes, `116817174d5da76b48daac29eb423083f731ae5a18f00fc51aa2e6ea202c1e79`
+  - namespace: `Platform.Communication.Channels.Email.Providers`
+  - types: class SmtpEmailProvider@L12
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Providers/IEmailProvider.cs` — 19 lines, 646 bytes, `737594097e92ad017a017304c2c2417a3b6530379f414a7477f2258d31373296`
+  - namespace: `Platform.Communication.Channels.Email.Providers`
+  - types: interface IEmailProvider@L8
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Providers/SendGridEmailProvider.cs` — 83 lines, 2343 bytes, `1aba09cbcab63d752611e8f3807d0f9dcc65d92d7abf72af3de89cf67b8472a7`
+  - namespace: `Platform.Communication.Channels.Email.Providers`
+  - types: class SendGridEmailProvider@L12
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Sender/IEmailSender.cs` — 28 lines, 685 bytes, `bdbbf79aa173ad278ba33cb18d171025dfd19ee0f239aeb64a4790cd380f3788`
+  - namespace: `Platform.Communication.Channels.Email.Sender`
+  - types: interface IEmailSender@L11
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Sender/EmailSender.cs` — 27 lines, 730 bytes, `18aa5ce5bb23ac87d7c0010698da7c391472003558afa1024a5a3804eff877e9`
+  - namespace: `Platform.Communication.Channels.Email.Sender`
+  - types: class EmailSender@L9
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Clients/Graph/IGraphClient.cs` — 34 lines, 1111 bytes, `c6623cb68f2f1ae1c703e460cfbaf56dd86ddb6c5afecf40516be8923553b45f`
+  - namespace: `Platform.Communication.Channels.Email.Clients`
+  - types: interface IGraphClient@L9
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Clients/Graph/GraphClient.cs` — 260 lines, 7598 bytes, `cfae2d5732b7799997e4f8aa13b2e6e1713bcefcc2eedd6f51f963ce196f26d3`
+  - namespace: `Platform.Communication.Channels.Email.Clients`
+  - types: class GraphClient@L17
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Clients/Smtp/IMailKitSmtpClient.cs` — 33 lines, 1127 bytes, `829acb0732799d654b299a3a2513b7240d5378689904f79482453e3b5275e114`
+  - namespace: `Platform.Communication.Channels.Email.Clients`
+  - types: interface IMailKitSmtpClient@L8
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Clients/Smtp/MailKitSmtpClient.cs` — 301 lines, 8656 bytes, `aca12ddbcb95a046dee4112f31d0f2b4d81592f28a2ff65e7633dcd89b340f68`
+  - namespace: `Platform.Communication.Channels.Email.Clients`
+  - types: class MailKitSmtpClient@L18
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Clients/SendGrid/ISendGridClient.cs` — 33 lines, 1115 bytes, `6dcf8a79cd40c0dbaed82dc3769d7dbc26a945ceca301bbbcd942ba5d0c46d1e`
+  - namespace: `Platform.Communication.Channels.Email.Clients`
+  - types: interface ISendGridClient@L8
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Clients/SendGrid/SendGridClient.cs` — 274 lines, 7766 bytes, `8fcb1df53713882889ab21842bb97e9431c1a4fb9c2ba3b2acd3892b20798be1`
+  - namespace: `Platform.Communication.Channels.Email.Clients`
+  - types: class SendGridClient@L17
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Clients/SendGrid/SDK Wrapper/SendGridSdkClient.cs` — 34 lines, 821 bytes, `743214d2c8e72cec97dffa3d8c8e8d9563ccabb9b71db690906d7d3d58845ffd`
+  - namespace: `Platform.Communication.Channels.Email.Clients`
+  - types: class SendGridSdkClient@L9
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Clients/SendGrid/SDK Wrapper/ISendGridSdkClient.cs` — 16 lines, 448 bytes, `c100ffce90e4d6e9ec47667c7c796c85afb404c3d378b06a6566a804699e2010`
+  - namespace: `Platform.Communication.Channels.Email.Clients`
+  - types: interface ISendGridSdkClient@L8
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Clients/SendGrid/Factory/SendGridSdkClientFactory.cs` — 15 lines, 358 bytes, `baed7847c44f347a6e476c5f61876bae41f0f48bdb298b3fcf23ab7d23513544`
+  - namespace: `Platform.Communication.Channels.Email.Clients`
+  - types: class SendGridSdkClientFactory@L6
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Clients/SendGrid/Factory/ISendGridSdkClientFactory.cs` — 13 lines, 312 bytes, `154ba5806523764e6580e7a75c94e49c02e7fd1960cd515470376711437aa9f3`
+  - namespace: `Platform.Communication.Channels.Email.Clients`
+  - types: interface ISendGridSdkClientFactory@L6
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Clients/Smtp/SDK Wrapper/MailKitSmtpSdkClient.cs` — 78 lines, 1845 bytes, `f16d65b2e798a522dfcaaecde0ad4dea229e2c1b49aea26fe8a44224996d7692`
+  - namespace: `Platform.Communication.Channels.Email.Clients`
+  - types: class MailKitSmtpSdkClient@L10
+  - heuristic methods: 2; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Clients/Smtp/SDK Wrapper/IMailKitSmtpSdkClient.cs` — 43 lines, 1118 bytes, `960de864234cdec56701129a7c9715169649ff921790479fc2a8cb9236b65fc4`
+  - namespace: `Platform.Communication.Channels.Email.Clients`
+  - types: interface IMailKitSmtpSdkClient@L10
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Clients/Smtp/Factory/IMailKitSmtpClientFactory.cs` — 15 lines, 407 bytes, `f4ec2b1db65cd8e7527ed7faffb4fd7ebb4776a100b66d82b3cc2fc1c5d44c36`
+  - namespace: `Platform.Communication.Channels.Email.Clients`
+  - types: interface IMailKitSmtpSdkClientFactory@L6
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Clients/Smtp/Factory/MailKitSmtpClientFactory.cs` — 15 lines, 381 bytes, `2f496c3073ca932475ef0d3eed9b489aba78ca5c52ed06393d40be9c247c0582`
+  - namespace: `Platform.Communication.Channels.Email.Clients`
+  - types: class MailKitSmtpSdkClientFactory@L7
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Clients/Graph/SDK Wrapper/IGraphSdkClient.cs` — 40 lines, 1324 bytes, `73773c3041c3876eb3424ad6798767e629a79e384092f76c0a8f21072e1e6068`
+  - namespace: `Platform.Communication.Channels.Email.Clients`
+  - types: interface IGraphSdkClient@L8
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Clients/Graph/SDK Wrapper/GraphSdkClient.cs` — 50 lines, 1384 bytes, `8e717b677568dc2c6c0027d30c2969d7ba58bd07d044209eacd11b747ed00438`
+  - namespace: `Platform.Communication.Channels.Email.Clients`
+  - types: class GraphSdkClient@L10
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Clients/Graph/Factory/GraphSdkClientFactory.cs` — 43 lines, 1162 bytes, `25b8290719b53c2ef92bfa2e355e6f500d980a5587ed238e24db2744def71d89`
+  - namespace: `Platform.Communication.Channels.Email.Clients`
+  - types: class GraphSdkClientFactory@L12
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Email/Clients/Graph/Factory/IGraphSdkClientFactory.cs` — 28 lines, 899 bytes, `d82507abfb2e768010a53136e60f3306f9138a4bb18aff1994acf04b42846ce6`
+  - namespace: `Platform.Communication.Channels.Email.Clients`
+  - types: interface IGraphSdkClientFactory@L8
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Sms/Configuration/SmsConfiguration.cs` — 18 lines, 494 bytes, `dde5675d56ae748a502149f04c4f0d622a32f1da1d22c995eb90194efcd5abf8`
+  - namespace: `Platform.Communication.Channels.Sms.Configuration`
+  - types: class SmsConfiguration@L6
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Sms/Configuration/VonageSmsConfiguration.cs` — 22 lines, 594 bytes, `19dbfa6b6a919c36468a218949025c51197cf104a651911f67e8d7eb33762951`
+  - namespace: `Platform.Communication.Channels.Sms.Configuration`
+  - types: class VonageSmsConfiguration@L6
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Sms/Configuration/TwilioSmsConfiguration.cs` — 22 lines, 623 bytes, `68bad7c15e9105cb1681eabbd687a02470684291031810174c5cd58dd02928d4`
+  - namespace: `Platform.Communication.Channels.Sms.Configuration`
+  - types: class TwilioSmsConfiguration@L6
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Sms/Providers/TwilioSmsProvider.cs` — 114 lines, 3543 bytes, `c95d1dc191e07dd2c59d775ecb368c756b5fccb7b4ff78a9c3d12a523872e94e`
+  - namespace: `Platform.Communication.Channels.Sms.Providers`
+  - types: class TwilioSmsProvider@L12
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Sms/Providers/VonageSmsProvider.cs` — 117 lines, 3532 bytes, `87bd923c0298dd4236dd40c4c9497196dac8feee5b62d2f04337d11ed37f8bf2`
+  - namespace: `Platform.Communication.Channels.Sms.Providers`
+  - types: class VonageSmsProvider@L12
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Sms/Providers/ISmsProvider.cs` — 25 lines, 807 bytes, `4c388fc06c0d1498f8a6be92235286e585092052d6590b6aec95e7e73169d698`
+  - namespace: `Platform.Communication.Channels.Sms.Providers`
+  - types: interface ISmsProvider@L8
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Sms/Sender/SmsSender.cs` — 27 lines, 866 bytes, `62dfca3bf5bc34cd7f3157dc57eb5b309aafd61f9b8fbaca4da7f797acba9b88`
+  - namespace: `Platform.Communication.Channels.Sms.Sender`
+  - types: class SmsSender@L8
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Sms/Sender/ISmsSender.cs` — 28 lines, 681 bytes, `a2b4eaa0fc4b14b7de8a401f0cf5e9ef2f63051fb7e8019d90d25e9e0ca5db40`
+  - namespace: `Platform.Communication.Channels.Sms.Sender`
+  - types: interface ISmsSender@L11
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Sms/Clients/Vonage/VonageSmsClient.cs` — 199 lines, 5601 bytes, `defe6189dae7d33ddb272ab4e9826ec025fe9097a6f88f0f42dd5dc6ea724842`
+  - namespace: `Platform.Communication.Channels.Sms.Clients`
+  - types: class VonageSmsClient@L17
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Sms/Clients/Vonage/IVonageSmsClient.cs` — 38 lines, 1297 bytes, `e7713b42a39f05d9ba3911ce1ac07dcd2b424cb35c3200ba110ebe4af9219d40`
+  - namespace: `Platform.Communication.Channels.Sms.Clients`
+  - types: interface IVonageSmsClient@L8
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Sms/Clients/Twilio/TwilioSmsClient.cs` — 215 lines, 6122 bytes, `bc25678449440cd87414d51cdd88d969babcadbb1b6b4563fb71ffb3ec2c6309`
+  - namespace: `Platform.Communication.Channels.Sms.Clients`
+  - types: class TwilioSmsClient@L17
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Sms/Clients/Twilio/ITwilioSmsClient.cs` — 42 lines, 1226 bytes, `b55311a6c9799c51cd0c9db7479614368b748162372bf7edefdaec5078f7b309`
+  - namespace: `Platform.Communication.Channels.Sms.Clients`
+  - types: interface ITwilioSmsClient@L9
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Sms/Clients/Twilio/SDK Wrapper/ITwilioSdkClient.cs` — 34 lines, 950 bytes, `77955c2e2685716e72a8f990edd18d64c09e739e680f5290fd3c3efc233ff500`
+  - namespace: `Platform.Communication.Channels.Sms.Clients`
+  - types: interface ITwilioSdkClient@L9
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Sms/Clients/Twilio/SDK Wrapper/TwilioSdkClient.cs` — 60 lines, 1615 bytes, `20aab90829063979eec1c5f46193c40cbe57db07378a83faa4fb0b6b3e21ed76`
+  - namespace: `Platform.Communication.Channels.Sms.Clients`
+  - types: class TwilioSdkClient@L10
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Sms/Clients/Twilio/Factory/ITwilioSdkClientFactory.cs` — 25 lines, 649 bytes, `f2de606a2322eb27646ef6a2e6ac4aa5ac56dabca7ae0c2736cafa3c621725de`
+  - namespace: `Platform.Communication.Channels.Sms.Clients`
+  - types: interface ITwilioSdkClientFactory@L7
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Sms/Clients/Twilio/Factory/TwilioSdkClientFactory.cs` — 19 lines, 450 bytes, `079ae4b73366455a5c4bd4e10257b72f2c729b5896ae7c6689d6175d30938661`
+  - namespace: `Platform.Communication.Channels.Sms.Clients`
+  - types: class TwilioSdkClientFactory@L7
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Sms/Clients/Vonage/SDK Wrapper/VonageSdkClient.cs` — 77 lines, 1959 bytes, `01e65ee87e318fb3784527c7b687eb55a7a2646416f8235690ac54a993929965`
+  - namespace: `Platform.Communication.Channels.Sms.Clients`
+  - types: class VonageSdkClient@L11
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Sms/Clients/Vonage/SDK Wrapper/IVonageSdkClientFactory.cs` — 25 lines, 627 bytes, `6f7f881512890a753d9ce3b1d0bad3cc7a61517c020513f53660bce9e0341f16`
+  - namespace: `Platform.Communication.Channels.Sms.Clients`
+  - types: interface IVonageSdkClientFactory@L7
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Sms/Clients/Vonage/SDK Wrapper/IVonageSdkClient.cs` — 35 lines, 947 bytes, `c22570112ba90380f2aacc9b6de2fe34abad0e944ffb11ef836b9463ceda16c3`
+  - namespace: `Platform.Communication.Channels.Sms.Clients`
+  - types: interface IVonageSdkClient@L9
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Communication/Channels/Sms/Clients/Vonage/SDK Wrapper/VonageSdkClientFactory.cs` — 19 lines, 442 bytes, `a0d49e1fd1955278aaed6ae4ec5bf87d0adf77cde3d07cb5965e85febc207800`
+  - namespace: `Platform.Communication.Channels.Sms.Clients`
+  - types: class VonageSdkClientFactory@L7
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+
+## Platform.Persistence
+
+- `src/Infrastructure/Platform.Persistence/GlobalUsings.cs` — 10 lines, 391 bytes, `f37cfbd1b45020df92d7884e0270dbce6248d639b66bab4e6c4a6fac1fb057ad`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Persistence/Migrations/20260624084020_InitialCreate.cs` — 121 lines, 5971 bytes, `673b58f48b0ea91c05b6a7f304740722a2debd35edb8c433c56a051e6688196b`
+  - namespace: `Platform.Persistence.Migrations`
+  - types: class InitialCreate@L9
+  - heuristic methods: 2; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Persistence/Migrations/GovernanceDbContextModelSnapshot.cs` — 221 lines, 8221 bytes, `0e68f0f7c931130fdc17f7a9d4eefaf674ae5600172105dfe1b7dcd383399d95`
+  - namespace: `Platform.Persistence.Migrations`
+  - types: class GovernanceDbContextModelSnapshot@L14
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Persistence/Migrations/20260624092810_InitialIdentitySchema.cs` — 55 lines, 1708 bytes, `36dc491518e253477b68bc40cef2c3509ed2aa6fe93fcd1269cb50d9190cd7ad`
+  - namespace: `Platform.Persistence.Migrations`
+  - types: class InitialIdentitySchema@L8
+  - heuristic methods: 2; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Persistence/Migrations/20260624092810_InitialIdentitySchema.Designer.cs` — 224 lines, 8334 bytes, `6236d945dfb3ad333884f7d791608a2b0a7e3a230b5baa696ea665945f56e3f4`
+  - namespace: `Platform.Persistence.Migrations`
+  - types: class InitialIdentitySchema@L16
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Persistence/Migrations/20260624084020_InitialCreate.Designer.cs` — 221 lines, 8186 bytes, `8e7946e7893e849edb5ca46b223c91f8334f0ebb17843a70f7a3e452e5197faa`
+  - namespace: `Platform.Persistence.Migrations`
+  - types: class InitialCreate@L16
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Persistence/Context/GovernanceDbContext.cs` — 213 lines, 5460 bytes, `b99a8ebd316d4d701a7565e1a8f4f4e031baff14b0ed83cac628c63a86caa749`
+  - namespace: `Platform.Persistence.Context`
+  - types: class GovernanceDbContext@L52
+  - heuristic methods: 3; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Persistence/Time/SystemClock.cs` — 48 lines, 1174 bytes, `4dc9aed1d1e487f633c6379a8a5e9204425278e5fa2e33f49f33bc6a4c49efb9`
+  - namespace: `Platform.Persistence.Time`
+  - types: class SystemClock@L34
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Persistence/Configurations/RoleConfiguration.cs` — 329 lines, 8319 bytes, `31dc7901c9157a6415d4a8f7c69c4a22860252daf6d84430cd287e0eb46aeb93`
+  - namespace: `Platform.Persistence.Configurations`
+  - types: class RoleConfiguration@L52
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Persistence/Configurations/UserAccountConfiguration.cs` — 277 lines, 7025 bytes, `d3e0d20a5113db837c1956f17ea99d26b609c20091629c04f9211a0bf7fbb26e`
+  - namespace: `Platform.Persistence.Configurations`
+  - types: class UserAccountConfiguration@L44
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Persistence/UnitOfWorks/UnitOfWork.cs` — 176 lines, 4462 bytes, `8e30cdbf9d989d65093138a03674792c52c96516ff35276e51c2b9a178a1302a`
+  - namespace: `Platform.Persistence.UnitOfWorks`
+  - types: class UnitOfWork@L42
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Persistence/Projections/PermissionProjection.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Persistence/Projections/GovernanceProjection.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Persistence/Projections/UserProjection.cs` — 82 lines, 2152 bytes, `ed5abbd415d9503d458322e33814a5d827dd3f0ed7f48f02f7e1972e8bd77410`
+  - namespace: `Platform.Persistence.Projections`
+  - types: class UserProjection@L38
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Persistence/Projections/ApprovalProjection.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Persistence/Projections/AuditProjection.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Persistence/Projections/RoleProjection.cs` — 61 lines, 1615 bytes, `c2c4eaa252e9c8f05f5a4b322f34aa5d9063bea107a3a000111ce4aa4d6222cd`
+  - namespace: `Platform.Persistence.Projections`
+  - types: class RoleProjection@L30
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Persistence/Repositories/Queries/UserQueryRepository.cs` — 227 lines, 5961 bytes, `e4737c15dfb444b6164d041aa375b01c4492f7ee237c36bd31f673e23ad4b853`
+  - namespace: `Platform.Persistence.Repositories.Queries`
+  - types: class UserQueryRepository@L46
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Persistence/Repositories/Queries/RoleQueryRepository.cs` — 216 lines, 5729 bytes, `17f9adfe3b450b9034b042ed820d20c94134cd79629ecd79d0c10bc81c3109df`
+  - namespace: `Platform.Persistence.Repositories.Queries`
+  - types: class RoleQueryRepository@L46
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Persistence/Repositories/Commands/RoleRepository.cs` — 183 lines, 4614 bytes, `66773eb23177ae5ff20075ed53ff2403137be2d8926832a5453804f23adb85de`
+  - namespace: `Platform.Persistence.Repositories.Commands`
+  - types: class RoleRepository@L33
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Persistence/Repositories/Commands/UserAccountRepository.cs` — 542 lines, 14430 bytes, `d5ef26ba008431e5a988067a4ab1f90ee2f1494f8e18017dcb6e348150dbd02c`
+  - namespace: `Platform.Persistence.Repositories.Commands`
+  - types: class UserAccountRepository@L45
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+
+## Platform.Security.Infrastructure
+
+- `src/Infrastructure/Platform.Security.Infrastructure/GlobalUsings.cs` — 4 lines, 92 bytes, `87794ca0665825d5c4b2ef25ec518d4b795cba2e2c01f50fc281c03df0cd5813`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Security.Infrastructure/Authentication/Verification/TotpVerifier.cs` — 75 lines, 2116 bytes, `5377b154a026daba8a2eb6c75e1d7aeb998f934a39425a0aacbce763c0a4b0ab`
+  - namespace: `Platform.Security.Infrastructure.Totp`
+  - types: class TotpVerifier@L23
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Security.Infrastructure/Authentication/Verification/VerificationCodeValidator.cs` — 88 lines, 2307 bytes, `2d1d593e93ba3f4123e1c27d94164abe1f6d773eca5a1357aa8c126dadfbd4dd`
+  - namespace: `Platform.Security.Infrastructure.Verification`
+  - types: class VerificationCodeValidator@L50
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Security.Infrastructure/Authentication/Formatting/AuthenticationChallengeEmailFormatter.cs` — 103 lines, 2760 bytes, `2ada21338d892a5f9f78276c9e276f14073359a94ad9871dea9cf2bd5ac163d9`
+  - namespace: `Platform.Security.Infrastructure.Authentication.Formatting`
+  - types: class AuthenticationChallengeEmailFormatter@L46
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Security.Infrastructure/Authentication/Formatting/AuthenticationChallengeSmsFormatter.cs` — 87 lines, 2476 bytes, `95c9cd7ab8b371aabe98693952664d261fe33cd19ee81dd2ce9b63f484f6d019`
+  - namespace: `Platform.Security.Infrastructure.Authentication.Formatting`
+  - types: class AuthenticationChallengeSmsFormatter@L41
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Security.Infrastructure/Authentication/Formatting/AuthenticationChallengeWhatsAppFormatter.cs` — 88 lines, 2595 bytes, `137ec6a39b9cb218318922171b02d8c521d046051925faa6a50e7585734b8bc5`
+  - namespace: `Platform.Security.Infrastructure.Authentication.Formatting`
+  - types: class AuthenticationChallengeWhatsAppFormatter@L41
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Security.Infrastructure/Authentication/Delivery/EmailAuthenticationChallengeSender.cs` — 104 lines, 3071 bytes, `c9827d6893ecc0ed31001c4942293ed8cfa051e17fb095026efc6ba3717a0c88`
+  - namespace: `Platform.Security.Infrastructure.Authentication.Delivery`
+  - types: class EmailAuthenticationChallengeSender@L42
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Security.Infrastructure/Authentication/Delivery/SmsAuthenticationChallengeSender.cs` — 104 lines, 3033 bytes, `10680648e4ca92457169c31a65a998013f92a36b1734fc55892a81c6950908e6`
+  - namespace: `Platform.Security.Infrastructure.Authentication.Delivery`
+  - types: class SmsAuthenticationChallengeSender@L42
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Security.Infrastructure/Authentication/Delivery/WhatsAppAuthenticationChallengeSender.cs` — 104 lines, 3128 bytes, `1f9a4d280a7cd12754bf4c93d964a9bd6108888eac150cddb9c0df2bee516a38`
+  - namespace: `Platform.Security.Infrastructure.Authentication.Delivery`
+  - types: class WhatsAppAuthenticationChallengeSender@L42
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Security.Infrastructure/Authentication/Passwords/PasswordHasher.cs` — 152 lines, 3774 bytes, `10f04bbd8a0c622b93a07b7679a6ffd7feafac105764ef15b2905f41152cb959`
+  - namespace: `Platform.Security.Infrastructure.Passwords`
+  - types: class PasswordHasher@L48
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Security.Infrastructure/Authentication/Generators/TotpSecretGenerator.cs` — 107 lines, 2669 bytes, `2e298b07bd0c9ebffeaacebf6289ae3e8aa57bdc1f8860e6395a7a2890623c10`
+  - namespace: `Platform.Security.Infrastructure.Totp`
+  - types: class TotpSecretGenerator@L42
+  - heuristic methods: 2; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Security.Infrastructure/Authentication/Generators/TotpCodeGenerator.cs` — 146 lines, 3524 bytes, `f6e3d5ae4d15fd036f6fe9c6b1e84797c9884f844d14dbeb1fee3a1521623640`
+  - namespace: `Platform.Security.Infrastructure.Totp`
+  - types: class TotpCodeGenerator@L36
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Security.Infrastructure/Authentication/Generators/OtpGenerator.cs` — 67 lines, 1647 bytes, `13606b7fbb57a864f249ef29580be628c32daaf5e583b2f40ac15cf4831c8cb7`
+  - namespace: `Platform.Security.Infrastructure.Otp`
+  - types: class OtpGenerator@L45
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.Security.Infrastructure/Authentication/Provisioning/TotpProvisioningService.cs` — 88 lines, 2496 bytes, `501d10bd455661af714f5ce2c60194b24259512d6acfb952aeb11de5bd19818e`
+  - namespace: `Platform.Security.Infrastructure.Authentication.Provisioning`
+  - types: class TotpProvisioningService@L43
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+
+## Platform.TokenProvider
+
+- `src/Infrastructure/Platform.TokenProvider/GlobalUsings.cs` — 7 lines, 163 bytes, `31b949228fc8302a2e2f9533a7ec81c287e2e3dbefc91eb1154f106331ed3ef1`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.TokenProvider/DependencyInjection/TokenProviderServiceCollectionExtensions.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.TokenProvider/Configuration/JwtOptions.cs` — 63 lines, 2082 bytes, `41bd984f4beac1a290ce3753b1f15c86ca1e4c57abb2d9a42920991acb62ed8e`
+  - namespace: `Platform.TokenProvider.Configuration`
+  - types: class JwtOptions@L32
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.TokenProvider/Jwt/JwtBearerEventsHandler.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.TokenProvider/Jwt/JwtTokenProvider.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Infrastructure/Platform.TokenProvider/Jwt/JwtClaimsFactory.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+
+## Platform.WebApi
+
+- `src/Web/Platform.WebApi/GlobalUsings.cs` — 17 lines, 622 bytes, `02eb23395ef8713174ab94d42ffbd22a8c5231c4cb831b2830d054e01dcc6c4e`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Program.cs` — 39 lines, 746 bytes, `7f5419eba38797489515429fa57e38ba9b0183a1476d523e589b05d954ca9f76`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/DependencyInjection/PipelineServiceCollectionExtensions.cs` — 230 lines, 6120 bytes, `d61491fc86057b86079e27ca7bb9a06a464b4246fe1ac137fa33e04c6742a205`
+  - namespace: `Platform.WebApi.DependencyInjection`
+  - types: class PipelineServiceCollectionExtensions@L46
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/DependencyInjection/WebApiServiceCollectionExtensions.cs` — 219 lines, 5811 bytes, `be1694add4da267d15b02dc42b598872df0b1b1edfbb7a1d0b1d4680409b98b5`
+  - namespace: `Platform.WebApi.DependencyInjection`
+  - types: class WebApiServiceCollectionExtensions@L33
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/DependencyInjection/InfrastructureServiceCollectionExtensions.cs` — 289 lines, 7996 bytes, `30a5bd50a8470b826531cc6260cd8ec37fb7ba442780ed69599bfda850a3c784`
+  - namespace: `Platform.WebApi.DependencyInjection`
+  - types: class InfrastructureServiceCollectionExtensions@L47
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/DependencyInjection/ApplicationServiceCollectionExtensions.cs` — 423 lines, 11495 bytes, `c8b535e91dfc84729a3cb1d9c6e6c7b275a063f1d329cda7d42fd9d2cf83d5c6`
+  - namespace: `Platform.WebApi.DependencyInjection`
+  - types: class ApplicationServiceCollectionExtensions@L51
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Contracts/ApiErrorResponse.cs` — 36 lines, 874 bytes, `faa280d20b3fb1375109f8398b828dcbd5f1188f5f67a8893cc9a45d243e079f`
+  - namespace: `Platform.WebApi.Contracts`
+  - types: record ApiErrorResponse@L33
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Composition/PipelineExecutor.cs` — 232 lines, 6436 bytes, `358946bf4f6e45e5a83371091e351c825dd3709d8bd5440c6c54fcf4806c73a0`
+  - namespace: `Platform.WebApi.Composition`
+  - types: class PipelineExecutor@L51
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Composition/IdentityRoleSeeder.cs` — 144 lines, 3723 bytes, `772547e797fb2933d698279141133e507cafdb6991146eb037d269f4c1aa0433`
+  - namespace: `Platform.WebApi.Composition`
+  - types: class IdentityRoleSeeder@L40
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Middleware/CorrelationIdMiddleware.cs` — 282 lines, 7012 bytes, `d2414ef46577a7b966f4910acc8f3c75b478d79b10709d3a01044d0ada205a51`
+  - namespace: `Platform.WebApi.Middleware`
+  - types: class CorrelationIdMiddleware@L52
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Middleware/ExceptionHandlingMiddleware.cs` — 459 lines, 12242 bytes, `faa1d68f594161c73997dd7563322897f389186dd4d9e8ac42c89ae7b5c9b531`
+  - namespace: `Platform.WebApi.Middleware`
+  - types: class ExceptionHandlingMiddleware@L53
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Middleware/RequestLoggingMiddleware.cs` — 317 lines, 7845 bytes, `ecbb48629d14416bfab398901448ced15e39cfbe146d3573190c8a21ac302788`
+  - namespace: `Platform.WebApi.Middleware`
+  - types: class RequestLoggingMiddleware@L51
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Middleware/RequestTimingMiddleware.cs` — 197 lines, 4838 bytes, `c7dd133a483831512932437d4920a5b790f3e2c35e8916730652924688d91165`
+  - namespace: `Platform.WebApi.Middleware`
+  - types: class RequestTimingMiddleware@L46
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Controllers/UsersController.cs` — 194 lines, 5870 bytes, `75f3e3eaa8da53cbd084cdc6638d0dc3da6a09e245d25851b5348868d3776346`
+  - namespace: `Platform.WebApi.Controllers`
+  - types: class UsersController@L26
+  - heuristic methods: 6; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Controllers/RolesController.cs` — 133 lines, 3668 bytes, `030bc36a19920883276c50b2178532516830b22ff3923296f694c71d83c22e5c`
+  - namespace: `Platform.WebApi.Controllers`
+  - types: class RolesController@L30
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Controllers/BaseApiController.cs` — 123 lines, 3117 bytes, `7cd0813aa4d7bd28ce09e2531d07992a73b5148a377e4510542befd1cab7bc60`
+  - namespace: `Platform.WebApi.Controllers`
+  - types: class BaseApiController@L29
+  - heuristic methods: 3; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Constants/HttpHeaderNames.cs` — 32 lines, 852 bytes, `ae33ca3e473c4fb12c340977a3820f7a0c5c43ee4ed5aa2f3198a82827b815b4`
+  - namespace: `Platform.WebApi.Constants`
+  - types: class HttpHeaderNames@L19
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Constants/HttpItemKeys.cs` — 33 lines, 841 bytes, `6c572ea2ff7b54183e54ab297021ba72bb1d61796c1918740fa43117e8c3c9f1`
+  - namespace: `Platform.WebApi.Constants`
+  - types: class HttpItemKeys@L19
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Constants/MediaTypeNames.cs` — 57 lines, 1458 bytes, `84905b9a9e984b5fbcb4b0aed17dd4da2a06e13a4f36c6706864a83038ae3e85`
+  - namespace: `Platform.WebApi.Constants`
+  - types: class HttpMediaTypes@L20
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Logging/LogEvents.cs` — 110 lines, 2698 bytes, `7ff9a3e9353d8a229d2c56a7db60aed67fb2dfca0aaa95c202f07070cdcc83b1`
+  - namespace: `Platform.WebApi.Logging`
+  - types: class LogEvents@L39
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Logging/NullExecutionLogger.cs` — 80 lines, 2054 bytes, `65840c0ccad8ab1b461af4bdb207cbc57eb2d43ace3b19da7da29d193097080b`
+  - namespace: `Platform.WebApi.Logging`
+  - types: class NullExecutionLogger@L51
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Logging/LogCategories.cs` — 40 lines, 1001 bytes, `b3ff0902193e239c5a6abba4612defc03a58cf35485fc0336f83038a53682988`
+  - namespace: `Platform.WebApi.Logging`
+  - types: class LogCategories@L15
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Logging/RequestLoggingExtensions.cs` — 78 lines, 2350 bytes, `6f994cf81eb0a517984413e371db1fe18f8d213ed5ae83bf7088405f7059e5e2`
+  - namespace: `Platform.WebApi.Logging`
+  - types: class RequestLoggingExtensions@L20
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Logging/LogMessages.cs` — 34 lines, 1052 bytes, `ca8c33771a5f6db99a35b4d24a7ce8459cdf0bf28049a97eb57db43c1718aba0`
+  - namespace: `Platform.WebApi.Logging`
+  - types: class LogMessages@L21
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Logging/ExceptionLoggingExtensions.cs` — 77 lines, 1930 bytes, `81d0aaa6879e8f5f9e383fe7d2aefe3abe372b20a293096859175b7e0cf29453`
+  - namespace: `Platform.WebApi.Logging`
+  - types: class ExceptionLoggingExtensions@L39
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `src/Web/Platform.WebApi/Middleware/Extensions/MiddlewareApplicationBuilderExtensions.cs` — 87 lines, 2071 bytes, `9754b6a4e3ebc02485b018402ecf9beb157ca6df265deeb9291dd9deed834644`
+  - namespace: `Platform.WebApi.Middleware`
+  - types: class MiddlewareApplicationBuilderExtensions@L41
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+
+## Platform.Communication.UnitTests
+
+- `tests/Platform.Communication.UnitTests/GlobalUsings.cs` — 15 lines, 415 bytes, `2fd615c6b17f2d580399f8138c3ba00c5088f187ee8b82e96ecc566d5abf0477`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Communication.UnitTests/DependencyInjection/AddCommunicationSendersExtensionsTests.cs` — 198 lines, 5489 bytes, `7d178348ae0693c912931acef972be1198cc2805f823f47e4ec4392295f12b3e`
+  - namespace: `Platform.Communication.UnitTests.DependencyInjection`
+  - types: class AddCommunicationSendersExtensionsTests@L16
+  - heuristic methods: 6; test attributes: 6; InlineData: 0
+- `tests/Platform.Communication.UnitTests/DependencyInjection/AddCommunicationProvidersExtensionsTests.cs` — 410 lines, 11420 bytes, `e7f675ffc2896bd2660115bcee6f64cfde09f7bcb8da8aeeeb0836b934a6d0c9`
+  - namespace: `Platform.Communication.UnitTests.DependencyInjection`
+  - types: class AddCommunicationProvidersExtensionsTests@L19
+  - heuristic methods: 13; test attributes: 13; InlineData: 0
+- `tests/Platform.Communication.UnitTests/DependencyInjection/AddCommunicationClientsExtensionsTests.cs` — 384 lines, 10659 bytes, `526c10bfce1edc1ca9ebad26fe45827258f4ae957e3c59558539ff7a26573f37`
+  - namespace: `Platform.Communication.UnitTests.DependencyInjection`
+  - types: class AddCommunicationClientsExtensionsTests@L16
+  - heuristic methods: 12; test attributes: 12; InlineData: 0
+- `tests/Platform.Communication.UnitTests/DependencyInjection/AddCommunicationOptionsExtensionsTests.cs` — 248 lines, 6656 bytes, `4f68dd6f1fa4cfe68f9a15870fe4879c1f4fee3e427f6590764f077c626639f5`
+  - namespace: `Platform.Communication.UnitTests.DependencyInjection`
+  - types: class AddCommunicationOptionsExtensionsTests@L16
+  - heuristic methods: 7; test attributes: 6; InlineData: 0
+- `tests/Platform.Communication.UnitTests/DependencyInjection/ServiceCollectionExtensionsTests.cs` — 389 lines, 10546 bytes, `c328611f503bc88007dc91b321b02d2d163a8db4c359cf2f2a7af11bf48ee4b4`
+  - namespace: `Platform.Communication.UnitTests.DependencyInjection`
+  - types: class ServiceCollectionExtensionsTests@L22
+  - heuristic methods: 9; test attributes: 9; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Enums/SmsProviderTypeTests.cs` — 122 lines, 3263 bytes, `826c821444859b8dfaf942bca9605651cb8b24ca196c28f6556f5520ac8cbec9`
+  - namespace: `Platform.Communication.UnitTests.Enums`
+  - types: class SmsProviderTypeTests@L8
+  - heuristic methods: 4; test attributes: 6; InlineData: 4
+- `tests/Platform.Communication.UnitTests/Enums/EmailProviderTypeTests.cs` — 115 lines, 3250 bytes, `0738d87b9e9bd9284bdcaef51910b6ee92e0b2d547775eb03e3375b5fbc95001`
+  - namespace: `Platform.Communication.UnitTests.Enums`
+  - types: class EmailProviderTypeTests@L8
+  - heuristic methods: 4; test attributes: 6; InlineData: 6
+- `tests/Platform.Communication.UnitTests/Enums/WhatsAppProviderTypeTests.cs` — 126 lines, 3435 bytes, `0a5797b8698eedb2fa4487b9d341d0a60b9644e6139387f6d82b35200f563cad`
+  - namespace: `Platform.Communication.UnitTests.Enums`
+  - types: class WhatsAppProviderTypeTests@L8
+  - heuristic methods: 4; test attributes: 6; InlineData: 4
+- `tests/Platform.Communication.UnitTests/Validation/E164PhoneNumberValidatorTests.cs` — 96 lines, 2691 bytes, `d0e700ada517d97dfc0f0e52e43927449e91eac326d7d1d8cb1f4e7d9b767e4e`
+  - namespace: `Platform.Communication.UnitTests.Validation`
+  - types: class E164PhoneNumberValidatorTests@L8
+  - heuristic methods: 0; test attributes: 3; InlineData: 24
+- `tests/Platform.Communication.UnitTests/Models/WhatsAppMessageTests.cs` — 280 lines, 7016 bytes, `4c25e09cb6e5c91ad6c1baab9bdb6a41b165145a8aa897b41c5baef3ce20634f`
+  - namespace: `Platform.Communication.UnitTests.Models`
+  - types: class WhatsAppMessageTests@L9
+  - heuristic methods: 9; test attributes: 10; InlineData: 3
+- `tests/Platform.Communication.UnitTests/Models/SmsMessageTests.cs` — 253 lines, 6538 bytes, `20a3c7f2c1388e2dd3da0fab729ec527d8cdf4ba30dad416537e6a53c6f82ac9`
+  - namespace: `Platform.Communication.UnitTests.Models`
+  - types: class SmsMessageTests@L9
+  - heuristic methods: 9; test attributes: 10; InlineData: 3
+- `tests/Platform.Communication.UnitTests/Models/VendorDeliveryResultTests.cs` — 694 lines, 16792 bytes, `265992f90c12ec1bb11359127d022c26d2aaf562caa44be28bcc64c6b4fe65ef`
+  - namespace: `Platform.Communication.UnitTests.Models`
+  - types: class VendorDeliveryResultTests@L11
+  - heuristic methods: 19; test attributes: 19; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Models/EmailMessageTests.cs` — 403 lines, 10144 bytes, `a42b0e09f9d6ef9c04f0110107bcebdc386fdc38120881fc202249bb7dee9a8c`
+  - namespace: `Platform.Communication.UnitTests.Models`
+  - types: class EmailMessageTests@L9
+  - heuristic methods: 11; test attributes: 13; InlineData: 6
+- `tests/Platform.Communication.UnitTests/Models/EmailAttachmentTests.cs` — 302 lines, 7735 bytes, `f84582bcb23a48787f589464ea0ea3bc315b0b017c653230a3cb978bca846a9b`
+  - namespace: `Platform.Communication.UnitTests.Models`
+  - types: class EmailAttachmentTests@L8
+  - heuristic methods: 9; test attributes: 11; InlineData: 6
+- `tests/Platform.Communication.UnitTests/Models/DeliveryResultTests.cs` — 279 lines, 7768 bytes, `913455542c44ede186d7a7582915e994f7da8676eed5076456573905ac79a428`
+  - namespace: `Platform.Communication.UnitTests.Models`
+  - types: class DeliveryResultTests@L8
+  - heuristic methods: 8; test attributes: 12; InlineData: 13
+- `tests/Platform.Communication.UnitTests/TestData/WhatsAppMessageTestData.cs` — 64 lines, 1667 bytes, `583a549f91406322211e8f976d42f8e44986b20cca0dcd5d2e1ec3990402e5f7`
+  - namespace: `Platform.Communication.UnitTests.TestData`
+  - types: class WhatsAppMessageTestData@L10
+  - heuristic methods: 2; test attributes: 0; InlineData: 0
+- `tests/Platform.Communication.UnitTests/TestData/CommunicationOptionsTestData.cs` — 176 lines, 5469 bytes, `afd0325604ebfedddc2d2a1235515ff909ac7f32851f31857b207c5b81e448cd`
+  - namespace: `Platform.Communication.UnitTests.TestData`
+  - types: class CommunicationOptionsTestData@L13
+  - heuristic methods: 7; test attributes: 0; InlineData: 0
+- `tests/Platform.Communication.UnitTests/TestData/EmailMessageTestData.cs` — 154 lines, 3694 bytes, `2d05f3e6efce548f9c033d636851ace35787826230fb46bd8271f5db81f5e556`
+  - namespace: `Platform.Communication.UnitTests.TestData`
+  - types: class EmailMessageTestData@L10
+  - heuristic methods: 7; test attributes: 0; InlineData: 0
+- `tests/Platform.Communication.UnitTests/TestData/SmsMessageTestData.cs` — 61 lines, 1532 bytes, `4058f22a2cd9a3ea6c93bb6907035c1c85cf712b8515d14969d012c7e0f753b0`
+  - namespace: `Platform.Communication.UnitTests.TestData`
+  - types: class SmsMessageTestData@L10
+  - heuristic methods: 2; test attributes: 0; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Options/EmailOptionsTests.cs` — 62 lines, 1552 bytes, `b7a7391023f37dc7c60af17b07f6e3f8307bd9fe03ae60570d0ae676d0ffb03b`
+  - namespace: `Platform.Communication.UnitTests.Options`
+  - types: class EmailOptionsTests@L10
+  - heuristic methods: 3; test attributes: 3; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Options/CommunicationOptionsTests.cs` — 94 lines, 2313 bytes, `c14762c91a911489a7d6792da686b49fc8a8ae3a99960734484ce62bbbf1e207`
+  - namespace: `Platform.Communication.UnitTests.Options`
+  - types: class CommunicationOptionsTests@L8
+  - heuristic methods: 5; test attributes: 5; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Options/WhatsAppOptionsTests.cs` — 81 lines, 2084 bytes, `8dbe3a6328ec855993337f3f944ac109030b304b99d86cf3459bb1a5e237783b`
+  - namespace: `Platform.Communication.UnitTests.Options`
+  - types: class WhatsAppOptionsTests@L10
+  - heuristic methods: 4; test attributes: 4; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Options/SmsOptionsTests.cs` — 81 lines, 2010 bytes, `1ca252d7c1bb56b90e51591bebd78999ba8ca4729bfbc4168430cd5ce67338da`
+  - namespace: `Platform.Communication.UnitTests.Options`
+  - types: class SmsOptionsTests@L10
+  - heuristic methods: 4; test attributes: 4; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Exceptions/CommunicationExceptionTests.cs` — 129 lines, 3105 bytes, `70f24b57e5df3fbc491bbbb6e26cd06c7d893970e49460aed1c3932b89f38cff`
+  - namespace: `Platform.Communication.UnitTests.Exceptions`
+  - types: class CommunicationExceptionTests@L11
+  - heuristic methods: 4; test attributes: 4; InlineData: 0
+- `tests/Platform.Communication.UnitTests/ValueObjects/WhatsAppNumberTests.cs` — 265 lines, 7129 bytes, `6a912a762321d56faa168774f2193249320fd3d45c629850f1c4462e77026a27`
+  - namespace: `Platform.Communication.UnitTests.ValueObjects`
+  - types: class WhatsAppNumberTests@L8
+  - heuristic methods: 12; test attributes: 13; InlineData: 10
+- `tests/Platform.Communication.UnitTests/ValueObjects/PhoneNumberTests.cs` — 264 lines, 7003 bytes, `effe070aaa082d24b23c45768045b00e15b84df28720fb01380171d43f975d5e`
+  - namespace: `Platform.Communication.UnitTests.ValueObjects`
+  - types: class PhoneNumberTests@L8
+  - heuristic methods: 12; test attributes: 13; InlineData: 10
+- `tests/Platform.Communication.UnitTests/ValueObjects/EmailAddressTests.cs` — 228 lines, 6082 bytes, `3945f35e4a81faf6f783cf8bb36c7ece568fbcdc1205fd22822dd380701443aa`
+  - namespace: `Platform.Communication.UnitTests.ValueObjects`
+  - types: class EmailAddressTests@L8
+  - heuristic methods: 10; test attributes: 11; InlineData: 7
+- `tests/Platform.Communication.UnitTests/TestHelpers/Http/FakeHttpMessageHandler.cs` — 61 lines, 1733 bytes, `44e3b221dab5ee1581b46b1f33214db9a9457f0c5805a3cc9beb0388006cb7cd`
+  - namespace: `Platform.Communication.UnitTests.TestHelpers.Http`
+  - types: class FakeHttpMessageHandler@L9
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/WhatsApp/Clients/MetaCloudClientTests.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/WhatsApp/Clients/TwilioWhatsAppClientTests.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/WhatsApp/Configuration/WhatsAppConfigurationTests.cs` — 62 lines, 1677 bytes, `60ea9a4c12b8bd61d2939cdc59b13759addb0f91323021897f82323522bce392`
+  - namespace: `Platform.Communication.UnitTests.Channels.WhatsApp.Configuration`
+  - types: class WhatsAppConfigurationTests@L8
+  - heuristic methods: 3; test attributes: 3; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/WhatsApp/Configuration/TwilioWhatsAppConfigurationTests.cs` — 48 lines, 1437 bytes, `b6f1110f8b4ad3fe7594e3c69195f1c2fd2070d67df3f4a432bf0cf600a5956e`
+  - namespace: `Platform.Communication.UnitTests.Channels.WhatsApp.Configuration`
+  - types: class TwilioWhatsAppConfigurationTests@L8
+  - heuristic methods: 2; test attributes: 2; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/WhatsApp/Configuration/MetaCloudConfigurationTests.cs` — 48 lines, 1473 bytes, `58fcd5be93a3c5c9c782df302fa012b92936ebcb45590730bafbd087d33ddd46`
+  - namespace: `Platform.Communication.UnitTests.Channels.WhatsApp.Configuration`
+  - types: class MetaCloudConfigurationTests@L8
+  - heuristic methods: 2; test attributes: 2; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/WhatsApp/Providers/MetaCloudWhatsAppProviderTests.cs` — 118 lines, 3703 bytes, `25be847a436ea74ebc2cd910399ea5ed65c5aca5ff761d4f9b21cbdc994fcb92`
+  - namespace: `Platform.Communication.Channels.WhatsApp.Providers`
+  - types: class MetaCloudWhatsAppProviderTests@L12
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/WhatsApp/Providers/TwilioWhatsAppProviderTests.cs` — 537 lines, 14163 bytes, `550e634eb4d82c98588475caad60c73893c8bf8c4ee97e5d3732527972224628`
+  - namespace: `Platform.Communication.UnitTests.Channels.WhatsApp.Providers`
+  - types: class TwilioWhatsAppProviderTests@L19
+  - heuristic methods: 15; test attributes: 11; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/WhatsApp/Sender/WhatsAppSenderTests.cs` — 171 lines, 4444 bytes, `a2be70310c6b272605fda92c2a249e584e96824b0ab6341e8dc9ed3c3ff1dd40`
+  - namespace: `Platform.Communication.UnitTests.Channels.WhatsApp.Sender`
+  - types: class WhatsAppSenderTests@L15
+  - heuristic methods: 7; test attributes: 5; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/WhatsApp/Models/MetaCloudTextMessageTests.cs` — 49 lines, 1154 bytes, `6cf93eb8e0c416d6fccdeb6a2ed42e3e85011d1fc5a12571968d714f103adfc5`
+  - namespace: `Platform.Communication.UnitTests.Channels.WhatsApp.Models`
+  - types: class MetaCloudTextMessageTests@L8
+  - heuristic methods: 2; test attributes: 2; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/WhatsApp/Models/MetaCloudTextMessageRequestTests.cs` — 63 lines, 1669 bytes, `a53827b9e15235acb5a1a9d3a3788f27a467456e9a1f3210a85c9e83ddd0072c`
+  - namespace: `Platform.Communication.UnitTests.Channels.WhatsApp.Models`
+  - types: class MetaCloudTextMessageRequestTests@L8
+  - heuristic methods: 2; test attributes: 2; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/WhatsApp/Models/MetaCloudSendMessageResponseTests.cs` — 51 lines, 1252 bytes, `bf86e81b31d657c78b1faf751c14858a17abdb8d0f06dd773e85b1619b3cb20d`
+  - namespace: `Platform.Communication.UnitTests.Channels.WhatsApp.Models`
+  - types: class MetaCloudSendMessageResponseTests@L8
+  - heuristic methods: 2; test attributes: 2; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/WhatsApp/Models/MetaCloudMessageTests.cs` — 44 lines, 981 bytes, `f82c5454b95a662ae294c1803151a023aa358c1ceac5ca56aa57d02ad3918b7d`
+  - namespace: `Platform.Communication.UnitTests.Channels.WhatsApp.Models`
+  - types: class MetaCloudMessageTests@L8
+  - heuristic methods: 2; test attributes: 2; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/Email/Clients/MailKitSmtpClientTests.cs` — 796 lines, 20298 bytes, `3aa8a81a8b6c19f19089253a1a058211d32907dcaca05f9dfff44c02eff87999`
+  - namespace: `Platform.Communication.UnitTests.Channels.Email.Clients`
+  - types: class MailKitSmtpClientTests@L27
+  - heuristic methods: 21; test attributes: 19; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/Email/Clients/SendGridClientTests.cs` — 1052 lines, 25601 bytes, `6d9cbad35fb50958903837798383ebe4ed9133ef05d6420546b80a0aa1ab90f1`
+  - namespace: `Platform.Communication.UnitTests.Channels.Email.Clients`
+  - types: class SendGridClientTests@L24
+  - heuristic methods: 29; test attributes: 26; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/Email/Clients/GraphClientTests.cs` — 993 lines, 24212 bytes, `47d969862cdb5166112bd3b4889d815e74d961795e5d5c6ccb7b2e3d59c4aeea`
+  - namespace: `Platform.Communication.UnitTests.Channels.Email.Clients`
+  - types: class GraphClientTests@L26
+  - heuristic methods: 27; test attributes: 25; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/Email/Configuration/MicrosoftGraphConfigurationTests.cs` — 51 lines, 1527 bytes, `be722a110477d0d8403639b1cc0c00eff56f22679ea54189d8e2a2a0e0a8c35b`
+  - namespace: `Platform.Communication.UnitTests.Channels.Email.Configuration`
+  - types: class MicrosoftGraphConfigurationTests@L8
+  - heuristic methods: 2; test attributes: 2; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/Email/Configuration/EmailConfigurationTests.cs` — 87 lines, 2182 bytes, `58d7d70ebeefa21234981dd6ad0e4bcab47a7f2ff0749000c7a2a27494a89397`
+  - namespace: `Platform.Communication.UnitTests.Channels.Email.Configuration`
+  - types: class EmailConfigurationTests@L8
+  - heuristic methods: 4; test attributes: 4; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/Email/Configuration/SmtpConfigurationTests.cs` — 60 lines, 1961 bytes, `0d69a5e24e19e88baaf7b97b008f15f5454d1b89777a1b24165b28e431a81ce5`
+  - namespace: `Platform.Communication.UnitTests.Channels.Email.Configuration`
+  - types: class SmtpConfigurationTests@L8
+  - heuristic methods: 2; test attributes: 2; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/Email/Configuration/SendGridConfigurationTests.cs` — 48 lines, 1389 bytes, `75bc45fc8419cb983391556964c288d9aa7a2c051169e3c55b04ea269e008810`
+  - namespace: `Platform.Communication.UnitTests.Channels.Email.Configuration`
+  - types: class SendGridConfigurationTests@L8
+  - heuristic methods: 2; test attributes: 2; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/Email/Providers/SendGridEmailProviderTests.cs` — 368 lines, 9656 bytes, `17bb06a4446e536e83b8a04443cf06a8e1738320dbf612cb29beefc8cf9f3c85`
+  - namespace: `Platform.Communication.UnitTests.Channels.Email.Providers`
+  - types: class SendGridEmailProviderTests@L20
+  - heuristic methods: 12; test attributes: 8; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/Email/Providers/SmtpEmailProviderTests.cs` — 382 lines, 9855 bytes, `03ab04d5157f701565aba4c7c65247a2667bb25730bb22c1cb72c6c666b5f9c8`
+  - namespace: `Platform.Communication.UnitTests.Channels.Email.Providers`
+  - types: class SmtpEmailProviderTests@L21, class TestCommandException@L372
+  - heuristic methods: 12; test attributes: 8; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/Email/Providers/MicrosoftGraphEmailProviderTests.cs` — 408 lines, 10227 bytes, `320865002944277da99fa74a7c8cb0d1755cdd8ac0adcea3a3a80f64002d8a8b`
+  - namespace: `Platform.Communication.UnitTests.Channels.Email.Providers`
+  - types: class MicrosoftGraphEmailProviderTests@L20
+  - heuristic methods: 14; test attributes: 10; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/Email/Sender/EmailSenderTests.cs` — 154 lines, 3985 bytes, `b5b8a066e2f30adae98e1991e25fb84eb77add86e75557f61f354a5b2178a584`
+  - namespace: `Platform.Communication.UnitTests.Channels.Email.Sender`
+  - types: class EmailSenderTests@L13
+  - heuristic methods: 7; test attributes: 5; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/Sms/Clients/TwilioSmsClientTests.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/Sms/Clients/VonageSmsClientTests.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/Sms/Configuration/VonageSmsConfigurationTests.cs` — 48 lines, 1345 bytes, `12c9d630892c14de8e5c78d02670f078579af40c09eb568e288736ccf125c1e7`
+  - namespace: `Platform.Communication.UnitTests.Channels.Sms.Configuration`
+  - types: class VonageSmsConfigurationTests@L8
+  - heuristic methods: 2; test attributes: 2; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/Sms/Configuration/TwilioSmsConfigurationTests.cs` — 48 lines, 1389 bytes, `31e3b83fd091ba82496178e79d378422e8962e741c59acc617356e53c6d828f1`
+  - namespace: `Platform.Communication.UnitTests.Channels.Sms.Configuration`
+  - types: class TwilioSmsConfigurationTests@L8
+  - heuristic methods: 2; test attributes: 2; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/Sms/Configuration/SmsConfigurationTests.cs` — 62 lines, 1604 bytes, `74a413b42dfd84900778a57817cdd1eb726aedb4a9089ddee1195c95375fcb81`
+  - namespace: `Platform.Communication.UnitTests.Channels.Sms.Configuration`
+  - types: class SmsConfigurationTests@L8
+  - heuristic methods: 3; test attributes: 3; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/Sms/Providers/TwilioSmsProviderTests.cs` — 592 lines, 15429 bytes, `0ddc714ca47cf1ddd5023b1dca30926222215707043495f83ced64205a76b6a9`
+  - namespace: `Platform.Communication.UnitTests.Channels.Sms.Providers`
+  - types: class TwilioSmsProviderTests@L20
+  - heuristic methods: 15; test attributes: 12; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/Sms/Providers/VonageSmsProviderTests.cs` — 587 lines, 15293 bytes, `ece82fa13ce030fc5573eff48e73dad5fbfaff4d1ec9c65a581fe77b1648623c`
+  - namespace: `Platform.Communication.UnitTests.Channels.Sms.Providers`
+  - types: class VonageSmsProviderTests@L19
+  - heuristic methods: 15; test attributes: 12; InlineData: 0
+- `tests/Platform.Communication.UnitTests/Channels/Sms/Sender/SmsSenderTests.cs` — 153 lines, 4030 bytes, `65c6dc9b5bec388d25b65d7db03686c4e699fbd4dd341643b783b29131a6db91`
+  - namespace: `Platform.Communication.UnitTests.Channels.Sms.Sender`
+  - types: class SmsSenderTests@L13
+  - heuristic methods: 6; test attributes: 5; InlineData: 0
+
+## Platform.Identity.Application.UnitTests
+
+- `tests/Platform.Identity.Application.UnitTests/GlobalUsing.cs` — 3 lines, 73 bytes, `383a18758b099986bfdcd1ce56b749f8933637cf3ff8ec6211ca7f19468b6412`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Fixtures/UserAccountFixture.cs` — 153 lines, 3363 bytes, `ba537aee7cf47b8de3699deed72da16bed7f2a3429d41cde73ff3628655d1f0e`
+  - namespace: `Platform.Identity.Application.UnitTests.Fixtures`
+  - types: class UserAccountFixture@L11
+  - heuristic methods: 9; test attributes: 0; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Fixtures/AuthenticationChallengeFixture.cs` — 108 lines, 3521 bytes, `06f5a97a124088bd0e0d5aa8491ee3ba5a21555b6b1f9a98a10dc428e6ae2645`
+  - namespace: `Platform.Identity.Application.UnitTests.Fixtures`
+  - types: class AuthenticationChallengeFixture@L16
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Fixtures/RoleFixture.cs` — 105 lines, 2729 bytes, `d63326ea90e6f49903ea5b9152cb53fe0bc2461667f0b3a1ddcf8167d92308ee`
+  - namespace: `Platform.Identity.Application.UnitTests.Fixtures`
+  - types: class RoleFixture@L18
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Fixtures/ChallengeSecretFixture.cs` — 31 lines, 871 bytes, `7e05aa8b6e013956ba19d105b1be8c647602f56196a75f2644466da33c25c3fa`
+  - namespace: `Platform.Identity.Application.UnitTests.Fixtures`
+  - types: class ChallengeSecretFixture@L9
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Errors/IdentityErrorsTests.cs` — 94 lines, 6989 bytes, `413f013a23505e92797fe33fe20bea18185a88ca4b5abe2569e1b13e06593eee`
+  - namespace: `Platform.Identity.Application.UnitTests.Errors`
+  - types: class IdentityErrorsTests@L12
+  - heuristic methods: 0; test attributes: 1; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Errors/IdentityErrorMapperTests.cs` — 113 lines, 5152 bytes, `8cac6ae61b466a03d790ae4543b57f9e56173e4d479a5473e89e331762530b3c`
+  - namespace: `Platform.Identity.Application.UnitTests.Errors`
+  - types: class IdentityErrorMapperTests@L13
+  - heuristic methods: 2; test attributes: 3; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Fixtures/Builders/UserAccountBuilder.cs` — 92 lines, 2367 bytes, `1470f93372b9395de6c1e4e3cf3f6a17d0cdfe2b4a78b56d6a495cf2571743b1`
+  - namespace: `Platform.Identity.Application.UnitTests.Fixtures.Builders`
+  - types: class UserAccountBuilder@L10
+  - heuristic methods: 7; test attributes: 0; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Contracts/Roles/RoleDtoTests.cs` — 181 lines, 4091 bytes, `563a32b1da12a17cdf0197c67e45b5279ae49ac15397bce228dd6fe130982377`
+  - namespace: `Platform.Identity.Application.UnitTests.Contracts.Roles.Dtos`
+  - types: class RoleDtoTests@L10
+  - heuristic methods: 4; test attributes: 4; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Contracts/Users/UserDtoTests.cs` — 185 lines, 4307 bytes, `1b13f38fe47c56ff9941f9d7020ea2fec679fcac58c3b6b04802126fb70fbe8e`
+  - namespace: `Platform.Identity.Application.UnitTests.Contracts.Users.Dtos`
+  - types: class UserDtoTests@L11
+  - heuristic methods: 4; test attributes: 4; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Contracts/Authentications/Responses/LoginResponseTests.cs` — 205 lines, 6094 bytes, `b3018cc68b49135e965c7c331988bd6c8839e97f62f5cf56e47e8c3ec7d054e8`
+  - namespace: `Platform.Identity.Application.UnitTests.Contracts.Authentication.Responses`
+  - types: class LoginResponseTests@L12
+  - heuristic methods: 6; test attributes: 6; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Contracts/Authentications/Enums/AuthenticationChallengeTypeTests.cs` — 153 lines, 5840 bytes, `423e5ece44150422e953cc71eec0239020e4f6abd6cfd2e0f45bfc74e2c2478c`
+  - namespace: `Platform.Identity.Application.UnitTests.Contracts.Authentication.Enums`
+  - types: class AuthenticationChallengeTypeTests@L10
+  - heuristic methods: 6; test attributes: 8; InlineData: 30
+- `tests/Platform.Identity.Application.UnitTests/Contracts/Authentications/Enums/AuthenticationChallengePurposeTests.cs` — 118 lines, 4929 bytes, `b10b6613ff4c78b3a88cae951bdb56af61b777cf52ab5dfa8e99f49aa77bd03f`
+  - namespace: `Platform.Identity.Application.UnitTests.Contracts.Authentication.Enums`
+  - types: class AuthenticationChallengePurposeTests@L10
+  - heuristic methods: 4; test attributes: 6; InlineData: 21
+- `tests/Platform.Identity.Application.UnitTests/Contracts/Authentications/Enums/AuthenticationStatusTests.cs` — 135 lines, 4770 bytes, `e8591d114ec9be35adefd4f5ad1638b77a67b45169a64f5344b58f57847204e6`
+  - namespace: `Platform.Identity.Application.UnitTests.Contracts.Authentication.Enums`
+  - types: class AuthenticationStatusTests@L10
+  - heuristic methods: 6; test attributes: 8; InlineData: 21
+- `tests/Platform.Identity.Application.UnitTests/Contracts/Authentications/Requests/LoginRequestTests.cs` — 82 lines, 2131 bytes, `f421193e4e89cff48e2d0667621f5923feb8b9406a7687788415eaa64ccc9508`
+  - namespace: `Platform.Identity.Application.UnitTests.Contracts.Authentication.Requests`
+  - types: class LoginRequestTests@L10
+  - heuristic methods: 5; test attributes: 5; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Contracts/Authentications/Requests/TokenGenerationRequestTests.cs` — 164 lines, 4400 bytes, `c3ff95d79ed040376f3d0fd158c5d6f781b1afe8941a93fe1b7bd56c7792f404`
+  - namespace: `Platform.Identity.Application.UnitTests.Contracts.Authentication.Requests`
+  - types: class TokenGenerationRequestTests@L10
+  - heuristic methods: 5; test attributes: 5; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Contracts/Authentications/Dtos/AuthenticationTokenDtoTests.cs` — 147 lines, 3964 bytes, `908872ffc433f1457696b8773155b75e2ef145ff061a9116261ee54f6cec55fe`
+  - namespace: `Platform.Identity.Application.UnitTests.Contracts.Authentication.Dtos`
+  - types: class AuthenticationTokenDtoTests@L10
+  - heuristic methods: 5; test attributes: 5; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Contracts/Authentications/Dtos/LoginContextDtoTests.cs` — 193 lines, 5187 bytes, `b53e9e301093f29f27e7b757b4249a2d1a043898e5ec6d011432c57241cf2bfc`
+  - namespace: `Platform.Identity.Application.UnitTests.Contracts.Authentication.Dtos`
+  - types: class LoginContextDtoTests@L10
+  - heuristic methods: 6; test attributes: 6; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Configuration/Authentication/AuthenticationChallengeOptionsTests.cs` — 43 lines, 1260 bytes, `9315614cc00cc5a2be2a2dbc148d4edcf62cd45a841de78a475e202c844a6f60`
+  - namespace: `Platform.Identity.Application.UnitTests.Configuration`
+  - types: class AuthenticationChallengeOptionsTests@L10
+  - heuristic methods: 2; test attributes: 2; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Configuration/Authentication/AuthenticationMessageOptionsTests.cs` — 64 lines, 2204 bytes, `c9624a09ca44ec1e41a3845a89690798265ce35e128b97323eac81e18ea41c0f`
+  - namespace: `Platform.Identity.Application.UnitTests.Configuration`
+  - types: class AuthenticationMessageOptionsTests@L10
+  - heuristic methods: 3; test attributes: 3; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Configuration/Authentication/AuthenticationOptionsTests.cs` — 43 lines, 1213 bytes, `07ccb1ec4a9da32efcd5291f0d9efa394ea48e5709fab334e08787648265f608`
+  - namespace: `Platform.Identity.Application.UnitTests.Configuration.Authentication`
+  - types: class AuthenticationOptionsTests@L10
+  - heuristic methods: 2; test attributes: 2; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Commons/ValidationConstantsTests.cs` — 85 lines, 2263 bytes, `6a4e57d06cd3089e1e4c79ed9924e167e94474eea1d0aa911241b6e4d29be54a`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Common`
+  - types: class ValidationConstantsTests@L10
+  - heuristic methods: 5; test attributes: 5; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Commons/ValidationPatternsTests.cs` — 71 lines, 1986 bytes, `1c56177d91e21d9ab5ae6aeacd73bf4acd998f883b228a682d244060f12bcf4b`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Common`
+  - types: class ValidationPatternsTests@L11
+  - heuristic methods: 1; test attributes: 3; InlineData: 15
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Builder/AuthenticationChallengeBuilderTests.cs` — 254 lines, 7183 bytes, `7995a7d65dd037955e05c1a6b3ac7f1e2f32e9a1c6ddff71b7938fd933eba02e`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Builders`
+  - types: class AuthenticationChallengeBuilderTests@L19
+  - heuristic methods: 7; test attributes: 6; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Policies/AuthenticationDecisionTests.cs` — 150 lines, 4287 bytes, `5db7776a5d963621ac5abc014d7ce86f2363e4b649e913fff4c475153db1b126`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Policies.Models`
+  - types: class AuthenticationDecisionTests@L10
+  - heuristic methods: 9; test attributes: 9; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Policies/DefaultAuthenticationPolicyEvaluatorTests.cs` — 218 lines, 6897 bytes, `06af9ba374b7c52a5ba89b0a24d0f25e1a45c69686093a4a3c16fb7f98bdc590`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Policies`
+  - types: class DefaultAuthenticationPolicyEvaluatorTests@L15
+  - heuristic methods: 8; test attributes: 7; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Policies/PolicyEvaluationResultTests.cs` — 129 lines, 3486 bytes, `a10c8179a07ce109713ba08f0b8cc4083b0fe07ed870043fc9afa1dd65295d65`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Policies.Models`
+  - types: class PolicyEvaluationResultTests@L10
+  - heuristic methods: 6; test attributes: 6; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Policies/AuthenticationContextTests.cs` — 150 lines, 4141 bytes, `40e5b93510fd02acd2f7b882d3e54cc965c631f2f9d5c29971d8f43d43f2af31`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Policies.Models`
+  - types: class AuthenticationContextTests@L12
+  - heuristic methods: 5; test attributes: 5; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Policies/VerificationPolicyTests.cs` — 133 lines, 3935 bytes, `60bd498bd42e26c1ee3a89aae7898abaf18e83b7ba53c809f44196b3dbd63484`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Policies`
+  - types: class VerificationPolicyTests@L14
+  - heuristic methods: 3; test attributes: 4; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Models/AuthenticationChallengeDeliveryRequestTests.cs` — 145 lines, 4372 bytes, `5cd77f288494590c40de8c717a096642d7a41ecd72d1c5e250a76fa9d8a97dbe`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Models`
+  - types: class AuthenticationChallengeDeliveryRequestTests@L12
+  - heuristic methods: 5; test attributes: 5; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Models/AuthenticationChallengeBuildResultTests.cs` — 150 lines, 4451 bytes, `892f82434b6da767a4dc3975305c84298c4914f49944d7c76c15e92b6aa1eff0`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Models`
+  - types: class AuthenticationChallengeBuildResultTests@L12
+  - heuristic methods: 6; test attributes: 5; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Models/AuthenticationSmsMessageTests.cs` — 112 lines, 3180 bytes, `641cb23fbe91aa97b2dcb7a66092b70bb3c237d7be51159d8dd3c79db8144adc`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Models`
+  - types: class AuthenticationSmsMessageTests@L10
+  - heuristic methods: 5; test attributes: 5; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Models/AuthenticationChallengeSecretResultTests.cs` — 120 lines, 3394 bytes, `6d63fd30a4d77fc463be5ac79e9db8a88d14d6ec26d26b61a81aae24eacb1ba9`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Models`
+  - types: class AuthenticationChallengeSecretResultTests@L11
+  - heuristic methods: 5; test attributes: 5; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Models/AuthenticationWhatsAppMessageTests.cs` — 112 lines, 3235 bytes, `4401adb755e1f7395a641b004fa8526180a574dda9393a7061bb038bbb1c1c98`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Models`
+  - types: class AuthenticationWhatsAppMessageTests@L10
+  - heuristic methods: 5; test attributes: 5; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Models/TotpProvisioningResultTests.cs` — 115 lines, 3297 bytes, `9a12d5c3ae5c080f5be55fcd0c17ba39f4e9e83e3ce391aa3776cfbaf6a8ceab`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Models`
+  - types: class TotpProvisioningResultTests@L10
+  - heuristic methods: 5; test attributes: 5; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Models/AuthenticationEmailMessageTests.cs` — 135 lines, 3854 bytes, `5eb6f4f82c47287f39537ab0f28b9120106119a0536681215eeabbaf5e4a5b90`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Models`
+  - types: class AuthenticationEmailMessageTests@L10
+  - heuristic methods: 5; test attributes: 5; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Factories/AuthenticationChallengeSecretFactoryTests.cs` — 221 lines, 5973 bytes, `90f31d5b6c55d8544c2f155b5d67b31920d53be8ef405e03fb87bf37c894a46e`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Factories`
+  - types: class AuthenticationChallengeSecretFactoryTests@L14
+  - heuristic methods: 6; test attributes: 6; InlineData: 3
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Services/AuthenticationChallengeDeliveryServiceTests.cs` — 267 lines, 7788 bytes, `6bab3647040587bf857b2d2b77dd9d22924c56c1b754fab831ed39a9a9e2540f`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Services`
+  - types: class AuthenticationChallengeDeliveryServiceTests@L16
+  - heuristic methods: 10; test attributes: 9; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Mapping/AuthenticationChallengePurposeMapperTests.cs` — 69 lines, 2605 bytes, `c5d40525b2a9365ecbea7dcb3513ff239e9b6a08e22253f81ba175a7e695bd2e`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Mapping`
+  - types: class AuthenticationChallengePurposeMapperTests@L17
+  - heuristic methods: 1; test attributes: 2; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Mapping/AuthenticationChallengeTypeResolverTests.cs` — 62 lines, 1992 bytes, `deb79c14f172806ce74692251355d63d0141a2afefebc39412a81be2e52a3b26`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Mapping`
+  - types: class AuthenticationChallengeTypeResolverTests@L11
+  - heuristic methods: 1; test attributes: 2; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Mapping/AuthenticationChallengeTypeMapperTests.cs` — 72 lines, 2636 bytes, `97e6858364cea8d0f08a9804da074c86dea24c84709ede6315b06ec0b3f57b37`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Mapping`
+  - types: class AuthenticationChallengeTypeMapperTests@L16
+  - heuristic methods: 1; test attributes: 2; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Actions/Login/LoginUseCaseTests.cs` — 1616 lines, 50154 bytes, `a5a73abc108d4928aa7d532db2060ce479d2ca8dbfc148f44ea3ca53dfb5d44d`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Actions`
+  - types: class LoginUseCaseTests@L41
+  - heuristic methods: 28; test attributes: 26; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Actions/Login/LoginCommandTests.cs` — 164 lines, 4103 bytes, `8890409239080cd56dbab886ccb4556cd356284551890f7434b1c99922059121`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Actions`
+  - types: class LoginCommandTests@L10
+  - heuristic methods: 8; test attributes: 8; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Authentication/Actions/Login/LoginValidatorTests.cs` — 202 lines, 5459 bytes, `0b747b23e3b9a455840b1a81e8a9d669835887045725e50a08966c0dab31176c`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Authentication.Actions`
+  - types: class LoginValidatorTests@L11
+  - heuristic methods: 6; test attributes: 8; InlineData: 6
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Actions/DisableMfa/DisableMfaValidatorTests.cs` — 100 lines, 2236 bytes, `8680bcb452a071e01828e16172304c026d53e220a4faa169353dd528286563df`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Actions`
+  - types: class DisableMfaValidatorTests@L10
+  - heuristic methods: 3; test attributes: 3; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Actions/DisableMfa/DisableMfaUseCaseTests.cs` — 522 lines, 12455 bytes, `badc8f65d33a2ff9618ab3b96c27d6f17ba69f4940257185b18a0e255ac2bfa2`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Actions`
+  - types: class DisableMfaUseCaseTests@L16
+  - heuristic methods: 13; test attributes: 12; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Actions/DisableMfa/DisableMfaCommandTests.cs` — 129 lines, 2817 bytes, `474a11b052c895bb7bb7b16dd64d26bcd2b5de997ac85834a4fac00c83b3e533`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Actions`
+  - types: class DisableMfaCommandTests@L10
+  - heuristic methods: 6; test attributes: 6; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Actions/CreateUser/CreateUserValidatorTests.cs` — 586 lines, 13372 bytes, `26787e21dff531c19e731541b12f4026eac262d63b2b5b86c1f61d598bedefeb`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Actions`
+  - types: class CreateUserValidatorTests@L11
+  - heuristic methods: 13; test attributes: 15; InlineData: 10
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Actions/CreateUser/CreateUserCommandTests.cs` — 187 lines, 4281 bytes, `ffeafb38986910cdfb773d702aef3d6b5d15fdecd7997f6364561ea92e95c1d5`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Actions`
+  - types: class CreateUserCommandTests@L10
+  - heuristic methods: 6; test attributes: 6; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Actions/CreateUser/CreateUserUseCaseTests.cs` — 866 lines, 23317 bytes, `ccbb7c63bfdb23e9e8cebbb15654668b21088c23ddae653b06364af6620e7cd2`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Actions`
+  - types: class CreateUserUseCaseTests@L18
+  - heuristic methods: 17; test attributes: 15; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Actions/EnableMfa/EnableMfaUseCaseTests.cs` — 727 lines, 17099 bytes, `f2e3956ecdc0ceb901600bed6e4f0bb846705f8d74531767e02c61b800cfe151`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Actions`
+  - types: class EnableMfaUseCaseTests@L17
+  - heuristic methods: 14; test attributes: 14; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Actions/EnableMfa/EnableMfaCommandTests.cs` — 114 lines, 2527 bytes, `cf32fdc4e20c5a99cc899ca731a230d7257852617c651765c1ec4e7f628b33c7`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Actions`
+  - types: class EnableMfaCommandTests@L11
+  - heuristic methods: 6; test attributes: 6; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Actions/EnableMfa/EnableMfaValidatorTests.cs` — 165 lines, 3747 bytes, `66bba46e49b56f58bdb865c52b37d69fbabfc58f77bfde5bae4ea7c8bd757583`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Actions`
+  - types: class EnableMfaValidatorTests@L11
+  - heuristic methods: 4; test attributes: 5; InlineData: 4
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Actions/ChangePassword/ChangePasswordUseCaseTests.cs` — 1092 lines, 27241 bytes, `5b3a8d41c566081730e61fc1bf023d7c6e9c0a2e0c3db34da6b13dd1b0b8ae38`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Actions`
+  - types: class ChangePasswordUseCaseTests@L19
+  - heuristic methods: 19; test attributes: 19; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Actions/ChangePassword/ChangePasswordValidatorTests.cs` — 232 lines, 5969 bytes, `c0b19d3ab7981141c80ad4680be6675524251294d7515d40838f7ea5c9f38f29`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Actions`
+  - types: class ChangePasswordValidatorTests@L10
+  - heuristic methods: 6; test attributes: 8; InlineData: 6
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Actions/ChangePassword/ChangePasswordCommandTests.cs` — 220 lines, 4980 bytes, `05ae58392dbc0847c1d3f5d71f468422b515b41bafba46928ce9e8379742f907`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Actions`
+  - types: class ChangePasswordCommandTests@L11
+  - heuristic methods: 8; test attributes: 8; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Actions/VerifyEmail/VerifyEmailCommandTests.cs` — 107 lines, 2400 bytes, `9357626f1a9f3c22a54fa102eaf3ae2c5f05365116ea39c80defe4340c246fba`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Actions`
+  - types: class VerifyEmailCommandTests@L10
+  - heuristic methods: 6; test attributes: 6; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Actions/VerifyEmail/VerifyEmailUseCaseTests.cs` — 663 lines, 16669 bytes, `fd2fad7d2568ce3be9b2138bae54a39334be858ca9e350d43de24496481eaf23`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Actions`
+  - types: class VerifyEmailUseCaseTests@L17
+  - heuristic methods: 15; test attributes: 14; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Actions/VerifyEmail/VerifyEmailValidatorTests.cs` — 145 lines, 3632 bytes, `dd28ee2819582ca7cda29f93132138134303ebd449579c9fac8e3d726a457811`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Actions`
+  - types: class VerifyEmailValidatorTests@L11
+  - heuristic methods: 4; test attributes: 5; InlineData: 3
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Actions/VerifyPhone/VerifyPhoneCommandTests.cs` — 107 lines, 2400 bytes, `8432cc252426998bd7a9db043ea12b4a339151b3f5d4f7f83a606602527d5f5a`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Actions`
+  - types: class VerifyPhoneCommandTests@L10
+  - heuristic methods: 6; test attributes: 6; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Actions/VerifyPhone/VerifyPhoneValidatorTests.cs` — 145 lines, 3632 bytes, `5f2c15c8bd2bc9f2c22519f74bb420d5041a408794a671ee1d0e14846fe9331e`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Actions`
+  - types: class VerifyPhoneValidatorTests@L11
+  - heuristic methods: 4; test attributes: 5; InlineData: 3
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Actions/VerifyPhone/VerifyPhoneUseCaseTests.cs` — 662 lines, 16663 bytes, `d8696153c719d53e8fdb61b797c8377abbee1c73c62915dd8d73fe40ec7249be`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Actions`
+  - types: class VerifyPhoneUseCaseTests@L17
+  - heuristic methods: 15; test attributes: 14; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Queries/GetUserByUsername/GetUserByUsernameQueryHandlerTests.cs` — 266 lines, 6035 bytes, `88e924987800fd956f31772a7677042fd4806bad2e5c13a7abb1298a3fa7d074`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Queries`
+  - types: class GetUsersQueryHandlerTests@L14
+  - heuristic methods: 8; test attributes: 7; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Queries/GetUserByUsername/GetUserByUsernameQueryTests.cs` — 80 lines, 1712 bytes, `8f169061310704039a35553cea6ab78dbf9e50353192641c9fd5c63810700bef`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Queries`
+  - types: class GetUserByUsernameQueryTests@L10
+  - heuristic methods: 3; test attributes: 3; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Queries/GetUserById/GetUserByIdQueryHandlerTests.cs` — 284 lines, 6759 bytes, `d1a1e684c2b1a82dcb4799147e8f54ed452242aa01e04085ce15b9b28b52f7e0`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Queries`
+  - types: class GetUserByIdQueryHandlerTests@L15
+  - heuristic methods: 8; test attributes: 7; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Queries/GetUserById/GetUserByIdQueryTests.cs` — 83 lines, 1714 bytes, `ff160b381ce8d6c64d185f51abed99d1c5d7a02f6c4688c1ce202aaf1a0101aa`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Queries`
+  - types: class GetUserByIdQueryTests@L10
+  - heuristic methods: 3; test attributes: 3; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Queries/GetUsers/GetUsersQueryTests.cs` — 48 lines, 990 bytes, `176b8dab41745bc5672f7349536bdb4dcfa87b7cf1aaf7f1b03055733d7bd93b`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Users.Queries`
+  - types: class GetUsersQueryTests@L10
+  - heuristic methods: 5; test attributes: 2; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Users/Queries/GetUsers/GetUsersQueryHandlerTests.cs` — 100 lines, 2870 bytes, `67dac2ebb345e5ae8653c34e4070b1cc452e2e613021764707640fbd4fc2319b`
+  - namespace: `Platform.Identity.Application.Features.Users.Queries`
+  - types: class GetUsersQueryHandlerTests@L45
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Roles/Queries/GetRolesQueryTests.cs` — 77 lines, 1609 bytes, `c64f6ff16d1a8e04f31805962967fbb79ccf1bb0d6810dfeeee6cb5663d94983`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Roles.Queries`
+  - types: class GetRolesQueryTests@L12
+  - heuristic methods: 7; test attributes: 3; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Roles/Queries/GetRolesQueryHandlerTests.cs` — 183 lines, 4430 bytes, `c850ef1bc38bac32ec85273b47fccc3d2ccf2c621228e55beff423e242cb12db`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Roles.Queries`
+  - types: class GetRolesQueryHandlerTests@L13
+  - heuristic methods: 6; test attributes: 4; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Roles/Actions/RemoveRole/RemoveRoleValidatorTests.cs` — 180 lines, 4049 bytes, `499cd8ed8a4a32617fcebf7e0bd5b117aff55c87a4b97d0f8f53405fcec2bcd8`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Roles.Actions`
+  - types: class RemoveRoleValidatorTests@L11
+  - heuristic methods: 10; test attributes: 5; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Roles/Actions/RemoveRole/RemoveRoleCommandTests.cs` — 127 lines, 2785 bytes, `121274b085c49bd22dbb7593fa98acb5859576fc1732a058e9c475d7ea5cb92f`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Roles.Actions`
+  - types: class RemoveRoleCommandTests@L10
+  - heuristic methods: 4; test attributes: 4; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Roles/Actions/RemoveRole/RemoveRoleUseCaseTests.cs` — 306 lines, 8148 bytes, `16446f250f92e218a4f87bcb3ab1843e45772a19143fe1682ba5464a926a7f01`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Roles.Actions`
+  - types: class RemoveRoleUseCaseTests@L16
+  - heuristic methods: 7; test attributes: 7; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Roles/Actions/AssignRole/AssignRoleCommandTests.cs` — 125 lines, 2757 bytes, `2ecfa833c0b0ca8993ba5a6c49f1105f320a558463e6ee03b09b76a31155d950`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Roles.Actions`
+  - types: class AssignRoleCommandTests@L10
+  - heuristic methods: 4; test attributes: 4; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Roles/Actions/AssignRole/AssignRoleValidatorTests.cs` — 168 lines, 3821 bytes, `8985270a507f63fd57646d8064787fda60226c2e76fbf985414a308629b24094`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Roles.Actions`
+  - types: class AssignRoleValidatorTests@L10
+  - heuristic methods: 5; test attributes: 5; InlineData: 0
+- `tests/Platform.Identity.Application.UnitTests/Features/Roles/Actions/AssignRole/AssignRoleUseCaseTests.cs` — 526 lines, 13695 bytes, `349e956da66335656aaa01ea9a0c6bbdde9a96d6b637e118ab9e702381fbb85a`
+  - namespace: `Platform.Identity.Application.UnitTests.Features.Roles.Actions`
+  - types: class AssignRoleUseCaseTests@L18
+  - heuristic methods: 10; test attributes: 10; InlineData: 0
+
+## Platform.Identity.Domain.UnitTests
+
+- `tests/Platform.Identity.Domain.UnitTests/GlobalUsings.cs` — 12 lines, 403 bytes, `be9da27ae318de5bf5827943bd9423aaeb3b4a924b0ab47b25543a20e3fe8924`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/ErrorCodes/IdentityDomainErrorCodesTests.cs` — 176 lines, 7529 bytes, `ca1d1ab625183e1e27bb63876657ec29de0344db451f5724c395922f3fe5e949`
+  - namespace: `Platform.Identity.Domain.UnitTests.ErrorCodes`
+  - types: class IdentityDomainErrorCodesTests@L17
+  - heuristic methods: 4; test attributes: 5; InlineData: 37
+- `tests/Platform.Identity.Domain.UnitTests/Aggregates/UserAccountTests.cs` — 2081 lines, 50817 bytes, `252ac6d4e6050611e8dbaf28d8494d1a1fba82f672fb2991c7ceb0d71af6ed53`
+  - namespace: `Platform.Identity.Domain.UnitTests.Aggregates`
+  - types: class UserAccountTests@L21
+  - heuristic methods: 73; test attributes: 69; InlineData: 2
+- `tests/Platform.Identity.Domain.UnitTests/Aggregates/AuthenticationChallengeTests.cs` — 1549 lines, 40524 bytes, `2a473ce16945b11da6aebf0f7076631e6a827cf367469a49254d0783193c4512`
+  - namespace: `Platform.Identity.Domain.UnitTests.Aggregates`
+  - types: class AuthenticationChallengeTests@L17
+  - heuristic methods: 45; test attributes: 43; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/Aggregates/RoleTests.cs` — 866 lines, 20326 bytes, `c55862f481ef5caa924a286cf979bd4a9f1a00462ffd418ab41f78fce822955f`
+  - namespace: `Platform.Identity.Domain.UnitTests.Aggregates`
+  - types: class RoleTests@L19
+  - heuristic methods: 41; test attributes: 31; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/Enums/AuthenticationChallengeCancellationReasonTests.cs` — 180 lines, 4793 bytes, `baf3ff8c63b53eab8bf7fe01c143e3ae70f5dc4ce5b0b8f8ab5a82b247bde802`
+  - namespace: `Platform.Identity.Domain.UnitTests.Enums`
+  - types: class AuthenticationChallengeCancellationReasonTests@L17
+  - heuristic methods: 8; test attributes: 8; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/Enums/AuthenticationChallengeTypeTests.cs` — 118 lines, 3234 bytes, `75609ca7e69dd7a315b594e6240dbcee05d58e629fc60e2db2bc24d496c19695`
+  - namespace: `Platform.Identity.Domain.UnitTests.Enums`
+  - types: class AuthenticationChallengeTypeTests@L17
+  - heuristic methods: 4; test attributes: 5; InlineData: 9
+- `tests/Platform.Identity.Domain.UnitTests/Enums/AuthenticationChallengePurposeTests.cs` — 231 lines, 5960 bytes, `b2787dc51d987ee5a5cae7b36907dff0ff17fc9cb78dcd17cea08be160c78d15`
+  - namespace: `Platform.Identity.Domain.UnitTests.Enums`
+  - types: class AuthenticationChallengePurposeTests@L17
+  - heuristic methods: 11; test attributes: 11; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/Enums/MFAMethodTetsts.cs` — 85 lines, 2017 bytes, `0dc22a3792f6415570268ee7edc02bfd699da1e9910f8437f666ee9dd28f78f4`
+  - namespace: `Platform.Identity.Domain.UnitTests.Enums`
+  - types: class MFAMethodTests@L17
+  - heuristic methods: 4; test attributes: 5; InlineData: 5
+- `tests/Platform.Identity.Domain.UnitTests/Enums/UserStatusTests.cs` — 92 lines, 2072 bytes, `b3b59e4bdbc58d75b0193e93e8f83a289aa4d5b3ef57b6b78d10230a4990068c`
+  - namespace: `Platform.Identity.Domain.UnitTests.Enums`
+  - types: class UserStatusTests@L17
+  - heuristic methods: 4; test attributes: 5; InlineData: 3
+- `tests/Platform.Identity.Domain.UnitTests/Enums/AuthenticationChallengeStatusTests.cs` — 213 lines, 5288 bytes, `5221e519e58a8a8fa960cdc4d754b1322dedfe132d879b475b034e974f2ee112`
+  - namespace: `Platform.Identity.Domain.UnitTests.Enums`
+  - types: class AuthenticationChallengeStatusTests@L17
+  - heuristic methods: 10; test attributes: 10; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/Constants/SystemRoleIdsTests.cs` — 168 lines, 4212 bytes, `b94183a595ec8c5ea8b10f417fe7b8cdc8301985bb128f1ebcc7f8ac7ab715bc`
+  - namespace: `Platform.Identity.Domain.UnitTests.Constants`
+  - types: class SystemRoleIdsTests@L17
+  - heuristic methods: 7; test attributes: 7; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/ValueObjects/RoleAssignmentTests.cs` — 269 lines, 6990 bytes, `8c914344671633b17a529ab386de74d75133d471b4162afcd2e04d372345f7d8`
+  - namespace: `Platform.Identity.Domain.UnitTests.ValueObjects`
+  - types: class RoleAssignmentTests@L17
+  - heuristic methods: 13; test attributes: 13; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/ValueObjects/PermissionIdTests.cs` — 445 lines, 11897 bytes, `b4f7018a11f9400ed99cbfbc0e27253a4d7990a5eb5778e47b76aa85cb9ccc04`
+  - namespace: `Platform.Identity.Domain.UnitTests.ValueObjects`
+  - types: class PermissionIdTests@L17
+  - heuristic methods: 20; test attributes: 22; InlineData: 15
+- `tests/Platform.Identity.Domain.UnitTests/ValueObjects/PhoneNumberTests.cs` — 405 lines, 10612 bytes, `3cf837f421cb69b6c990edfd2763a7c5dd904e662beb427f3ce8e17932268313`
+  - namespace: `Platform.Identity.Domain.UnitTests.ValueObjects`
+  - types: class PhoneNumberTests@L18
+  - heuristic methods: 19; test attributes: 20; InlineData: 11
+- `tests/Platform.Identity.Domain.UnitTests/ValueObjects/ChallengeSecretTests.cs` — 428 lines, 11270 bytes, `27b0e285d9998cc336e14406e297c95e07bcdddd9b624af5ef08fa45e54cad4a`
+  - namespace: `Platform.Identity.Domain.UnitTests.ValueObjects`
+  - types: class ChallengeSecretTests@L17
+  - heuristic methods: 22; test attributes: 22; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/ValueObjects/RoleScopeTests.cs` — 516 lines, 12763 bytes, `4ed79581a71281deeb9087b5bb7c56343e9b43293c9901249f4e84cba25d0c5c`
+  - namespace: `Platform.Identity.Domain.UnitTests.ValueObjects`
+  - types: class RoleScopeTests@L17
+  - heuristic methods: 23; test attributes: 26; InlineData: 14
+- `tests/Platform.Identity.Domain.UnitTests/ValueObjects/EmailAddressTests.cs` — 400 lines, 10657 bytes, `ddc10301df97c107027f67efd1d60a3f0a9741466cc9534dc7b34955f230a186`
+  - namespace: `Platform.Identity.Domain.UnitTests.ValueObjects`
+  - types: class EmailAddressTests@L18
+  - heuristic methods: 19; test attributes: 20; InlineData: 7
+- `tests/Platform.Identity.Domain.UnitTests/Events/UserAccount/UserLockedDomainEventTests.cs` — 94 lines, 2332 bytes, `88a1afa7bac7ec4945d70a4113e864064d80d8fbf4f425fda80b51580a74774b`
+  - namespace: `Platform.Identity.Domain.UnitTests.Events`
+  - types: class UserLockedDomainEventTests@L18
+  - heuristic methods: 3; test attributes: 3; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/Events/UserAccount/UserCreatedDomainEventTests.cs` — 181 lines, 4547 bytes, `47c11ee79c8414f7bb5158baf1d6cf615ab52c98d9f22a06ae022799f94c1dcc`
+  - namespace: `Platform.Identity.Domain.UnitTests.Events`
+  - types: class UserCreatedDomainEventTests@L17
+  - heuristic methods: 4; test attributes: 6; InlineData: 6
+- `tests/Platform.Identity.Domain.UnitTests/Events/UserAccount/PasswordChangedDomainEventTests.cs` — 99 lines, 2501 bytes, `b82b52674c92f0976d1dbaa2cd8dcd4a2c22e5bf89210c61aa08f5981382b7f9`
+  - namespace: `Platform.Identity.Domain.UnitTests.Events`
+  - types: class PasswordChangedDomainEventTests@L18
+  - heuristic methods: 2; test attributes: 3; InlineData: 5
+- `tests/Platform.Identity.Domain.UnitTests/Events/UserAccount/SessionInvalidatedDomainEventTests.cs` — 94 lines, 2334 bytes, `f66de22808f68fb9500883a0fc58ce843f41cb11989f059939abb97f37eb4a12`
+  - namespace: `Platform.Identity.Domain.UnitTests.Events`
+  - types: class SessionInvalidatedDomainEventTests@L18
+  - heuristic methods: 3; test attributes: 3; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/Events/UserAccount/PhoneVerifiedDomainEventTests.cs` — 146 lines, 3761 bytes, `2c431d7de7a360aa0d402e7e8ed573281fdf2668fe013b524dcf36d0f055827a`
+  - namespace: `Platform.Identity.Domain.UnitTests.Events`
+  - types: class PhoneVerifiedDomainEventTests@L18
+  - heuristic methods: 5; test attributes: 5; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/Events/UserAccount/EmailVerifiedDomainEventTests.cs` — 145 lines, 3657 bytes, `498db9404dcae6023d53227513648006a65e5c3db2decefb93cbc6ab78e55664`
+  - namespace: `Platform.Identity.Domain.UnitTests.Events`
+  - types: class EmailVerifiedDomainEventTests@L18
+  - heuristic methods: 5; test attributes: 5; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/Events/UserAccount/TotpSecretSetDomainEventTests.cs` — 66 lines, 1610 bytes, `f165b4d05ea9fcdfe4579a9b4c9a88f2b3dfdf7e27f8780a922509c161c18b0e`
+  - namespace: `Platform.Identity.Domain.UnitTests.Events`
+  - types: class TotpSecretSetDomainEventTests@L18
+  - heuristic methods: 2; test attributes: 2; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/Events/UserAccount/MFAEnabledDomainEventTests.cs` — 100 lines, 2477 bytes, `e1a9da33b674e226a07d1413c8ce25c37f0449875ec638fc195fb5215f657ef1`
+  - namespace: `Platform.Identity.Domain.UnitTests.Events`
+  - types: class MFAEnabledDomainEventTests@L19
+  - heuristic methods: 2; test attributes: 3; InlineData: 5
+- `tests/Platform.Identity.Domain.UnitTests/Events/UserAccount/UserUnlockedDomainEventTests.cs` — 66 lines, 1620 bytes, `52e254d192f366660ac7cbd85ec3cd2cb3fd0326222498dccfb263bcab38fe84`
+  - namespace: `Platform.Identity.Domain.UnitTests.Events`
+  - types: class UserUnlockedDomainEventTests@L18
+  - heuristic methods: 2; test attributes: 2; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/Events/UserAccount/MFADisabledDomainEventTests.cs` — 66 lines, 1615 bytes, `23b003d81c2785de4196b4478b6d723bb14073b36f8424c48ab3ff1d5da0d4bd`
+  - namespace: `Platform.Identity.Domain.UnitTests.Events`
+  - types: class MFADisabledDomainEventTests@L18
+  - heuristic methods: 2; test attributes: 2; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/Events/Role/RoleRemovedDomainEventTests.cs` — 116 lines, 2860 bytes, `d8675d9ef935c1b95b80232118fe5f7461d2fa879c5448166d9eed6bb5448f53`
+  - namespace: `Platform.Identity.Domain.UnitTests.Events`
+  - types: class RoleRemovedDomainEventTests@L18
+  - heuristic methods: 4; test attributes: 4; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/Events/Role/RoleAssignedDomainEventTests.cs` — 116 lines, 2867 bytes, `5ea4918b990dbf8608d11f8f3cad640195dc68dff2457964761314203385a4bd`
+  - namespace: `Platform.Identity.Domain.UnitTests.Events`
+  - types: class RoleAssignedDomainEventTests@L18
+  - heuristic methods: 4; test attributes: 4; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/Events/AuthenticationChallenge/AuthenticationChallengeCompletedDomainEventTests.cs` — 150 lines, 4151 bytes, `e635a2edb4604147bbcdc25e89cae92d4cbd62e8e53b34562a66853b85071aaf`
+  - namespace: `Platform.Identity.Domain.UnitTests.Events`
+  - types: class AuthenticationChallengeCompletedDomainEventTests@L20
+  - heuristic methods: 5; test attributes: 5; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/Events/AuthenticationChallenge/AuthenticationChallengeExpiredDomainEventTests.cs` — 150 lines, 4135 bytes, `feeb5916599b909ac5ac3b01164776ac3f76a91e6603d2b4d06b6d0f7c64ea64`
+  - namespace: `Platform.Identity.Domain.UnitTests.Events`
+  - types: class AuthenticationChallengeExpiredDomainEventTests@L20
+  - heuristic methods: 5; test attributes: 5; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/Events/AuthenticationChallenge/AuthenticationChallengeCancelledDomainEventTests.cs` — 180 lines, 5297 bytes, `0969ba7b069b98e4e702a26790f2e2ab183ea412e55eecbcb0fbb1045e0630ae`
+  - namespace: `Platform.Identity.Domain.UnitTests.Events`
+  - types: class AuthenticationChallengeCancelledDomainEventTests@L20
+  - heuristic methods: 6; test attributes: 6; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/Events/AuthenticationChallenge/AuthenticationChallengeCreatedDomainEventTests.cs` — 252 lines, 7291 bytes, `6ae97f2566830cde500a1881d021321d3f9cfcfef1ab71f7a4ac04a36c996f80`
+  - namespace: `Platform.Identity.Domain.UnitTests.Events`
+  - types: class AuthenticationChallengeCreatedDomainEventTests@L22
+  - heuristic methods: 8; test attributes: 8; InlineData: 0
+- `tests/Platform.Identity.Domain.UnitTests/Events/AuthenticationChallenge/AuthenticationChallengeLockedDomainEventTests.cs` — 205 lines, 5698 bytes, `3316a09a83b470a758e174b08d67cd33d73477945ec98b81951c1da4a90c1f1e`
+  - namespace: `Platform.Identity.Domain.UnitTests.Events`
+  - types: class AuthenticationChallengeLockedDomainEventTests@L20
+  - heuristic methods: 7; test attributes: 7; InlineData: 0
+
+## Platform.Persistence.UnitTests
+
+- `tests/Platform.Persistence.UnitTests/GlobalUsings.cs` — 18 lines, 479 bytes, `c853886688fccda9c6e19bfb81350df2df92cd3a3d7416e357fd9b56caf50de7`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Persistence.UnitTests/Context/GovernanceDbContextTests.cs` — 183 lines, 4185 bytes, `0ea941510da3a385b683d3a69cf7de17f93a3ac8debc07ed6dc4379805d080ce`
+  - namespace: `Platform.Persistence.UnitTests.Context`
+  - types: class GovernanceDbContextTests@L11
+  - heuristic methods: 14; test attributes: 10; InlineData: 0
+- `tests/Platform.Persistence.UnitTests/Time/SystemClockTests.cs` — 166 lines, 3628 bytes, `68b0dfe7a9d7a53ed6043950a8c9957ed651c6c72d6e8ff6da5c540d84745382`
+  - namespace: `Platform.Persistence.UnitTests.Time`
+  - types: class SystemClockTests@L11
+  - heuristic methods: 13; test attributes: 6; InlineData: 0
+- `tests/Platform.Persistence.UnitTests/Configurations/RoleConfigurationTests.cs` — 761 lines, 19055 bytes, `23beb8aac581bb36dc448f37229d2ac7c1f868b37652574b4c936f64ae817aa7`
+  - namespace: `Platform.Persistence.UnitTests.Configurations`
+  - types: class RoleConfigurationTests@L37
+  - heuristic methods: 18; test attributes: 16; InlineData: 0
+- `tests/Platform.Persistence.UnitTests/Configurations/UserAccountConfigurationTests.cs` — 1438 lines, 36229 bytes, `790722664390d39606d1314bf9c5d4ee3ac635dd4a6e190c7c93c911c2084146`
+  - namespace: `Platform.Persistence.UnitTests.Configurations`
+  - types: class UserAccountConfigurationTests@L43
+  - heuristic methods: 30; test attributes: 27; InlineData: 0
+- `tests/Platform.Persistence.UnitTests/UnitOfWorks/UnitOfWorkTests.cs` — 530 lines, 13739 bytes, `823477656296d05421e4af02b5eaa5b509637c48e004a952c4773b43656789a2`
+  - namespace: `Platform.Persistence.UnitTests.UnitOfWorks`
+  - types: class UnitOfWorkTests@L13
+  - heuristic methods: 25; test attributes: 11; InlineData: 0
+- `tests/Platform.Persistence.UnitTests/Projections/UserProjectionTests.cs` — 318 lines, 7949 bytes, `e7c84a3802f1f2a5e35c668e50c0745e62d3e84f28e533b559662fba10c34b8d`
+  - namespace: `Platform.Persistence.UnitTests.Projections`
+  - types: class UserProjectionTests@L40
+  - heuristic methods: 9; test attributes: 8; InlineData: 0
+- `tests/Platform.Persistence.UnitTests/Projections/RoleProjectionTests.cs` — 197 lines, 5074 bytes, `42bb995303deaff37d2b2b45032a6eae28a4f11839a6e971c6fed793357d4942`
+  - namespace: `Platform.Persistence.UnitTests.Projections`
+  - types: class RoleProjectionTests@L39
+  - heuristic methods: 7; test attributes: 4; InlineData: 0
+- `tests/Platform.Persistence.UnitTests/Repositories/Queries/RoleQueryRepositoryTests.cs` — 529 lines, 12381 bytes, `c9b8b3acaf7de6306118e5b9bc68c694700675256f5e145f755eb7cb0b3d09c5`
+  - namespace: `Platform.Persistence.UnitTests.Repositories.Queries`
+  - types: class RoleQueryRepositoryTests@L14
+  - heuristic methods: 29; test attributes: 13; InlineData: 0
+- `tests/Platform.Persistence.UnitTests/Repositories/Queries/UserQueryRepositoryTests.cs` — 619 lines, 15104 bytes, `63d97cc90adda2514708f7ad7ebae62d949e9dd4b05d15f3d84663e267fc40b4`
+  - namespace: `Platform.Persistence.UnitTests.Repositories.Queries`
+  - types: class UserQueryRepositoryTests@L14
+  - heuristic methods: 19; test attributes: 15; InlineData: 4
+- `tests/Platform.Persistence.UnitTests/Repositories/Commands/RoleRepositoryTests.cs` — 528 lines, 12843 bytes, `2feb0079f85585a22a8f1f2f029e6abb09578eb1afaf2ca1ca667cb2361ef841`
+  - namespace: `Platform.Persistence.UnitTests.Repositories.Commands`
+  - types: class RoleRepositoryTests@L13
+  - heuristic methods: 37; test attributes: 19; InlineData: 8
+- `tests/Platform.Persistence.UnitTests/Repositories/Commands/UserAccountRepositoryTests.cs` — 803 lines, 19802 bytes, `01a3027cf05ab047b0dcb8ed3092b329ff149f8a5eb756ee730134f1a45f1ad3`
+  - namespace: `Platform.Persistence.UnitTests.Repositories.Commands`
+  - types: class UserAccountRepositoryTests@L13
+  - heuristic methods: 55; test attributes: 28; InlineData: 8
+
+## Platform.Pipeline.UnitTests
+
+- `tests/Platform.Pipeline.UnitTests/GlobalUsings.cs` — 3 lines, 73 bytes, `383a18758b099986bfdcd1ce56b749f8933637cf3ff8ec6211ca7f19468b6412`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Governance/GovernanceBehaviorTests.cs` — 211 lines, 5569 bytes, `aafba4c0063f58bc85f36677bd41d4a341779f3a467b70c4cf3ed540ea70e065`
+  - namespace: `Platform.Pipeline.UnitTests.Governance`
+  - types: record GovernanceRequest@L22, class GovernanceBehaviorTests@L38
+  - heuristic methods: 12; test attributes: 7; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Governance/GovernanceBehaviorTTests.cs` — 235 lines, 6508 bytes, `b9c7735229730a8375b78a4ac0544d5f364ae9dcd739c3661a858907f8abbde2`
+  - namespace: `Platform.Pipeline.UnitTests.Governance`
+  - types: class GovernanceBehaviorTTests@L19
+  - heuristic methods: 12; test attributes: 7; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Transaction/TransactionBehaviorTTests.cs` — 263 lines, 7186 bytes, `8e1c7684eebb3421425c4740416aa44f02de45a5f73f8b21588cf34b98e0dd14`
+  - namespace: `Platform.Pipeline.UnitTests.Transaction`
+  - types: class TransactionBehaviorTTests@L19
+  - heuristic methods: 13; test attributes: 7; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Transaction/TransactionBehaviorTests.cs` — 268 lines, 7150 bytes, `a4501218ea7027a9f0c464bf79df4a53d5f6f4980140359a2ef05f5b7212e7cc`
+  - namespace: `Platform.Pipeline.UnitTests.Transaction`
+  - types: record TestRequest@L19, class TransactionBehaviorTests@L24
+  - heuristic methods: 14; test attributes: 7; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Validation/ValidationBehaviorTTests.cs` — 289 lines, 8141 bytes, `47b3d556b9e55f5822613c0c7e8e7ae04244a0803ea062ef3dfb74ff783558c8`
+  - namespace: `Platform.Pipeline.UnitTests.Validation`
+  - types: class ValidationBehaviorTTests@L19
+  - heuristic methods: 9; test attributes: 8; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Validation/ValidationBehaviorTests.cs` — 310 lines, 8440 bytes, `70607fe196988dd4e33d9bac193280666ce1aa031629085b3bc8d7be862b9b73`
+  - namespace: `Platform.Pipeline.UnitTests.Validation`
+  - types: record TestRequest@L19, class ValidationBehaviorTests@L24
+  - heuristic methods: 9; test attributes: 8; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Validation/ValidationFailureFactoryTests.cs` — 181 lines, 5493 bytes, `80f05716842312adc7e905e43e2da8f9452c15cf48f2a2b3a630df4fd08b5330`
+  - namespace: `Platform.Pipeline.UnitTests.Validation`
+  - types: class ValidationFailureFactoryTests@L18
+  - heuristic methods: 7; test attributes: 7; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Models/ExecutionLogEntryTests.cs` — 157 lines, 4288 bytes, `690727cb4b8c83238d53b2a8c68bcc141997a687f050b2f3cef0908d9b18394f`
+  - namespace: `Platform.Pipeline.UnitTests.Models`
+  - types: class ExecutionLogEntryTests@L16
+  - heuristic methods: 5; test attributes: 5; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Abstractions/IExecutionLoggerTests.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Abstractions/IPipelineExecutorTests.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Abstractions/ValidationErrorTests.cs` — 164 lines, 4372 bytes, `ecc8dc339bce0817b35c362cd5df8b9cd51aa7458f446dde06c064dfbd0bbb70`
+  - namespace: `Platform.Pipeline.UnitTests.Abstractions`
+  - types: class ValidationErrorTests@L16
+  - heuristic methods: 7; test attributes: 7; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Abstractions/IGovernanceEvaluatorTests.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Abstractions/IQueryTests.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Abstractions/IValidatorTests.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Abstractions/ICommandTTests.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Abstractions/ICommandHandlerTTests.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Abstractions/IPipelineBehaviorTests.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Abstractions/IQueryValidatorTests.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Abstractions/IPipelineOrderedTests.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Abstractions/ICommandHandlerTests.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Abstractions/IQueryHandlerTests.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Abstractions/IQueryTTests.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Abstractions/ICommandValidatorTests.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Abstractions/ValidationResultTests.cs` — 148 lines, 4185 bytes, `c13900834d8d159190841e90b89431ecca8b91ac58aefdf59e145757a3d9fc43`
+  - namespace: `Platform.Pipeline.UnitTests.Abstractions`
+  - types: class ValidationResultTests@L16
+  - heuristic methods: 6; test attributes: 6; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Abstractions/IGovernanceRequestTests.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Abstractions/ICommandTests.cs` — 1 lines, 0 bytes, `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Logging/LoggingBehaviorTests.cs` — 373 lines, 10195 bytes, `9e56189c4c54db3abe6f03a2cf60f2612c636f6302f45e51665ace61da62e141`
+  - namespace: `Platform.Pipeline.UnitTests.Logging`
+  - types: record TestRequest@L20, class LoggingBehaviorTests@L25
+  - heuristic methods: 22; test attributes: 10; InlineData: 0
+- `tests/Platform.Pipeline.UnitTests/Logging/LoggingBehaviorTTests.cs` — 369 lines, 10287 bytes, `4b06dbef4cdf88dbd38cff95321defaffe128dc6bbcf810710b393ddf468a5e7`
+  - namespace: `Platform.Pipeline.UnitTests.Logging`
+  - types: class LoggingBehaviorTTests@L20
+  - heuristic methods: 21; test attributes: 10; InlineData: 0
+
+## Platform.Security.Infrastructure.UnitTests
+
+- `tests/Platform.Security.Infrastructure.UnitTests/GlobalUsings.cs` — 3 lines, 70 bytes, `a9ff58db8a9f2d047eafd41f4e2549dc8c01bf3b7381e9ad376e262244806c70`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Security.Infrastructure.UnitTests/Fixtures/TotpFixture.cs` — 62 lines, 1641 bytes, `d82c5530a97675b2ac31d9afded66f8d06b38321a62edf31089013e570bf108f`
+  - namespace: `Platform.Security.Infrastructure.UnitTests.Fixtures`
+  - types: class TotpFixture@L10
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Security.Infrastructure.UnitTests/Fixtures/PasswordFixture.cs` — 43 lines, 1281 bytes, `65cf471e4426a0815dc77fe5728f10809e9db54d3b3a3b7d66ee4d35453d0121`
+  - namespace: `Platform.Security.Infrastructure.UnitTests.Fixtures`
+  - types: class PasswordFixture@L9
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.Security.Infrastructure.UnitTests/Fixtures/AuthenticationFixture.cs` — 73 lines, 2323 bytes, `c9498be49d4fd2d10dd940680d99b321ac98c497470c5ae3426a7814f54112a9`
+  - namespace: `Platform.Security.Infrastructure.UnitTests.Fixtures`
+  - types: class AuthenticationFixture@L12
+  - heuristic methods: 1; test attributes: 0; InlineData: 0
+- `tests/Platform.Security.Infrastructure.UnitTests/Authentication/Verification/TotpVerifierTests.cs` — 335 lines, 8221 bytes, `61cdc213279a8c36d98a0734263ee1bcdb95fb706dea0b759d8645cfa9880a1c`
+  - namespace: `Platform.Security.Infrastructure.UnitTests.Authentication.Totp`
+  - types: class TotpVerifierTests@L14
+  - heuristic methods: 19; test attributes: 11; InlineData: 6
+- `tests/Platform.Security.Infrastructure.UnitTests/Authentication/Verification/VerificationCodeValidatorTests.cs` — 132 lines, 3588 bytes, `578f293e0b573fd4791b3aa293d43d8ce52476c792ddc95a75d9b5877ab956f9`
+  - namespace: `Platform.Security.Infrastructure.UnitTests.Authentication.Verification`
+  - types: class VerificationCodeValidatorTests@L10
+  - heuristic methods: 7; test attributes: 6; InlineData: 0
+- `tests/Platform.Security.Infrastructure.UnitTests/Authentication/Formatting/AuthenticationChallengeEmailFormatterTests.cs` — 310 lines, 7900 bytes, `8b728728531f4713d374b93e4c0aab37f148e132fd0a792a0703f9c497fdb1b1`
+  - namespace: `Platform.Security.Infrastructure.UnitTests.Authentication.Formatting`
+  - types: class AuthenticationChallengeEmailFormatterTests@L16
+  - heuristic methods: 11; test attributes: 10; InlineData: 0
+- `tests/Platform.Security.Infrastructure.UnitTests/Authentication/Formatting/AuthenticationChallengeWhatsAppFormatterTests.cs` — 291 lines, 7541 bytes, `182e94c61814ee8108fbb5f8cb110a9f86a219d29a53ac0b7b7def0de2fcdfca`
+  - namespace: `Platform.Security.Infrastructure.UnitTests.Authentication.Formatting`
+  - types: class AuthenticationChallengeWhatsAppFormatterTests@L16
+  - heuristic methods: 10; test attributes: 9; InlineData: 0
+- `tests/Platform.Security.Infrastructure.UnitTests/Authentication/Formatting/AuthenticationChallengeSmsFormatterTests.cs` — 232 lines, 6142 bytes, `d2d780fc436647fb87cf770d0ffa354418ae7a220393299f3fcd194466a6a485`
+  - namespace: `Platform.Security.Infrastructure.UnitTests.Authentication.Formatting`
+  - types: class AuthenticationChallengeSmsFormatterTests@L16
+  - heuristic methods: 9; test attributes: 8; InlineData: 0
+- `tests/Platform.Security.Infrastructure.UnitTests/Authentication/Delivery/SmsAuthenticationChallengeSenderTests.cs` — 257 lines, 7088 bytes, `98516fb36f04ef09875737b335f00956b1faa3f604f8c3de359b3b345f7439d7`
+  - namespace: `Platform.Security.Infrastructure.UnitTests.Authentication.Delivery`
+  - types: class SmsAuthenticationChallengeSenderTests@L17
+  - heuristic methods: 13; test attributes: 6; InlineData: 0
+- `tests/Platform.Security.Infrastructure.UnitTests/Authentication/Delivery/EmailAuthenticationChallengeSenderTests.cs` — 263 lines, 7329 bytes, `d6a4cb80f79f83b21c0269b10282af8b19763bf1e19236aca4a9956c8091de0f`
+  - namespace: `Platform.Security.Infrastructure.UnitTests.Authentication.Delivery`
+  - types: class EmailAuthenticationChallengeSenderTests@L17
+  - heuristic methods: 13; test attributes: 6; InlineData: 0
+- `tests/Platform.Security.Infrastructure.UnitTests/Authentication/Delivery/WhatsAppAuthenticationChallengeSenderTests.cs` — 260 lines, 7227 bytes, `018b65bdd453ec9b6eeafe461ab686592b6b6fa3ed8946ef1eb4adf40bc875be`
+  - namespace: `Platform.Security.Infrastructure.UnitTests.Authentication.Delivery`
+  - types: class WhatsAppAuthenticationChallengeSenderTests@L17
+  - heuristic methods: 13; test attributes: 6; InlineData: 0
+- `tests/Platform.Security.Infrastructure.UnitTests/Authentication/Passwords/PasswordHasherTests.cs` — 246 lines, 6176 bytes, `d620931f99a35f92ee93482ba6e444ebe82777b868a25fd1b4821413bd31ea1e`
+  - namespace: `Platform.Security.Infrastructure.UnitTests.Authentication.Passwords`
+  - types: class PasswordHasherTests@L10
+  - heuristic methods: 13; test attributes: 13; InlineData: 4
+- `tests/Platform.Security.Infrastructure.UnitTests/Authentication/Generators/TotpCodeGeneratorTests.cs` — 251 lines, 6151 bytes, `a8cacf14d10464902e3ed4b4d07b6baf0a5cddf3e260b9655c41cfc3c100c145`
+  - namespace: `Platform.Security.Infrastructure.UnitTests.Authentication.Totp`
+  - types: class TotpCodeGeneratorTests@L13
+  - heuristic methods: 8; test attributes: 9; InlineData: 3
+- `tests/Platform.Security.Infrastructure.UnitTests/Authentication/Generators/OtpGeneratorTests.cs` — 71 lines, 1721 bytes, `e1e49efbf6a0f06b0b83e48bc1b06238191d47755e342e35555987b0fec6ce56`
+  - namespace: `Platform.Security.Infrastructure.UnitTests.Authentication.Otp`
+  - types: class OtpGeneratorTests@L10
+  - heuristic methods: 4; test attributes: 4; InlineData: 0
+- `tests/Platform.Security.Infrastructure.UnitTests/Authentication/Generators/TotpSecretGeneratorTests.cs` — 116 lines, 2959 bytes, `5eabcac51d9588b404892f3a55462beb9dc3ec82ce04e0f75747da6dd8fdbcec`
+  - namespace: `Platform.Security.Infrastructure.UnitTests.Authentication.Totp`
+  - types: class TotpSecretGeneratorTests@L10
+  - heuristic methods: 6; test attributes: 6; InlineData: 0
+- `tests/Platform.Security.Infrastructure.UnitTests/Authentication/Provisioning/TotpProvisioningServiceTests.cs` — 280 lines, 7301 bytes, `8c8f9e3a44a6138c684f419281751c3075bed866eec92f6d545cc773da4d3b60`
+  - namespace: `Platform.Security.Infrastructure.UnitTests.Authentication.Provisioning`
+  - types: class TotpProvisioningServiceTests@L17
+  - heuristic methods: 10; test attributes: 7; InlineData: 0
+
+## Platform.SharedKernel.UnitTests
+
+- `tests/Platform.SharedKernel.UnitTests/GlobalUsings.cs` — 13 lines, 348 bytes, `aaf04baa9affe68d3eb39fc8fcba24920f6164efa54aeb0ec89e38a2fe5bea11`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.SharedKernel.UnitTests/Utilities/GuardTests.cs` — 922 lines, 26718 bytes, `1a5e4893171157812f85ff11b02c3f4b70ad06ed9cc9ce05915dc25100ee1b46`
+  - namespace: `Platform.SharedKernel.UnitTests.Utilities`
+  - types: class GuardTests@L35, enum TestEnum@L438
+  - heuristic methods: 28; test attributes: 25; InlineData: 0
+- `tests/Platform.SharedKernel.UnitTests/Base/AggregateRootTests.cs` — 390 lines, 10949 bytes, `c249d3e6b0f6407e5721d746f5e3d07e0b2cdeaa2b9568e93fb5636759ee3fbc`
+  - namespace: `Platform.SharedKernel.UnitTests.Base`
+  - types: class AggregateRootTests@L49, class TestAggregateRoot@L316, class TestDomainEvent@L367
+  - heuristic methods: 10; test attributes: 8; InlineData: 0
+- `tests/Platform.SharedKernel.UnitTests/Base/DomainEventTests.cs` — 236 lines, 6740 bytes, `02f1dec34dbc4768f7e0cfe77a1c4d1c2ef5907f2bd883b32ff50fe240d481a2`
+  - namespace: `Platform.SharedKernel.UnitTests.Base`
+  - types: class DomainEventTests@L48, class TestDomainEvent@L214
+  - heuristic methods: 5; test attributes: 5; InlineData: 0
+- `tests/Platform.SharedKernel.UnitTests/Base/BaseEntityTests.cs` — 463 lines, 12285 bytes, `636008b8678df4d8bf5c080fdd5545b9e879eb853fc0cfba30c14013ddb6fb2f`
+  - namespace: `Platform.SharedKernel.UnitTests.Base`
+  - types: class BaseEntityTests@L49, class TestEntity@L417, class OtherEntity@L448
+  - heuristic methods: 12; test attributes: 12; InlineData: 0
+- `tests/Platform.SharedKernel.UnitTests/Base/ValueObjectTests.cs` — 342 lines, 8703 bytes, `897c7037a0a8020c3fb097e2f98388a540903c72cf0a8b6f00d3e85434a24392`
+  - namespace: `Platform.SharedKernel.UnitTests.Base`
+  - types: class ValueObjectTests@L45
+  - heuristic methods: 10; test attributes: 10; InlineData: 0
+- `tests/Platform.SharedKernel.UnitTests/Results/ResultTests.cs` — 305 lines, 8781 bytes, `96b223013c8d667d8a9736978b3e179801f498b5f71421d09b5b9dba1f5062be`
+  - namespace: `Platform.SharedKernel.UnitTests.Results`
+  - types: class ResultTests@L48, class TestResult@L146
+  - heuristic methods: 7; test attributes: 7; InlineData: 0
+- `tests/Platform.SharedKernel.UnitTests/Results/ErrorTests.cs` — 369 lines, 10733 bytes, `1815853ae92c267834566471855448a08e1040724476908863474f24648e6f7e`
+  - namespace: `Platform.SharedKernel.UnitTests.Results`
+  - types: class ErrorTests@L50
+  - heuristic methods: 9; test attributes: 9; InlineData: 0
+- `tests/Platform.SharedKernel.UnitTests/Results/ErrorTypeTests.cs` — 160 lines, 3921 bytes, `0e88a248851b2e1a8bb02535060fcde4f6122096680040c9ad0548ef1aff7b2b`
+  - namespace: `Platform.SharedKernel.UnitTests.Results`
+  - types: class ErrorTypeTests@L29
+  - heuristic methods: 7; test attributes: 7; InlineData: 0
+- `tests/Platform.SharedKernel.UnitTests/Results/ResultOfTTests.cs` — 226 lines, 6540 bytes, `b4526c752327d58d264c9eba1502dde3ea71b42128a7f15bf33085fca1619d3f`
+  - namespace: `Platform.SharedKernel.UnitTests.Results`
+  - types: class ResultOfTTests@L53
+  - heuristic methods: 6; test attributes: 6; InlineData: 0
+- `tests/Platform.SharedKernel.UnitTests/TestHelpers/TestValueObject.cs` — 106 lines, 3320 bytes, `8e163e6089ec7bc6a1ac84413ae6d0e49093e1d1efa91ed74089ffc4110014bb`
+  - namespace: `Platform.SharedKernel.UnitTests.TestHelpers`
+  - types: class TestValueObject@L17, class OtherValueObject@L75
+  - heuristic methods: 4; test attributes: 0; InlineData: 0
+- `tests/Platform.SharedKernel.UnitTests/TestHelpers/TestData.cs` — 63 lines, 1910 bytes, `9e37ed70817ce0c4714bed996ac61c1b007e506823cc5442e7b925c98a542ffd`
+  - namespace: `Platform.SharedKernel.UnitTests.TestHelpers`
+  - types: class TestData@L24
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.SharedKernel.UnitTests/Validation/EmailAddressValidatorTests.cs` — 150 lines, 4001 bytes, `519d64bf870a17d0631180e12bd5e1775b3e7ab582002cc53425899692afb3c5`
+  - namespace: `Platform.SharedKernel.UnitTests.Validation`
+  - types: class EmailAddressValidatorTests@L43
+  - heuristic methods: 3; test attributes: 3; InlineData: 14
+- `tests/Platform.SharedKernel.UnitTests/Exceptions/DomainExceptionTests.cs` — 216 lines, 6654 bytes, `97c8374310c9c9c0b1c6c50143a79b970d8ecd9422f146f7032a40cf92856b72`
+  - namespace: `Platform.SharedKernel.UnitTests.Exceptions`
+  - types: class DomainExceptionTests@L43
+  - heuristic methods: 6; test attributes: 6; InlineData: 0
+
+## Platform.TokenProvider.UnitTests
+
+- `tests/Platform.TokenProvider.UnitTests/GlobalUsings.cs` — 11 lines, 284 bytes, `83e8fffbd1ff7e3144a840156a9811b03250a412ed21048f024ffb52e7df5e2c`
+  - namespace: `(none)`
+  - types: (no type declaration)
+  - heuristic methods: 0; test attributes: 0; InlineData: 0
+- `tests/Platform.TokenProvider.UnitTests/Configurations/JwtOptionsTests.cs` — 86 lines, 2973 bytes, `e37f609e82d491da73b6772f1a3423792f7bb8ee367af1c7a64d09240a4ef2f0`
+  - namespace: `Platform.TokenProvider.UnitTests.Configuration`
+  - types: class JwtOptionsTests@L17
+  - heuristic methods: 3; test attributes: 3; InlineData: 0

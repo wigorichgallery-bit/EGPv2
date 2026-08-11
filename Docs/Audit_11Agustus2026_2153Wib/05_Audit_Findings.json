@@ -1,0 +1,196 @@
+{
+  "archive_sha256": "005a340f72403600911b0631e5d099c404b484f2d8b7eddb4e38166821312fe8",
+  "baseline_structure_missing": [],
+  "baseline_structure_extra": [
+    "tests/Platform.Identity.Application.UnitTests/EGPv2_Baseline.txt"
+  ],
+  "zero_byte_cs": [
+    "src/Infrastructure/Platform.TokenProvider/DependencyInjection/TokenProviderServiceCollectionExtensions.cs",
+    "src/Infrastructure/Platform.TokenProvider/Jwt/JwtBearerEventsHandler.cs",
+    "src/Infrastructure/Platform.TokenProvider/Jwt/JwtTokenProvider.cs",
+    "src/Infrastructure/Platform.TokenProvider/Jwt/JwtClaimsFactory.cs",
+    "src/Infrastructure/Platform.Persistence/Projections/PermissionProjection.cs",
+    "src/Infrastructure/Platform.Persistence/Projections/GovernanceProjection.cs",
+    "src/Infrastructure/Platform.Persistence/Projections/ApprovalProjection.cs",
+    "src/Infrastructure/Platform.Persistence/Projections/AuditProjection.cs",
+    "src/Application/Platform.Identity.Application/Contracts/Authentications/Responses/VerifyTotpResponse.cs",
+    "src/Application/Platform.Identity.Application/Contracts/Authentications/Requests/VerifyTotpRequest.cs",
+    "src/Application/Platform.Identity.Application/Contracts/Authentications/Dtos/AuthenticationChallengeDto.cs",
+    "tests/Platform.Communication.UnitTests/Channels/WhatsApp/Clients/MetaCloudClientTests.cs",
+    "tests/Platform.Communication.UnitTests/Channels/WhatsApp/Clients/TwilioWhatsAppClientTests.cs",
+    "tests/Platform.Communication.UnitTests/Channels/Sms/Clients/TwilioSmsClientTests.cs",
+    "tests/Platform.Communication.UnitTests/Channels/Sms/Clients/VonageSmsClientTests.cs",
+    "tests/Platform.Pipeline.UnitTests/Abstractions/IExecutionLoggerTests.cs",
+    "tests/Platform.Pipeline.UnitTests/Abstractions/IPipelineExecutorTests.cs",
+    "tests/Platform.Pipeline.UnitTests/Abstractions/IGovernanceEvaluatorTests.cs",
+    "tests/Platform.Pipeline.UnitTests/Abstractions/IQueryTests.cs",
+    "tests/Platform.Pipeline.UnitTests/Abstractions/IValidatorTests.cs",
+    "tests/Platform.Pipeline.UnitTests/Abstractions/ICommandTTests.cs",
+    "tests/Platform.Pipeline.UnitTests/Abstractions/ICommandHandlerTTests.cs",
+    "tests/Platform.Pipeline.UnitTests/Abstractions/IPipelineBehaviorTests.cs",
+    "tests/Platform.Pipeline.UnitTests/Abstractions/IQueryValidatorTests.cs",
+    "tests/Platform.Pipeline.UnitTests/Abstractions/IPipelineOrderedTests.cs",
+    "tests/Platform.Pipeline.UnitTests/Abstractions/ICommandHandlerTests.cs",
+    "tests/Platform.Pipeline.UnitTests/Abstractions/IQueryHandlerTests.cs",
+    "tests/Platform.Pipeline.UnitTests/Abstractions/IQueryTTests.cs",
+    "tests/Platform.Pipeline.UnitTests/Abstractions/ICommandValidatorTests.cs",
+    "tests/Platform.Pipeline.UnitTests/Abstractions/IGovernanceRequestTests.cs",
+    "tests/Platform.Pipeline.UnitTests/Abstractions/ICommandTests.cs"
+  ],
+  "bak_files": [
+    "src/Web/Platform.WebApi/Composition/IdentityRoleSeeder.cs.bak",
+    "src/Infrastructure/Platform.Communication/Channels/Email/Clients/Smtp/SmtpClientFactory.cs.bak",
+    "src/Infrastructure/Platform.Communication/Channels/Email/Clients/Smtp/ISmtpClientFactory.cs.bak",
+    "src/Infrastructure/Platform.Persistence/Context/GovernanceDbContext.cs.bak",
+    "src/Infrastructure/Platform.Persistence/UnitOfWorks/UnitOfWork.cs.bak",
+    "src/Infrastructure/Platform.Persistence/Repositories/Commands/UserAccountRepository.cs.bak"
+  ],
+  "namespace_anomalies": [
+    {
+      "path": "src/Application/Platform.Identity.Application/Configuration/Authentication/TotpOptions.cs",
+      "namespace": "Platform.Security.Infrastructure.Authentication.Configuration",
+      "expected_project_namespace": "Platform.Identity.Application"
+    }
+  ],
+  "filename_anomalies": [
+    {
+      "path": "src/Web/Platform.WebApi/Constants/MediaTypeNames.cs",
+      "types": [
+        "HttpMediaTypes"
+      ]
+    },
+    {
+      "path": "src/Infrastructure/Platform.Communication/DependencyInjection/AddCommunicationClients.cs",
+      "types": [
+        "AddCommunicationClientsExtensions"
+      ]
+    },
+    {
+      "path": "src/Infrastructure/Platform.Communication/DependencyInjection/AddCommunicationOptions.cs",
+      "types": [
+        "AddCommunicationOptionsExtensions"
+      ]
+    },
+    {
+      "path": "src/Infrastructure/Platform.Communication/DependencyInjection/AddCommunicationSenders.cs",
+      "types": [
+        "AddCommunicationSendersExtensions"
+      ]
+    },
+    {
+      "path": "src/Infrastructure/Platform.Communication/Channels/Email/Clients/Smtp/Factory/IMailKitSmtpClientFactory.cs",
+      "types": [
+        "IMailKitSmtpSdkClientFactory"
+      ]
+    },
+    {
+      "path": "src/Infrastructure/Platform.Communication/Channels/Email/Clients/Smtp/Factory/MailKitSmtpClientFactory.cs",
+      "types": [
+        "MailKitSmtpSdkClientFactory"
+      ]
+    },
+    {
+      "path": "src/Infrastructure/Platform.Persistence/Migrations/20260624084020_InitialCreate.cs",
+      "types": [
+        "InitialCreate"
+      ]
+    },
+    {
+      "path": "src/Infrastructure/Platform.Persistence/Migrations/20260624092810_InitialIdentitySchema.cs",
+      "types": [
+        "InitialIdentitySchema"
+      ]
+    },
+    {
+      "path": "src/Infrastructure/Platform.Persistence/Migrations/20260624092810_InitialIdentitySchema.Designer.cs",
+      "types": [
+        "InitialIdentitySchema"
+      ]
+    },
+    {
+      "path": "src/Infrastructure/Platform.Persistence/Migrations/20260624084020_InitialCreate.Designer.cs",
+      "types": [
+        "InitialCreate"
+      ]
+    },
+    {
+      "path": "tests/Platform.Identity.Application.UnitTests/Features/Users/Queries/GetUserByUsername/GetUserByUsernameQueryHandlerTests.cs",
+      "types": [
+        "GetUsersQueryHandlerTests"
+      ]
+    },
+    {
+      "path": "tests/Platform.Identity.Domain.UnitTests/Enums/MFAMethodTetsts.cs",
+      "types": [
+        "MFAMethodTests"
+      ]
+    }
+  ],
+  "duplicate_namespace_type_candidates": [
+    {
+      "namespace": "Platform.Persistence.Migrations",
+      "type": "InitialCreate",
+      "paths": [
+        "src/Infrastructure/Platform.Persistence/Migrations/20260624084020_InitialCreate.cs",
+        "src/Infrastructure/Platform.Persistence/Migrations/20260624084020_InitialCreate.Designer.cs"
+      ]
+    },
+    {
+      "namespace": "Platform.Persistence.Migrations",
+      "type": "InitialIdentitySchema",
+      "paths": [
+        "src/Infrastructure/Platform.Persistence/Migrations/20260624092810_InitialIdentitySchema.cs",
+        "src/Infrastructure/Platform.Persistence/Migrations/20260624092810_InitialIdentitySchema.Designer.cs"
+      ]
+    },
+    {
+      "namespace": "Platform.SharedKernel.Results",
+      "type": "Result",
+      "paths": [
+        "src/Core/Platform.SharedKernel/Results/Result.cs",
+        "src/Core/Platform.SharedKernel/Results/ResultT.cs"
+      ]
+    },
+    {
+      "namespace": "Platform.Pipeline.Abstractions",
+      "type": "ICommand",
+      "paths": [
+        "src/Application/Platform.Pipeline/Abstractions/ICommandT.cs",
+        "src/Application/Platform.Pipeline/Abstractions/ICommand.cs"
+      ]
+    },
+    {
+      "namespace": "Platform.Pipeline.Abstractions",
+      "type": "ICommandHandler",
+      "paths": [
+        "src/Application/Platform.Pipeline/Abstractions/ICommandHandler.cs",
+        "src/Application/Platform.Pipeline/Abstractions/ICommandHandlerT.cs"
+      ]
+    },
+    {
+      "namespace": "Platform.Pipeline.Abstractions",
+      "type": "IPipelineBehavior",
+      "paths": [
+        "src/Application/Platform.Pipeline/Abstractions/IPipelineBehavior.cs",
+        "src/Application/Platform.Pipeline/Abstractions/IPipelineBehavior.cs"
+      ]
+    },
+    {
+      "namespace": "Platform.Pipeline.Abstractions",
+      "type": "IQuery",
+      "paths": [
+        "src/Application/Platform.Pipeline/Abstractions/IQueryT.cs",
+        "src/Application/Platform.Pipeline/Abstractions/IQuery.cs"
+      ]
+    },
+    {
+      "namespace": "Platform.SharedKernel.UnitTests.Base",
+      "type": "TestDomainEvent",
+      "paths": [
+        "tests/Platform.SharedKernel.UnitTests/Base/AggregateRootTests.cs",
+        "tests/Platform.SharedKernel.UnitTests/Base/DomainEventTests.cs"
+      ]
+    }
+  ],
+  "dotnet_available": false
+}

@@ -103,25 +103,25 @@ public sealed partial class LoginUseCaseTests
     [Fact]
     public void Constructor_Should_ThrowArgumentNullException_When_UserAccountRepository_Is_Null()
     {
-  Action act = () =>
-        new LoginUseCase(
-            null!,
-            _roleQueryRepository.Object,
-            _authenticationChallengeRepository.Object,
-            _identityResolver.Object,
-            _passwordHasher.Object,
-            _tokenService.Object,
-            _authenticationPolicyEvaluator.Object,
-            _authenticationChallengeBuilder.Object,
-            _authenticationChallengeDeliveryService.Object,
-            _clock.Object,
-            _unitOfWork.Object,
-            _logger.Object,
-            _authenticationOptions);
+        Action act = () =>
+            new LoginUseCase(
+                null!,
+                _roleQueryRepository.Object,
+                _authenticationChallengeRepository.Object,
+                _identityResolver.Object,
+                _passwordHasher.Object,
+                _tokenService.Object,
+                _authenticationPolicyEvaluator.Object,
+                _authenticationChallengeBuilder.Object,
+                _authenticationChallengeDeliveryService.Object,
+                _clock.Object,
+                _unitOfWork.Object,
+                _logger.Object,
+                _authenticationOptions);
 
-    act.Should()
-        .Throw<ArgumentNullException>()
-        .WithParameterName("userAccountRepository");
+        act.Should()
+            .Throw<ArgumentNullException>()
+            .WithParameterName("userAccountRepository");
     }
 
     /// <summary>

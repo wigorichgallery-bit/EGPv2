@@ -685,7 +685,7 @@ public sealed class CreateUserUseCaseTests
             .Be(
                 IdentityErrorMapper.Map(
                     new DomainException(
-                        "IDENTITY.INVALID_PHONE_NUMBER",
+                        "IDENTITY.INVALID_PHONE",
                         string.Empty)));
 
         _userAccountRepository.Verify(

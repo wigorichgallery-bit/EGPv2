@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Platform.TokenProvider")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+becd09f2d4b50bc8ba013e1e9796b933c38a883e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4e68da7c27b8a237bb48865d7ad62e6649529e83")]
 [assembly: System.Reflection.AssemblyProductAttribute("Platform.TokenProvider")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Platform.TokenProvider")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

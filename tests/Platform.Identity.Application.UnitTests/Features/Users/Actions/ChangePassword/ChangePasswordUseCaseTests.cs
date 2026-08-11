@@ -354,6 +354,9 @@ public sealed class ChangePasswordUseCaseTests
     /// <summary>
     /// Verifies password is changed successfully.
     /// </summary>
+    /// <summary>
+    /// Verifies password is changed successfully.
+    /// </summary>
     [Fact]
     public async Task ExecuteAsync_Should_Return_Success_When_Password_Is_Changed()
     {
@@ -383,6 +386,9 @@ public sealed class ChangePasswordUseCaseTests
 
         var previousPasswordVersion =
             user.PasswordVersion;
+
+        var previousPasswordHash =
+            user.PasswordHash;
 
         _clock
             .SetupGet(x => x.UtcNow)
@@ -441,7 +447,7 @@ public sealed class ChangePasswordUseCaseTests
         _passwordHasher.Verify(
             x => x.Verify(
                 command.CurrentPassword,
-                user.PasswordHash),
+                previousPasswordHash),
             Times.Once);
 
         _passwordHasher.Verify(
@@ -814,6 +820,10 @@ public sealed class ChangePasswordUseCaseTests
     /// Verifies password verification is executed
     /// before password hashing.
     /// </summary>
+    /// <summary>
+    /// Verifies password verification is executed
+    /// before password hashing.
+    /// </summary>
     [Fact]
     public async Task ExecuteAsync_Should_Verify_CurrentPassword_Once()
     {
@@ -830,6 +840,9 @@ public sealed class ChangePasswordUseCaseTests
 
         var user =
             UserAccountFixture.Create();
+
+        var previousPasswordHash =
+            user.PasswordHash;
 
         _clock
             .SetupGet(x => x.UtcNow)
@@ -867,7 +880,7 @@ public sealed class ChangePasswordUseCaseTests
         _passwordHasher.Verify(
             x => x.Verify(
                 command.CurrentPassword,
-                user.PasswordHash),
+                previousPasswordHash),
             Times.Once);
     }
 
