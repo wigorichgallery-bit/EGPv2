@@ -1,3 +1,15 @@
+Docs
+    001_FolderTree.md
+    002_FileInventory.md
+    003_NamespaceInventory.md
+    004_TypeInventory.md
+    005_DependencyMatrix.md
+    006_ReconstructionQueue.md
+    007_SourceVerification.md
+    008_ModuleCompletionAssessment.md
+    009_CrossProjectDependencyScan.md
+    Infobip.Api.SDK.dll
+    Platform.Communication_Architecture_Artifacts.zip
 src
     Application
         Platform.Identity.Application
@@ -314,12 +326,35 @@ src
             Channels
                 Email
                     Clients
-                        GraphClient.cs
-                        IGraphClient.cs
-                        ISendGridClient.cs
-                        ISmtpClient.cs
-                        SendGridClient.cs
-                        SmtpClient.cs
+                        Graph
+                            Factory
+                                GraphSdkClientFactory.cs
+                                IGraphSdkClientFactory.cs
+                            SDK Wrapper
+                                GraphSdkClient.cs
+                                IGraphSdkClient.cs
+                            GraphClient.cs
+                            IGraphClient.cs
+                        SendGrid
+                            Factory
+                                ISendGridSdkClientFactory.cs
+                                SendGridSdkClientFactory.cs
+                            SDK Wrapper
+                                ISendGridSdkClient.cs
+                                SendGridSdkClient.cs
+                            ISendGridClient.cs
+                            SendGridClient.cs
+                        Smtp
+                            Factory
+                                IMailKitSmtpClientFactory.cs
+                                MailKitSmtpClientFactory.cs
+                            SDK Wrapper
+                                IMailKitSmtpSdkClient.cs
+                                MailKitSmtpSdkClient.cs
+                            IMailKitSmtpClient.cs
+                            ISmtpClientFactory.cs.bak
+                            MailKitSmtpClient.cs
+                            SmtpClientFactory.cs.bak
                     Configuration
                         EmailConfiguration.cs
                         MicrosoftGraphConfiguration.cs
@@ -336,10 +371,24 @@ src
                     Templates
                 Sms
                     Clients
-                        ITwilioSmsClient.cs
-                        IVonageSmsClient.cs
-                        TwilioSmsClient.cs
-                        VonageSmsClient.cs
+                        Twilio
+                            Factory
+                                ITwilioSdkClientFactory.cs
+                                TwilioSdkClientFactory.cs
+                            SDK Wrapper
+                                ITwilioSdkClient.cs
+                                TwilioSdkClient.cs
+                            ITwilioSmsClient.cs
+                            TwilioSmsClient.cs
+                        Vonage
+                            Factory
+                            SDK Wrapper
+                                IVonageSdkClient.cs
+                                IVonageSdkClientFactory.cs
+                                VonageSdkClient.cs
+                                VonageSdkClientFactory.cs
+                            IVonageSmsClient.cs
+                            VonageSmsClient.cs
                     Configuration
                         SmsConfiguration.cs
                         TwilioSmsConfiguration.cs
@@ -354,12 +403,26 @@ src
                     Templates
                 WhatsApp
                     Clients
-                        IMetaCloudClient.cs
-                        ITwilioWhatsAppClient.cs
-                        MetaCloudClient.cs
-                        TwilioWhatsAppClient.cs
+                        Metacloud
+                            Factory
+                                IMetaCloudWhatsAppSdkClientFactory.cs
+                                MetaCloudWhatsAppSdkClientFactory.cs
+                            SDK Wrapper
+                                IMetaCloudWhatsAppSdkClient.cs
+                                MetaCloudWhatsAppSdkClient.cs
+                            IMetaCloudWhatsAppClient.cs
+                            MetaCloudWhatsAppClient.cs
+                        Twilio
+                            Factory
+                                ITwilioWhatsAppSdkClientFactory.cs
+                                TwilioWhatsAppSdkClientFactory.cs
+                            SDK Wrapper
+                                ITwilioWhatsAppSdkClient.cs
+                                TwilioWhatsAppSdkClient.cs
+                            ITwilioWhatsAppClient.cs
+                            TwilioWhatsAppClient.cs
                     Configuration
-                        MetaCloudConfiguration.cs
+                        MetaCloudWhatsAppConfiguration.cs
                         TwilioWhatsAppConfiguration.cs
                         WhatsAppConfiguration.cs
                     Models
@@ -405,18 +468,8 @@ src
                 EmailAddress.cs
                 PhoneNumber.cs
                 WhatsAppNumber.cs
-            Infobip.Api.SDK.dll
+            AssemblyInfo.cs
             GlobalUsings.cs
-            009_CrossProjectDependencyScan.md
-            008_ModuleCompletionAssessment.md
-            007_SourceVerification.md
-            003_NamespaceInventory.md
-            005_DependencyMatrix.md
-            004_TypeInventory.md
-            Platform.Communication_Architecture_Artifacts.zip
-            002_FileInventory.md
-            001_FolderTree.md
-            006_ReconstructionQueue.md
             Platform.Communication.csproj
         Platform.Persistence
             Configurations
@@ -488,9 +541,6 @@ src
                 JwtTokenProvider.cs
             GlobalUsings.cs
             Platform.TokenProvider.csproj
-        Platform.Communication.zip
-        Platform.Persistence.zip
-        Platform.TokenProvider.zip
     Web
         Platform.WebApi
             Composition
@@ -536,6 +586,92 @@ src
             Program.cs
 tests
     Platform.Communication.UnitTests
+        Channels
+            Email
+                Clients
+                    GraphClientTests.cs
+                    MailKitSmtpClientTests.cs
+                    SendGridClientTests.cs
+                Configuration
+                    EmailConfigurationTests.cs
+                    MicrosoftGraphConfigurationTests.cs
+                    SendGridConfigurationTests.cs
+                    SmtpConfigurationTests.cs
+                Providers
+                    MicrosoftGraphEmailProviderTests.cs
+                    SendGridEmailProviderTests.cs
+                    SmtpEmailProviderTests.cs
+                Sender
+                    EmailSenderTests.cs
+            Sms
+                Clients
+                    TwilioSmsClientTests.cs
+                    VonageSmsClientTests.cs
+                Configuration
+                    SmsConfigurationTests.cs
+                    TwilioSmsConfigurationTests.cs
+                    VonageSmsConfigurationTests.cs
+                Providers
+                    TwilioSmsProviderTests.cs
+                    VonageSmsProviderTests.cs
+                Sender
+                    SmsSenderTests.cs
+            WhatsApp
+                Clients
+                    MetaCloudClientTests.cs
+                    TwilioWhatsAppClientTests.cs
+                Configuration
+                    MetaCloudConfigurationTests.cs
+                    TwilioWhatsAppConfigurationTests.cs
+                    WhatsAppConfigurationTests.cs
+                Models
+                    MetaCloudMessageTests.cs
+                    MetaCloudSendMessageResponseTests.cs
+                    MetaCloudTextMessageRequestTests.cs
+                    MetaCloudTextMessageTests.cs
+                Providers
+                    MetaCloudWhatsAppProviderTests.cs
+                    TwilioWhatsAppProviderTests.cs
+                Sender
+                    WhatsAppSenderTests.cs
+        DependencyInjection
+            AddCommunicationClientsExtensionsTests.cs
+            AddCommunicationOptionsExtensionsTests.cs
+            AddCommunicationProvidersExtensionsTests.cs
+            AddCommunicationSendersExtensionsTests.cs
+            ServiceCollectionExtensionsTests.cs
+        Enums
+            EmailProviderTypeTests.cs
+            SmsProviderTypeTests.cs
+            WhatsAppProviderTypeTests.cs
+        Exceptions
+            CommunicationExceptionTests.cs
+        Models
+            DeliveryResultTests.cs
+            EmailAttachmentTests.cs
+            EmailMessageTests.cs
+            SmsMessageTests.cs
+            VendorDeliveryResultTests.cs
+            WhatsAppMessageTests.cs
+        Options
+            CommunicationOptionsTests.cs
+            EmailOptionsTests.cs
+            SmsOptionsTests.cs
+            WhatsAppOptionsTests.cs
+        TestData
+            CommunicationOptionsTestData.cs
+            EmailMessageTestData.cs
+            SmsMessageTestData.cs
+            WhatsAppMessageTestData.cs
+        TestHelpers
+            Http
+                FakeHttpMessageHandler.cs
+        Validation
+            E164PhoneNumberValidatorTests.cs
+        ValueObjects
+            EmailAddressTests.cs
+            PhoneNumberTests.cs
+            WhatsAppNumberTests.cs
         GlobalUsings.cs
         Platform.Communication.UnitTests.csproj
     Platform.Identity.Application.UnitTests
@@ -723,6 +859,25 @@ tests
         GlobalUsings.cs
         Platform.Identity.Domain.UnitTests.csproj
     Platform.Persistence.UnitTests
+        Configurations
+            RoleConfigurationTests.cs
+            UserAccountConfigurationTests.cs
+        Context
+            GovernanceDbContextTests.cs
+        Projections
+            RoleProjectionTests.cs
+            UserProjectionTests.cs
+        Repositories
+            Commands
+                RoleRepositoryTests.cs
+                UserAccountRepositoryTests.cs
+            Queries
+                RoleQueryRepositoryTests.cs
+                UserQueryRepositoryTests.cs
+        Time
+            SystemClockTests.cs
+        UnitOfWorks
+            UnitOfWorkTests.cs
         GlobalUsings.cs
         Platform.Persistence.UnitTests.csproj
     Platform.Pipeline.UnitTests
@@ -815,6 +970,9 @@ tests
         GlobalUsings.cs
         Platform.SharedKernel.UnitTests.csproj
     Platform.TokenProvider.UnitTests
+        Configurations
+            JwtOptionsTests.cs
         GlobalUsings.cs
         Platform.TokenProvider.UnitTests.csproj
+EGPv2_Source_Updated_11Agustus2026_19_23_wib.zip
 Enterprise.Governance.Platform.slnx
