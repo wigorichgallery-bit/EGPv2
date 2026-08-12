@@ -7,7 +7,7 @@
 // TotpOptions.cs
 // ===========================================
 
-namespace Platform.Security.Infrastructure.Authentication.Configuration;
+namespace Platform.Identity.Application.Configuration.Authentication;
 
 /// <summary>
 /// Represents configuration options for Time-based

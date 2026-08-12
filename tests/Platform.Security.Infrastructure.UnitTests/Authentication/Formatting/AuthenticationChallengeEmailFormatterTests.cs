@@ -1,11 +1,10 @@
-using FluentAssertions;
-using Platform.Identity.Application.Configuration;
+
+using Platform.Identity.Application.Configuration.Authentication;
 using Platform.Identity.Application.Features.Authentication.Models;
 using Platform.Identity.Domain.Aggregates;
 using Platform.Identity.Domain.Enums;
 using Platform.Identity.Domain.ValueObjects;
 using Platform.Security.Infrastructure.Authentication.Formatting;
-using Xunit;
 
 namespace Platform.Security.Infrastructure.UnitTests.Authentication.Formatting;
 

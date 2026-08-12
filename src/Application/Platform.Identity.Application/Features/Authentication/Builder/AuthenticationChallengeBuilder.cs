@@ -9,7 +9,7 @@
 
 using Platform.Identity.Application.Abstractions.Authentication;
 using Platform.Identity.Application.Abstractions.Common;
-using Platform.Identity.Application.Configuration;
+using Platform.Identity.Application.Configuration.Authentication;
 using Platform.Identity.Application.Features.Authentication.Mapping;
 using Platform.Identity.Application.Features.Authentication.Models;
 using Platform.Identity.Domain.Aggregates;

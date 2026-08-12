@@ -1,6 +1,5 @@
-using FluentAssertions;
+
 using Platform.Identity.Application.Configuration.Authentication;
-using Xunit;
 
 namespace Platform.Identity.Application.UnitTests.Configuration.Authentication;
 

@@ -82,6 +82,9 @@ public sealed class GovernanceDbContext
     public DbSet<Role> Roles
         => Set<Role>();
 
+
+    public DbSet<AuthenticationChallenge> AuthenticationChallenges => Set<AuthenticationChallenge>();
+
     /// <summary>
     /// Configures the EF Core model.
     ///

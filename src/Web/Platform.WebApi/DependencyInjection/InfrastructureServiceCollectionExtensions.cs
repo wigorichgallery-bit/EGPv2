@@ -3,6 +3,7 @@
 // src/Web/Platform.WebApi/DependencyInjection/
 // InfrastructureServiceCollectionExtensions.cs
 // ===========================================
+
 using Platform.Identity.Application.Abstractions.Persistence.Commands;
 using Platform.Identity.Application.Abstractions.Persistence.Queries;
 using Platform.Identity.Application.Abstractions.Security;
@@ -34,7 +35,6 @@ namespace Platform.WebApi.DependencyInjection;
 /// - Composition Root only.
 /// - No business logic.
 /// - No domain logic.
-/// - No application orchestration.
 /// - No persistence implementation.
 ///
 /// Side Effects:
@@ -204,6 +204,10 @@ public static class InfrastructureServiceCollectionExtensions
         services.AddScoped<
             IRoleRepository,
             RoleRepository>();
+
+        services.AddScoped<
+            IAuthenticationChallengeRepository,
+            AuthenticationChallengeRepository>();
 
         // ===========================================
         // Query Repositories

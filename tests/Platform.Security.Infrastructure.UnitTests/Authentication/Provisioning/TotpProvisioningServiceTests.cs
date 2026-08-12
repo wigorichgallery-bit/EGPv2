@@ -1,12 +1,12 @@
-using FluentAssertions;
+
 using Microsoft.Extensions.Options;
+using Platform.Identity.Application.Configuration.Authentication;
 using Platform.Identity.Application.Features.Authentication.Models;
 using Platform.Identity.Domain.Aggregates;
 using Platform.Identity.Domain.Enums;
 using Platform.Identity.Domain.ValueObjects;
-using Platform.Security.Infrastructure.Authentication.Configuration;
 using Platform.Security.Infrastructure.Authentication.Provisioning;
-using Xunit;
+
 
 namespace Platform.Security.Infrastructure.UnitTests.Authentication.Provisioning;
 

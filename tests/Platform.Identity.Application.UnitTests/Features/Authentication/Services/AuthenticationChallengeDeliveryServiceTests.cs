@@ -1,11 +1,9 @@
-using FluentAssertions;
-using Moq;
+
 using Platform.Identity.Application.Abstractions.Authentication;
 using Platform.Identity.Application.Features.Authentication.Models;
 using Platform.Identity.Application.Features.Authentication.Services;
 using Platform.Identity.Application.UnitTests.Fixtures;
 using Platform.Identity.Domain.Enums;
-using Xunit;
 
 namespace Platform.Identity.Application.UnitTests.Features.Authentication.Services;
 

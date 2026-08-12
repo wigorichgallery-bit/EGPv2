@@ -5,7 +5,7 @@
 // AuthenticationMessageOptions.cs
 // ===========================================
 
-namespace Platform.Identity.Application.Configuration;
+namespace Platform.Identity.Application.Configuration.Authentication;
 
 /// <summary>
 /// Represents configurable messaging settings used when

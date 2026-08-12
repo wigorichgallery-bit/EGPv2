@@ -1,10 +1,9 @@
-using FluentAssertions;
+
 using Microsoft.Extensions.Options;
-using Moq;
-using Platform.Security.Infrastructure.Authentication.Configuration;
 using Platform.Security.Infrastructure.Totp;
 using Platform.Identity.Application.Abstractions.Security;
-using Xunit;
+
+using Platform.Identity.Application.Configuration.Authentication;
 
 namespace Platform.Security.Infrastructure.UnitTests.Authentication.Totp;
 

@@ -9,8 +9,8 @@
 
 using Microsoft.Extensions.Options;
 using Platform.Identity.Application.Abstractions.Authentication;
+using Platform.Identity.Application.Configuration.Authentication;
 using Platform.Identity.Application.Features.Authentication.Models;
-using Platform.Security.Infrastructure.Authentication.Configuration;
 
 namespace Platform.Security.Infrastructure.Authentication.Provisioning;
 

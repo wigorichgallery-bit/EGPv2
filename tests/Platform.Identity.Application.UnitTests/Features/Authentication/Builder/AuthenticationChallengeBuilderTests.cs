@@ -1,7 +1,5 @@
-using FluentAssertions;
-using Moq;
+
 using Platform.Identity.Application.Abstractions.Authentication;
-using Platform.Identity.Application.Configuration;
 using Platform.Identity.Application.Features.Authentication.Builders;
 using Platform.Identity.Application.Features.Authentication.Mapping;
 using Platform.Identity.Application.Features.Authentication.Models;
@@ -10,6 +8,7 @@ using Platform.Identity.Domain.Enums;
 using Platform.SharedKernel.Abstractions;
 using Xunit;
 using Platform.Identity.Application.Abstractions.Common;
+using Platform.Identity.Application.Configuration.Authentication;
 namespace Platform.Identity.Application.UnitTests.Features.Authentication.Builders;
 
 /// <summary>

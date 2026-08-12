@@ -5,7 +5,7 @@
 // AuthenticationChallengeOptions.cs
 // ===========================================
 
-namespace Platform.Identity.Application.Configuration;
+namespace Platform.Identity.Application.Configuration.Authentication;
 
 /// <summary>
 /// Represents configuration options used when creating and

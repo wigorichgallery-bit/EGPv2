@@ -1,5 +1,5 @@
 using Microsoft.Extensions.Options;
-using Platform.Security.Infrastructure.Authentication.Configuration;
+using Platform.Identity.Application.Configuration.Authentication;
 
 namespace Platform.Security.Infrastructure.UnitTests.Fixtures;
 

@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using Platform.Identity.Application.Abstractions.Security;
 using Platform.Identity.Application.Configuration.Authentication;
-using Platform.Security.Infrastructure.Authentication.Configuration;
 
 namespace Platform.Security.Infrastructure.Totp;
 

@@ -1,6 +1,4 @@
-using FluentAssertions;
 using Platform.Security.Infrastructure.Verification;
-using Xunit;
 
 namespace Platform.Security.Infrastructure.UnitTests.Authentication.Verification;
 
